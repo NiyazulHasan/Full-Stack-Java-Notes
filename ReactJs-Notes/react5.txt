@@ -1,0 +1,397 @@
+Q)Difference between props and state ?
+
+props						state
+----------					---------
+Props are read-only.				States are updatable.
+
+
+Props are immutable.				State is mutable.
+
+
+Props allow us to pass data from one 		State holds information 
+component to other components as an argument.   about the components.
+						
+
+Props can be accessed by the child component.	State cannot be accessed by 								child components because it is 
+						private.
+
+Stateless component can have Props.		Statefull components can have state.
+
+
+
+
+
+
+Phases of components in ReactJS
+================================
+There are four Phases of components in ReactJS.
+1)Mounting
+2)Updating
+3)Error Handling
+4)Unmounting
+
+
+1)Mounting
+-----------
+Mounting is a process of creating an element and inserting it in a DOM tree.
+
+
+2)Updating
+-------------
+Updating is a process of changing state or props of a component and update changes to nodes already existing in the DOM.
+
+3)Error Handling
+----------------
+Error Handling used when there is a error during rendering ,in lifecycle
+method or in the constructor of any child component.
+
+
+4)Unmounting 
+---------------
+Unmounting is a process of removing elements from the DOM.
+In general it will clear the reserved memory.
+
+
+Q)Explain life cycle methods of mounting ?
+
+ Mounting phase contains four methods.
+ 1) constructor
+ 2) getDerivedStateFromProps()
+ 3) render()
+ 4) componentDidMount() 
+
+
+Q)Explain life cycle methods of unmounting?
+
+ Unmounting phase contains one method.
+
+ 1) componentWillUnmount()
+
+
+
+Q)Explain life cycle methods of updating?
+
+  updating phase contains five methods.
+  1) getDerivedStateFromProps
+  2) shouldComponentUpdate()
+  3) render()
+  4) getSnapshotBeforeUpdate()
+  4) ComponentDidUpdate() 	
+
+Diagram: react5.1
+
+
+
+
+
+Hooks
+==========
+Hooks allow us to "hook" into React features such as state and lifecycle methods.
+
+Hooks allow function components to have access to state , lifecycle methods and other React features.
+
+Hooks allow us to use React without classes.It means you can use state and other React features without writing a class.
+
+React provides a few built-In hooks like useState,useEffect and etc.
+
+Hooks are new addition in React 16.8.
+
+When use Hooks
+---------------
+If you write a function component and relize you need to add some state to it.
+
+
+Rules of Hooks
+==================
+
+There are 3 rules for hooks:
+
+1)Hooks can only be called inside React function components.
+
+2)Hooks can only be called at the top level of a component.
+
+3)Hooks cannot be conditional
+
+Note: Hooks will not work in React class components.
+
+
+
+Declaring State
+================
+A useState() is a Hook that allows us to add React state to function components.
+
+We call it inside a function component to add some local state to it.
+
+A useState() returns a pair - the current state value and a function that let us update it.
+
+React will preserve this state between re-renders.
+
+We can call this function from an event handler or somewhere else.
+
+ex:
+import React ,{useState} form "react";
+useState("Alan");
+or
+const nameStateVariable=useState("Alan");
+or
+const [name,setName]=useState("Alan"); // it is destructure the array.
+
+When we declare a state variable with useState, it returns a pair-an array with two items.So by writing square bracket we are doing array Destructuring.
+
+
+App.js
+------
+import { useState } from "react";
+function App()
+{
+    const [name,setName]=useState("Alan");
+
+    const handleClick=()=>
+    {
+           setName("Kelvin"); 
+    }
+    return (
+        <div>
+            <h1>Name : {name}</h1>
+            <button onClick={handleClick}>clickMe</button>
+        </div>
+    )
+}
+export default App;
+
+
+index.js
+-----------
+import Student from './Student';
+import ReactDOM from 'react-dom/client';
+import React from 'react';
+import App from './App';
+
+const root=ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+      <React.StrictMode>
+             <App />
+      </React.StrictMode>
+)
+
+
+
+
+
+Effect Hooks
+============
+The Effect Hook let us to perform side effects in function components.
+
+Data fetching , setting up a subscription, and manually changing the 
+DOM in React components are all examples of side effects.
+
+useEffect()
+===========
+A useEffect is a hook for encapsulating code that has "side effects".
+Uf we are familiar with React class life cycle methods.We can thing of 
+useEffect Hooks as componentDidMount,compnoentDidUpdate and 
+componentWillUnmount combined.
+
+useEffect =componentDidMount+ componentDidUpdate +componentWillUnmount
+ex:
+import React,{useEffect} from "react";
+useEffect(Function)
+or
+useEffect(Function ,Array)
+
+The function passes to useEffect will run after the render is committed
+to the screen.
+
+Second argument to useEffect that is the array of values that the 
+effect depends on.(It is for condition purpose).
+
+Note:
+------
+We can call useEffect as many times we required.
+
+ex:
+useEffect(()=>
+{
+	console.log("Hello useeffect");
+});
+
+ex:
+useEffect(()=>
+{	
+	console.log("Hello useEffect");
+},[count]);
+
+
+What does useEffect do?
+--------------------------
+By using this Hook,we can tell react that your component needs to do 
+something after render.
+
+React remember the function we passed and call it later after performing 
+the DOM updates.
+
+In this effect, we set the document title,we could also perform data 
+fetching or call some other imperative API.
+
+Note:
+--------
+useEffect runs after the first render and after every update.
+
+ex:
+
+App.js
+------
+import { useState, useEffect } from "react";
+function App()
+{
+    const [count,setCount]=useState(0);
+
+    const handleClick=()=>
+    {
+           setCount(count+1); 
+    }
+
+    useEffect(() => {  
+        // Update the document title using the browser API  
+        document.title = count;
+      });  
+    return (
+        <div>
+            <h1>You clicked  {count} Times</h1>
+            <button onClick={handleClick}>clickMe</button>
+        </div>
+    )
+}
+export default App;
+
+index.js
+----------
+
+import Student from './Student';
+import ReactDOM from 'react-dom/client';
+import React from 'react';
+import App from './App';
+
+const root=ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+      <React.StrictMode>
+             <App />
+      </React.StrictMode>
+)
+
+
+React useContext Hook (Context API)
+======================================
+Context provides a way to pass the data through the component tree without 
+passing  props down manually at several level.
+
+To do this without Context, we will need to pass the state(useState) as "props" through each nested component. This is called "props drilling".
+
+Diagram:  react5.2
+
+Project  structure
+--------------------
+myapp10
+|
+|------node-modules
+|
+|------public
+|	|
+|	|------favicon.ico
+|	|------index.html 
+|	|------manifest.json
+|
+|------src
+	|
+	|------index.js
+	|------App.js 
+	|------Acomponent.js 
+	|------Bcomponent.js
+	|------Ccomponent.js
+|
+|------package.json
+|------README.md
+
+
+App.js
+------------
+import React from 'react';
+import Acomponent from "./Acomponent";
+export const UseContext=React.createContext();
+function App()
+{
+    
+    return (
+        <div>
+            <UseContext.Provider value={'IHUB'}>
+            <Acomponent/>
+            </UseContext.Provider>
+           
+        </div>
+    )
+}
+export default App;
+
+Acomponent.js
+---------------
+import Bcomponent from "./Bcomponent";
+
+function Acomponent()
+{
+    return (
+        <Bcomponent/>
+    )
+}
+export default  Acomponent;
+
+
+Bcomponent.js
+----------------
+import Ccomponent from "./Ccomponent";
+
+function Bcomponent()
+{
+    return (
+       <Ccomponent/>
+    )
+}
+export default  Bcomponent;
+
+
+Ccomponent.js
+--------------
+import {useContext} from "./App";
+
+function Ccomponent()
+{
+    return (
+    <div>
+     <UseContext.Consumer>
+         {
+             user => {
+                 return <div>The value is : {user} </div>
+             }
+         }
+     </UseContext.Consumer>
+    </div>
+    )
+}
+export default  Ccomponent;
+
+
+
+index.js
+-----------
+import Student from './Student';
+import ReactDOM from 'react-dom/client';
+import React from 'react';
+import App from './App';
+
+const root=ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+      <React.StrictMode>
+             <App />
+      </React.StrictMode>
+)
+
+

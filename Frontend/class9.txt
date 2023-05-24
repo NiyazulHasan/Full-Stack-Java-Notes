@@ -1,0 +1,1022 @@
+Sublime Text Editor
+===================
+Download link : https://www.sublimetext.com/download
+
+
+CSS overflow property
+========================
+The overflow property specifies what should happen if content overflow.
+
+This property spcifies weither to clip content or to add scrollbars  when an element content is too big to fit in a specified area.
+
+Note:
+---------
+The overflow property works for block elements with  a specified height.
+
+value		Description
+---------	-----------------
+visible		The overflow is not clipped.It rendered outside the element 's box and 
+		it is default value.
+
+hidden		the overflow is clipped  and rest of the content will be invisible.
+
+scroll		The overflow is clipped,but a scroll-bar is added to see the rest of the 
+		content .
+
+auto		The overflow is clipped,a scroll-bar should be added to the rest of the 
+		content.
+
+overflow-visible
+---------------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		div
+		{
+			width: 300px;
+			height: 300px;
+			border:2px solid black;
+			overflow: visible;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		This is html class to learn how to develop web pages and web applications for business requirements.HTML is widely used language on web to create static web pages with performance.It is a tag based language but does not allows us to create custom tags.This is html class to learn how to develop web pages and web applications for business requirements.HTML is widely used language on web to create static web pages with performance.It is a tag based language but does not allows us to create custom tags.This is html class to learn how to develop web pages and web applications for business requirements.HTML is widely used language on web to create static web pages with performance.It is a tag based language but does not allows us to create custom tags.
+	</div>
+</body>
+</html>
+
+overflow:hidden
+----------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		div
+		{
+			width: 300px;
+			height: 300px;
+			border:2px solid black;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		This is html class to learn how to develop web pages and web applications for business requirements.HTML is widely used language on web to create static web pages with performance.It is a tag based language but does not allows us to create custom tags.This is html class to learn how to develop web pages and web applications for business requirements.HTML is widely used language on web to create static web pages with performance.It is a tag based language but does not allows us to create custom tags.This is html class to learn how to develop web pages and web applications for business requirements.HTML is widely used language on web to create static web pages with performance.It is a tag based language but does not allows us to create custom tags.
+	</div>
+</body>
+</html>
+
+overflow:scroll
+------------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		div
+		{
+			width: 300px;
+			height: 300px;
+			border:2px solid black;
+			overflow: scroll;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		This is html class to learn how to develop web pages and web applications for business requirements.HTML is widely used language on web to create static web pages with performance.It is a tag based language but does not allows us to create custom tags.This is html class to learn how to develop web pages and web applications for business requirements.HTML is widely used language on web to create static web pages with performance.It is a tag based language but does not allows us to create custom tags.This is html class to learn how to develop web pages and web applications for business requirements.HTML is widely used language on web to create static web pages with performance.It is a tag based language but does not allows us to create custom tags.
+	</div>
+</body>
+</html>
+
+overflow:auto
+----------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		div
+		{
+			width: 300px;
+			height: 300px;
+			border:2px solid black;
+			overflow: auto;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		This is html class to learn how to develop web pages and web applications for business requirements.HTML is widely used language on web to create static web pages with performance.It is a tag based language but does not allows us to create custom tags.This is html class to learn how to develop web pages and web applications for business requirements.HTML is widely used language on web to create static web pages with performance.It is a tag based language but does not allows us to create custom tags.
+	</div>
+</body>
+</html>
+
+overflow-x
+-------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		div
+		{
+			width: 300px;
+			height: 300px;
+			border:2px solid black;
+			overflow-x: auto;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<img src="images/rock.jpg" width="900px" height="200px"/>
+	</div>
+</body>
+</html>
+
+
+overflow-y
+-----------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		div
+		{
+			width: 300px;
+			height: 300px;
+			border:2px solid black;
+			overflow-y: auto;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<img src="images/rock.jpg" width="200px" height="900px"/>
+	</div>
+</body>
+</html>
+
+CSS border-radius property
+=======================
+The border-radius property defines  the radius of the element's corners.
+
+This property allows us to add rounded borders to elements.
+
+This property can have from one to four values.
+ex:
+	border-top-left-radius
+	border-top-right-radius
+	border-bottom-right-radius
+	border-bottom-left-radius
+
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		div
+		{
+			width: 300px;
+			height: 300px;
+			border:2px solid black;
+			overflow: hidden;
+			margin: 100px auto;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 10px;
+			border-bottom-right-radius: 15px;
+			border-bottom-left-radius: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		
+	</div>
+</body>
+</html>
+
+ex:2
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		div
+		{
+			width: 300px;
+			height: 300px;
+			border:2px solid black;
+			overflow: hidden;
+			margin: 100px auto;
+			border-radius: 5px 10px 15px 20px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		
+	</div>
+</body>
+</html>
+
+ex:3
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		div
+		{
+			width: 300px;
+			height: 300px;
+			border:2px solid black;
+			overflow: hidden;
+			margin: 100px auto;
+			/* 20px top-right and bottom-left */
+			border-radius: 10px 20px 10px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		
+	</div>
+</body>
+</html>
+
+ex:4
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		div
+		{
+			width: 300px;
+			height: 300px;
+			border:2px solid black;
+			overflow: hidden;
+			margin: 100px auto;
+			/* 20px top-left and bottom-right */
+			/* 40px top-right and bottom-left */
+			border-radius: 20px 40px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		
+	</div>
+</body>
+</html>
+
+ex:5
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		div
+		{
+			width: 300px;
+			height: 300px;
+			border:2px solid black;
+			overflow: hidden;
+			margin: 100px auto;
+
+			border-radius: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		
+	</div>
+</body>
+</html>
+
+CSS box-shadow property
+=======================
+The box-shadow property attaches one or more shadows to an element.
+
+syntax
+--------
+	box-shadow: none |h-offset  v-offset  blur spread  color
+ex:
+	box-shadow: 2px 2px 3px 10px blue;
+
+
+
+box-shadow : none
+-----------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		div
+		{
+			width: 300px;
+			height: 300px;
+			border:2px solid black;
+			overflow: hidden;
+			margin: 100px auto;
+			border-radius: 20px;
+			box-shadow: none;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		
+	</div>
+</body>
+</html>
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		div
+		{
+			width: 300px;
+			height: 300px;
+			overflow: hidden;
+			margin: 100px auto;
+			border-radius: 20px;
+			box-shadow: 2px  2px  17px  6px  #FF0000;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		
+	</div>
+</body>
+</html>
+
+ex:3
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		div
+		{
+			width: 300px;
+			height: 300px;
+			overflow: hidden;
+			margin: 100px auto;
+			border-radius: 20px;
+			box-shadow: 2px  2px  17px  6px  #FF0000 inset;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		
+	</div>
+</body>
+</html>
+
+ex:4
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		div
+		{
+			width: 300px;
+			height: 300px;
+			overflow: hidden;
+			margin: 100px auto;
+			border-radius: 20px;
+			box-shadow: 2px  2px  12px  3px  #FF0000,4px  4px  24px  6px  #FFFF00;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		
+	</div>
+</body>
+</html>
+
+CSS float property
+==================
+It is widely used property on a web page.
+
+The float property specifies how an element should float.
+
+value		Description
+-----------		-----------------
+none		The element does not float.
+
+left		the element floats to the left of its container.
+
+right		The element floats to the right of its container.
+
+
+
+
+float:none
+----------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		div
+		{
+			width: 200px;
+			height: 200px;
+			overflow: hidden;
+			border:2px solid black;
+			float:none;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+</body>
+</html>
+
+float:left
+--------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		div
+		{
+			width: 200px;
+			height: 200px;
+			overflow: hidden;
+			border:2px solid black;
+			float:left;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+</body>
+</html>
+
+
+float:right 
+-----------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		div
+		{
+			width: 200px;
+			height: 200px;
+			overflow: hidden;
+			border:2px solid black;
+			float:right;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+</body>
+</html>
+
+CSS Design1 
+===========
+Task1 (folder)
+|
+|------------images (folder)
+|		|
+		|----emberd.jpg		
+| 
+|-------------css (folder)
+		|
+		|-----mystyles.css
+|
+|---index.html
+
+
+index.html
+-----------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- add external css -->
+	<link rel="stylesheet" type="text/css" href="css/mystyles.css">
+</head>
+<body>
+		<div>
+			<p>Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+			</p>
+		</div>
+		<div>
+			<p>Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+			</p>
+		</div>
+		<div>
+			<p>Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+			</p>
+		</div>
+</body>
+</html>
+
+mystyles.css
+------------
+div
+{
+	width: 250px;
+	height: 250px;
+	float:left;
+	margin: 140px 60px;
+	padding: 15px;
+	box-shadow: 3px 3px 12px 5px #C3C3C3;
+}
+div  p
+{
+	text-align: justify;
+}
+
+
+example2:
+----------
+
+index.html
+-----------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- add external css -->
+	<link rel="stylesheet" type="text/css" href="css/mystyles.css">
+</head>
+<body>
+		<div>
+			<img src="images/emberd.jpg" width="100%" height="100%"/>
+		</div>
+		<div>
+			<p>Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML.web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML.
+			</p>
+		</div>
+</body>
+</html>
+
+mystyles.css
+------------
+div
+{
+	width: 250px;
+	height: 250px;
+	float:left;
+	margin-top:100px;
+	margin-left:10px;
+	padding: 15px;
+	box-shadow: 3px 3px 12px 5px #C3C3C3;
+}
+div  p
+{
+	text-align: justify;
+}
+
+How many selectors are there in CSS
+====================================
+We have five selectors in CSS.
+
+1) element selector
+
+2) id selector
+
+3) class selector 
+
+4) group selector 
+
+5) universal selector 
+
+
+1)element selector:
+-------------------
+The element selector selects HTML elements based on element name.
+Ex:
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		p
+		{
+			text-align: center;
+			color:red;
+		}
+	</style>
+</head>
+<body>
+		<p>This is paragraph tag</p>
+</body>
+</html>
+
+
+2)id selector:
+-----------
+The id selector uses the id attribute of an HTML element to select a specific element.
+
+The id of an element is unique within a page, so the id selector is used to select one unique element.
+
+To select an element with a specific id, write a hash (#) character, followed by the id of the element.
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		#myId
+		{
+			text-align: center;
+			color:red;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+		<p id="myId">This is paragraph tag</p>
+		<p>This is paragraph tag</p>
+		<p>This is paragraph tag</p>
+</body>
+</html>
+
+
+
+3)class selector:
+-----------------
+The class selector selects HTML elements with a specific class attribute.
+
+To select elements with a specific class, write a period (.) character,
+followed by the class name.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.myClass
+		{
+			text-align: center;
+			color:red;
+			font-size: 30px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+		<p class="myClass">This is paragraph tag</p>
+		<p>This is paragraph tag</p>
+		<p>This is paragraph tag</p>
+</body>
+</html>
+
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.myClass
+		{
+			text-align: center;
+			color:red;
+			font-size: 30px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+		<p class="myClass">This is paragraph tag</p>
+		<p class="myClass">This is paragraph tag</p>
+		<p>This is paragraph tag</p>
+</body>
+</html>
+
+ex:3
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.myClass1
+		{
+			text-align: center;
+			color:red;
+			font-size: 30px;
+			
+		}
+		.myClass2
+		{
+			background-color: yellow;
+		}
+
+	</style>
+</head>
+<body>
+		<p class="myClass1">This is paragraph tag</p>
+		<p class="myClass2">This is paragraph tag</p>
+		<p class="myClass1  myClass2">This is paragraph tag</p>
+</body>
+</html>
+
+
+4)grouping selector:
+------------------
+The grouping selector selects all the HTML elements with the same style
+definitions.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		p,h1,div
+		{
+			color:blue;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+	</style>
+</head>
+<body>
+		<p>This is paragraph tag</p>
+		<h1>This is heading tag</h1>
+		<div>This is division tag</div>
+</body>
+</html>
+
+
+5) universal selector:
+-------------------------
+The universal selector (*) selects all HTML elements on the page.
+ex:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		*
+		{
+			color:blue;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+	</style>
+</head>
+<body>
+		<p>This is paragraph tag</p>
+		<h1>This is heading tag</h1>
+		<div>This is division tag</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

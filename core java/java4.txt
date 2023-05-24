@@ -1,0 +1,215 @@
+Java
+=========
+JDK		:	JDK 1.8
+
+version		:	JAVA 8 
+
+Creator		:	James Gosling
+
+vendor		:	Oracle Corporation(Sun micro system)
+
+Open Source	:	Open Source
+
+website		:	https://www.oracle.com/in/java/
+
+Download link	:	
+https://drive.google.com/file/d/16fr2McV_Bex0NYlOdcVfC4k2gwUUNqzq/view?usp=share_link
+
+Steps to setup environmental variables
+========================================
+step1:
+------
+	Make sure JDK 1.8 install successully.
+
+step2:
+-------
+	Copy java "lib" directory from java home folder.
+	ex:
+		C:\Program Files\Java\jdk1.8.0_181\lib
+
+step3:
+------
+	Paste "lib" directory in environmental variables.
+	ex:
+	Right click to my computer/pc --> properties --> Advanced system settings
+	--> environment variables -->  
+
+	user variables :
+	
+	click to new button --> 
+	variable Name :  CLASSPATH
+	variable value : C:\Program Files\Java\jdk1.8.0_181\lib; -->ok.
+
+	system variables:
+
+	click to new button -->
+	variable Name:  path 
+	variable value: C:\Program Files\Java\jdk1.8.0_181\bin; -->ok-->ok-->ok
+		
+step4:
+-------
+	Open the command prompt and type below commands.
+	ex:
+		cmd> javap
+		cmd> java  -version 
+
+Steps to develop first java application
+========================================
+step1:
+------
+	Make sure JDK 1.8 software installed successfully.
+
+step2:
+-------
+	Make sure environmental variables setup has done perfectly.
+
+
+step3:
+-------
+	Create a  "javaprog" folder in 'E' drive.
+
+step4:
+-----
+	Open the notepad and develop simple Hello World program.
+	
+	ex:
+		class   Test
+		{
+			public static void main(String[] args)
+			{
+				System.out.println("Hello World");	
+			}
+		}
+step5:
+------
+	Save above program with same name as class name inside "javaprog" folder.
+
+step6:
+-----
+	Open the command prompt from "javaprog" folder.
+
+step7:
+------
+	Compile above program by using below command.
+	ex:
+		javac     Test.java
+				|
+				file name 
+step8:
+-----
+	Run above program by using below command.
+	ex:
+		java   Test 
+			|
+			class name 
+
+Interview Questions
+====================
+
+Diagram: java4.1
+
+
+Q)What is token?
+
+Token is a small unit of a program which consist of identifiers,keywords,constants,datatypes, variables , operators and etc.
+
+
+
+Q)What is operating systemm?
+
+It is a mediator or interface between software components and hardware components.
+
+or
+
+Operating system is a set of softwares.
+
+
+
+Q)Difference between JDK , JRE and JVM?
+
+JDK
+----
+JDK stands for Java Development Kit.
+It is a installable software which contains compiler (javac) , interpreter (java), Java virtual machine (JVM), archiever (.jar) , document generator (javadoc) and other tools needed for java application development.
+
+JRE
+---
+JRE stands for Java Runtime Environment.
+It provides very good environment to run java applications only.
+
+JVM
+----
+JVM stands for Java Virtual Machine.
+It is an interpreter which is used to execute our program line by line procedure.
+
+Diagram: java4.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

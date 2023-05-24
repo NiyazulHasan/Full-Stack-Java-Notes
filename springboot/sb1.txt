@@ -1,0 +1,225 @@
+Spring Framework
+=================
+Framework	: Application Framework
+
+Version		: 5.3.9 (5.X)
+
+Vendor		: Interface2
+
+Creator		: Rod Johnson
+
+Containers	: BeanFactory container
+		  ApplicationContext container
+
+website		: www.tutorialspoint.com
+		  www.roseindia.net
+		  www.javatpoint.com 
+		  www.Dzone.com 
+
+Books		: spring in Action
+
+Download link	: 
+https://repo.spring.io/ui/native/release/org/springframework/spring/
+
+
+Q)What is spring Framework?
+
+A spring is a non-invansive,light weight, loosely coupled, dependency injection, 
+Aspect oriented , open source java based application framework which is used to develop all types of applications.
+
+
+
+
+Q)How many modules are there in spring framework?
+
+There are six modules present in spring framework.
+
+Diagram: sb1
+
+CORE
+-----
+It is a base module for entire spring framework.
+It is used to perform following activities.
+ex:
+	1) It obtain containers
+	2) It performs dependency injections
+	3) It creates spring beans
+
+AOP
+----
+AOP stands for Aspect Oriented Programming.
+It is used to inject and eliminate middleware services to/from the application.
+
+DAO
+----
+DAO stands for Data Access Object.
+
+It is a abstract layer on JDBC.
+
+While working JDBC we need to handle the exceptions.That problem is eliminated in DAO module.Here checked exceptions converts to unchecked exceptions.So we don't need to handle any exceptions.
+
+ORM
+------
+ORM stands Object Relational Mapping.
+
+ORM is a abstract layer on ORM tools like hibernate,ibatis,jpa and etc.
+
+While transfer the data in the form objects there are some drawbacks, those problems solved by ORM module.
+
+JEE
+-----
+This is module is used to develop middleware services.
+
+MVC
+----
+MVC stands for Model View Controller.
+It is used to create completely MVC based web application.
+
+
+
+Q)Explain spring MVC architecture?
+
+Diagram: sb1.1
+
+
+1)After receiving an HTTP request, DispatcherServlet consults the HandlerMapping to call the appropriate Controller.
+
+2)The Controller takes the request and calls the appropriate service methods based on used GET or POST method. The service method will set model data based on defined business logic and returns view name to the DispatcherServlet.
+
+3)The DispatcherServlet will take help from ViewResolver to pickup the defined view for the request.
+
+4) Once view is finalized, The DispatcherServlet passes the model data to the view which is finally rendered on the browser.
+
+
+Limitations with Spring Framework
+====================================
+In spring  framework, A developer is responsible to 
+
+i)Add dependencies/Jar files
+
+ii)Perform configurations.   
+
+iii)Arrange a virtual server (Tomcat, GlassFish and  etc) to  deploy web applications.
+
+iv)Arrange a Physical database (Oracle,Mysql,mongodb and etc) to perform database operations.
+
+We can overcome above limitations by using spring Boot.
+
+Diagram:
+		     Developer
+			|
+			|
+		       Spring Boot 
+			|
+			|
+		      Spring 
+
+
+What is Spring Boot?
+===================
+Spring Boot is an open source Java-based framework developed by Pivotal Team. 
+
+Spring Boot  provides the RAD (Rapid Application Development) feature to the Spring framework.
+
+Spring Boot is used to create stand-alone, production-grade Spring based Applications
+ with  minimum configuration.
+
+
+In short, Spring Boot is the combination of
+ex:
+	 Spring Framework +	 Embedded Servers      +  Embedded Database.
+			        (Tomcat/Jetty/Undertow)	   (H2/HSQL/Derby)
+
+	
+In Spring Boot, there is no requirement for XML configuration.
+
+XML configurations are replaced by Annotations.
+		   
+
+
+Advantages of Spring Boot (staters)
+======================
+It creates stand-alone Spring applications that can be started using Java -jar.
+
+It provides production-ready features such as metrics, health checks, and externalized configuration.
+
+It increases productivity and reduces development time.
+
+It offers the number of plug-ins.
+
+There is no requirement for XML configuration.
+
+It provides opinionated 'starter' POMs to simplify our Maven configuration.
+
+It tests web applications easily with the help of different Embedded HTTP servers such as Tomcat, Jetty,Undertow etc. We don't need to deploy WAR files.
+
+It offers a CLI tool for developing and testing the Spring Boot application.
+
+It also minimizes writing multiple boilerplate codes (the code that has to be included in many places with little or no alteration), XML configuration, and annotations.
+
+
+
+Q)Components of spring boot?
+
+We have four components in spring boot.
+
+1) Autoconfiguration
+
+2) starter
+
+3) CLI
+
+4) Actuators 
+
+
+
+Q)In how many ways we can create a spring boot project?
+
+There are two ways to create spring boot project.
+
+1)Using IDE's (STS , IntellIJ)
+
+2)Using spring Initializr 
+
+
+
+
+STS IDE
+===========
+Spring Tool Suite is an IDE to develop Spring applications. 
+
+It is an Eclipse-based development environment.
+
+It provides a ready-to-use environment to implement, run, deploy, and debug the application. 
+
+Step 1: 
+-----------
+	Download Spring Tool Suite 
+	ex:
+		https://spring.io/tools#suite-three 
+
+Step 2: 
+----------
+	Extract the zip file and install the STS.
+	ex:
+	sts-bundle -> sts-3.9.9.RELEASE -> Double-click on the STS.exe.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

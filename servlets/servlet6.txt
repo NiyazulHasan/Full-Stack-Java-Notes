@@ -1,0 +1,443 @@
+Servlet to Servlet Communication
+================================
+Servlet to Servlet communication is also known as servlet chaining.
+
+Servlet to Servlet communication is possible in three ways.
+
+1)Forwarding the request 
+
+2)Including the response 
+
+3)Send redirection
+
+1)Forwarding the request 
+------------------------
+In forwarding the request , the output of source servlet program will be discarded and output of distination servlet program goes to browser window as dynamic response.
+
+To forward the request we need to use RequestDispatcher object.
+
+We can create RequestDisptacher object by using getRequestDispatcher() method of HttpServletRequest object.
+ex:
+	RequestDispatcher rd=req.getRequestDispatcher();
+	rd.forward(req,res);
+
+
+2)Including the response 
+-------------------------
+In including the response, The output of destination servlet program will include to source servlet program.Here code will not include only output will include.
+
+Combinely output of source servlet program and destination servlet program goes to browser window as dynamic response. 
+
+To perform including the response we need to use RequestDispatcher object.
+
+We can create RequestDisptacher object by using getRequestDispatcher() method of HttpServletRequest object.
+ex:
+	RequestDispatcher rd=req.getRequestDispatcher();
+	rd.include(req,res);
+
+Deployment Directory Structure
+------------------------------
+STSApp1
+|
+|----Java Resources
+|	|
+	|------src
+		|
+		|---com.ihub.www
+			|
+			|---TestSrv1.java
+			|---TestSrv2.java
+|
+|-----Web Content
+	|
+	|-----form.html
+	|
+	|-----WEB-INF
+		|
+		|----web.xml 
+
+Note:
+-----
+In above application we need to add "servlet-api.jar" file in project build path.
+
+form.html
+---------
+<form action="test1" method="GET">
+	
+	UserName: <input type="text" name="t1"/> <br>
+	Password: <input type="password" name="t2"/> <br>
+	<input type="submit" value="submit"/>
+</form>
+
+
+web.xml
+-------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  <servlet>
+  	<servlet-name>TestSrv1</servlet-name>
+  	<servlet-class>com.ihub.www.TestSrv1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>TestSrv1</servlet-name>
+  	<url-pattern>/test1</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>TestSrv2</servlet-name>
+  	<servlet-class>com.ihub.www.TestSrv2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>TestSrv2</servlet-name>
+  	<url-pattern>/test2</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+  	<welcome-file>form.html</welcome-file>
+  </welcome-file-list>
+  
+</web-app>
+
+TestSrv1.java
+--------------
+package com.ihub.www;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class TestSrv1 extends HttpServlet
+{
+	protected void doGet(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException
+	{
+		PrintWriter pw=res.getWriter();
+		res.setContentType("text/html");
+		
+		//reading form data
+		String uname=req.getParameter("t1");
+		String pass=req.getParameter("t2");
+		
+		if(pass.equals("admin"))
+		{
+			RequestDispatcher rd=req.getRequestDispatcher("test2");
+			rd.forward(req,res);
+		}
+		else
+		{
+			pw.println("<b><font color='red'>Sorry! Incorrect username or password</font></b>");
+			RequestDispatcher rd=req.getRequestDispatcher("form.html");
+			rd.include(req,res);
+		}
+		
+		pw.close();
+	}
+}
+
+TestSrv2.java
+------------
+package com.ihub.www;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class TestSrv2 extends HttpServlet
+{
+	protected void doGet(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException
+	{
+		PrintWriter pw=res.getWriter();
+		res.setContentType("text/html");
+		
+		pw.println("<center><h1>Login Successfully!!!</h1></center>");
+		pw.close();
+	}
+}
+
+Request url
+----------
+	http://localhost:2525/STSApp1/
+
+
+3)Send redirection
+----------------------
+It is used to forward the request to the application which is present in same server or different server.
+
+To forward the request we need to use sendRedirect() method of HttpServletResponse object.
+ex:
+	res.sendRedirect("url");
+
+It always send new request.
+
+It works within the server and outside of the server.
+
+
+Deployment Directory Structure
+------------------------------
+STSApp2
+|
+|----Java Resources
+|	|
+	|------src
+		|
+		|---com.ihub.www
+			|
+			|---TestSrv.java
+|
+|-----Web Content
+	|
+	|-----index.html
+	|
+	|-----css 
+		|----mystyles.css
+	|
+	|-----WEB-INF
+		|
+		|----web.xml 
+
+Note:
+-----
+In above application we need to add "servlet-api.jar" file in project build path.
+
+
+index.html
+----------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		
+		<!--  add external css  -->
+		<link rel="stylesheet" type="text/css" href="css/mystyles.css">
+	
+	</head>
+	<body>
+			<a href="test"> Flight Booking </a>
+	</body>
+</html>
+
+mystyles.css
+------------
+*
+{
+	margin:0;
+	padding:0;
+}
+body
+{
+	background-color:gold;
+	display:flex;
+	height:100vh;
+	justify-content:center;
+	align-items:center;
+}
+a
+{
+	text-decoration:none;
+	font-style:italic;
+	font-weight:800;
+}
+
+web.xml
+--------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+ 
+ <servlet>
+ 	<servlet-name>TestSrv</servlet-name>
+ 	<servlet-class>com.ihub.www.TestSrv</servlet-class>
+ </servlet>
+ 
+ <servlet-mapping>
+ 	<servlet-name>TestSrv</servlet-name>
+ 	<url-pattern>/test</url-pattern> 
+ </servlet-mapping>
+ 
+ <welcome-file-list>
+ 	<welcome-file>index.html</welcome-file>
+ </welcome-file-list>
+ 
+ 
+</web-app>
+
+
+TestSrv.java
+-----------
+package com.ihub.www;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class TestSrv extends HttpServlet 
+{
+	protected void doGet(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException
+	{
+		PrintWriter pw=res.getWriter();
+		res.setContentType("text/html");
+		
+		res.sendRedirect("https://www.makemytrip.com/flights/");
+		
+		pw.close();
+		
+	}
+}
+
+Request url
+----------
+	http://localhost:2525/STSApp2/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Interview Question
+=================
+Q)How to enable <load-on-startup> and what happens if we enable <load-on-startup>?
+
+Generally, servlet container will create servlet object at the time when we requested.
+
+If we use <load-on-startup> then our servlet container will create servlet object before the request during the server startup or during the deployment of web application.
+
+We need to enable <load-on-startup> inside web.xml file.
+
+web.xml
+--------
+<web-app>
+	<servlet>
+ 		<servlet-name>TestSrv</servlet-name>
+ 		<servlet-class>com.ihub.www.TestSrv</servlet-class>
+ 		<load-on-startup>1</load-on-startup>
+ 	</servlet>
+ 
+ 	<servlet-mapping>
+ 		<servlet-name>TestSrv</servlet-name>
+ 		<url-pattern>/test</url-pattern> 
+ 	</servlet-mapping>
+</web-app>
+
+
+Q)How many scopes are there in servlet?
+
+We have three types of scopes in servlet.
+
+1)Request scope 
+
+2)Session scope
+
+3)Application scope 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

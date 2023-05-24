@@ -1,0 +1,581 @@
+Notepad++ Editor
+=================
+Download link : https://notepad-plus-plus.org/downloads/
+
+
+HTML <header> and <nav> tag
+===========================
+The <header> element represents a container for introductory content or a set of navigational links.
+
+The <nav> tag defines a set of navigation links. 
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<header>
+			<center>
+			<nav>
+				<a href="">HOME</a> &nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="">ABOUT</a> &nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="">SERVICE</a> &nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="">PORTFOLIO</a> &nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="">CONTACT</a> &nbsp;&nbsp;&nbsp;&nbsp;
+			</nav>	
+			</center>
+		</header>
+	</body>
+</html>
+
+HTML <section> tag, <article> tag and <figure> tag
+=====================================================
+The <section> tag defines a section in a document.
+
+The <article> tag specifies independent, self-contained content. 
+
+The <figure> tag specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<section>
+			<center>
+				<article>
+					<h1>Our Story</h1>
+					<p>Our Awesome Features Make Your Learning Hassle-Free</p>
+					
+					<figure>
+							<img src="images/rock.jpg" 
+								width="400px" height="200px"/>
+							 <figcaption>Dwayne Johnson</figcaption>
+					</figure>
+					<p>
+						iHub is the only institute that makes sure you get your penny’s worth in the form of vast knowledge. We strongly believe that iHub is the gateway to your bright future in IT. You may not want to regret missing out on a great opportunity as you are bound to realize the importance of iHub, once you join the course. iHub takes pride in being the only institute where our hard-working and dedicated faculty is keen to deliver as much information and knowledge as possible to the students. We continue to thrive and maintain our ascendance by being the first ones to introduce brand-new products and services in the industry on a consistent basis. We specialize in career training in software quality assurance. We at iHub believe and strive in turning a trainee’s dream into a successful reality.
+					</p>					
+				</article>
+			</center>
+		</section>
+	</body>
+</html>
+
+
+HTML <footer> tag
+=====================
+The <footer> tag defines a footer for a document or section. 
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<footer>
+			<center>
+				<p> HOME | ABOUT | SERVICE | PORTFOLIO | CONTACT</p>
+				<p> &copy;All Right Reserved-2023</p>	
+			</center>
+		</footer>
+	</body>
+</html>
+
+HTML <small> tag
+=================
+The <small> HTML element represents  small print like copyright and legal text.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<footer>
+			<center>
+				<small> &copy;All Right Reserved-2023</small>	
+			</center>
+		</footer>
+	</body>
+</html>
+
+
+HTML <big> tag
+================
+The <big> tag is used to make the text one size bigger i.e from small to medium, 
+medium to large, large to x-large.
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+			<p>This is <big>html</big> class for html students</p>
+	</body>
+</html>
+
+HTML <cite> tag
+==============
+The <cite> tag defines the title of a creative work i.e movie , songs, Poems and etc.
+
+The text in the <cite> element usually renders in italic.
+
+ex:
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+			Movie Name : <cite>Dhamaka</cite>
+			
+	</body>
+</html>
+
+HTML <mark> tag
+=================
+The HTML <mark> tag is used to mark or highlight text that has special interest.
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+			Sir , from today onwards <mark> i will practice java</mark>
+			
+	</body>
+</html>
+
+
+HTML frames
+============
+
+To use frames on a web page we need to use <frameset> tag instead of <body> tag.
+
+The <frameset> tag defines how to divide the window into frames.
+
+The "rows" attribute of <frameset> tag defines horizontal frames.
+
+The "cols" attribute of <frameset> tag defines vertical frames.
+
+Each frame is indicated by <frame> tag and it defines which document should 
+be open into that place.
+
+Note:
+----
+The <frame> tag is deprecated in HTML5 so that don't use this tag.
+
+
+index.html
+-----------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<frameset cols="33%,*,33%">
+		<frame src="a.html">
+		<frame src="b.html">
+		<frame src="c.html">
+	</frameset>
+</html>
+
+a.html
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>A.html</title>
+	</head>
+	<body bgcolor="blue">
+			
+			
+	</body>
+</html>
+
+b.html
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>B.html</title>
+	</head>
+	<body bgcolor="pink">
+			
+			
+	</body>
+</html>
+
+c.html
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>C.html</title>
+	</head>
+	<body bgcolor="red">
+			
+			
+	</body>
+</html>
+
+ex:2
+-----------
+
+index.html
+----------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<frameset rows="33%,*,33%">
+		<frame src="a.html">
+		<frame src="b.html">
+		<frame src="c.html">
+	</frameset>
+</html>
+
+a.html
+-------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>A.html</title>
+	</head>
+	<body bgcolor="#EE5A24">
+			
+			
+	</body>
+</html>
+
+b.html
+-------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>B.html</title>
+	</head>
+	<body bgcolor="#FFFFFF">
+			
+			<center>
+				<img src="images/chakra.png" width="80px" height="80px"/>
+			</center>
+	</body>
+</html>
+
+c.html
+-------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>C.html</title>
+	</head>
+	<body bgcolor="#009432">
+			
+			
+	</body>
+</html>
+
+
+HTML <iframe> tag
+====================
+It is used to specify inline frame.
+
+A <iframe> tag/element is used to embed a document into current HTML document.
+
+
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<iframe src="http://www.ihubtalent.com" width="300px" height="300px">
+		</iframe>	
+	</body>
+</html>
+
+ex:2
+-----
+
+index.html
+---------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<iframe src="a.html" width="300px" height="300px">
+		</iframe>	
+	</body>
+</html>
+
+a.html
+-------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>A.html</title>
+	</head>
+	<body bgcolor="#EE5A24">
+		
+		<center>
+			<h1>A.HTML file</h1>
+		</center>		
+			
+	</body>
+</html>
+
+ex:3
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<a href="a.html" target="myFrame">clickMe</a>
+		
+		
+		<br><br>
+		
+		<iframe src="" name="myFrame"  width="300px" height="300px"></iframe>
+		
+	</body>
+</html>
+
+
+Steps to display Google Map on a web page
+===========================================
+
+step1:
+-----
+	Goto Google Maps.
+	ex:
+		https://www.google.com/maps
+
+step2:
+-----
+	Type Ihub Talent in Google Map Search Box.
+
+
+step3:
+-------
+	Click on "menu" button.
+
+step4:
+------
+	Click on "share and embed Map"
+
+step5:
+-----
+	Click on "embeded a map" link.
+
+step6:
+-----
+	Click to "Copy Html".
+
+step7:
+-------
+	Paste the code inside <body> tag of index.html file.
+
+step8:
+------
+	Check the output on browser window.
+
+
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>INDEX</title>
+	</head>
+	<body>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.4876564064143!2d78.44241401427325!3d17.436358405981736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb919633f78bef%3A0xbb63515db9bc2eba!2siHub%20Talent%20(Innovative%20Placement%20Solutions)!5e0!3m2!1sen!2sin!4v1665222276198!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		
+	</body>
+</html>
+
+
+
+HTML Audio
+===========
+The HTML <audio> tag/element is used to play an audio file on a web page.
+
+<audio> tag contains "controls" attribute adds audio control like play,pause ,volume and etc.
+
+The <source > tag/element allows us to specify alternate audio file which the
+browser my choose.
+
+HTML audio formats can be MP3,WAV,OGG and etc.
+
+HTML Audio Media types are 
+
+File Formats		Media Type
+------------		----------
+MP3			audio/mpeg
+
+OGG			audio/ogg
+
+WAV			audio/wav
+
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage</title>
+	</head>
+	<body>	
+		<audio controls>
+			<source src="song.mp3" type="audio/mpeg">
+		</audio>
+	</body>
+</html>
+
+
+
+HTML video Tag/Element
+=======================
+The <video> tag or element is used to embed video content in a document such as
+movie clip,other video streams.
+
+The <video> tag contains one or more <source> tag with different video source.
+
+There are three supported video fromats in html are MP4,webM and OGG.
+
+HTML video media types are 
+
+File format		Media Type
+-----------		-----------
+MP4			video/mp4
+
+OGG			video/ogg
+
+and etc.
+
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage</title>
+	</head>
+	<body>	
+		<video controls >
+			<source src="video.mp4" type="video/mp4">
+		</video>
+	</body>
+</html>
+
+
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage</title>
+	</head>
+	<body>	
+		<video controls width="400" height="400">
+			<source src="video.mp4" type="video/mp4">
+		</video>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

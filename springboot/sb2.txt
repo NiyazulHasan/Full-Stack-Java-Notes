@@ -1,0 +1,319 @@
+Spring Boot Starters
+=====================
+Spring Boot provides a number of starters that allow us to add jars in the classpath. 
+
+Spring Boot built-in starters make development easier and rapid.
+
+Spring Boot Starters are the dependency descriptors.
+
+In the Spring Boot Framework, all the starters follow a similar naming pattern: 
+spring-boot-starter-*, where * denotes a particular type of application.
+
+ex:
+spring-boot-starter-test
+spring-boot-starter-web
+spring-boot-starter-validation (bean validation)
+spring-boot-starter-security
+spring-boot-starter-data-jpa
+spring-boot-starter-data-mongodb
+spring-boot-starter-mail
+
+
+Third-Party Starters
+==================
+We can also include third party starters in our project.
+
+The third-party starter starts with the name of the project.
+ex:
+	abc-spring-boot-starter.
+
+
+
+
+Spring Boot Starter Web
+========================
+There are two important features of spring-boot-starter-web.
+
+>It is compatible for web development
+>AutoConfiguration
+
+If we want to develop a web application,we need to add the following dependency in pom.xml file.
+ex:
+	<dependency>  
+		<groupId>org.springframework.boot</groupId>  
+		<artifactId>spring-boot-starter-web</artifactId>  
+		<version>2.2.2.RELEASE</version>  
+	</dependency>  
+
+Spring web starter uses Spring MVC, REST and Tomcat as a default embedded server.
+
+The single spring-boot-starter-web dependency transitively pulls in all dependencies related to web development. 
+
+
+By default, the spring-boot-starter-web contains the following tomcat server dependency:
+ex:
+	<dependency>  
+		<groupId>org.springframework.boot</groupId>  
+		<artifactId>spring-boot-starter-tomcat</artifactId>  
+		<version>2.0.0.RELEASE</version>  
+		<scope>compile</scope>  
+	</dependency>  
+
+The spring-boot-starter-web ,auto-configures the following things that are required for the web development:
+
+1)Dispatcher Servlet
+2)Error Page
+3)Web JARs for managing the static dependencies
+4)Embedded servlet container
+
+
+
+Interview question
+================
+
+Q)Explain @SpringBootApplication annotation?
+
+This annotation is used to enable the following annotations.
+
+@EnableAutoConfiguration: It enables the Spring Boot auto-configuration mechanism.
+
+@ComponentScan: It scans the package where the application is located.
+
+@Configuration: It allows us to register extra beans in the context or import additional configuration classes.
+
+
+
+Q)Where to do spring boot application configurations?
+ex:
+	We can configure application configuration in two files.
+
+	1)application.properties file
+	2)application.yml file
+
+
+Q)List of sterotype Annotation?
+	@Component
+	@Configuration
+	@Service	
+	@Repository
+	@Controller
+	and etc.
+
+
+Q)In spring boot mvc based web application who will pass HTTP request to controller?
+
+ans)	RequestDispatcher.
+
+
+
+Q)List of embedded servers present in spring boot?
+ans)
+	Tomcat, Jetty and undertow
+
+Q)Tomcat embedded server by default runs under which port no?
+	8080
+
+Q)To create a spring mvc based web application we need to add which starter?
+	spring-boot-stater-web
+
+Q)How to change tomcat embedded server port no?
+ans)
+	application.properties
+	-----------------------------
+	server.port = 9090
+
+
+
+Spring Boot + JSP  Application
+===============================
+
+Project structure
+--------------------
+MVCApp1
+|
+|----src/main/java
+|	|
+|	|----com.ihub.www
+|		|
+|		|--MVCApp2Application.java
+|		|--HomeController.java
+|---src/main/resources
+|	|
+|	|-----application.properties
+|
+|---src/test/java
+|	|
+|	|-----MVCApp1ApplicationTests.java
+|
+| --
+| --
+| --
+|-----src
+	|
+	|----main
+		|
+		|----webapp
+			|
+			|----pages
+			|	|
+				|----index.jsp
+|---pom.xml
+|
+|
+
+
+step1:
+-------
+	Create a spring starter project.
+	ex:
+		File --> new --> spring starter project --> 
+				Name : MVCApp1	
+				Group: com.ihub.www
+				Artifact: MVCApp1
+				Description: This is Spring Boot Application with JSP
+				package : com.ihub.www  ---> next -->
+				Starter: Spring Web --> next --> Finish.
+
+
+step2:
+------
+	create a HomeController class inside "src/main/java".
+	ex:
+	Right click to package(com.ihub.www) --> new --> class --> Class: HomeController
+	-->finish.
+
+
+step3:
+-------
+	Add @Controller annotation and "@RequestMapping" annotation inside HomeController class.
+
+HomeController.java
+---------------------
+package com.ihub.www;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class HomeController {
+
+	@RequestMapping("home")
+	public String home()
+	{
+		return "index";
+	}
+}
+	 
+step4:
+-----
+	create a "webapp" and "pages" folder inside "src/main" folder for adding JSP files.
+	ex:
+		|-----src
+			|
+			|----main
+				|
+				|----webapp	
+					|
+					|-----pages
+
+
+step5:
+---------
+	create "index.jsp" file inside "src/main/webapp/pages/" folder.
+	ex:
+		Right click to pages folder--> new --> file ---> 
+		File Name: index.jsp --> finish.
+
+index.jsp
+----------
+<center>
+	<h1>
+		I love Spring Boot Programming
+	</h1>
+</center>
+
+
+
+step6:
+------
+	Add "Tomcat Embed Jasper" dependency to read the jsp file.
+	
+
+	ex:
+		<dependency>
+    			<groupId>org.apache.tomcat.embed</groupId>
+    			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>		
+
+Note:
+------
+	Embedded Tomcat server does not have Jasper. So we need to add above dependency.
+
+step7:
+-------
+	Configure tomcat server port number and jsp file.
+
+application.properties
+------------------------
+server.port=9191
+
+spring.mvc.view.prefix=/pages/
+spring.mvc.view.suffix=.jsp
+
+
+step8:
+-------
+	Run Spring Boot application.
+	ex:
+		Right click to MVCApp2 --> run as --> spring boot application.
+
+
+step9:
+------
+	Test the application with below request url.
+	ex:
+		http://localhost:9191/home
+
+
+Spring Data JPA
+==================
+Spring Data JPA handles most of the complexity of JDBC-based database access and ORM (Object Relational Mapping).
+
+It reduces the boilerplate code required by JPA(Java Persistence API). 
+
+It makes the implementation of your persistence layer easier and faster.
+
+Spring Data JPA aims to improve the implementation of data access layers by reducing the effort to the amount that is needed.
+
+Spring Boot provides spring-boot-starter-data-jpa dependency to connect Spring application with relational database efficiently. 
+ex:
+
+	<dependency>  
+	<groupId>org.springframework.boot</groupId>  
+	<artifactId>spring-boot-starter-data-jpa</artifactId>  
+	<version>2.2.2.RELEASE</version>  
+	</dependency>  
+
+The spring-boot-starter-data-jpa internally uses the spring-boot-jpa dependency.
+
+
+Spring Data JPA provides three repositories are as follows:
+
+CrudRepository:
+-------------------------
+It offers standard create, read, update, and delete It contains method like findOne(), findAll(), save(), delete(), etc.
+
+PagingAndSortingRepository: 
+-----------------------------------------
+It extends the CrudRepository and adds the findAll methods. It allows us to sort and retrieve the data in a paginated way.
+
+JpaRepository: 
+---------------------
+It is a JPA specific repository It is defined in Spring Data Jpa. It extends the both repository CrudRepository and PagingAndSortingRepository. It adds the JPA-specific methods, like flush() to trigger a flush on the persistence context.
+
+
+
+
+
+
+

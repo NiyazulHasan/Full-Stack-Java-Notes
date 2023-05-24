@@ -1,0 +1,513 @@
+select query 
+=============
+
+Q)Write a jdbc application to select student record based on student number?
+
+package com.ihub.www;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class SelectApp2 
+{
+	public static void main(String[] args)throws Exception 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Student Number :");
+		int no=sc.nextInt();
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+		Statement st=con.createStatement();
+		
+		String qry="select * from student where sno="+no;
+		
+		ResultSet rs=st.executeQuery(qry);
+		
+		while(rs.next())
+		{
+			System.out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getString(3));
+		}
+		
+		rs.close();
+		st.close();
+		con.close();
+
+	}
+}
+
+ex:2
+-----
+package com.ihub.www;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class SelectApp2 
+{
+	public static void main(String[] args)throws Exception 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Student Number :");
+		int no=sc.nextInt();
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+		Statement st=con.createStatement();
+		
+		String qry="select * from student where sno="+no;
+		
+		ResultSet rs=st.executeQuery(qry);
+		
+		int cnt=0;
+		
+		while(rs.next())
+		{
+			System.out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getString(3));
+			cnt=1;
+		}
+		
+		if(cnt==0)
+			System.out.println("No rows selected");
+		
+		rs.close();
+		st.close();
+		con.close();
+
+	}
+}
+
+Non-Select Query
+==================
+
+Q)Write a jdbc application to insert a record into student table?
+
+package com.ihub.www;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class InsertApp 
+{
+	public static void main(String[] args)throws Exception 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Student No :");
+		int no=sc.nextInt();
+		
+		System.out.println("Enter the Student Name :");
+		String name=sc.next();
+		
+		System.out.println("Enter the Student Address :");
+		String add=sc.next();
+		
+		//converting string inputs according to sql query
+		name="'"+name+"'";
+		add="'"+add+"'";
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+		Statement st=con.createStatement();
+		
+		String qry="insert into student values("+no+","+name+","+add+")";
+		
+		int result=st.executeUpdate(qry);
+		
+		if(result==0)
+			System.out.println("No Record Inserted");
+		else
+			System.out.println(result+" Record Inserted");
+		
+		st.close();
+		con.close();
+	}
+}
+
+Q)Write a jdbc application to update student name based on student no?
+
+ex:
+
+package com.ihub.www;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class UpdateApp 
+{
+	public static void main(String[] args)throws Exception  
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Student No :");
+		int no=sc.nextInt();
+		
+		System.out.println("Enter the Student Name :");
+		String name=sc.next();
+		
+		//converting string inputs according to sql query
+		name="'"+name+"'";
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+		Statement st=con.createStatement();
+		
+		String qry="update student set sname="+name+" where sno="+no;
+		
+		int result=st.executeUpdate(qry);
+		
+		if(result==0)
+			System.out.println("No Record Updated");
+		else
+			System.out.println(result +" Record updated");
+		
+		st.close();
+		con.close();
+			
+	}
+}
+
+Q)Write a jdbc application to delete student record based on student no?
+
+package com.ihub.www;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class DeleteApp 
+{
+	public static void main(String[] args)throws Exception 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Student No :");
+		int no=sc.nextInt();
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+		Statement st=con.createStatement();
+		
+		String qry="delete from student where sno="+no;
+		
+		int result=st.executeUpdate(qry);
+		
+		if(result==0)
+			System.out.println("No Record Deleted");
+		else
+			System.out.println(result+ " Record Deleted");
+		
+		st.close();
+		con.close();
+			
+	}
+}
+
+Type1 JDBC Driver architecture (JDBC-ODBC bridge driver)
+===========================================================
+Type1 JDBC driver is not designed to interact with database software directly.
+
+It is designed to interact with ODBC driver and Vendor DB library to locate and interact with database software.
+
+Diagram: jdbc3.1
+
+Advantages:
+-----------
+It is a built-in driver of JDK.
+
+Using Type1 jdbc driver we can interact with any database software.
+
+Disadvantages:
+------------
+This driver performance is low. It is not suitable for medium and large scale projects.Hence it is not a industry standard driver.
+
+Since ODBC driver and Vendor db library present at client so it is not suitable for untrusted applets to database communication.
+
+To work with type1 jdbc driver we need to arrange ODBC driver and Vendor db library.
+
+
+
+
+
+
+
+Type2 JDBC driver architecture (Native API )
+===============================================
+Type2 JDBC driver is not designed to interact with database software directly.
+
+It is designed to take the support of Vendor DB library to locate and interact with database software.
+
+Diagram: jdbc3.2
+
+Advantages:
+-------------
+Type2 JDBC driver will give better performance when compare to Type1 JDBC driver.
+
+Type2 JDBC driver will not take the support of ODBC driver.
+
+Disadvantages:
+-------------
+This driver performance is quite slow. It is not suitable for medium and large scale projects.Hence it is not a industry standard driver.
+
+Since vendor db library present at client side so it is not suitable for untrusted applets to database communication.
+
+For every database we need to arrange type2 jdbc driver seperately.
+
+
+Type4 JDBC driver architecture (Native protocol)
+=================================================
+Type4 JDBC driver is not designed to interact with ODBC driver and Vendor db library.
+
+It is designed to locate and interact with database software directly.
+
+Diagram: jdbc3.3
+
+Type4 JDBC driver is also known as thin driver.
+
+Advantages:
+-------------
+It will give better performance when compare to Type1 and Type2 jdbc driver. 
+
+It is suitable for medium and large scale projects.Hence it is a industry standard driver.
+
+It is developed in java so it will give platform independency.
+
+Since ODBC drivers and Vendor db libraries not present at client side so it is suitable for untrusted applets to database communication.
+
+Disadvantages:
+---------------
+It is not a built-in driver of JDK.
+
+For every database we need to arrange type4 jdbc driver seperately.
+
+
+JDBC Connection pooling
+=========================
+It is a factory containing set of readily available JDBC connection objects before actual being used.
+
+Diagram: jdbc3.4
+
+JDBC connection pool represent connectivity with same database software.
+
+Advantages:
+-----------
+It will create reusable JDBC Connection objects.
+
+With minimum Connection objects we can interact with multiple clients.
+
+A user is not responsible to create , manage and destroy JDBC Connection objects in JDBC Connection pool.  JDBC Connection pool is responsible to create ,manage  and destroy JDBC Connection object.
+
+
+
+
+Type3 JDBC Driver Architecture (Net Protocol)
+================================================
+Webserver  or proxy server or IDE's server containing JDBC Connection pool represent JDBC Connection objects.
+
+Type3 JDBC driver is not designed to interact with database software directly.
+
+It is designed to interact with web server or proxy server to get one resuable JDBC Connection object from JDBC Connection pool.
+
+Diagram: jdbc3.4
+
+With respect to the diagram
+----------------------------
+1)First webserver or proxy server intract with database software to get some reusable jdbc
+  Connection objects in JDBC Connection pool.
+
+2)Our application interacts with web server or proxyserver to get one reusable jdbc 
+  Connection object from jdbc Connection pool.
+
+3)Our application uses reusable jdbc Connection object, to create other Connection objects.
+
+4)Once if we close i.e con.close() then Connection object goes back to JDBC Connection pool. 
+
+
+Q)Types of Connection objects?
+
+We have two types of Connection objects.
+
+1)Direct Connection object
+-----------------------
+A connection object which is created by the user is called direct direct connection object.
+ex:
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+
+2)Pooled JDBC Connection object
+---------------------------------
+A connection object which is gathered from JDBC Connection pool is called pooled jdbc connection object.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

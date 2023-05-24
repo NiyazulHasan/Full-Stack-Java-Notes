@@ -1,0 +1,145 @@
+Batch No : IH-JAVA-014
+
+Whatsapp Group : IH-JAVA-014
+
+Institute Name :  Ihub Talent Management / Quality Thought 
+
+Websites       :  www.ihubtalent.com / www.qualitythought.in 
+
+Trainer Name   :  Niyaz Sir 
+
+Experience     : 11+ years of experience in development and training.
+		  developer - verizon (contract employee)
+		  training  - ihub talent / quality thought 
+
+-------------------------------------------------------------------------
+
+			Java Full Stack Development (FSD)
+
+|--------------------------------------|--------------------------------------|		FrontEnd			Middle Layer				BackEnd
+
+> HTML5				> Core Java				> Oracle DB
+> CSS3				> Adv Java				 >SQL
+> JavaScript				> JDBC				 >PL/SQL
+> Boostrap5				> Servlets
+> React/ReactJS 			> JSP
+
++
+			
+Frameworks :	
+	> Spring Boot
+	> Microservices
+
++
+
+SDLC (Software Development Life Cycle)
+
++
+
+Realtime Tools: 
+
+	> GIT/GITHUB 
+	> Junit
+	> Maven/Gradle
+	> Jenkins
+
++
+
+Free Recorded Videos
+
++
+
+Soft skills classes 
+
++
+
+Aptitute classes 
+
++
+
+Junior Lab faculty
+
++
+
+Duration : 100 working days.
+
+
+
+Programming language
+====================
+A language which is used to communciate between user and computer is called 
+programming language.
+
+Programming language acts like a mediator or interface between user and computer.
+
+
+Java
+======
+Object oriented programming language.
+Platform independent programming language i.e WORA
+Case sensitive language.
+Strongly typed Checking language.
+High level language.
+Open source programming language 
+
+JDK software --> Sun micro system (Oracle Corporation)
+
+C
+====
+Procedure oriented programming language 
+Platform dependent or system dependent 
+Case sensitive language
+Loosely typed checking language.
+Middle level language (LOW + HIGH)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

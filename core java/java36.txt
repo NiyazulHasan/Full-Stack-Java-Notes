@@ -1,0 +1,626 @@
+Q)Write a java program to display reverse of a word in a given string?
+
+Input:
+	This Is Java Class
+
+Output:
+	sihT sI avaJ ssalC
+
+ex:
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the String :");
+		String str=sc.nextLine(); //This Is Java Class
+
+		String[] sarr=str.split(" "); // This    Is      Java    Class
+
+		//for each loop
+		for(String s:sarr)
+		{
+			char[] carr=s.toCharArray(); // T    h    i    s 
+
+			//reading reverse
+			for(int i=carr.length-1;i>=0;i--)
+			{
+				System.out.print(carr[i]);
+			}
+			//space
+			System.out.print(" ");
+		}
+
+
+	}
+}
+
+Q)Write a java program to concatinate two strings?
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str1="Java";
+		String str2="Developer";
+
+		System.out.println(getConcatinate(str1,str2));
+
+	}
+	public static String getConcatinate(String str1,String str2)
+	{
+		return str1+str2;
+	}
+}
+
+Q)Write a java program to find out duplicate characters from given string?
+
+Input:
+	google
+
+Output:
+	og
+
+ex:
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the String :");
+		String str=sc.nextLine(); //google 
+
+		String characters="";
+		String duplicates="";
+
+		for(int i=0;i<str.length();i++)
+		{
+			String current=Character.toString(str.charAt(i));
+			if(characters.contains(current))
+			{
+				if(!(duplicates.contains(current)))
+				{
+					duplicates+=current;
+					continue;
+				}
+			}
+			characters+=current;
+
+		}
+		System.out.println("Duplicate characters are ="+duplicates);
+
+	}
+}
+
+Q)Write a java program to find out distinct/unique characters from given string?
+
+Input:
+	google
+
+Output:
+	gole
+
+ex:
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the String :");
+		String str=sc.nextLine(); //google 
+
+		String characters="";
+		String duplicates="";
+
+		for(int i=0;i<str.length();i++)
+		{
+			String current=Character.toString(str.charAt(i));
+			if(characters.contains(current))
+			{
+				if(!(duplicates.contains(current)))
+				{
+					duplicates+=current;
+					continue;
+				}
+			}
+			characters+=current;
+
+		}
+		System.out.println("Duplicate characters are ="+characters);
+
+	}
+}
+
+StringBuffer
+================
+If our content change frequently then it is never recommanded to use String object.
+
+To overcome this limitation Sun Micro System introduced StringBuffer concept.
+
+StringBuffer is a mutable object.It means all the required changes will be done in a single object.
+
+constructors
+-------------
+
+1) StringBuffer sb=new StringBuffer()
+--------------------------------------
+It will create empty StringBuffer object with default initial capacity of 16.
+
+If capacity reaches to maximum capacity then new capacity will be created with below formulea.
+ex:
+	new capacity = current capacity + 1 * 2;
+
+ex:
+----
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb=new StringBuffer();
+		
+		System.out.println(sb.capacity());//16
+
+		sb.append("abcdefghijklmnop");
+
+		System.out.println(sb.capacity());//16
+
+		sb.append("qr");
+
+		System.out.println(sb.capacity());// 16+1*2 = 34
+	}
+}
+
+2) StringBuffer sb=new StringBuffer(int initialcapacity)
+-----------------------------------------------------
+It will create StringBuffer object with specified initial capacity.
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb=new StringBuffer(19);
+		
+		System.out.println(sb.capacity());//19
+		
+	}
+}
+
+3) StringBuffer sb=new StringBuffer(String str)
+-------------------------------------------------
+It will create StringBuffer object equivalent to String.
+
+Here capacity will be created with below formulea.
+
+ex:
+	capacity = s.length()+16;
+
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb=new StringBuffer("bhaskar");
+		
+		System.out.println(sb.capacity());//7+16 = 23
+		
+	}
+}
+
+
+Q)Write a java program to display reverse of a string?
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the String :");
+		String str=sc.nextLine();
+
+		StringBuffer sb=new StringBuffer(str);
+		
+		String result=sb.reverse().toString();
+
+		System.out.println("Reverse of a string is ="+result);
+	}
+}
+
+Q)Write a java program to dispaly vowels from given string?
+
+Input:
+	google 
+
+output:
+	ooe
+
+ex:
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the String :");
+		String str=sc.nextLine(); //google 
+
+		char[] carr=str.toCharArray();//g  o   o   g   l  e 
+
+
+		StringBuffer sb=new StringBuffer();
+		
+		for(int i=0;i<carr.length;i++)
+		{	
+			if(carr[i]=='a' || carr[i] == 'e' || carr[i] == 'i' || carr[i] == 'o' || carr[i]=='u')
+			{
+						sb.append(carr[i]);
+			}
+		}
+		System.out.println(sb);		// ooe 
+	}
+}
+
+StringBuilder
+================
+StringBuilder is exactly same as StringBuffer with following differences.
+
+StringBuffer				StringBuilder
+------------				----------------
+All the methods present in StringBuffer	All the methods present in StringBuilder are
+are synchronized.			not synchronized.
+
+At a time only one thread is allowed to Multiple threads are allowed to access
+access StringBuffer object.Hence we can StringBuilder object.Hence we can't achieve
+achieve thread safety.			thread safety.
+
+Waiting time of a thread will increase	There is no waiting thread effectively  
+effectively performance is low.		performance is high.
+
+StringBuffer introduced in 1.0v.	StringBuilder introduced in 1.5v.
+
+
+
+
+Q)When to use String, StringBuffer and StringBuilder?
+
+If our content not change frequently then we need to use String object.
+
+If our content chanage frequently where thread safety is required then we need to use StringBuffer.
+
+If our content change frequently where thread safety is not required then we need  to use StringBuilder.
+
+StringTokenizer
+=================
+StringTokenizer is a class present in java.util package.
+
+It is used to tokenize the string based irrespective of regular expression.
+
+We can create StringTokenizer object as follow.
+ex:
+	StringTokenizer st=new StringTokenizer(String,RegEx);
+
+StringTokeizer class contains following methods.
+
+ex:
+	public int countTokens();
+	
+	public boolean hashMoreTokens();
+
+	public String nextToken();
+
+	public boolean hasMoreElements();
+	
+	public Object nextElement();
+
+ex:1
+------
+import java.util.StringTokenizer;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class");
+		System.out.println(st.countTokens());
+	}
+}
+Note:
+------
+	Here default regular expression is space.
+
+
+ex:2
+------
+import java.util.StringTokenizer;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class"," ");
+		System.out.println(st.countTokens());
+	}
+}
+
+ex:3
+-----
+import java.util.StringTokenizer;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class"," ");
+		while(st.hasMoreTokens())
+		{
+				String str=st.nextToken();
+				System.out.println(str);
+		}
+	}
+}
+
+ex:4
+-----
+import java.util.StringTokenizer;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class"," ");
+		while(st.hasMoreElements())
+		{
+				String str=(String)st.nextElement();
+				System.out.println(str);
+		}
+	}
+}
+
+
+StringJoiner
+==============
+ex:1
+----
+import java.util.StringJoiner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		StringJoiner sj = new StringJoiner(",");  
+          
+        // Adding values to StringJoiner  
+        sj.add("Rahul");  
+        sj.add("Raju");  
+        sj.add("Peter");  
+        sj.add("Raheem");  
+                  
+        System.out.println(sj);  
+	}
+}
+
+ex:2
+-----
+import java.util.StringJoiner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		StringJoiner sj = new StringJoiner(",","[","]");  
+          
+        // Adding values to StringJoiner  
+        sj.add("Rahul");  
+        sj.add("Raju");  
+        sj.add("Peter");  
+        sj.add("Raheem");  
+                  
+        System.out.println(sj);  
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

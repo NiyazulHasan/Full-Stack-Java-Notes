@@ -1,0 +1,649 @@
+Exception Handling in JSP
+==========================
+There may chance of raising exception anywhere in our application so handling the exception is safer side for the programmer.
+
+Runtime errors are called exceptions.
+
+Exceptions always raised at runtime so they are also known as runtime events.
+
+In jsp , exception handling can be performed in two ways.
+
+1)By using errorPage and isErrorPage attribute of page directive tag.
+
+2)By using <error-page> element in web.xml file.
+
+
+1)By using errorPage and isErrorPage attribute of page directive tag
+-----------------------------------------------------------------------
+
+Deployment Directory structure
+-------------------------------
+JspApp4
+|
+|-----Java Resources
+|
+|-----Web Content
+	|
+	|---form.html
+	|---process.jsp
+	|---error.jsp
+	|
+	|---WEB-INF
+		|
+		|---web.xml
+
+Note:
+------
+In above application we need to add "servlet-api.jar" file in project build path.
+
+form.html
+---------
+
+<form action="process.jsp">
+	
+	No1: <input type="text" name="t1"/> <br>
+	No2: <input typ="text" name="t2"/> <br>
+	<input type="submit" value="divide"/>
+	
+</form>
+
+process.jsp
+------------
+<%@page errorPage="error.jsp" %>
+<%
+	String sno1=request.getParameter("t1");
+	String sno2=request.getParameter("t2");
+	int a=Integer.parseInt(sno1);
+	int b=Integer.parseInt(sno2);
+	int c=a/b;
+%>
+<%= "Division of two numbers is ="+c %>
+
+error.jsp
+----------
+<%@page isErrorPage="true" %>
+
+<center>
+	<b>
+		Sorry! exception occured <br>
+		<%= exception %>
+	</b>
+</center>
+
+web.xml
+---------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  <welcome-file-list>
+  	<welcome-file>form.html</welcome-file>
+  </welcome-file-list>
+  
+</web-app>
+
+Request url
+---------
+	http://localhost:2525/JspApp4/	
+
+2)By using <error-page> element in web.xml file
+-------------------------------------------------
+This approach is recommanded to use because we don't need to add "errorPage" attribute in each jsp page.Defining single entry of <error-page> element in web.xml file will handle all types of exceptions.
+
+Deployment Directory structure
+-------------------------------
+JspApp4
+|
+|-----Java Resources
+|
+|-----Web Content
+	|
+	|---form.html
+	|---process.jsp
+	|---error.jsp
+	|
+	|---WEB-INF
+		|
+		|---web.xml
+
+Note:
+------
+In above application we need to add "servlet-api.jar" file in project build path.
+
+form.html
+---------
+
+<form action="process.jsp">
+	
+	No1: <input type="text" name="t1"/> <br>
+	No2: <input typ="text" name="t2"/> <br>
+	<input type="submit" value="divide"/>
+	
+</form>
+
+process.jsp
+------------
+<%
+	String sno1=request.getParameter("t1");
+	String sno2=request.getParameter("t2");
+	int a=Integer.parseInt(sno1);
+	int b=Integer.parseInt(sno2);
+	int c=a/b;
+%>
+<%= "Division of two numbers is ="+c %>
+
+error.jsp
+----------
+<%@page isErrorPage="true" %>
+
+<center>
+	<b>
+		Sorry! exception occured <br>
+		<%= exception %>
+	</b>
+</center>
+
+web.xml
+---------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  <error-page>
+  	<exception-type>java.lang.Exception</exception-type>
+  	<location>/error.jsp</location>
+  </error-page>
+  
+  <welcome-file-list>
+  	<welcome-file>form.html</welcome-file>
+  </welcome-file-list>
+  
+</web-app>
+
+Request url
+---------
+	http://localhost:2525/JspApp4/	
+
+
+JSP to Database communication
+===============================
+
+Deployment Directory structure
+-------------------------------
+JspApp5
+|
+|-----Java Resources
+|
+|-----Web Content
+	|
+	|---form.html
+	|---process.jsp
+	|
+	|---WEB-INF
+		|
+		|---web.xml
+		|
+		|-------lib
+			|
+			|---ojdbc14.jar
+
+Note:
+------
+In above application we need to add "servlet-api.jar" and "ojdbc14.jar" file in project build path.
+
+copy and paste "ojdbc14.jar" file inside "WEB-INF/lib" folder seperately. 
+
+form.html
+----------
+<form action="process.jsp">
+	
+	No: <input type="text" name="t1"/> <br> 
+	Name: <input type="text" name="t2"/> <br> 
+	Address : <input type="text" name="t3"/> <br> 
+	<input type="submit" value="submit"/>
+
+</form>
+
+process.jsp
+-----------
+<%@page import="java.sql.*" buffer="8kb" contentType="text/html" language="java" %>
+<%
+	String sno=request.getParameter("t1");
+	int no=Integer.parseInt(sno);
+	String name=request.getParameter("t2");
+	String address=request.getParameter("t3");
+	
+	Connection con=null;
+	PreparedStatement ps=null;
+	String qry=null;
+	int result=0;
+	try
+	{
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+		qry="insert into student values(?,?,?)";
+		ps=con.prepareStatement(qry);
+		//set the values
+		ps.setInt(1,no);
+		ps.setString(2,name);
+		ps.setString(3,address);
+		
+		//execute
+		result=ps.executeUpdate();
+		if(result==0)
+			out.println("No Record inserted");
+		else
+			out.println("Record inserted");
+		
+		ps.close();
+		con.close();
+	}
+	catch(Exception e)
+	{
+		out.println(e);
+	}
+%>
+
+web.xml
+--------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  <welcome-file-list>
+  	<welcome-file>form.html</welcome-file>
+  </welcome-file-list>
+  
+</web-app>
+
+Request url
+---------
+	http://localhost:2525/JspApp5/
+
+Action tags
+==============
+Action tags provides functionality along with servlet API features.
+
+It contains xml tags.
+
+It does not have any standard tags.
+
+All action tags are executed dynamically at runtime.
+
+Action tags are divided into two types.
+
+1)Standard action tags
+
+2)Custom action tags
+
+
+
+1)Standard action tags
+------------------------
+Built-In action tags are called standard action tags.
+
+ex:
+	<jsp:include>
+	<jsp:forward>
+	<jsp:useBean>
+	<jsp:setProperty>
+	<jsp:getProperty>
+	and etc.
+
+Action include
+===================
+In this case , output of source jsp program and output of destination jsp program goes to browser window as dynamic response.
+
+It internal uses servlet api functionality called rd.include(req,res).
+
+syntax:
+	<jsp:include   page="page_name" />
+
+
+Deployment Directory structure
+-------------------------------
+JspApp6
+|
+|-----Java Resources
+|
+|-----Web Content
+	|
+	|---A.jsp
+	|---B.jsp
+	|
+	|---WEB-INF
+		|
+		|---web.xml
+		
+
+Note:
+------
+In above application we need to add "servlet-api.jar" file in project build path.
+
+A.jsp
+------
+
+<b><i>Begining of A.jsp program</i></b>
+<br>
+<jsp:include page="B.jsp"/>
+<br>
+<b><i>Ending of A.jsp program</i></b>
+
+B.jsp
+-------
+<br>
+<b><i>This is  B.jsp program</i></b>
+<br>
+
+web.xml
+---------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  <welcome-file-list>
+  	<welcome-file>A.jsp</welcome-file>
+  </welcome-file-list>
+  
+</web-app>
+
+Request url
+---------
+	http://localhost:2525/JspApp6/
+
+
+Action forward
+===================
+In this case , output of source jsp program will be discarded and output of destination jsp program goes to browser window as dynamic response.
+
+It internal uses servlet api functionality called rd.forward(req,res).
+
+syntax:
+	<jsp:forward  page="page_name" />
+
+
+Deployment Directory structure
+-------------------------------
+JspApp6
+|
+|-----Java Resources
+|
+|-----Web Content
+	|
+	|---A.jsp
+	|---B.jsp
+	|
+	|---WEB-INF
+		|
+		|---web.xml
+		
+
+Note:
+------
+In above application we need to add "servlet-api.jar" file in project build path.
+
+A.jsp
+------
+
+<b><i>Begining of A.jsp program</i></b>
+<br>
+<jsp:forward page="B.jsp"/>
+<br>
+<b><i>Ending of A.jsp program</i></b>
+
+B.jsp
+-------
+<br>
+<b><i>This is  B.jsp program</i></b>
+<br>
+
+web.xml
+---------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  <welcome-file-list>
+  	<welcome-file>A.jsp</welcome-file>
+  </welcome-file-list>
+  
+</web-app>
+
+Request url
+---------
+	http://localhost:2525/JspApp6/
+
+
+JSP to java bean communication
+===============================
+JSP to java bean communication is possible by using three tags.
+
+1)<useBean> tag 
+-------------
+	It is used to create and locate bean class object.
+
+2)<setProperty> tag
+-----------------
+	It is used to set the value to bean object and calls setter method.
+
+3)<getProperty> tag 
+----------------
+	It is used to get the value from bean object and calls getter method.
+
+Note:
+------
+In all the above tags are independent tags.
+
+Example:1
+-----------
+
+Deployment Directory structure
+-------------------------------
+JspApp7
+|
+|-----Java Resources
+	|
+	|------src
+		|
+		|--com.ihub.www
+			|
+			|----CubeNumber.java
+|
+|-----Web Content
+	|
+	|---process.jsp
+	|
+	|---WEB-INF
+		|
+		|---web.xml
+		
+
+Note:
+------
+In above application we need to add "servlet-api.jar" file in project build path.
+
+process.jsp
+-----------
+
+<jsp:useBean id="cn" class="com.ihub.www.CubeNumber"></jsp:useBean>
+
+<%= "Cube of a given number is ="+cn.cube(5) %>
+
+CubeNumber.java
+-------------
+package com.ihub.www;
+
+public class CubeNumber 
+{
+	public int cube(int n)
+	{
+		return n*n*n;
+	}
+}
+
+web.xml
+---------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  
+  <welcome-file-list>
+  	<welcome-file>process.jsp</welcome-file>
+  </welcome-file-list> 
+  
+</web-app>
+
+request url
+----------
+	http://localhost:2525/JspApp7/
+
+
+Example:2
+-----------
+
+Deployment Directory structure
+-------------------------------
+JspApp8
+|
+|-----Java Resources
+	|
+	|------src
+		|
+		|--com.ihub.www
+			|
+			|----User.java
+|
+|-----Web Content
+	|
+	|---form.html
+	|
+	|---process.jsp
+	|
+	|---WEB-INF
+		|
+		|---web.xml
+		
+
+Note:
+------
+In above application we need to add "servlet-api.jar" file in project build path.
+
+form.html
+-----------
+
+<form action="process.jsp">
+	
+	UserName: <input type="text" name="username"/> <br>
+	
+	Password: <input type="password" name="password"/> <br>
+	
+	Email : <input type="text" name="email"/> <br>
+	
+	<input type="submit" value="submit"/>
+	
+</form>
+
+User.java
+----------
+package com.ihub.www;
+
+public class User 
+{
+	private String username;
+	private String password;
+	private String email;
+	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+}
+
+process.jsp
+------------
+<jsp:useBean id="u" class="com.ihub.www.User"></jsp:useBean>
+
+<jsp:setProperty property="*" name="u"/>
+
+Records are <br>
+<jsp:getProperty property="username" name="u"/> <br>
+<jsp:getProperty property="password" name="u"/> <br>
+<jsp:getProperty property="email" name="u"/> <br>
+
+web.xml
+---------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  <welcome-file-list>
+  	<welcome-file>form.html</welcome-file>
+  </welcome-file-list>
+  
+</web-app>
+
+request url
+------------
+	http://localhost:2525/JspApp8/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

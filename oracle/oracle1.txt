@@ -1,0 +1,402 @@
+Types of Data
+===============
+We have two types of data.
+
+1)Unstructured data
+
+2)Structured data
+
+1)Unstructured data
+------------------
+Data which is not in readable format is called unstructured data.
+In general, meaningless data is called unstructured data.
+ex:
+	302  Willoro   lakemba   syd    nsw
+
+2)Structured data
+----------------
+Data which is in readable format is called structured data.
+In general, meaningfull data is called structured data.
+ex:
+	unit  street   locality  city   state
+	----  ------   --------  ----  ------
+	302  Willoro   lakemba   syd    nsw
+
+Oracle
+=========
+Oracle is one of the database which is used to store structured data.
+
+Oracle is a product of oracle corporation.
+
+Oracle is divided into two types.
+
+				Oracle
+	|--------------------------|----------------------|	
+	SQL						PL/SQL
+(Structured Query Language)			(Procedural Language/Structured
+						Query Language)
+
+
+Client/Server architecture
+============================
+In this architecture we will see how our data will store from frontend to backend.
+
+Diagram: oracle1.1
+
+FrontEnd
+--------
+The one which is visible to the enduser to use the system is called frontend.
+ex:
+	Java,.Net,Python,Perl,D2K and etc.
+
+Communication Channel
+-------------------
+It acts like a bridge between frontend and backend.
+ex:
+	JDBC - Java Database connectivity
+	ODBC - Open Database connectivity
+	PDBC - Python Database connectivity.
+
+BackEnd
+--------
+The one which is not visible to the enduser but it performs some operations based on the instructions given by fontend is called backend.
+ex:
+	Oracle, MySQL, SQL server, PostgreSQL, mongodb and etc.
+
+
+
+Management system
+===================
+Management system is a software which is used to manage the database.
+
+Management system will perform following acitivities very easy.
+
+1)Adding a new data
+
+2)Modifying a existing data
+
+3)Deleting a unnecessary data
+
+4)Selecting a required data 
+
+DBMS
+==========
+A database along with software which is used to manage the database is called database management system.
+
+RDBMS
+========
+If a database is created based on relational theories such type of database is called relational database management.
+
+ex:
+	Oracle, MySQL, SQL server, PostgreSQL,sybase, teradata ,DB2 and etc
+
+
+SQL
+======
+SQL stands for structured query language which is pronounce as SEQUEL.
+
+This language is used to communicate with oracle database.
+
+It is a case insensitive language.
+
+It is a command based language.
+
+Every command must starts with verb.
+ex:
+	select,insert,update,delete and etc.
+
+Every command must and should ends with semicolon(;).	
+
+It is developed by Mr.Codd in 1972, by IBM.
+
+
+Sub languages of SQL
+=====================
+We have five sub languages of SQL.
+
+1)DDL (Data Definition Language)
+
+2)DML (Data Manipulation Language)
+
+3)DRL/DQL (Data Retrieve/Query Language)
+
+4)TCL (Transaction Control Language)
+
+5)DCL  (Data Control Language)
+
+
+1)DDL (Data Definition Language)
+-------------------------------
+It is used to maintain the objects in database.
+It is a collection of five commands.
+ex:
+	create,alter,drop,truncate and rename.
+
+
+2)DML (Data Manipulation Language)
+------------------------------------
+It is used to manipulate the data present in database.
+It is a collection of four commands.
+ex:
+	insert,update,delete,merge
+
+
+3)DRL/DQL (Data Retrieve/Query Language)
+------------------------------------
+It is used to retrieve the data present in database.
+It is a collection of one command.
+ex:
+	select 
+
+
+4)TCL (Transaction Control Language)
+--------------------------------
+This language is used to maintain the transaction of database.
+It is a collection of three commands.
+ex:
+	commit,rollback and savepoint.
+
+
+5)DCL  (Data Control Language)
+-----------------------------
+It is used to control the access of data to the user.
+It is a collection of two commands.
+ex:
+	grant and revoke .
+
+Oracle
+=======
+version		:	10g or 11g
+
+vendor		:	Oracle Corporation 
+
+Creator		:	Mr. Codd
+
+Open source	:	Open source
+
+software	:	Express Edition 
+
+website		:	www.oracle.com
+
+
+username	:    	system (default)
+
+password	:	admin 
+
+Download	:	
+
+https://drive.google.com/file/d/0B9rC21sL6v0td1NDZXpkUy1oMm8/view?usp=share_link&resourcekey=0-aKooR3NmAh_eLo_qGw_inA
+
+
+
+Establish the connection with database
+===================================
+If we want to perform any operation in a database we need to connect with the database.Once the work with database is completed then we need to disconnect  with database.
+
+ex:1
+-----
+SQL> connect 
+username :  system
+password :  admin 
+
+SQL> disconnect 
+
+
+ex:2
+-----
+SQL> conn
+username :  system
+password :  admin 
+
+SQL> disc 
+
+ex:3
+----
+SQL> conn  system/admin 
+SQL> disc 
+
+
+Q)What is table
+================
+Table is a an object which is used to represent the data.
+
+Table is a collection of rows and columns.
+
+ex:
+	-----------------------
+	SNO	| SNAME	| SADD
+	-----------------------
+	101	| Alan	| USA
+	-----------------------
+	102	| Jose	| UAE
+	-----------------------
+	103	| James	| UK
+	------------------------
+	Here we have four rows and 3 columns.
+
+Oracle is a case insensitive language.
+But data which we stored in a table is a case sensitive.
+
+
+create command
+================
+It is used to create a table in a database.
+
+syntax:
+	create table <table_name>(col1 datatype(size), col2 datatype(size),...,
+						colN datatype(size));
+
+ex:
+	create table student(sno number(3), sname varchar2(10),
+						sadd varchar2(12));
+
+	create table dept(deptno number(3), dname varchar2(10),
+						dloc varchar2(12));
+
+
+	create table emp(eid number(3),ename varchar2(10),esal number(10,2),
+			  deptno number(3),job varchar2(10),comm number(5));
+
+
+
+Describe command
+================
+It is used to see the structure of the table.
+syntax:
+	desc <table_name>;
+ex:
+	desc emp;
+	desc student;
+	desc dept;
+
+
+
+insert command
+================
+It is used to insert the records in a database table.
+
+syntax:
+	insert into <table_name> values(val1,val2,..,valN);
+ex:
+	insert into student values(101,raja,hyd); //invalid
+
+	insert into student values(101,'raja','hyd');
+
+	insert into student values('ravi',102,'delhi');// invalid 
+
+	insert into student values(102,'ravi');// invalid 
+
+
+null
+-------
+	null is used to represent undefined or unavailable.
+	ex:
+
+	insert into student values(102,'ravi',null);
+
+approach2
+--------
+	insert into student(sno,sname,sadd) values(103,'ramana','vizag');
+
+	insert into student(sno,sadd) values(104,'pune');
+
+approach3
+---------
+	Using '&' symbol we can read dynamic inputs.
+
+	insert into student values(&sno,'&sname','&sadd');
+
+
+commit command
+=================
+It is used to make the changes permanent to database.
+ex:
+	commit;
+
+
+dept table
+==========
+create table dept(deptno number(3), 
+		     dname varchar2(10),
+			dloc varchar2(12));
+
+insert into dept values(10,'ECE','HYD');
+insert into dept values(20,'EEE','PUNE');
+insert into dept values(30,'MEC','DELHI');
+insert into dept values(40,'CSE','CHENNAI');
+commit;
+
+
+emp table
+===========
+create table emp(eid number(3),ename varchar2(10),esal number(10,2),
+			  deptno number(3),job varchar2(10),comm number(5));
+
+insert into emp values(201,'Alan',9000,10,'Clerk',null);
+insert into emp values(202,'Linda',18000,10,'Clerk',100);
+
+insert into emp values(203,'Jose',29000,20,'HR',200);
+insert into emp values(204,'Kelvin',34000,20,'HR',500);
+
+insert into emp values(205,'Lisa',19000,30,'Manager',500);
+insert into emp values(206,'Mark',17000,30,'Manager',900);
+
+commit;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

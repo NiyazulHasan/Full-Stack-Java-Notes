@@ -1,0 +1,705 @@
+State
+=======
+State is similar to props but it is a private and fully controlled by 
+the component.
+
+we can create a state only in class component but not in functional 
+component.
+
+It is possible to update the state or modify the state , where as props 
+only for read only.
+
+There are two ways to initialize the state in React component.
+
+1)Directly inside class
+
+2)Inside the Constructor
+
+
+1)Directly inside class
+==========================
+class Student extends Component
+{
+	//define state
+	state={
+		name: "Anna Julie",
+		prop1: this.props.prop1
+	}	
+	render()
+	{
+		-
+	}
+}
+Note:
+-------
+	The "state" property is refered as state.
+	"this" is a class instance property
+
+example
+---------
+
+Project  structure
+--------------------
+myapp5
+|
+|------node-modules
+|
+|------public
+|	|
+|	|------favicon.ico
+|	|------index.html 
+|	|------manifest.json
+|
+|------src
+	|
+	|------index.js
+	|------App.js 
+|
+|------package.json
+|------README.md
+
+step1:
+------
+	Develop React Application.
+	ex:
+	E:/ReactProjects>npx create-react-app  myapp5
+
+step2:
+-----
+	Open VSC editor from Reactprojects.
+	ex:
+		E:/Reactprojects>code . 
+
+step3:
+------
+	Install "ES7 React " Plugin/Extension from Visual Studio Code
+	for shortcuts to create React Applications.
+	ex:
+	imr +tab 
+	imrc + tab
+	imrd + tab
+	imp + tab
+	rcc - class component
+	rcfe - named function component 
+	rafce - anonymous function component 
+	conlg+ tab
+
+step4:
+----
+	Add below code inside  "App.js" file.
+	
+App.js
+---------
+import React, { Component } from 'react'
+
+export default class App extends Component {
+		state={
+			name:"Alan"
+		}
+  render() {
+	return (
+	  <h1>Hello {this.state.name}</h1>
+	)
+  }
+}
+
+
+step:5
+--------
+	create "index.js" file to render the output to index.html file.
+	(imr, imrd , imp )
+index.js
+---------
+
+import App from './App';
+import ReactDOM from 'react-dom/client';
+import React from 'react';
+
+const root=ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+      <React.StrictMode>
+             <App />
+      </React.StrictMode>
+)
+
+step6:
+-----
+	move to myapp5
+	ex:
+		E:/BUI-2pm/ReactProjects> cd myapp5
+
+step7:
+-----
+	Run the application.
+	ex:
+		DE:/BUI-2pm/ReactProjects/myapp5>npm start
+
+step8:
+-------
+	Test the React Application.
+	ex:
+		http://localhost:3000
+
+
+ex:2
+---------
+
+App.js
+-----------
+import React, { Component } from 'react'
+
+export default class App extends Component {
+		state={
+			name:"Alan",
+			roll:this.props.rollno
+		}
+  render() {
+	return (
+	  <div>
+		<h1>Name: {this.state.name}</h1>
+		<h1>RollNo: {this.state.roll}</h1>
+	   </div>
+	)
+  }
+}
+
+
+index.js
+----------
+
+import App from './App';
+import ReactDOM from 'react-dom/client';
+import React from 'react';
+
+const root=ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+      <React.StrictMode>
+             <App rollno={501} />
+      </React.StrictMode>
+)
+
+
+Note:
+-----
+	Here props property we are storing into a state.
+
+
+
+
+
+2)Inside the Constructor
+=======================
+
+class App extends Component
+{
+	//constructor
+	//props is optional
+	constructor(props)
+	{
+		//it is required to call the parent class constructor
+		super(props);
+
+		//state
+		this.state={
+			name:"alan",
+			prop1: this.props.prop1
+		}
+	}
+	render()
+	{
+		-
+	}
+}
+
+When the component class is created,The constructor is the first called 
+so it is right place to add state.
+
+The class instance has already been created in memory .So we can use 
+"this" to set properties on it.
+
+When we write a constructor ,make sure to call parent class constructor 
+by using super(props) keyword.
+
+When we call super with props ,React will make props avaiable accross/access
+the component through this.props.
+
+
+Project  structure
+--------------------
+myapp6
+|
+|------node-modules
+|
+|------public
+|	|
+|	|------favicon.ico
+|	|------index.html 
+|	|------manifest.json
+|
+|------src
+	|
+	|------index.js
+	|------App.js 
+|
+|------package.json
+|------README.md
+
+step1:
+------
+	Develop React Application.
+	ex:
+	E:/BUI-2pm/ReactProjects>create-react-app  myapp6
+
+step2:
+------
+	Delete all starting 6 files from src folder.
+
+step3:
+------
+	create a "App.js" file in "src " folder (rcc).
+	
+Student.js
+---------
+import React, { Component } from 'react'
+
+export default class App extends Component {
+		
+	constructor()
+	{
+		super();
+
+		this.state={
+			name: "Alan",
+			roll: 101
+		}
+	}
+  render() {
+	return (
+	  <div>
+		<h1>Name: {this.state.name}</h1>
+		<h1>RollNo: {this.state.roll}</h1>
+	   </div>
+	)
+  }
+}
+
+
+
+step:4
+--------
+	create "index.js" file to render the output to index.html file.
+	(imr, imrd , imp )
+index.js
+---------
+
+import App from './App';
+import ReactDOM from 'react-dom/client';
+import React from 'react';
+
+const root=ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+      <React.StrictMode>
+             <App />
+      </React.StrictMode>
+)
+
+
+step5:
+-----
+	move to myapp6
+	ex:
+		E:/BUI-2pm/ReactProjects> cd myapp6
+
+step6:
+-----
+	Run the application.
+	ex:
+		DE:/BUI-2pm/ReactProjects/myapp6>npm start
+
+step7:
+-------
+	Test the React Application.
+	ex:
+		http://localhost:3000
+
+ex:2
+---------
+
+App.js
+---------
+import React, { Component } from 'react'
+
+export default class App extends Component {
+		
+	constructor(props)
+	{
+		super(props);
+
+		this.state={
+			name: "Alan",
+			roll: this.props.rollno
+		}
+	}
+  render() {
+	return (
+	  <div>
+		<h1>Name: {this.state.name}</h1>
+		<h1>RollNo: {this.state.roll}</h1>
+	   </div>
+	)
+  }
+}
+
+index.js
+----------
+import App from './App';
+import ReactDOM from 'react-dom/client';
+import React from 'react';
+
+const root=ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+      <React.StrictMode>
+             <App rollno={501} />
+      </React.StrictMode>
+     
+
+)
+
+
+
+Q)Differences between ReactJS and React Native ?
+
+ReactJS						React Native
+==========					==============
+The ReactJS initial release was in 2013.	The React Native initial release was in 2015.
+
+It is used for developing web applications.	It is used for developing mobile 
+						applications.
+
+It can be executed on all platforms.		It is not platform independent.It takes more 
+						efforts to be executed on all platforms.
+
+It uses a JavaScript library and CSS for	It comes with built-in animation libraries.
+animations.
+
+It uses React-router for navigating web pages.	It has built-in Navigator library for 
+						navigating mobile applications.
+
+It uses HTML tags.				It does not use HTML tags.
+
+It provides high security.			It provides low security in comparison to 
+						ReactJS.
+
+In this, the Virtual DOM renders the browser	In this, Native uses its API to render 
+applications.					code for mobile code.
+						
+
+
+Event Handling in React
+==========================
+Event 
+------
+Action to which a javascript can respond is called event.
+ex:
+	clicking on button
+	hovering of an element
+	and etc.
+
+Handling events on react Elements are same like handling events on DOM elements.
+
+ex:
+
+Javascript
+-----------
+
+	<button  onclick="f1()">clickMe</button
+
+React
+------
+	<button onClick={handleClick}>clickMe</button>  --> Function component 
+
+	<button onClick={this.handleClick}>clickMe</button>  --> Class component 
+
+
+
+
+Eventing Handling using Function component
+===========================================
+
+Project structure
+-------------------
+myapp7
+|
+|----node_modules
+|
+|----public 
+	|
+	|---index.html
+	|---favicon.ico
+	|---manifest.json
+
+|
+|-----src
+|	|
+	|---index.js 
+	|---index.css	
+
+	|
+	|---App.js
+	|---App.css
+	|---App.test.js
+|
+|----package.json
+|
+
+step1:
+-----
+	create a react project/application.
+	ex:
+		ReactProjects> create-react-app  myapp7
+
+step2:
+----
+	Starts VSC code editor.
+	ex:
+		ReactProjects> code . 
+
+step3:
+-----
+	Move to the project.
+	ex:
+		ReactProjects> cd myapp7
+
+
+step4:
+-----
+	Run the react application/project.
+	ex:
+		ReactProjects/myapp7> npm start 
+
+
+ex:1
+----
+App.js
+-----
+function App()
+{
+
+   function handleClick()
+   {
+      console.log("Button is clicked");
+   }
+
+
+  return (
+      <button onClick={handleClick}>clickMe</button>
+  )
+}
+export default App;
+
+
+ex:2
+-----
+
+App.js
+------
+function App()
+{
+
+   const handleClick=()=>
+   {
+      console.log("Button is clicked");
+   }
+
+
+  return (
+      <button onClick={handleClick}>clickMe</button>
+  )
+}
+export default App;
+
+ex:3
+------
+
+App.js
+------
+function App()
+{
+
+   const handleClick=()=>
+   {
+      console.log("Link is clicked");
+   }
+
+
+  return (
+     <a href="http://www.google.com" onClick={handleClick}> clickMe </a>
+  )
+}
+export default App;
+
+
+ex:4
+-----
+App.js
+--------
+function App()
+{
+
+   const handleClick=(e)=>
+   {
+      e.preventDefault();
+      console.log("Link is clicked");
+   }
+
+
+  return (
+     <a href="http://www.google.com" onClick={handleClick}> clickMe </a>
+  )
+}
+export default App;
+
+
+
+Eventing Handling using class component
+===========================================
+
+Project structure
+-------------------
+myapp8
+|
+|----node_modules
+|
+|----public 
+	|
+	|---index.html
+	|---favicon.ico
+	|---manifest.json
+
+|
+|-----src
+|	|
+	|---index.js 
+	|---index.css	
+
+	|
+	|---App.js
+	|---App.css
+	|---App.test.js
+|
+|----package.json
+|
+
+
+step1:
+-----
+	create a react project/application.
+	ex:
+		ReactProjects> create-react-app  myapp8
+
+step2:
+----
+	Starts VSC code editor.
+	ex:
+		ReactProjects> code . 
+
+step3:
+-----
+	Move to the project.
+	ex:
+		ReactProjects> cd myapp8
+
+
+step4:
+-----
+	Run the react application/project.
+	ex:
+		ReactProjects/myapp8> npm start 
+
+
+ex:1
+-----
+App.js
+-------
+import {Component} from "react";
+export default class App extends Component
+{
+
+
+    handleClick=()=>
+    {
+        console.log("Button is clicked",this);
+    }
+
+    render()
+    {
+        return(
+          <button  onClick={this.handleClick}>clickMe</button>
+        )
+    }
+}
+
+index.js
+--------
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+
+
+
+
+update state
+==============
+Using setState() method is used to update states.
+
+ex:
+this.state={
+	name:"Alan"
+}
+
+this.setState({name:"Kelvin"});
+
+ex:1
+----
+App.js
+-------
+import {Component} from "react";
+export default class App extends Component
+{
+      state={
+          name : "Nancy",
+          rollno: 101
+      }
+
+      handleClick=()=>
+      {
+        this.setState({name:"Lisa",rollno:501});
+      }
+    render()
+    {
+        return(
+          <>
+             <h1>Name : {this.state.name}</h1>
+             <h1>RollNo : {this.state.rollno}</h1>
+
+             <button  onClick={this.handleClick}>Change state</button>
+          </>
+        )
+    }
+}
+

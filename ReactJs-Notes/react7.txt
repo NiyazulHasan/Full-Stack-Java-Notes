@@ -1,0 +1,358 @@
+Bootstrap in React
+=================
+A Single-page applications gaining popularity over the last few years, so many front-end frameworks have introduced such as Angular, Vue, Ember, etc. As a result, jQuery is not a necessary requirement for building web apps. 
+
+Currently, React is mostly used JavaScript library for building web applications, and Bootstrap become the most popular CSS framework. 
+
+Let see how to use bootstrap in react applications.
+
+
+Project structure
+-------------------
+myapp13
+|
+|----node_modules
+|
+|----public
+	|
+	|---favicon.ico
+	|---index.html
+	|---manifest.json
+|
+|------src
+|	|
+	|---index.js
+	|	
+|	|---App.js
+|
+|------package.json
+|
+|------README.md
+
+step1:
+-----
+	create  a react project i.e myapp13.
+	ex:
+		Reactprojects> npx create-react-app myapp13	
+
+step2:
+------
+	Open the VSC code editor.
+	ex:
+		Reactprojects> code . 
+
+step3:
+-----
+	Move/Switch to myapp13 project.
+	ex:
+		Reactprojects> cd myapp13
+
+step4:
+-------
+	Install Bootstrap package.
+	ex:
+		Reactprojects/myapp13> npm install bootstrap
+
+
+step5:
+-------
+	Run the react application.
+	ex:
+		Reactprojecs/myapp13> npm start 		
+
+
+step6:
+-----
+	Create a App.js file inside "src" folder.
+
+App.js
+-------
+function App()
+{
+  return(
+      <div className="container mt-5">
+          <button className="btn btn-outline-primary">clickMe</button>
+      </div>
+  )
+}
+export default App;
+
+step7:
+------
+	Import bootstrap package inside "index.js" file.
+
+index.js
+---------
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+reportWebVitals();
+
+step8:
+------
+	Test the application by using below request url.
+	ex:
+		http://localhost:3000
+
+
+
+React Forms
+===============
+Forms are an integral part of any modern web application.
+
+It allows the users to interact with the application as well as gather information from the users. 
+
+Forms can perform many tasks that depend on the nature of your business requirements and logic such as authentication of the user, adding user, searching, filtering, booking, ordering, etc.
+
+A form can contain text fields, buttons, checkbox, radio button, etc.
+
+
+Creating Form
+------------
+React offers a stateful, reactive approach to build a form. 
+
+The component rather than the DOM usually handles the React form.
+
+In React, the form is usually implemented by using controlled components.
+
+
+Controlled component
+------------------------
+In the controlled component, the input form element is handled by the component rather than the DOM. Here, the mutable state is kept in the state property and will be updated only with setState() method.
+
+Controlled components have functions that govern the data passing into them on every onChange event, rather than grabbing the data only once, e.g., when you click a submit button.This data is then 
+saved to state and updated with setState() method. This makes component have better control over the form elements and data.
+
+Project structure
+------------------
+myapp14
+|
+|----node_modules
+|
+|----public
+	|
+	|---favicon.ico
+	|---index.html
+	|---manifest.json
+
+|------src
+	|
+	|---index.js
+	|
+	|---App.js
+
+|
+|-------package.json
+|
+|-------README.md
+
+step1:
+------
+	create a react project i.e myapp14.
+	ex:
+		Reactprojects> npx create-react-app myapp14
+
+
+step2:
+-------
+	Open the VSC code Editor.
+	ex:
+		Reactprojects> code .
+
+step3:
+-----
+	Switch/Move to myapp14  project.
+	ex:
+		Reactprojects> cd  myapp14
+
+
+step4:
+------
+	Install bootstrap package.
+	ex:
+		Reactprojects/myapp14> npm install bootstrap
+
+step5:
+------
+	Run the react application.
+	ex:
+		Reactprojects/myapp14> npm start 
+
+step6:
+-------
+	Import Bootstrap package inside "index.js" file.
+
+index.js
+---------
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+step7:
+------
+	Create App.js file inside "src" folder.
+
+App.js
+-----
+import {useState} from 'react';
+function App()
+{
+  const [userRegistration,setUserRegistration]=useState({
+    username:"",
+    password:"",
+    date:"",
+    category:""
+})
+
+const handleClick=(e)=>
+{
+  const name=e.target.name;
+  const value=e.target.value;
+  //set to state
+  setUserRegistration({... userRegistration,[name]:value});
+}
+
+const handleSubmit=(e)=>
+{
+    e.preventDefault();
+    setUserRegistration({username:"",password:"",date:"",category:""});
+}
+
+
+  return(
+
+    <div className="container mt-4">
+        
+       <form onSubmit={handleSubmit}>
+       <div className="row w-50">
+       <h1 className="text-center" ><u>React Form </u></h1>
+        <label htmlFor="username" className="my-3">UserName:</label>
+        <input type="text" name="username" autocomplete="off" 
+              className="form-control"
+              value={userRegistration.username}
+              onChange={handleClick}/>
+    
+        <label htmlFor="password" className="my-3">Password:</label>
+        <input type="password" name="password" autocomplete="off" 
+               className="form-control"
+               value={userRegistration.password}
+               onChange={handleClick}/>
+    
+        <label htmlFor="date" className="my-3">Date:</label>
+        <input type="date" name="date" autocomplete="off" 
+               className="form-control"
+               value={userRegistration.date}
+               onChange={handleClick}/>
+    
+        <label htmlFor="category" className="my-3">Category</label>
+        <select name="category" className="form-control"
+                value={userRegistration.category}
+                onChange={handleClick}>
+            <option value="">none</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="drama">Drama</option>
+            <option value="action">Action</option>
+        </select>
+
+        <button className="btn btn-primary mt-4 w-100"> submit </button>
+        </div> 
+
+        </form> 
+    </div>    
+
+  )
+
+}
+export default App;
+
+step8:
+------
+	Test the application by using below request url.
+	ex:
+		http://localhost:3000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

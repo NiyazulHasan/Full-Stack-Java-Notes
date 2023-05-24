@@ -1,0 +1,374 @@
+Constructor Overloading
+========================
+Having same constructor name with difference parameters in a single class is called constructor overloading.
+
+ex:
+
+class A
+{
+	A()
+	{
+		System.out.println("0-arg const");
+	}
+	A(int i)
+	{
+		System.out.println("int-arg const");
+	}
+	A(double d)
+	{
+		System.out.println("double-arg const");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		A a1=new A();
+		A a2=new A(10);
+		A a3=new A(10.5d);
+	}
+}
+
+this keyword
+================
+A "this" keyword is a java keyword which is used to refer current class object reference.
+
+We can utility this keyword in following ways.
+
+i)To refer current class variables
+
+ii)To refer current class methods
+
+iii)To refer current class constructors 
+
+
+i)To refer current class variables
+------------------------------------
+class A
+{
+	int i=10;
+	int j=20;
+	A(int i,int j)
+	{
+		System.out.println(i+" "+j); //100 200
+		System.out.println(this.i+" "+this.j); //10 20
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		A a=new A(100,200);
+	}
+}
+
+ii)To refer current class methods
+-----------------------------------
+class A
+{
+	public void m1()
+	{
+		System.out.println("M1 Method");
+	}
+	public void m2()
+	{
+		this.m1();
+		System.out.println("M2 Method");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		A a=new A();
+		a.m2();
+	}
+}
+
+iii)To refer current class constructors 
+-----------------------------------------
+class A
+{
+	A()
+	{
+		System.out.println("0-arg const");
+	}
+	A(int i)
+	{
+		this();
+		System.out.println("int-arg const");
+	}
+	A(double d)
+	{
+		this(10);
+		System.out.println("double-arg connst");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		new A(10.5d);
+	}
+}
+
+super keyword
+================
+A "super" keyword is a java keyword which is used to refer super class object reference.
+
+We can utility super keyword in following ways.
+
+i)To refer super class variables
+
+ii)To refer super class methods
+
+iii)To refer super class constructors 
+
+i)To refer super class variables
+--------------------------------
+class A
+{
+	int i=10;
+	int j=20;
+}
+class B extends A
+{
+	int i=100;
+	int j=200;
+	B(int i,int j)
+	{
+		System.out.println(this.i+" "+this.j);//100 200
+		System.out.println(super.i+" "+super.j);//10  20
+		System.out.println(i+" "+j); // 1000 2000
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		B b=new B(1000,2000);
+	}
+}
+
+ii)To refer super class methods
+------------------------------------
+class A
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class B extends A
+{
+	public void m2()
+	{
+		super.m1();
+		System.out.println("M2-Method");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		B b=new B();
+		b.m2();
+	}
+}
+
+iii)To refer super class constructors 
+----------------------------------------
+class A
+{
+	A()
+	{
+		System.out.println("A-const");
+	}
+}
+class B extends A
+{
+	B()
+	{
+		super();
+		System.out.println("B-const");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		B b=new B();
+		
+	}
+}
+
+API
+=====
+API stands for application programming interface.
+
+It is a base for the programmer to develop software applications.
+
+API is a collection of packages.
+
+We have three types of API's.
+
+1)Predefined API
+---------------
+	Built-In API is called predefined API.
+
+2)Userdefined API
+-----------------
+	API which is created by the user based on the requirement is called 
+	userdefined API.
+
+3)Third party API 
+----------------
+	API which is given by third party vendor.
+	ex:
+		JAVAZOOM API 
+		IText API 
+		and etc.
+
+Package
+===========
+Package is a collection of classes, interfaces, enums ,Annotations, Exceptions and Errors.
+
+Enum,Exception and Error is a special class and Annotation is a special interface.
+
+In general, a package is a collection of classes and interfaces.
+
+Package is also known as folder or a directory.
+
+In java, packages are divided into two types.
+
+All package names we need to declare under lower case letters only.
+
+
+1)Predefined packages
+-------------------
+	Built-In packages are called predefined packages.
+	ex:
+		java.lang
+		java.io
+		java.util
+		java.util.stream
+		java.text
+		java.time
+		java.sql
+		javax.servlet
+		javax.servlet.http 
+		and etc.
+
+2)Userdefined packages 
+------------------------
+Packages which are created by ther user are called userdefined packages.
+
+It is highly recommanded to use package name in the reverse order of url.
+
+ex:
+		com.ihubtalent.www
+
+We can declare a package as follow.
+
+syntax:
+--------
+	package  <package_name>;
+
+
+ex:
+------
+package com.ihubtalent.www;
+import java.util.Calendar;
+class Test
+{
+	public static void main(String[] args)
+	{
+		Calendar c=Calendar.getInstance();
+		int h=c.get(Calendar.HOUR_OF_DAY);
+		if(h<12)
+			System.out.println("Good Morning");
+		else if(h<16)
+			System.out.println("Good Afternoon");
+		else if(h<20)
+			System.out.println("Good Evening");
+		else
+			System.out.println("Good Night");
+	}
+}
+We can compile above program by using below command.
+ex:
+
+			current directory
+			       |	
+	javaprog> javac   -d   .   Test.java
+			  |
+			destination folder 
+	
+
+We can run above program by using below command.
+ex:
+	javaprog> java   com.ihubtalent.www.Test
+				|
+				package name 
+
+
+ex:2
+------
+A.java
+------
+package ihub;
+public class A 
+{
+	public void getDetails()
+	{
+		System.out.println("IHUB TALENT MANAGEMENT");
+	}
+}
+
+
+Test.java
+---------
+import ihub.A;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		A a=new A();
+		a.getDetails();
+	}
+}
+
+o/p:
+	javac  -d  . A.java
+	javac   Test.java
+	java   Test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

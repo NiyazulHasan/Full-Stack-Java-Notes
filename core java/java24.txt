@@ -1,0 +1,508 @@
+Pyramid LOOP PATTERNS
+===================
+1)
+      1
+    1 2 1
+  1 2 3 2 1
+1 2 3 4 3 2 1
+
+ex:
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			//left side elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(j+" ");
+			}
+			//right side elements
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print(j+" ");
+			}
+
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+2)
+1 2 3 4 3 2 1
+  1 2 3 2 1 
+    1 2 1 
+      1
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=4;i>=1;i--)
+		{
+			//space
+			for(int j=4;j>i;j--)         
+			{                             
+				System.out.print("  ");
+			}
+			//left side elements
+			for(int j=1;j<=i;j++)  
+			{
+				System.out.print(j+" ");
+			}
+			//right side elements
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print(j+" ");
+			}
+
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+
+3)
+      A
+    A B A 
+  A B C B A 
+A B C D C B A 
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(char i='A';i<='D';i++)
+		{
+			//space
+			for(char j='D';j>i;j--)         
+			{                             
+				System.out.print("  ");
+			}
+			//left side elements
+			for(char j='A';j<=i;j++)  
+			{
+				System.out.print(j+" ");
+			}
+			//right side elements
+			for(char j=(char)(i-1);j>='A';j--)
+			{
+				System.out.print(j+" ");
+			}
+
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+4)
+      * 
+    * * * 
+  * * * * *
+* * * * * * * 
+
+ex:
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			//left side elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//right side elements
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print("* ");
+			}
+
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+
+4)Jump statements
+=====================
+Jump statement is used to jump from one section of code to another section.
+
+We have following jump statements in java.
+
+1)break stmt
+
+2)continue stmt 
+
+
+1)break stmt
+--------------
+It is used to break the execution of loops and switch case.
+
+For conditional statements we can use if condition.
+
+syntax:
+	break stmt;
+
+ex:1
+-----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		break;
+		System.out.println("stmt2");
+	}
+}
+o/p: loop outside of switch or loop.
+
+ex:2
+-----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(!false)
+		{
+			break;
+		}
+		System.out.println("stmt2");
+	}
+}
+o/p: loop outside of switch or loop.
+
+ex:3
+--------
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=10;i++)
+		{
+			if(i==5)
+			{
+				break;
+			}
+			System.out.print(i+" ");// 1 2 3 4 
+		}
+	}
+}
+
+2)continue stmt 
+------------------
+It is used to continue the execution of loops.
+
+For conditional statements we can use if condition.
+
+syntax:
+	continue stmt;
+
+
+ex:1
+----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		continue;
+		System.out.println("stmt2");
+	}
+}
+
+o/p: continue outside of loop
+
+ex:2
+-----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(!false)
+		{
+			continue;
+		}
+		System.out.println("stmt2");
+	}
+}
+
+o/p: C.T.E  continue outside of loop
+
+
+ex:3
+-----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=10;i++)
+		{
+			if(i==5)
+			{
+				continue;
+			}
+			System.out.print(i+" ");//1 2 3 4 6 7 8 9 10
+		}
+	}
+}
+
+Interview Question
+==================
+Q)Write a java program to display reverse of a given number in words?
+
+Input:
+	123
+
+Output:
+	ThreeTwoOne
+
+ex:
+--
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();//123
+
+		int rem;
+		while(n!=0)
+		{
+			rem=n%10;
+			switch(rem)
+			{
+				case 0: System.out.print("Zero");break;
+				case 1: System.out.print("One");break;
+				case 2: System.out.print("Two");break;
+				case 3: System.out.print("Three");break;
+				case 4: System.out.print("Four");break;
+				case 5: System.out.print("Five");break;
+				case 6: System.out.print("Six");break;
+				case 7: System.out.print("Seven");break;
+				case 8: System.out.print("Eight");break;
+				case 9: System.out.print("Nine");break;
+			}
+			n=n/10;
+		}
+	}
+}
+
+Approach2
+-------------
+import java.util.Scanner;
+class Test 
+{
+	public static String getReverse(int n)
+	{
+
+		int rem;
+		
+		String str="";
+
+		while(n!=0)
+		{
+			rem=n%10;
+			switch(rem)
+			{
+				case 0: str+="Zero";break;
+				case 1: str+="One";break;
+				case 2: str+="Two";break;
+				case 3: str+="Three";break;
+				case 4: str+="Four";break;
+				case 5: str+="Five";break;
+				case 6: str+="Six";break;
+				case 7: str+="Seven";break;
+				case 8: str+="Eight";break;
+				case 9: str+="Nine";break;
+			}
+			n=n/10;
+		}
+
+			return str;
+	}
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();
+
+		System.out.println(getReverse(n));
+	}
+	
+}
+
+Arrays
+===========
+In a normal variable we can store only one value at a time.
+
+To store more then one value in a single variable then we need to use arrays.
+
+Definition
+-------------
+Array is a collection of homogeneous data elements.
+
+The main advantages of array are.
+
+1)We can represent multiple elements using single variable name.
+  ex:
+	int[] arr={10,20,30};	
+
+2)Performance point of view array is recommanded to use.
+
+The main disadvantages of array are.
+
+1)Arrays are fixed in size.Once if we create an array there is no chance of increasing and decreasing the size of an array.
+
+2)To use array concept in advanced we should know what is the size of an array which is always not possible.
+
+In java, arrays are categorised into three types.
+
+1)Single Dimensional Array
+
+2)Two Dimensional Array / Double Dimensional Array 
+
+3)Multi-Dimensional Array / Three Dimensional Array
+
+
+Array Declaration
+=================
+At the time of array declaration , we should not specify array size.
+
+				Array
+
+	|-------------------------|---------------------------|
+Single Dimensional Array  Double Dimensional Array  Multi-Dimensional Array
+
+	int[]  arr;		int[][] arr;		int[][][] arr;	
+	int   []arr;		int  [][]arr;		int [][][]arr;
+	int   arr[];		int   arr[][];		int  arr[][][];
+				int[]  arr[];		int[][]  []arr;
+				int[]   []arr;		int[][]  arr[];
+				int  []arr[];		int[]   [][]arr;
+							int[]   arr[][];
+							int[]  []arr[];
+							int   [][]arr[];
+							int   []arr[][];
+
+
+Array Creation
+=================
+In java every array consider as an object.Hence we will use new operator to create an array.
+ex:
+	int[]  arr=new int[3];
+
+Diagram: java24.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		

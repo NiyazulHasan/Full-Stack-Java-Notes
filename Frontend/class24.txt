@@ -1,0 +1,1170 @@
+BOOTSTRAP
+=================================
+Bootstrap is a most popular HTML,CSS and JAvaScript opensource framework
+developed by Twitter for creating web application.
+
+It is absolutely free to download and use.
+
+Bootstrap is a front-End framework used for easier and faster web application development.
+
+It includes HTML and css based design templates for typography(arranging the
+text),forms,buttons , tables , navigations and etc.
+
+It can also have JavaScript Plug-In's.
+
+Bootstrap is developed by Mark Otto and Jacob Thornton at Twitter.
+
+It was release an open source product in August 2011 on GitHUB.
+
+Bootstrap 4 version was introduced in 2015 by Mark Otto.
+
+Bootstrap 5 the latest version was officially released on May 5, 2021.
+
+
+
+
+Advantages of Bootstrap
+==========================
+
+1)It supports Responsive web design
+--------------------------------------
+Responsive web design is about using HTML and CSS to automatically resize,
+hide,shrink or enlarge  a website to make it look good on all devices like
+pc, desktop,phone,tab and etc.
+
+
+
+
+2)It saves lot of development time
+-----------------------------------
+In bootstrap we are not responsible to write the code from the scratch.
+
+Bootstrap provides readymade classes to customized our application requirement.
+<html>
+-------
+<p>
+	<font color="red">
+		This is Paragraph
+	</font>
+</p>
+
+CSS
+----
+<p style="color:red">This is Paragraph</p>
+
+bootstrap
+---------
+<p class="text-primary">This is paragraph</p>
+
+
+3)consistent Framework
+-------------------------
+It supports major all browsers and css compatability fixes.
+
+
+4)Customizable
+-----------------
+Bootstrap is higly customizable based on the requirement we download and 
+use.
+
+ex:
+	http://getbootstrap.com/docs/3.4/customize	
+	
+5)Good Documentation and Community support
+------------------------------------------
+Documentation is a specification having set of rules and guidelines to use 
+bootstrap.
+
+ex:
+	http://getbootstrap.com/docs/4.5/getting-started/introduction/
+
+6)It supports great Grid System
+-------------------------------
+Grid system builds layouts of all shapes and sizes in a web page.
+
+
+
+7)Supports serveral javascript plugins using the jquery.
+---------------------------------------------------------
+Both "boostrap.min.js" and "bootstrap.js" contains all javascript plugins.
+
+
+
+In Bootstrap program we need to add following plugins to work online
+---------------------------------------------------------------------
+
+link : https://getbootstrap.com/docs/5.0/getting-started/introduction/
+----
+
+ex:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+</body>
+</html>
+
+
+Bootsrap colors
+===================
+By using utility classes change the color of a text.
+
+ex:1:
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</head>
+<body>
+		<p class="text-primary"> primary text</p>
+		<p class="text-secondary"> Secondary text</p>
+		<p class="text-info">Info text</p>
+		<p class="text-warning">Warning text </p>
+		<p class="text-success">success text</p>
+		<p class="text-danger">danger text</p>
+		<p class="text-white">white text</p>
+		<p class="text-dark">dark text</p>
+</body>
+</html>
+
+
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+	<style>
+		.text-violet
+		{
+			color:#8e44ad;
+		}	
+	</style>
+</head>
+<body>
+		<p class="text-primary">primary text</p>
+		<p class="text-secondary"> Secondary text</p>
+		<p class="text-info">Info text</p>
+		<p class="text-warning">Warning text </p>
+		<p class="text-success">success text</p>
+		<p class="text-danger">danger text</p>
+		<p class="text-white">white text</p>
+		<p class="text-dark">dark text</p>
+		<p class="text-violet">violet text</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+Bootstrap background colors
+=============================
+In bootstrap background color can be applied to any element/tag.
+
+ex:1
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</head>
+<body>
+		<p class="bg-info text-primary">primary text</p>
+		<p class="bg-danger text-secondary"> Secondary text</p>
+		<p class="bg-primary text-info">Info text</p>
+		<p class="bg-secondary text-warning">Warning text </p>
+		<p class="bg-warning text-success">success text</p>
+		<p class="bg-success text-danger">danger text</p>
+		<p class="bg-dark text-white">white text</p>
+		<p class="bg-white text-dark">dark text</p>
+		
+</body>
+</html>
+
+
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+	<style>
+		.bg-violet
+		{
+			background-color:#8e44ad;
+		}	
+	</style>
+</head>
+<body>
+		<p class="bg-info text-primary">primary text</p>
+		<p class="bg-danger text-secondary"> Secondary text</p>
+		<p class="bg-primary text-info">Info text</p>
+		<p class="bg-secondary text-warning">Warning text </p>
+		<p class="bg-warning text-success">success text</p>
+		<p class="bg-success text-danger">danger text</p>
+		<p class="bg-dark text-white">white text</p>
+		<p class="bg-white text-dark">dark text</p>
+		<p class="bg-violet">This is violet text</p>
+</body>
+</html>
+
+
+
+
+
+
+
+Bootstrap boders
+===================
+Border utility is used to change quickly the border-style and border-radius
+of an element.
+
+It is mainly used for images, buttons  and etc.
+
+we can use border classes to an element to remove all borders or 
+add some borders.
+
+ex:1
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+	
+</head>
+<body>
+		<span class="border"> All Borders</span>
+		<span class="border-top"> Top Border</span>
+		<span class="border-start"> start Border</span>
+		<span class="border-bottom"> bottom Border</span>
+		<span class="border-end"> end Border</span>
+</body>
+</html>
+
+
+ex:2
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+	
+</head>
+<body>
+		<br>
+
+		<span class="border border-primary"> All Borders</span>
+		<span class="border-top border-secondary"> Top Border</span>
+		<span class="border-start border-danger"> start Border</span>
+		<span class="border-bottom border-info"> bottom Border</span>
+		<span class="border-end border-warning"> end Border</span>
+</body>
+</html>
+
+
+
+
+
+Bootstrap border radius
+===================
+Add classes to an element to easily rounds its corners.
+
+ex:
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+	
+</head>
+<body>
+		<br>
+
+		<img class="border border-danger rounded"src="images/rock.png" width="100px" height="100px"/>
+
+		<img class="border border-danger rounded-top"src="images/rock.png" width="100px" height="100px"/>
+
+		<img class="border border-danger rounded-bottom"src="images/rock.png" width="100px" height="100px"/>
+
+		<img class="border border-danger rounded-start"src="images/rock.png" width="100px" height="100px"/>
+
+		<img class="border border-danger rounded-end"src="images/rock.png" width="100px" height="100px"/>
+</body>
+</html>
+
+
+
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+	<style type="text/css">
+		.myrounded
+		{
+			border-radius: 50px;
+		}
+	</style>
+</head>
+<body>
+		<br>
+
+		<img class="border border-danger myrounded"src="images/rock.png" width="100px" height="100px"/>
+
+
+</body>
+</html>
+
+
+
+Bootstrap sizing
+=====================
+IT is used to size the element by using sizing utility classes.
+
+we can easily make an element wide or a toll with our width and height utility.
+
+It suports for 25%,50%,75% and 100% bydefault.
+
+ex:1
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+	
+</head>
+<body>
+		<br>
+
+		<div class="border border-primary w-25">This is div</div>
+
+		<div class="border border-primary w-50">This is div</div>
+
+		<div class="border border-primary w-75">This is div</div>
+
+		<div class="border border-primary w-100">This is div</div>	
+</body>
+</html>
+
+
+ex:2
+------
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+	<style type="text/css">
+		.w-60
+		{
+			width:60%;
+		}
+	</style>
+</head>
+<body>
+		<br>
+
+		<div class="border border-primary w-25">This is div</div>
+
+		<div class="border border-primary w-50">This is div</div>
+
+		<div class="border border-primary w-75">This is div</div>
+
+		<div class="border border-primary w-100">This is div</div>	
+
+		<div class="border border-primary w-60">This is div</div>
+</body>
+</html>
+
+ex:3
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+	<style type="text/css">
+		.w-60
+		{
+			width:60%;
+		}
+	</style>
+</head>
+<body>
+		<img src="images/rock.png"  class="w-25 h-25"/>
+		<br>
+		<img src="images/rock.png"  class="w-50 h-50"/>
+		<br>
+		<img src="images/rock.png"  class="w-75 h-75"/>
+		<br>
+		<img src="images/rock.png"  class="w-100 h-100"/>
+
+</body>
+</html>
+
+Bootstrap Display property
+============================
+
+ex:1
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+		<div class="border border-primary d-inline">
+			This is Div1
+		</div>	
+		<div class="border border-secondary d-inline">
+			This is Div2
+		</div>	
+		<div class="border border-danger d-inline">
+			This is Div3
+		</div>			
+</body>
+</html>
+
+
+
+ex:2
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+		<span class="border border-primary d-block">
+			This is span1
+		</span>	
+		<span class="border border-secondary d-block">
+			This is span2
+		</span>		
+		<span class="border border-danger d-block">
+			This is span3
+		</span>				
+</body>
+</html>
+
+ex:3
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+		<span class="border border-primary d-inline-block w-25 ">
+			This is span1
+		</span>	
+		<span class="border border-secondary d-inline-block w-25">
+			This is span2
+		</span>		
+		<span class="border border-danger d-inline-block w-25">
+			This is span3
+		</span>				
+</body>
+</html>
+
+
+
+Bootstrap Containers
+=========================
+Containers are used to pad the content inside of them.
+
+In boostrap there are two containers classes available.
+
+1)container-fluid
+
+2)container 
+
+ex:1
+--------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+		<div class="container-fluid bg-primary">
+			<h1>This is Bootstrap</h1>
+			<p>This is Website designing classes</p>
+		</div>		
+</body>
+</html>
+
+
+ex:2
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+		<div class="container bg-primary">
+			<h1>This is Bootstrap</h1>
+			<p>This is Website designing classes</p>
+		</div>		
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

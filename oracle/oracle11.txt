@@ -1,0 +1,454 @@
+Procedures
+===========
+PL/SQL procedure is also known as stored procedures.
+
+A procedure is a named PL/SQL block which compiles and execute in database for repeated execution.
+
+syntax:
+	create or replace procedure <procedure_name> 
+	is
+	begin
+	-
+	-
+	-
+	END;
+	/
+
+ex:1
+-----
+create or replace procedure p1 
+is
+begin
+DBMS_OUTPUT.PUT_LINE('Hello World');
+END;
+/
+
+To execute above procedure we need to use below command.
+ex:
+	exec  p1;
+
+Every procedure may contains three parameters.
+
+1)IN parameter
+
+2)OUT parameter
+
+3)IN OUT parameter 
+
+1)IN parameter
+-----------------
+IT is used to accept the values from the user.
+
+Q)Write a procedure to accept two numbers and display sum?
+
+create or replace procedure sum(A IN number,B IN number)
+is
+C number;
+begin
+C:=A+B;
+DBMS_OUTPUT.PUT_LINE('sum of two numbers is ='||C);
+END;
+/
+
+To execute above procedure we need to use below command.
+ex:
+	exec  sum(10,20);
+
+
+2)OUT parameter
+----------------
+It is used to return the values to the user.
+
+Q)Write a procedure to accept two numbers and return sum?
+
+create or replace procedure ret_sum(A IN number , B  IN number, C OUT number)
+is
+begin
+C:=A+B;
+END;
+/
+
+steps to call the procedure having OUT parameter
+-----------------------------------------------
+step1:
+	Declare a bind variable.
+	ex:
+		variable N number;
+step2:
+	Execute the procedure.
+	ex:
+		exec ret_sum(10,20,:N);
+step3:
+	Print bind variable.
+	ex:
+		print N;
+	
+
+3)IN OUT parameter 
+--------------------
+It is used to accept the value from the user and it will return the value to the user.
+
+Q)Write a procedure to accept one number and return it's square?
+
+create or replace procedure ret_square(A IN OUT number)
+is
+begin
+A := A * A;
+END;
+/
+
+steps to call a procedure having IN OUT parameter
+--------------------------------------------------
+step1:
+	Declare a bind variable.
+	ex:
+		variable N number;
+step2:
+	Initialize the bind variable.
+	ex:
+		BEGIN
+		:N:=5;
+		END;
+		/
+step3:
+	Execute the procedure.
+	ex:
+		exec ret_square(:N);
+step4:
+	Print bind variable.
+	ex:
+		print N;
+
+DML operations are allowed in procedures.
+
+Q)Write a procedure to delete student record based on student number?
+
+create or replace procedure delete_student(L_sno IN student.sno%TYPE)
+is
+begin
+delete from student where sno=L_sno;
+DBMS_OUTPUT.PUT_LINE('Record Deleted');
+END;
+/
+
+To execute above procedure we need to use below command.
+ex:
+	exec  delete_student(103);
+
+
+Q)Write a query to see list of procedures present in database?
+
+select object_name from user_objects where object_type='PROCEDURE';
+
+
+Q)Write a query to see the source code of a procedure?
+
+	select text from user_source where name='SUM';
+
+Q)Write a query to drop the procedure?
+
+	drop procedure p1;
+	drop procedure sum;
+	drop procedure ret_sum;
+	drop procedure ret_square;
+
+
+PL/SQL functions
+===================
+A function is a named PL/SQL block which must and should returns a value.
+
+syntax:
+	create or replace function function_name
+	return datatype
+	is
+	begin
+	-
+	-
+	-
+	end;
+	/ 
+
+Q)Write a PL/SQL function to perform sum of two numbers?
+
+create or replace function sum_of_two(A number,B number)
+return  number
+is
+C number;
+begin
+C:=A+B;
+return C;
+END;
+/
+
+To execute above function we need to use below command.
+ex:
+	select  sum_of_two(10,40) from dual;
+
+
+Q)Write a function to find out 10% of TDS for each employee?
+
+
+	select eid,ename,esal from emp;
+
+
+	create or replace function find_tds(L_esal emp.esal%TYPE)
+	return number
+	is
+	L_tax number;
+	begin
+	L_tax:= L_esal*10/100;
+	return L_tax;
+	END;
+	/
+	
+	select eid,ename,esal,find_tds(esal) from emp;
+	select eid,ename,esal,find_tds(esal) as TDS from emp;
+
+
+
+
+Q)What is the difference between procedures and functions?
+
+Procedures				Functions
+----------				----------
+Procedure may or maynot returns a 	Functions always returns a value.
+value.
+
+DML operations are allowed.		DML operations are not allowed.
+
+Can't be invoked by using select 	Can be invoked by using select command.
+command.
+
+Q)Write a query to see list of functions present in database?
+
+select object_name from user_objects where object_type='FUNCTION';
+
+
+Q)Write a query to see the source code of a function?
+
+	select text from user_source where name='SUM_OF_TWO';
+
+Q)Write a query to drop the function?
+
+	drop function SUM;
+	drop function SUM_OF_TWO;
+	drop function FIND_TDS;
+	
+
+Packages
+===========
+A package is a logical related sub programs.
+
+PL/SQL procedures and functions are called sub programs.
+
+In general, package is a collection of procedures and functions.
+
+Package declaration classified into two types.
+
+1)package specification 
+--------------------
+	It contains declaration of logical related sub programs.
+
+2)package body 
+----------------
+	It contains definition of logical related sub programs.
+
+ex:1
+-------
+package specification
+----------------------
+create or replace package pkg1 
+is
+procedure sum(A IN number,B IN number);
+end pkg1;
+/
+
+
+package body 
+-------------
+create or replace package body pkg1
+is
+procedure sum(A IN number,B IN number)
+is
+C number;
+begin
+C:=A+B;
+DBMS_OUTPUT.PUT_LINE('sum of two numbers is ='||C);
+END;
+end pkg1;
+/
+
+To execute above procedure we need to use below command.
+ex:
+	exec  pkg1.sum(10,30);
+
+
+
+
+ex:2
+-----
+package specification
+--------------------
+create or replace package pkg2 
+is
+function sum(A number,B number)
+return number;
+end pkg2;
+/
+
+
+package body
+-------------
+create or replace package body pkg2 
+is
+function sum(A number,B number)
+return number
+is
+C number;
+begin
+C:=A+B;
+return C;
+end;
+end pkg2;
+/
+
+To execute above function we need to use below command.
+ex:
+	select  pkg2.sum(10,20) from dual;
+
+
+
+Q)Write a query to see list of packages present in database?
+
+select object_name from user_objects where object_type='PACKAGE';
+
+
+Q)Write a query to see the source code of a package?
+
+	select text from user_source where name='PKG1';
+
+Q)Write a query to drop the package?
+
+	drop package body pkg1;
+	drop package pkg1;
+
+	
+	drop package body pkg2;
+	drop package pkg2;
+
+
+Triggers
+===========
+Trigger is a PL/SQL block which executes based on events.
+
+Trigger events are insert,update and delete.
+
+Triggers timings are before,after and insteadof.
+
+syntax:
+	create or replace trigger <trigger_name> <timming> <even> on <object_name>
+	begin
+	-
+	-
+	end;
+	/
+
+ex:
+----
+create or replace trigger trg1 before insert on student
+begin
+DBMS_OUTPUT.PUT_LINE('Thanks for inserting');
+END;
+/
+
+insert into student values(103,'ramana','vizag');
+
+
+Triggers are divided into two types.
+
+1)Statement level trigger 
+-----------------------
+By default every trigger is a statement level trigger.
+
+It will execute only for one time irrespective of number of records effected in a table.
+
+ex:
+	create or replace trigger trg2 after update on student
+	begin
+	DBMS_OUTPUT.PUT_LINE('Thanks for updating');
+	END;
+	/
+
+	update student set sname='raja';
+	 
+
+
+2)Row level trigger 
+--------------------
+Row level trigger will execute irrespective of number of records effected in a table.
+
+We can achieve row level trigger by using "FOR EACH ROW" clause.
+
+ex:
+
+	create or replace trigger trg3 after delete on student FOR EACH ROW
+	begin
+	DBMS_OUTPUT.PUT_LINE('Thanks for deleting');
+	END;
+	/
+
+	delete from student;
+	 
+
+Q)Write a query to see list of trigger present in database?
+
+select object_name from user_objects where object_type='TRIGGER';
+
+
+Q)Write a query to see the source code of a triger?
+
+	select text from user_source where name='TRG1';
+
+Q)Write a query to drop the package?
+
+	drop trigger trg1;
+	drop trigger trg2;
+	drop trigger trg3;
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,558 @@
+Custom Hooks
+==============
+Hooks which are created by the user based on the application requirement are called custom hooks.
+ex:
+	myCustomHook()
+	customHook()
+	ihubHook()
+	myCustomCounter()
+
+Project Structure
+-------------------
+myapp11
+|
+|----node_modules
+|
+|----public
+|	|
+	|----favicon.ico
+	|----index.html
+	|----manifest.json
+|
+|-----src
+|	|
+	|----index.js
+	|----App.js
+	|----CustomHook.js
+|
+|-----package.json 
+|-----README.md
+
+
+ex:1
+----------
+
+CustomHook.js
+---------------
+import React from 'react'
+import {useState} from 'react'
+
+
+function CustomHook() 
+{
+  
+  const [count,setCount]=useState(0);
+
+  const handleClick=()=>
+  {
+    setCount(count+1);
+  }
+  
+    return(
+        {
+        count,
+        handleClick
+        })
+}
+
+export default CustomHook
+
+
+App.js
+--------
+import React from 'react'
+import customHook from './CustomHook';
+
+function App() {
+
+  const data=customHook();
+
+  return (
+    <div>
+      <h1>Count : {data.count}</h1>
+      <button onClick={data.handleClick}>Increment</button>
+    </div>
+  )
+}
+
+export default App
+
+
+index.js
+-----------
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+
+
+React Router           
+================
+Routing is a process in which a user is directed to different pages based on their 
+action or request.
+
+ReactJS Router is mainly used for developing Single Page Web Applications. 
+
+React Router is used to define multiple routes in the application. 
+
+When a user types a specific URL into the browser, and if this URL path matches any 
+'route' inside the router file, the user will be redirected to that particular route.
+
+React Router is a standard library system built on top of the React and used to 
+create routing in the React application using React Router Package.
+
+React contains three different packages for routing.
+
+1)react-router: 
+----------------
+It provides the core routing components and functions for the React Router applications.
+
+2)react-router-native: 
+--------------------
+It is used for mobile applications.
+
+3)react-router-dom: 
+-------------------
+It is used for web applications design.
+
+Note:
+-------
+It is not possible to install react-router directly in your application. 
+To use react routing, first, you need to install react-router-dom modules in your application. 
+
+
+We have two types of router components.
+
+1)<BrowserRouter>: 
+-------------------
+		It is used for handling the dynamic URL.
+2)<HashRouter>: 
+--------------
+		It is used for handling the static request.
+
+
+Project  structure
+--------------------
+myapp12
+|
+|------node-modules
+|
+|------public
+|	|
+|	|------favicon.ico
+|	|------index.html 
+|	|------manifest.json
+|
+|------src
+	|
+	|------index.js
+	|------App.js  (Routing File)   
+	|------Home.js
+	|------About.js
+	|------Contact.js
+	|------Error.js
+|
+|------package.json
+|------README.md
+
+step1:
+------
+	create react "myapp12" project in VSC.
+	ex:
+	projects>create-react-app myapp12
+
+step2:
+--------
+	Move to myapp12 project.
+	ex:
+	project> cd   myapp12
+
+
+step3:
+------
+	install react router dom.
+	ex:
+	project/myapp12>npm install --save react-router-dom	
+
+
+step4:
+-------
+	Restart the application .
+	ex:
+	myapp14> npm start
+
+
+step5:
+--------
+	create App.js,Home.js,About.js ,Contact.js and Error.js component inside "src" folder.
+
+App.js
+-------
+
+
+import Home from './Home';
+import Contact from './Contact';
+import About from './About';
+import Error from './Error'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+function App() {
+  return (
+    <div>
+       <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Home />}/>
+        <Route path="/about" element={<About />}/>
+        <Route path="/contact" element={<Contact />}/>
+        <Route path="*" element={<Error />}/>
+      </Routes>
+      </BrowserRouter>
+    </div>
+  );
+}
+export default App;
+
+Home.js
+----------
+function Home()
+{
+    return (
+        <div>
+          <h1>Home</h1>
+       </div>
+    )
+}
+export default Home;
+
+
+About.js
+---------
+function About()
+{
+    return (
+        <div>
+          <h1>About</h1>
+       </div>
+    )
+}
+export default About;
+
+Contact.js
+----------
+function Contact()
+{
+    return (
+        <div>
+          <h1>Contact</h1>
+       </div>
+    )
+}
+export default Contact;
+
+
+Error.js
+----------
+function Error()
+{
+    return(
+        <div>
+            <h1>OOPS! 404 Error </h1>
+        </div>
+    )
+}
+export default Error;
+
+
+step6:
+------
+	create index.js component to render the output inside "src" folder.
+
+index.js
+---------
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';  
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+
+    <App/>
+    
+  </React.StrictMode>
+);
+
+step7:
+-------
+	Test the application by using below url's.
+	ex:
+	http://localhost:3000/
+	http://localhost:3000/home
+	http://localhost:3000/about
+	http://localhost:3000/contact
+	http://localhost:3000/gallery
+	http://localhost:3000/services
+	
+
+
+Adding Navigation using Link component
+==========================================
+A Link component is used to create links which allow to navigate on different URLs and render its content without reloading the webpage.
+
+ex:2
+-------
+
+App.js
+---------
+
+import Home from './Home';
+import Contact from './Contact';
+import About from './About';
+import Error from './Error'
+
+import {Link, Routes,Route,BrowserRouter } from 'react-router-dom'  
+function App() {
+  return (
+    <div>
+      <BrowserRouter>
+   
+      <nav >
+        <Link style={{display:"block"}} to="/">Home</Link>
+        <Link style={{display:"block"}} to="/about">About Us</Link>
+        <Link style={{display:"block"}} to="/contact">Contact US</Link>
+      </nav>
+      <Routes>
+        <Route exact path="/" element={<Home />}/>
+        <Route path="/about" element={<About />}/>
+        <Route path="/contact" element={<Contact />}/>
+        <Route path="*" element={<Error />}/>
+      </Routes>
+      </BrowserRouter>
+    </div>
+  );
+}
+export default App;
+
+Home.js
+-----------
+function Home()
+{
+    return (
+        <div>
+          <h1>Home</h1>
+       </div>
+    )
+}
+export default Home;
+
+About.js
+------------
+function About()
+{
+    return (
+        <div>
+          <h1>About</h1>
+       </div>
+    )
+}
+export default About;
+
+Contact.js
+--------------
+function Contact()
+{
+    return (
+        <div>
+          <h1>Contact</h1>
+       </div>
+    )
+}
+export default Contact;
+
+
+Error.js
+----------
+function Error()
+{
+    return(
+        <div>
+            <h1>OOPS! 404 Error </h1>
+        </div>
+    )
+}
+export default Error;
+
+
+index.js
+-----------
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';  
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+
+    <App/>
+    
+  </React.StrictMode>
+);
+
+
+Images/Assets in ReactJS
+========================
+We can set images/Asset in ReactJS using two ways.
+
+1)Inside public Folder.
+
+2)Inside src folder.
+
+
+1)Inside public folder
+-----------------------
+If we put a file into a public folder,It will not be processed by 
+webpack. Instead it will be copied into the build folder untouched.
+
+
+To reference assets in the public folder, we need to use a special
+variable called PUBLIC_URL. Only files inside the public folder will be 
+accessible by %PUBLIC_URL% prefix.
+
+
+How to use image 
+-----------------
+1)
+myapp15
+|
+|---public
+	|
+	|---pic.jpg
+
+index.html
+----------
+<img src="%PUBLIC_URL%pic.jpg" alt="mypic"/>
+
+2)
+myapp
+|
+|---public
+	|
+	|---image
+		|
+		|--pic.jpg
+index.html
+----------
+<img src="%PUBLIC_URL%/image/pic.jpg" alt="mypic"/>
+
+
+If we want to use Image in Javascript file.
+
+App.js
+-------
+<img src={process.env.PUBLIC_URL +"/pic.jpg" } />
+<img src={process.env.PUBLIC_URL +"/image/pic.jpg" } />
+
+ex:1
+-----
+index.html
+--------
+-
+-
+-
+ <div id="root"></div>
+<img src="%PUBLIC_URL%/team1.jpeg" alt="mypic"/>
+-
+-
+-
+Note:
+-----
+	Mostly of the time we are displaying images in Component only.
+ex:
+
+App.js
+------
+import React, { Component } from 'react'
+
+export default class App extends Component {
+        render() {
+                return (
+                        <div>
+<img src={process.env.PUBLIC_URL+"team1.jpeg"} alt="mypic"></img>    
+                        </div>
+                )
+        }
+}
+
+index.js
+----------
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from "./App";
+
+//render the component to index.html
+ReactDOM.render(<App />,document.getElementById("root"));
+
+2)Inside src folder
+--------------------
+we can import a file right in a Javascript module.This tell webpack to 
+include that file in the bundle.
+
+How to use 
+---------
+
+1)
+myapp
+|
+|---src
+	|
+	|---pic.jpg
+App.js
+-----
+import pic from "./pic.jpg";
+<img src={pic} alt="mypic" />
+
+This ensures that when the project is built.Webpack wil correctly move
+the images into the build folder and provide us with correct paths.
+
+ex:
+App.js
+------
+import React, { Component } from 'react'
+import pic from "./team1.jpeg";
+
+export default class App extends Component {
+        render() {
+                return (
+                        <div>
+                                <img src={pic} alt="mypic"></img>    
+                        </div>
+                )
+        }
+}
+
+index.js
+---------
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from "./App";
+
+//render the component to index.html
+ReactDOM.render(<App />,document.getElementById("root"));
+
+

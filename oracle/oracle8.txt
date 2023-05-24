@@ -1,0 +1,314 @@
+views
+=======
+View is a logical representation of a data from one or more then one table.
+
+A table which is used to create a view is called base table or above table.
+
+syntax:
+	create view <view_name> as select stmt;
+
+ex:
+	create view v1 as select * from emp;
+
+	select * from v1; // 7 records
+
+View does not consume memory.
+
+View does not have any data.
+
+View will get the data from base table when we write select stmt.
+
+We have different types of views.
+
+1)Simple view 
+
+2)complex view 
+
+3)With read only view 
+
+4)With check option view 
+
+5)materialized view 
+
+
+1)Simple view
+-------------
+If a view is created by using one base table is called simple view.
+In simple view DML operations are allowed.
+ex:
+	create view v1 as select * from emp;
+	create view v1 as select eid,ename,esal from emp;
+	create view v1 as select * from emp where deptno=10;
+	create view v1 as select * from emp where NOT eno=201;
+	create view v1 as select * from emp where ename IN ('Alan','Jose');
+	create view v1 as select * from emp where esal between 5000 and 10000;
+	create view v1 as select * from emp where comm is null;
+	create view v1 as select * from emp where ename like 'A%';
+
+
+	select * from v1; //7 records 
+	
+	delete from v1 where eid=207;
+
+	select * from v1; //6 records 
+	select * from emp; // 6 records 
+
+
+2)complex view 
+----------------
+If a view is created by using more then one table is called complex view.
+
+DML operations are not allowed in complex view.
+
+ex:
+	create view v2 as select e.eid,e.ename,e.esal,d.dname,d.dloc 
+				from emp e,dept d where(e.deptno=d.deptno); 
+
+	select * from v2;
+
+	delete from v2; // invalid 
+
+
+3)With read only view 
+------------------
+If a view is created by using one base table and DML operations are not allowed such type of view is called with read only view.
+
+ex:
+	create view v3 as select * from emp with read only;
+
+	select * from v3;
+
+	delete from v3; // invalid 
+
+4)With check option view
+------------------------
+If a view is created by using one base table and DML operations are allowed only if condition is satisfied such type of view is called with check option view.
+ex:
+	create view v4 as select * from emp where deptno=30 with check option;
+
+
+	insert into v4 values(207,'Jacky',30000,80,'Salesman',300); //invalid 
+
+	insert into v4 values(207,'Jacky',30000,30,'Salesman',300);
+
+
+5)Materialized view
+--------------------
+To create a materialized view a table must have primary key.
+
+ex:
+	alter table emp add primary key(eid);
+
+	create materialized view v5 as select * from emp;
+
+	select * from v5; //7 records 
+
+	delete from emp where eid=207;
+
+	commit;
+
+	select * from emp; // 6 records 
+
+	select * from v5; //7 records 
+
+To get current data we need to refresh materialized view.
+ex:
+	exec DBMS_SNAPSHOT.REFRESH('v5');
+
+	Here DBMS_SNAPSHOT is a package name. 
+	Here REFRESH is a procedure name.
+
+	select * from v5;//
+
+Q)Write a query to see the list of views present in database?
+
+	select view_name from user_views;
+
+Q)Write a query to drop the view?
+
+	drop view v1;
+	drop view v2;
+	drop view v3;
+	drop view v4;
+
+Q)Write a query to drop the materialized view?
+
+	drop materialized view v5;
+
+
+
+
+Sub-Queries
+==============
+Subquery is used to select the records based on unknown values.
+
+We have various types of sub queries.
+
+1)Single row subquery
+
+2)Multiple row subquery
+
+3)Multiple column subquery 
+
+1)Single row subquery
+-----------------------
+If a sub query returns only one row is called single row subquery.
+ex:
+	SQL
+	---
+	select * from emp where ename='Alan'; 
+
+	subquery
+	--------
+	select * from emp where ename=(select ename from emp where eid=201);
+
+
+Here sub query will execute first then parent query.
+Sub query can be nested upto 32 levels.
+
+ex:
+	SQL
+	----
+	select * from emp where eid=201 and ename='Alan';
+
+
+	subquery
+	--------
+	select * from emp where 
+	eid=(select eid from emp where esal=9000)
+	and
+	ename=(select ename from emp where eid=201);
+
+
+Q)Write a query to display employees information whose salary is greater the Lisa salary?
+
+	select * from emp where esal>(select esal from emp where ename='Lisa'); 
+
+
+
+Q)Write a query to display second highest salary from emp table?
+
+	select max(esal) from emp where esal<(select max(esal) from emp);
+
+
+2)Multiple row subquery
+--------------------------
+If a sub query returns more then one row is called multiple row sub query.
+
+In multiple row subquery we need to use multiple row operators.
+
+1)ANY
+
+2)ALL
+
+3)IN 
+
+ex:
+----	
+	select * from emp where esal > ANY (select esal from emp where deptno=10);
+
+	select * from emp where esal > ALL (select esal from emp where deptno=10);
+
+	select * from emp where esal IN (select esal from emp where deptno=10);
+
+3)Multiple column subquery
+---------------------------
+If a subquery returns more then one column is called multiple column subquery.
+
+In multiple column sub query we need to use IN operator.
+
+ex:
+	select * from emp where(eid,ename,esal)
+	IN (select eid,ename,esal from emp where eid=201);
+
+
+	select eid,ename,esal from emp where(eid,ename,esal)
+	IN (select eid,ename,esal from emp where eid=201);	
+
+
+	select eid,ename,esal from emp where(eid,ename,esal)
+	IN (select eid,ename,esal from emp where deptno=10);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

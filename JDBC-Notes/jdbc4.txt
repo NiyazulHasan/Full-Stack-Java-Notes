@@ -1,0 +1,436 @@
+Q)Types of Statement objects in JDBC?
+
+We have three statement objects in JDBC.
+
+1)Simple Statement object
+
+2)PreparedStatement object
+
+3)CallableStatement object 
+
+
+
+SQL Injection problem 
+=====================
+Along with input values if we pass special SQL instructions which change the behaviour of a query and bahaviour of an application is called SQL Injection problem.
+
+Here special SQL instruction means comment in SQL (--).
+
+while dealing with simple Statement object there is a chance of raising SQL injection problem.
+
+ex:
+	username : raja'--
+	password : hyd
+
+	Valid Credentials 
+
+
+userlist table
+================
+drop table userlist;
+create table userlist(uname varchar2(10),pwd varchar2(10));
+insert into userlist values('raja','rani');
+insert into userlist values('king','kingdom');
+commit;
+
+ex:
+---
+package com.ihub.www;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class SQLInjectionProbApp 
+{
+	public static void main(String[] args)throws Exception 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Username :");
+		String name=sc.next();
+		
+		System.out.println("Enter the Password :");
+		String pass=sc.next();
+		
+		//convert inputs according to SQL query
+		name="'"+name+"'";
+		pass="'"+pass+"'";
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+		Statement st=con.createStatement();
+		
+		String qry="select count(*) from userlist where uname="+name+" and pwd="+pass;
+
+		ResultSet rs=st.executeQuery(qry);
+		int result=0;
+		while(rs.next())
+		{
+			result=rs.getInt(1);
+		}
+		if(result==0)
+			System.out.println("Invalid Credentails");
+		else
+			System.out.println("Valid Credentials");
+		
+		rs.close();
+		st.close();
+		con.close();
+	}
+}
+
+Limitations with Simple Statement object
+==========================================
+It is not suitable to execute same query for multiple times with same or different values.
+
+It raises SQL injection problem.
+
+Framing query with variables is quit complex.
+
+We can't use string values directly in a query without conversion.
+
+It does not allow us to insert date values in a database table column.
+
+It does not allow us to insert LOB(Large Object) values in a database table column.
+
+
+To overcome these limitations we need to use PreparedStatement object.
+
+
+Pre-compiled SQL Query
+======================
+Our query goes to database software without input values and becomes parsed query
+either it is executed or not is called pre-compiled SQL query.
+
+PreparedStatement object deals with pre-compiled SQL query.
+
+
+Working with PreparedStatement  object
+=======================================
+step1:
+	create a query with placeholders or parameters.
+	ex:
+	String qry="insert into student values(?,?,?)";
+
+step2:
+	convert SQL query to precompiled SQL query.
+	ex:
+	PreparedStatement ps=con.prepareStatement(qry);
+
+step3:
+	set the values to query parameters.
+	ex:
+		ps.setInt(1,no);
+		ps.setString(2,name);
+		ps.setString(3,add);
+
+step4:
+	Execute precompiled SQL query.
+	ex:
+		ps.executeUpdate();	
+
+step5:
+	Close PreparedStatement object.
+	ex:
+		ps.close();
+
+Q)Write a jdbc application to insert a record into student table by using PreparedStatement object?
+
+ex:
+
+package com.ihub.www;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.util.Scanner;
+
+public class PSInsertApp 
+{
+	public static void main(String[] args)throws Exception 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the student no :");
+		int no=sc.nextInt();
+		
+		System.out.println("Enter the student name :");
+		String name=sc.next();
+		
+		System.out.println("Enter the student address :");
+		String add=sc.next();
+		
+
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+	
+		String qry="insert into student values(?,?,?)";
+		
+		PreparedStatement ps=con.prepareStatement(qry);
+		
+		//set the values
+		ps.setInt(1,no);
+		ps.setString(2,name);
+		ps.setString(3,add);
+		
+		//execute 
+		int result=ps.executeUpdate();
+		if(result==0)
+			System.out.println("No Record Inserted");
+		else
+			System.out.println("Record Inserted");
+		
+		ps.close();
+		con.close();
+		
+	}
+}
+
+Q)Write a jdbc application to update student name based on student number?
+
+package com.ihub.www;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.util.Scanner;
+
+public class PSUpdateApp 
+{
+	public static void main(String[] args)throws Exception 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the student no :");
+		int no=sc.nextInt();
+		
+		System.out.println("Enter the student name :");
+		String name=sc.next();
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+	
+		String qry="update student set sname=? where sno=?";
+		
+		PreparedStatement ps=con.prepareStatement(qry);
+		
+		//set the values
+		ps.setString(1,name);
+		ps.setInt(2,no);
+		
+		//execute
+		int result =ps.executeUpdate();
+		if(result==0)
+			System.out.println("No Record Updated");
+		else
+			System.out.println("Record updated");
+		ps.close();
+		con.close();
+	}
+}
+
+
+
+Q)Write a jdbc application to delete student record based on student no?
+
+package com.ihub.www;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.util.Scanner;
+
+public class PSDeleteApp 
+{
+	public static void main(String[] args)throws Exception 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the student no :");
+		int no=sc.nextInt();
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+	
+		String qry="delete from student where sno=?";
+		
+		PreparedStatement ps=con.prepareStatement(qry);
+		
+		//set the value
+		ps.setInt(1,no);
+		
+		//execute
+		int result=ps.executeUpdate();
+		if(result==0)
+			System.out.println("No Record Deleted");
+		else
+			System.out.println("Record Deleted");
+		
+		ps.close();
+		con.close();
+	}
+}
+
+Solution for SQL Injection problem
+===================================
+
+package com.ihub.www;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Scanner;
+
+public class SolutionForSQLInjectionPrb 
+{
+	public static void main(String[] args)throws Exception 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the username : ");
+		String name=sc.next();
+		
+		System.out.println("Enter the password : ");
+		String pass=sc.next();
+		
+
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+	
+		String qry="select count(*) from userlist where uname=? and pwd=?";
+		
+		PreparedStatement ps=con.prepareStatement(qry);
+		
+		//set the values
+		ps.setString(1,name);
+		ps.setString(2,pass);
+		
+		//execute
+		ResultSet rs=ps.executeQuery();	
+		int result=0;
+		while(rs.next())
+		{
+			result=rs.getInt(1);
+		}
+		if(result==0)
+			System.out.println("Invalid Credentials ");
+		else
+			System.out.println("Valid Credentails ");
+		
+		ps.close();
+		con.close();
+	}
+}
+
+DatabaseMetaData
+=================
+DatabaseMetaData is an interfac which is present in java.sql package.
+
+DatabaseMetaData provides metadata of a database.
+
+Data of a data is called metadata.
+
+DatabaseMetaData gives information about database product name, database product version, database driver name, database driver version, username and etc.
+
+We can create DatabaseMetaData object by using getMetaData() method of Connection object.
+
+ex:
+	DatabaseMetaData dbmd=con.getMetaData();
+
+ex:
+
+package com.ihub.www;
+
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
+
+public class DBMDApp 
+{
+	public static void main(String[] args)throws Exception 
+	{
+
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+	
+		DatabaseMetaData dbmd=con.getMetaData();
+		
+		System.out.println(dbmd.getDatabaseProductName());
+		System.out.println(dbmd.getDatabaseProductVersion());
+		System.out.println(dbmd.getDriverName());
+		System.out.println(dbmd.getDriverVersion());
+		System.out.println(dbmd.getUserName());
+		
+		con.close();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

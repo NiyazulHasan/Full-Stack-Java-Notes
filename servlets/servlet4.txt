@@ -1,0 +1,469 @@
+Form validation
+================
+The process of checking format and pattern of form data is called form validation and such logic is called form validation logic.
+
+Form validation can performed in two ways.
+
+1)Client Side form validation
+----------------------------
+Validation which is performed at client side is called client side form validation.
+To perform client side form validation we need to use javascript.
+
+2)Server Side form validation
+-----------------------------
+Validation which is performed at server side is called server side form validation.
+To perform server side form validation we need to use servlets.
+ 
+
+Deployment Directory structure
+--------------------------------
+ValidationApp
+|
+|---Java Resources
+|	|
+	|------src
+		|
+		|---com.ihub.www
+			|
+			|----FormSrv.java
+|		
+|---Web Content 
+	|
+	|------form.html 
+	|
+	|------validation.js 
+	|
+	|------WEB-INF
+	|	|
+		|-----web.xml 
+
+Note:
+------
+In above application we need to add "servlet-api.jar" file in project build path.
+
+
+
+
+
+form.html
+---------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<!--  add external javascript  -->
+		<script language="javascript" src="validation.js"></script>
+	</head>
+	<body>
+	
+		<form name="myform" action="test" method="GET" onsubmit="return validate()">
+			Name : <input type="text" name="t1"/> <br>
+			Age  : <input type="text" name="t2"/> <br>
+		
+			<!--  hidden box  -->
+			<input type="hidden" name="vflag" value="no"/>
+			
+			<input type="submit" value="submit"/> 
+		</form>
+	
+	</body>
+</html>
+
+validation.js
+---------------
+function validate()
+{
+	// read form inputs 
+	var name=document.myform.t1.value;
+	var age=document.myform.t2.value;
+	document.myform.vflag.value="yes";
+	
+	if(name=="")
+	{
+		alert("Name is mandatory");
+		document.myform.t1.focus();
+		return false;
+	}
+	if(age=="")
+	{
+		alert("Age is mandatory");
+		document.myform.t2.focus();
+		return false;
+	}
+	else
+	{
+		if(isNaN(age))
+		{
+			alert("Age must be numeric");
+			document.myform.t2.value="";
+			document.myform.t2.focus();
+			return false;
+		}
+	}
+	return true;
+}
+
+web.xml
+---------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  <servlet>
+  	<servlet-name>FormSrv</servlet-name>
+  	<servlet-class>com.ihub.www.FormSrv</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>FormSrv</servlet-name>
+  	<url-pattern>/test</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+  	<welcome-file>form.html</welcome-file>
+  </welcome-file-list>
+  
+</web-app>
+
+FormSrv.java
+--------------
+
+package com.ihub.www;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class FormSrv extends HttpServlet 
+{
+	protected void doGet(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException
+	{
+		PrintWriter pw=res.getWriter();
+		res.setContentType("text/html");
+		
+		//reading form data
+		String name=req.getParameter("t1");
+		String sage=req.getParameter("t2");
+		String status=req.getParameter("vflag");
+		int age=0;
+		
+		if(status.equals("no"))
+		{
+			if(name=="" || name==null || name.length()==0)
+			{
+				pw.println("<center>Name is mandatory</center>");
+				return;
+			}
+			if(sage=="" || sage==null || sage.length()==0)
+			{
+				pw.println("<center>Age is mandatory</center>");
+				return;
+			}
+			else
+			{
+				try
+				{
+					age=Integer.parseInt(sage);
+				}
+				catch(NumberFormatException nfe)
+				{
+					pw.println("<center>Age must be numeric</center>");
+					return;
+				}
+			}
+		}
+		
+		if(status.equals("yes"))
+		{
+			age=Integer.parseInt(sage);
+		}
+		if(age<18)
+			pw.println("<center><h1>U r not eligible to vote</h1></center>");
+		else
+			pw.println("<center><h1>U r eligible to vote</h1></center>");
+		
+		pw.close();
+	}
+}
+
+Request url
+------------
+	http://localhost:2525/ValidationApp/
+
+
+Q)What is the difference between GET and POST methodology?
+
+GET					POST
+-------					------
+It is a default methodology.		It is not a default methodology.
+
+It will carry limited amount of data.	It will carry unlimited amount of data.
+
+It sends the request fastly.		It sends the request bit slow.
+
+It is not suitable for secure data.	It is suitable for secure data.
+
+It show the data in a query string.	It does not show the data in a query string.
+
+It is not suitable to perfor file	It is suitable to perform file uploading 
+uploading and encryption.		and encryption.
+
+To process get methodology we need	To process post methodology we need to use  
+to use doGet(-,-) method.		doPost(-,-) method.
+
+
+
+File Uploading 
+================
+The process of taking the file from client machine file system and storing a server machine file system is called file uploading and reverse is called file downloading.
+
+While dealing with matrimonial applications, job portal application , profile management applications we need to upload and download a file.
+
+There is no specific API in servlet API to perform file uploading.
+
+We need to take the support of third party API called JAVAZOOM API.
+
+JAVAZOOM API comes in zip file and once if we extract then we will get three jar files.
+ex:
+	uploadbean.jar  (main jar file)
+	struts.jar      (dependent jar file)
+	cos.jar  	(dependent jar file)
+
+we can use file component in a form  as follow.
+ex:
+	<input type="file" name="f1"/>
+
+
+JAVAZOOM API Download link
+--------------------------
+https://drive.google.com/file/d/1LB0WSJvSCCVOgz7xNwyuYtmy_0_TfJzq/view?usp=share_link
+
+
+Deployment Directory structure
+--------------------------------
+FileUploadApp
+|
+|---Java Resources
+|	|
+	|------src
+		|
+		|---com.ihub.www
+			|
+			|----FormSrv.java
+|		
+|---Web Content 
+	|
+	|------form.html 
+	|
+	|------WEB-INF
+	|	|
+		|-----web.xml 
+		|
+		|-----lib
+			|
+			|---uploadbean.jar
+			|---struts.jar
+			|---cos.jar
+
+Note:
+------
+In above application we need to add "servlet-api.jar" and "uploadbean.jar" file in project build path.
+
+copy and paste all the jar files of javazoom api inside "Web Content/WEB-INF/lib" folder seperately.
+
+
+form.html
+----------
+
+<form action="test" method="POST" enctype="multipart/form-data">
+	
+	File1: <input type="file" name="f1"/> <br><br>
+	File2: <input type="file" name="f2"/> <br><br>
+	<input type="submit" value="upload"/>
+</form>
+
+
+web.xml
+---------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  <servlet>
+  	<servlet-name>FormSrv</servlet-name>
+  	<servlet-class>com.ihub.www.FormSrv</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>FormSrv</servlet-name>
+  	<url-pattern>/test</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+  	<welcome-file>form.html</welcome-file>
+  </welcome-file-list>
+  
+</web-app>
+
+FormSrv.java
+------------
+package com.ihub.www;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import javazoom.upload.MultipartFormDataRequest;
+import javazoom.upload.UploadBean;
+
+public class FormSrv extends HttpServlet
+{
+	protected void doPost(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException
+	{
+		PrintWriter pw=res.getWriter();
+		res.setContentType("text/html");
+		
+		//upload the file
+		try
+		{
+			UploadBean ub=new UploadBean();
+			ub.setFolderstore("C:\\venu");
+			ub.setOverwrite(false);
+			MultipartFormDataRequest nreq=new MultipartFormDataRequest(req);
+			ub.store(nreq);
+			
+			pw.println("<center><h1>Files are uploaded successfully..</h1></center>");
+		}
+		catch(Exception e)
+		{
+			pw.println(e);
+		}
+		
+		pw.close();
+	}
+}
+
+
+
+Request url
+-----------
+	http://localhost:2525/FileUploadApp/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

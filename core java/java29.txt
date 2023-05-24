@@ -1,0 +1,278 @@
+Abstraction
+===========
+Hiding internal implementation and highlighting the set of services is called abstraction.
+
+Using interface and abstract class we can implement abstraction.
+
+The best example of abstraction is GUI(Graphical User Interface) ATM machine because bank people will hide internal implementation and highlights the set of services like banking,withdrawl,mini statement and etc.
+
+The main advantages of abstraction are.
+
+1)It gives security because it will hide internal implementation from the outsider.
+
+2)Enhancement becomes more easy without effecting enduser they can perform any changes in our internal system.
+
+3)It provides flexibility to the enduser to use the system.
+
+4)It improves maintainability of an application.
+
+
+Encapsulation
+=================
+The process of encapsulating or grouping variables and it's assocaite methods in a single entity is called encapsulation.
+
+A class is said to be encapsulated class if it supports data hiding + abstraction.
+
+In encapsulation , for every variable we need to write setter and getter method.
+
+Diagram: java29.1
+
+The main advantages of encapsulation are.
+
+1)It gives security.
+
+2)Enhancement becomes more easy.
+
+3)It provides flexibility to the enduser to use the system.
+
+4)It improves maintainability of an application.
+
+The main disadvantage of encpasulation is ,it will increase the length of our code and slow down the execution process.
+
+
+approach1 :
+------------
+class Student
+{
+	private int studId;
+	private String studName;
+	private double studFee;
+
+	//setter methods
+	public void setStudId(int studId)
+	{
+		this.studId=studId;
+	}
+	public void setStudName(String studName)
+	{
+		this.studName=studName;
+	}
+	public void setStudFee(double studFee)
+	{
+		this.studFee=studFee;
+	}
+
+	//getter methods
+	public int getStudId()
+	{
+		return studId;
+	}
+	public String getStudName()
+	{
+		return studName;
+	}
+	public double getStudFee()
+	{
+		return studFee;
+	}
+	public static void main(String[] args)
+	{
+		Student s=new Student();
+		s.setStudId(101);
+		s.setStudName("Alan");
+		s.setStudFee(1000d);
+
+		System.out.println("Student Id :"+s.getStudId());
+		System.out.println("Student Name :"+s.getStudName());
+		System.out.println("Student Fee :"+s.getStudFee());
+	}
+}
+
+approach2:
+----------
+class Student
+{
+	private int studId;
+	private String studName;
+	private double studFee;
+
+	//setter methods
+	public void setStudId(int studId)
+	{
+		this.studId=studId;
+	}
+	public void setStudName(String studName)
+	{
+		this.studName=studName;
+	}
+	public void setStudFee(double studFee)
+	{
+		this.studFee=studFee;
+	}
+
+	//getter methods
+	public int getStudId()
+	{
+		return studId;
+	}
+	public String getStudName()
+	{
+		return studName;
+	}
+	public double getStudFee()
+	{
+		return studFee;
+	}
+	
+}
+class  Test
+{
+	public static void main(String[] args)
+	{
+		Student s=new Student();
+		s.setStudId(101);
+		s.setStudName("Alan");
+		s.setStudFee(1000d);
+
+		System.out.println("Student Id :"+s.getStudId());
+		System.out.println("Student Name :"+s.getStudName());
+		System.out.println("Student Fee :"+s.getStudFee());
+	}
+}
+
+Q)What is the difference between POJO class and Java Bean class?
+
+POJO class
+-----------
+A class is said to be pojo class if it supports following two properties.
+
+1)All variables must be private.
+
+2)All variables must have setter and getter method.
+
+Java Bean class
+--------------
+A class is said to be java bean class if it supports following four properties.
+
+1)A class must be public.
+
+2)A class must have constructor.
+
+3)All variables should be private.
+
+2)All variables should have setter and getter method.
+
+Note:
+------
+Every Java bean class is a pojo class.
+But every pojo class is not a java bean class.
+
+
+Q)Write a java program to delete element from given array?
+
+Input:
+	int[] arr={4,6,1,3,6,9,8,6,2};
+	int element=6;
+
+Output:
+	4,1,3,9,8,2
+
+ex:
+
+class  Test
+{
+	public static void main(String[] args)
+	{
+		int[] arr={4,6,1,3,6,9,8,6,2};
+		int element=6;
+
+		for(int i=0;i<arr.length;i++)
+		{
+			if(arr[i]!=element)
+			{
+				System.out.print(arr[i]+" ");
+			}
+		}
+	}
+}
+
+
+Q)Write a java program to delete first occurance of an element from given array?
+
+Input:
+	int[] arr={4,6,1,3,6,9,8,6,2};
+	int element=6;
+
+Output:
+	4,1,3,6,9,8,6,2
+
+ex:
+
+class  Test
+{
+	public static void main(String[] args)
+	{
+		int[] arr={4,6,1,3,6,9,8,6,2};
+
+		int[] resArr=new int[arr.length-1];
+		
+		int element=6;
+
+		int cnt=0,j=0;
+		for(int i=0;i<arr.length;i++)
+		{
+			if(arr[i]==element && cnt==0)
+			{
+				cnt++;
+				continue;
+			}
+			resArr[j++]=arr[i];
+			
+		}
+
+		//display
+		for(int i:resArr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

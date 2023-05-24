@@ -1,0 +1,342 @@
+Pattern matching opeators
+===========================
+Pattern matching operators are used to select the letters from database table.
+
+We have two types of pattern matching operators.
+
+1)Percentage (%)
+
+2)Underscore (_)
+
+Pattern matching operators will take the support of like keyword.
+
+1)Percentage (%)
+------------------
+Q)Write a query to display all the employees information whose name starts with 'A' letter?
+
+	select * from emp where ename like 'A%';
+
+
+Q)Write a query to display all the employees information whose name ends with 'n' letter?
+
+	select * from emp where ename like '%n';
+
+Q)Write a query to display all the employees information whose name having middle letter as 'l'?
+
+	select * from emp where ename like '%l%';	
+
+
+2)Underscore (_)
+-----------------
+Q)Write a java program to display employees information whose employee name having 
+second letter as 'l'?
+
+	select * from emp where ename like '_l%';
+
+
+Q)Write a query to display employees information whose employee name having second last letter as 'r'?
+
+	select * from emp where ename like '%r_';
+
+
+Q)write a query to display employees information whose employee name having third letter as 's'?
+
+	select * from emp where ename like '__s%';
+
+DDL commands
+=============
+create    - (tables)
+alter	  - (columns)	
+drop	  - (tables)	
+truncate  - (rows/records)
+rename    - (tables)
+
+
+alter command
+-------------
+Using alter command we can perform following activities very easily.
+
+i)Adding a new column
+
+ii)Droping a existing column
+
+iii)Modifying a column
+
+iv)Renaming a column 
+
+i)Adding a new column
+-----------------------
+Using alter command we can add new column in a existing table.
+syntax:
+	alter table <table_name> ADD (col1 datatype(size));
+
+ex:
+	alter table student ADD (state varchar2(10));
+	alter table student ADD (pincode number(8));
+	alter table student ADD (state varchar2(10),pincode number(8));
+	
+	update student set state='Telangana' where sno=101;
+
+
+ii)Droping a existing column
+----------------------------
+Using alter command we can drop a existing column.
+
+syntax:
+	alter table <table_name> DROP (col_name);
+ex:
+	alter table student DROP (state,pincode);
+
+
+iii)Modifying a column
+----------------------
+Using alter command we can modify a column.
+
+We can change size of a column only if existing values are fit into new size.
+
+syntax:
+	alter table <table_name> modify (col datatype(size));
+
+ex:
+	desc student;	
+
+	alter table student MODIFY (sadd varchar2(14));
+
+	desc student;
+
+
+We can change the datatype of a column only if that column is empty.
+ex:
+	alter table student modify (sadd number(14));
+
+
+iv)Renaming a column 
+----------------------
+Using alter command we can rename a column name.
+
+syntax:
+	alter table <table_name> rename  column <old_name> to <new_name>;
+
+ex:
+	alter table student rename column sadd to city;
+
+	alter table emp rename column esal to dailywages;
+
+	alter table emp rename column job to designation;
+
+
+drop command
+-------------
+It is used to drop the table permanently from database table.
+
+syntax:
+	drop table <table_name>;
+ex:
+	drop table emp;
+	drop table dept;
+	drop table student;
+
+
+
+truncate  command
+-------------------
+It is used to delete the records permenently from database table.
+
+syntax:
+
+	truncate table <table_name>;
+ex:
+	truncate table student;
+	truncate table dept;
+	truncate table emp;
+ 
+Q)What is the difference between delete and truncate command?
+
+delete					truncate 
+-----------				----------
+It will delete the records temperorly.	It will delete the records permanently.
+
+We can rollback the data.		We can't rollback the data.
+
+Where clause can be used.		Where clause can't be used.
+
+
+rename  command
+--------------
+It is used to rename the table name.
+
+syntax:
+	rename <old_name> to <new_name>;
+ex:
+	rename student to students;
+	rename emp to employees;
+	rename dept to departments;
+
+
+Duplicate table or Copy of a table
+==================================
+Using create and select command we can create duplicate or copy of a table.
+
+ex:
+	drop table stud;
+
+	create table stud as select * from emp;
+
+	create table stud as select eid,ename,esal from emp;
+
+	create table stud as select * from emp where deptno=10;
+
+	create table stud as select * from emp where eid IN(201,202,203);
+
+	create table stud as select * from emp where eid between 201 AND 206;
+
+	create table stud as select * from emp where ename like 'A%';
+
+	create table stud as select * from emp where NOT job='Manager';
+
+	create table stud as select * from emp where comm is null;
+
+
+cl scr
+======
+It is used to clear the output screen of SQL command prompt.
+
+syntax:
+	cl  scr
+
+
+Functions
+==============
+Functions are used to manipulate the data items and give the results.
+
+We have two types of functions in SQL.
+
+1)Group Functions / Multiple Rows Functions 
+
+2)Scalar Functions / Single Row Functions 
+
+
+1)Group Functions
+-------------------
+Group functions are applicable for multiple rows.
+
+We have following list of group functions.
+
+ex:
+	sum(), avg(), max(), min(), count() and count(expression).
+
+
+Q)Write a query to  display sum of salary of each employee?
+
+	select  sum(esal) from emp;
+
+	
+
+Q)Write a query to display average salary of each employee?
+	
+	select avg(esal) from emp;
+
+
+
+Q)Write a query to display highest salary from emp table?
+
+	select max(esal) from emp;
+
+
+Q)Write a query to display  least salary from emp table?
+
+	select min(esal) from emp;
+
+
+Q)Write a query to display number of records present in database table?
+
+	select count(*) from emp;
+
+
+Q)What is the difference between count(*) and count(expression)?
+
+count(*)				
+------------------			
+It will return number of records present in database table.
+It will include null records.
+ex:
+	select count(*) from emp;//6 records 
+
+
+count(expression)
+----------------
+It will return number of values present in a database table column.
+It will not include null values.
+ex:
+	select count(eid) from emp; // 6 
+
+	select count(comm) from emp; // 5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+

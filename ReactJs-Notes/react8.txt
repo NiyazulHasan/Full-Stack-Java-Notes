@@ -1,0 +1,473 @@
+Lists in ReactJs
+=================
+Lists are used to display data in an ordered format and mainly used to 
+display menus on websites. In React, Lists can be created in a similar way as we create lists in JavaScript. Let us see how we transform Lists in regular JavaScript.
+
+The map() function is used for traversing the lists. 
+
+ex:
+
+
+Project structure
+-----------------
+myapp15
+|
+|----node_modules
+|
+|-----public
+|	|
+	|---favicon.ico
+	|---index.html
+	|---manifest.json 
+|
+|-----src
+	|
+	|---index.js
+	|---App.js
+|
+|-----package.json
+|-----README.md
+
+step1:
+-----
+	create a react project i.e myapp15.
+	ex:
+		Reactprojects> npx  create-react-app  myapp15
+
+step2:
+------
+	Open the VSC code editor.
+	ex:
+		Reactprojects> code  . 
+
+step3:
+-----
+	Move/Switch to myapp15 project.
+	ex:
+		Reactprojects> cd  myapp15
+
+step4:
+-----
+	Run the react application.
+	ex;
+		Reactprojects/myapp15> npm start 
+
+step5:
+------
+	Create App.js file inside "src" folder.
+
+App.js
+-------
+import React, { Component } from 'react'
+
+export default class App extends Component {
+
+  render() {
+          
+        var arr=[10,20,30,40];
+
+        var newArr=arr.map((element)=>
+        {
+          return <li>{element}</li>
+        })
+
+    return (
+      <ul>
+          {newArr}
+      </ul>
+    )
+  }
+}
+
+step6:
+-----	
+	Test the application by using below request url.
+	ex:
+		http://localhost:3000
+
+
+
+ex:2
+-----
+App.js
+------
+import React, { Component } from 'react'
+
+export default class App extends Component {
+
+  state={
+    users:[
+      {pid:101,pname:"LG",pprice:10000},
+      {pid:102,pname:"LAVA",pprice:20000},
+      {pid:103,pname:"MI",pprice:30000},
+      {pid:104,pname:"SAMSUNG",pprice:40000}
+    ]
+  }
+
+  render() {
+      
+          var newArr=this.state.users.map(user=>
+          {
+            return <h1>Id: {user.pid} Name: {user.pname} Price: {user.pprice}</h1>
+          })
+
+    return (
+        <div>
+          {newArr}
+        </div>
+    )
+  }
+}
+
+ex:3
+-----
+App.js
+-------
+import React, { Component } from 'react'
+
+export default class App extends Component {
+
+  state={
+    users:[
+      {pid:101,pname:"LG",pprice:10000},
+      {pid:102,pname:"LAVA",pprice:20000},
+      {pid:103,pname:"MI",pprice:30000},
+      {pid:104,pname:"SAMSUNG",pprice:40000}
+    ]
+  }
+
+  render() {
+      
+          var newArr=this.state.users.map(user=>
+          {
+            return <tr><td>{user.pid}</td> <td> {user.pname}</td> <td>{user.pprice}</td></tr>
+          })
+
+    return (
+        <div>
+          <table border={1} width="100%">
+            <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>NAME</th>
+                  <th>PRICE</th>
+                </tr>
+            </thead>
+            <tbody>
+                {newArr}
+            </tbody>
+          </table>
+        </div>
+    )
+  }
+}
+
+
+Key in ReactJS
+==================
+A key is a special string attribute you need to include when creating
+lists of elements.
+
+Keys help react identify which items have changed are added or are removed.
+
+ex:
+
+App.js
+-----
+import React, { Component } from 'react'
+
+export default class App extends Component {
+
+  state={
+    users:[
+      {pid:101,pname:"LG",pprice:10000},
+      {pid:102,pname:"LAVA",pprice:20000},
+      {pid:103,pname:"MI",pprice:30000},
+      {pid:104,pname:"SAMSUNG",pprice:40000}
+    ]
+  }
+
+  render() {
+      
+          var newArr=this.state.users.map(user=>
+          {
+            return <tr key={user.pid}><td>{user.pid}</td> <td> {user.pname}</td> <td>{user.pprice}</td></tr>
+          })
+
+    return (
+       
+          <table border={1} width="100%">
+            <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>NAME</th>
+                  <th>PRICE</th>
+                </tr>
+            </thead>
+            <tbody>
+                {newArr}
+            </tbody>
+          </table>
+        
+    )
+  }
+}
+
+Axios
+=======
+Axios is used to make HTTP request (GET,POST,PUT,DELETE).
+
+Using axios we can give the request to Rest API's.
+
+We can install axios by using below command.
+
+ex:
+	reactprojects> npm  install axios 
+	or
+	reactprojects> yarn add axios 
+
+
+Project structure
+-----------------
+myapp16
+|
+|----node_modules
+|
+|-----public
+|	|
+	|---favicon.ico
+	|---index.html
+	|---manifest.json 
+|
+|-----src
+	|
+	|---index.js
+	|---App.js
+	|---FetchApi.js
+|
+|-----package.json
+|-----README.md
+
+step1:
+-----
+	create a react project i.e myapp16.
+	ex:
+		Reactprojects> npx  create-react-app  myapp16
+
+step2:
+------
+	Open the VSC code editor.
+	ex:
+		Reactprojects> code  . 
+
+step3:
+-----
+	Move/Switch to myapp16 project.
+	ex:
+		Reactprojects> cd  myapp16
+
+step4:
+-----
+	Install axios in myapp16 project.
+	ex:
+		Reactprojects/myapp16> npm install axios
+
+step5:
+-------
+	Run the react application.
+	ex;
+		Reactprojects/myapp15> npm start 
+
+step6:
+------
+	Create App.js file inside "src" folder.
+
+App.js
+------
+import FetchApi from "./FetchApi";
+
+function App()
+{
+  
+  return (
+      <FetchApi/>  
+  )
+}
+export default App;
+
+step7:
+-------
+	Arange one  REST API for fetching the data.
+	ex:
+		https://jsonplaceholder.typicode.com/users
+
+step8:
+-------	
+	Create FetchApi.js file inside "src" folder.
+
+FetchApi.js
+-----------
+import {useState} from 'react';
+import axios from 'axios';
+function FetchApi()
+{
+
+    const [data,setData]=useState([])
+
+  const handleClick=()=>
+  {
+    axios.get("https://jsonplaceholder.typicode.com/users")
+    .then(response=>
+      {
+        setData(response.data)
+      })
+      .catch(error=>
+        {
+          this.setData(error);
+        })
+  }
+
+  return (
+    <div>
+      <center>
+        <button onClick={handleClick}>Fetch API </button>
+      </center>
+      <table border={1} width="100%">
+        <thead>
+          <tr>
+              <th>ID</th>
+              <th>NAME</th>
+              <th>USERNAME</th>
+              <th>EMAIL</th>
+          </tr>
+        </thead>
+        <tbody>
+            {
+              data.map(data=>
+                {
+                  return <tr>
+                            <td>{data.id}</td>
+                            <td>{data.name}</td>
+                            <td>{data.username}</td>
+                            <td>{data.email}</td>
+                          </tr>
+                })
+            }
+        </tbody>
+      </table>
+    </div>
+  )
+}
+export default FetchApi;
+
+step9:
+-----
+	Test the application by using below request url.
+	ex:
+		http://localhost:3000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

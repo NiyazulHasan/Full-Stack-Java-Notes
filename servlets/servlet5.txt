@@ -1,0 +1,641 @@
+Servlet Filters
+===================
+Filter is an object which is executed at the time of preprocessing and 
+postprocessing of the request.
+
+Diagram:  servlet5.1
+
+The main advantages of using filter is to perform filter task such as
+
+1) Counting number of request
+
+2) To perform validation
+
+3) Encyrption and Decryption 
+
+and etc.
+
+Like Servlet, Filter is having it's own Filter API.
+The javax.servlet package contains thre interfaces of Filter API.
+
+1)Filter 
+
+2)FilterChain
+
+3)FilterConfig 
+
+1)Filter Interface
+================
+For creating any filter, we must and should implements the Filter interface.
+
+Filter interface provides the following 3 life cycle methods for filter.
+
+
+i)public void init(FilterConfig config)
+----------------------------------
+	
+	IT is used to initialize the filter.
+	It invokes only once .
+
+
+ii)public void doFilter(HttpServletRequest req,HttpServletResponse res,FilterChain chain)
+----------------------------------------------------------
+	This method is invoked every time when user request to any resources to which
+	the filter is mappend.
+
+	IT is used to perform filtering task.	
+	
+iii)public void destroy()
+---------------------------
+	This method is invoked only once when filter is taken out of the service.
+
+
+2)FilterChain
+==============
+It is responsible to invoke the next filter or resource in the chain.
+
+FilterChain contains only one method.
+
+i)public void doFilter(HttpServletRequest req,HttpServletResponse res)
+------------------------------------
+	It passes the control to the next filter or resource.
+
+	
+3)FilterConfig
+===============
+For every filter our servlet container creates FilterConfig object.
+It is one per filter.
+
+
+
+Deployment Directory Structure
+----------------------------------
+FilterApp
+|
+|--------Java Resources
+|		|
+|		|-------src
+			|
+			|----com.ihub.www
+				|
+				|----MyFilter.java
+				|----MyServlet.java
+|
+|--------Web Content
+|		|
+		|----index.html
+		|
+		|-----WEB-INF
+			|
+			|---web.xml
+	
+Note:
+------
+	In above project, we need to add "servlet-api.jar" file in 
+	project build path.				
+
+index.html
+------------
+<center>
+	<h1>
+		<a href="test">click</a>
+	</h1>
+</center>
+
+
+web.xml
+-------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  <servlet>
+  	<servlet-name>MyServlet</servlet-name>
+  	<servlet-class>com.ihub.www.MyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>MyServlet</servlet-name>
+  	<url-pattern>/test</url-pattern>
+  </servlet-mapping>
+  
+  <filter>
+  	<filter-name>MyFilter</filter-name>
+  	<filter-class>com.ihub.www.MyFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>MyFilter</filter-name>
+  	<url-pattern>/test</url-pattern>
+  </filter-mapping>
+  
+  <welcome-file-list>
+  	<welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  
+</web-app>
+
+
+MyFilter.java
+----------------
+package com.ihub.www;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+
+public class MyFilter implements Filter
+{
+
+	@Override
+	public void init(FilterConfig config) throws ServletException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void doFilter(ServletRequest req, ServletResponse res,
+			FilterChain chain) throws IOException, ServletException {
+		
+		PrintWriter pw=res.getWriter();
+		res.setContentType("text/html");
+		
+		pw.println("<center><h2>Filter Invoked Before</h2></center><br>");
+		
+		//it sends the request to servlet
+		chain.doFilter(req, res);
+		
+		pw.println("<center><h2>Filter Invoked After</h2></center><br>");
+		
+		
+	}
+
+	
+	@Override
+	public void destroy() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+}
+
+MyServlet.java
+-----------------
+package com.ihub.www;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServlet;
+
+public class MyServlet extends HttpServlet
+{
+	public void service(ServletRequest req,ServletResponse res)throws ServletException,IOException
+	{
+		PrintWriter pw=res.getWriter();
+		res.setContentType("text/html");
+
+		pw.println("<center><h2>Servlet invoked Middle</h2></center><br>");
+		
+	}
+}
+
+Request url
+------------
+	http://localhost:2525/FilterApp/
+
+
+
+
+Servlet Life cycle methods
+============================
+We have three life cycle methods in Servlets.
+
+1)public void init(ServletConfig config)throws ServletException
+-------------------------------------------
+	It is used for instantiation event.
+	This method will execute just before Servlet object creation.
+
+
+2)public void service(ServletRequest req,ServletResponse res)throws ServletException,IOException
+---------------------------------------------
+	It is used for request processing event.
+	This method will execute when request goes to servlet program.
+
+3)public void destroy()
+--------------------------
+	It is used for destruction event.
+	This method will execute just before Servlet object destruction.
+
+Deployment Directory Structure
+----------------------------------
+LifeCycleApp
+|
+|--------Java Resources
+|		|
+|		|-------src
+			|
+			|----com.ihub.www
+				|
+				|---TestSrv.java
+
+|
+|--------Web Content
+|		|
+		|----index.html
+		|
+		|-----WEB-INF
+			|
+			|---web.xml
+	
+Note:
+------
+	In above project, we need to add "servlet-api.jar" file in 
+	project build path.
+
+
+index.html
+-----------
+<center>
+	<h1>
+		<a href="test">click</a>
+	</h1>
+</center>
+
+web.xml
+----------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  <servlet>
+  	<servlet-name>TestSrv</servlet-name>
+  	<servlet-class>com.ihub.www.TestSrv</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>TestSrv</servlet-name>
+  	<url-pattern>/test</url-pattern> 
+  </servlet-mapping>
+  
+  <welcome-file-list>
+  	<welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  
+  
+</web-app>
+
+TestSrv.java
+--------------
+package com.ihub.www;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class TestSrv extends HttpServlet {
+
+	public void init(ServletConfig config)throws ServletException
+	{
+		//empty
+		System.out.println("init-method");
+	}
+	public void service(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException
+	{
+		PrintWriter pw=res.getWriter();
+		res.setContentType("text/html");
+		System.out.println("service-method");
+		pw.println("<center><h1>This is Service method</h1></center>");
+		pw.close();
+	}
+	public void destroy()
+	{
+		System.out.println("destroy-method");
+		//empty
+	}
+}
+
+
+request url
+----------
+	http://localhost:2525/LifeCycleApp/
+
+
+ServletConfig object
+=====================
+
+ServletConfig is an interface which is present in javax.servlet package.
+
+ServletConfig object will be created by the web container for every servlet.
+
+ServletConfig object is used to read configuration information from web.xml file.
+
+We can create ServletConfig object by using getServletConfig() method.
+
+ex:
+	ServletConfig config=getServletConfig();
+
+ServletConfig interface contains following four methods.
+
+1)public String getInitParameter(String name);
+-------------------------------------
+	It will return parameter value based on specified parameter name.
+
+2)public Enumeration getInitParameterNames();
+-----------------------------------------------------
+	It will return enumeration of all initialized parameter names.
+
+3)public ServletContext getServletContext();
+-------------------------------------------------------
+	It will return ServletContext object.
+
+4)public String getServletName();
+-----------------------------------------------	
+	It will return Servlet name.
+
+
+Deployment Directory Structure
+----------------------------------
+ServletConfigApp
+|
+|--------Java Resources
+|		|
+|		|-------src
+			|
+			|----com.ihub.www
+				|
+				|---TestSrv.java
+
+|
+|--------Web Content
+|		|
+		|----index.html
+		|
+		|-----WEB-INF
+			|
+			|---web.xml
+	
+Note:
+------
+	In above project, we need to add "servlet-api.jar" file in 
+	project build path.
+
+
+index.html
+--------------
+<center>
+	<h1>
+		<a href="test">click</a>
+	</h1>
+</center>
+
+web.xml
+----------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+ 
+ 	<servlet>
+ 		<servlet-name>TestSrv</servlet-name>
+ 		<servlet-class>com.ihub.www.TestSrv</servlet-class> 
+ 		<init-param>
+ 			<param-name>driver</param-name>
+ 			<param-value>oracle.jdbc.driver.OracleDriver</param-value>
+ 		</init-param>
+ 		<init-param>
+ 			<param-name>url</param-name>
+ 			<param-value>jdbc:oracle:thin:@localhost:1521:XE</param-value>
+ 		</init-param>
+ 	</servlet>
+ 	<servlet-mapping>
+ 		<servlet-name>TestSrv</servlet-name>
+ 		<url-pattern>/test</url-pattern> 
+ 	</servlet-mapping>
+ 	
+ 	<welcome-file-list>
+ 		<welcome-file>index.html</welcome-file>
+ 	</welcome-file-list>
+ 
+</web-app>
+
+TestSrv.java
+---------------
+package com.ihub.www;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Enumeration;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class TestSrv extends HttpServlet {
+	
+	protected void doGet(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException
+	{
+		PrintWriter pw=res.getWriter();
+		res.setContentType("text/html");
+			
+		ServletConfig config=getServletConfig();
+		
+		pw.println(config.getInitParameter("driver")+"<br>");
+		pw.println(config.getInitParameter("url")+"<br>");
+
+		Enumeration<String> e=config.getInitParameterNames();
+		while(e.hasMoreElements())
+		{
+			String s=(String)e.nextElement();
+			pw.println(s+"<br>");
+		}
+		
+		pw.println(config.getServletName()+"<br>");
+		
+		pw.close();
+	}
+
+}
+
+
+Request url
+----------
+	http://localhost:2525/ServletConfigApp/
+
+
+ServletContext object
+========================
+ServletContext is an interface which is present in javax.servlet package.
+
+ServletContext object is created by the web container for every web application i.e it is one per web application.
+
+ServletContext object is used to read configuration information from web.xml file and it is for  all servlets.
+
+We can create ServletContext object by using getServletContext() method.
+
+ex:
+		ServletContext context=getServletContext();
+
+		or
+
+		ServletConfig config=getServletConfig();
+		ServletContext context=config.getServletContext();
+
+
+ServletContext contains following methods.
+
+
+1)public String getInitParameter(String name);
+-------------------------------------
+	It will return parameter value based on specified parameter name.
+
+2)public Enumeration getInitParameterNames();
+-----------------------------------------------------
+	It will return enumeration of all initialized parameter names.
+
+3)public void setAttribute(String name,Object obj);
+---------------------------------------------------------
+	It will set the attribute.
+
+4)public Object getAttribute(String name);
+----------------------------------------
+	It will return the attribute  value.
+
+5)public void removeAttribute(String name);
+-----------------------------------------------------------
+	It will remove the attribute.
+
+
+
+Deployment Directory Structure
+----------------------------------
+ServletContextApp
+|
+|--------Java Resources
+|		|
+|		|-------src
+			|
+			|----com.ihub.www
+				|
+				|---TestSrv.java
+
+|
+|--------Web Content
+|		|
+		|----index.html
+		|
+		|-----WEB-INF
+			|
+			|---web.xml
+	
+Note:
+------
+	In above project, we need to add "servlet-api.jar" file in 
+	project build path.
+
+
+index.html
+--------------
+<center>
+	<h1>
+		<a href="test">click</a>
+	</h1>
+</center>
+
+
+web.xml
+---------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+ 
+ <servlet>
+ 	<servlet-name>TestSrv</servlet-name>
+ 	<servlet-class>com.ihub.www.TestSrv</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>TestSrv</servlet-name>
+ 	<url-pattern>/test</url-pattern>
+ </servlet-mapping>
+ 
+ <context-param>
+ 	<param-name>driver</param-name>
+ 	<param-value>oracle.jdbc.driver.OracleDriver</param-value>
+ </context-param>
+ <context-param>
+ 	<param-name>url</param-name>
+ 	<param-value>jdbc:oracle:thin:@localhost:1521:XE</param-value>
+ </context-param>
+ 
+ <welcome-file-list>
+ 	<welcome-file>index.html</welcome-file>
+ </welcome-file-list>
+ 
+</web-app>
+
+
+TestSrv.java
+------------
+package com.ihub.www;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Enumeration;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class TestSrv extends HttpServlet {
+	
+	protected void doGet(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException
+	{
+		PrintWriter pw=res.getWriter();
+		res.setContentType("text/html");
+		
+		ServletContext context=getServletContext();
+		
+		pw.println(context.getInitParameter("driver")+"<br>");
+		pw.println(context.getInitParameter("url")+"<br>");
+		
+		Enumeration<String> e=context.getInitParameterNames();
+		while(e.hasMoreElements())
+		{
+			String s=(String)e.nextElement();
+			pw.println(s+"<br>");
+		}
+		context.setAttribute("username", "system");
+		context.setAttribute("password", "admin");
+		
+		pw.println(context.getAttribute("username")+"<br>");
+		pw.println(context.getAttribute("password")+"<br>");
+		
+		context.removeAttribute("username");
+		context.removeAttribute("password");
+		
+		pw.println(context.getAttribute("username")+"<br>");
+		pw.println(context.getAttribute("password")+"<br>");
+		
+		
+		pw.close();
+	}
+
+}
+
+
+
+request url
+--------------
+	http://localhost:2525/ServletContextApp/
+

@@ -1,0 +1,509 @@
+Method overloading
+===================
+Having same method name with different parameters in a single class is called method overloading.
+
+All the methods present in a class are called overloaded methods.
+
+Method overloading will reduce complexcity of the programming.
+
+ex:
+---
+class A
+{
+	// overloaded methods
+	public void methodOne()
+	{
+		System.out.println("0-arg method");
+	}
+	public void methodOne(int i)
+	{
+		System.out.println("int-arg method");
+	}
+	public void methodOne(double d)
+	{
+		System.out.println("double-arg method");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		A a =new A();
+		a.methodOne();
+		a.methodOne(10);
+		a.methodOne(10.5d);
+	}
+}
+
+Method overriding
+====================
+Having same method name with same parameters in two different classes is called method overriding.
+
+Methods which are present in child class are called overriding methods.
+
+Methods which are present in parent class are called overridden methods.
+
+ex:
+----
+class Parent 
+{
+	public void property()
+	{
+		System.out.println("Cash+Gold+Land");
+	}
+	//overridden method
+	public void marry()
+	{
+		System.out.println("Subhalakshmi");
+	}
+}
+class Child extends Parent 
+{
+	//overriding method
+	public void marry()
+	{
+		System.out.println("Rashmika/Trisha");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		Parent p=new Parent();
+		p.property(); // cash+gold+land
+		p.marry(); // subhalakshmi
+
+		Child c=new Child();
+		c.property(); // cash+gold+land
+		c.marry();// Rashmika / Trisha 
+
+		Parent p1=new Child();
+		p1.property(); // cash+gold+land
+		p1.marry(); //  Rashmika / Trisha 
+ 	}
+}
+
+Q)Can we override final methods in java?
+
+ans) No , we can't override final methods in java.
+
+ex:
+class Parent 
+{
+	public void property()
+	{
+		System.out.println("Cash+Gold+Land");
+	}
+	public final void marry()
+	{
+		System.out.println("Subhalakshmi");
+	}
+}
+class Child extends Parent 
+{
+	public void marry()
+	{
+		System.out.println("Rashmika/Trisha");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		Parent p=new Parent();
+		p.property(); // cash+gold+land
+		p.marry(); // subhalakshmi
+
+		Child c=new Child();
+		c.property(); // cash+gold+land
+		c.marry();// Rashmika / Trisha 
+
+		Parent p1=new Child();
+		p1.property(); // cash+gold+land
+		p1.marry(); //  Rashmika / Trisha 
+ 	}
+}
+o/p: C.T.E   can't override i.e method is final 
+
+
+Q)Can we overload main method in java?
+
+ans) 
+Yes, we can overload main method in java.But JVM always execute main method with String[] parameter only.
+
+ex:
+
+
+class Test
+{
+	public static void main(int[] iargs)
+	{
+		System.out.println("int[] parameter");
+ 	}
+	public static void main(String[] args)
+	{
+		System.out.println("String[] parameter");
+ 	}
+}
+
+
+Method Hiding
+==============
+Method hiding is exactly the same as method overriding with following differences.
+
+Method overriding				Method hiding
+---------------------				---------------
+All the methods present in method overriding	All the methods present in method 
+must be non-static.				hiding must be static.
+
+Method resolution will taken care by JVM	Method resolution will taken care 	
+based on runtime object.			by compiler based on reference type.
+
+It is also known as runtime polymorphism,	It is also known as compile time 
+dynamic polymorphism, late binding.		polymorphism, static polymorphism,
+						early binding.
+
+ex:
+class Parent 
+{
+	public static void property()
+	{
+		System.out.println("Cash+Gold+Land");
+	}
+	public static void marry()
+	{
+		System.out.println("Subhalakshmi");
+	}
+}
+class Child extends Parent 
+{
+	public static void marry()
+	{
+		System.out.println("Rashmika/Trisha");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		Parent p=new Parent();
+		p.property(); // cash+gold+land
+		p.marry(); // subhalakshmi
+
+		Child c=new Child();
+		c.property(); // cash+gold+land
+		c.marry();// Rashmika / Trisha 
+
+		Parent p1=new Child();
+		p1.property(); // cash+gold+land
+		p1.marry(); //  subhalakshmi
+ 	}
+}
+
+
+Q)Can we override static methods in java?
+
+ans) No , we can't override static methods in java.
+
+
+Q)Can we override main method in java?
+
+ans)No , we can't override main method because it is static.
+
+Polymorphism
+================
+Polymorphism has taken from Greek word.
+
+Here poly means many and morphism means forms.
+
+The ability to represent in different forms is called polymorphism.
+
+The main objective of polymorphism is to provide flexibility.
+
+In java, polymorphism is divided into two types.
+
+1)Compile time polymorphism / Static polymorphism / Early binding
+
+2)Runtime polymorphism  / Dynamic polymorphism  / Late binding 
+
+1)Compile time polymorphism
+--------------------------
+A polymorphism which exhibits at compile time is called compile time polymorphism.
+ex:
+	Method overloading
+	Method Hiding 
+
+2)Runtime polymorphism 
+-------------------------
+A polymorphism which exhibits at runtime is called run time polymorphism.
+ex:
+	Method overriding
+
+Summary Diagram:
+-----------------
+OOPS talks about Reusability, Security and Flexibility.	
+
+Diagram : java31.1
+
+
+Constructor
+===========
+Having a same name as class name is called constructor.
+
+A constructor is a special method which is used to initialized an object.
+
+A constructor does not allowed any returntype.
+
+A constructor will accept following modifiers.
+
+ex:
+	
+	default
+	public
+	private 
+	protected 
+
+A constructor will execute when we create an object.
+Hence it is also known as lazy loading.
+
+We can declare a constructor as follow.
+
+syntax:
+	Class_Name  reference_variable=new Constructor();
+ex:
+	Test  t = new  Test();
+
+In java, constructors are divided into two types.
+
+1)Userdefined constructor
+
+2)Default constructor 
+
+1)Userdefined constructor
+--------------------------
+A constructor which is created by the user based on the application requirement is called userdefined constructor.
+
+It is categories into two types.
+
+i)Zero Argument constructor
+
+ii) Parameterized constructor 
+
+i)Zero Argument constructor
+----------------------------
+Suppose if we are not passing atleast one argument to userdefined constructor is called zero argument constructor.
+
+ex:1
+-----
+class Test
+{
+	//constructor
+	Test()
+	{
+		System.out.println("0-arg method");
+	}
+	public static void main(String[] args)
+	{
+		System.out.println("Main method");
+	}
+}
+o/p: main method
+
+ex:2
+----
+class Test
+{
+	//constructor
+	public Test()
+	{
+		System.out.println("0-arg method");
+	}
+	public static void main(String[] args)
+	{
+		System.out.println("Main method");
+		Test t=new Test();
+	}
+}
+
+o/p:
+main method
+0-arg method
+
+ex:3
+-----
+class Test
+{
+	//constructor
+	public Test()
+	{
+		System.out.println("0-arg method");
+	}
+	public static void main(String[] args)
+	{
+		Test t1=new Test();
+		System.out.println("Main method");
+		Test t2=new Test();
+	}
+}
+o/p:
+0-arg method
+Main method
+0-arg method
+
+
+2) Parameterized constructor
+----------------------------
+Suppose if we are passing atleast one argument to userdefined constructor is called parameterized argument constructor.
+
+ex:
+
+class Employee
+{
+	//current class variables 
+	private int empId;
+	private String empName;
+	private double empSal;
+
+	public Employee(int empId,String empName,double empSal)
+	{
+		this.empId=empId;
+		this.empName=empName;
+		this.empSal=empSal;
+	}
+
+	public void getEmployeeDetails()
+	{
+		System.out.println("Employee Id :"+empId);
+		System.out.println("Employee Name :"+empName);
+		System.out.println("Employee Salary :"+empSal);
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		Employee e=new Employee(101,"Alan Morries",10000d);
+		e.getEmployeeDetails();
+	}
+}
+
+2)Default constructor 
+-----------------------
+It is a compiler generated constructor for every java program where we are not defining atleast zero-argument constructor.
+
+Default constructor is a empty implementation.
+
+We can see default constructor by using below command.
+ex:
+	cmd> javap  -c  Test 
+
+Diagram: java31.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

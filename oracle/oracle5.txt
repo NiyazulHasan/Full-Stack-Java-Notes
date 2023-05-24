@@ -1,0 +1,418 @@
+Integrity Constraints
+=========================
+Constraint is a rule which is applied on the table.
+
+Using constraints we can achieve accuray and quality of data.
+
+We have five types of constraints. They are 
+
+1) NOT NULL
+
+2) UNIQUE 
+
+3) PRIMARY KEY
+
+4) FOREIGN KEY
+
+5) CHECK 
+
+A constraint can be created at two levels.
+
+i) column level
+
+ii) table level 
+
+
+1) NOT NULL
+---------------
+NOT NULL constraint does not accept null values.
+
+It will accept duplicate values.
+
+NOT NULL constraint can be created only at column level.
+
+
+column level
+---------------
+
+ex:
+-----
+drop table student;
+
+create table student(sno number(3) NOT NULL,
+				sname varchar2(10),sadd varchar2(12));
+
+insert into student values(101,'raja','hyd');
+
+insert into student values(101,'ravi','delhi');
+
+insert into student values(null,'ramana','vizag'); //invalid 
+
+commit;
+
+
+NOT NULL constraint can be created for multiple columns.
+
+ex:
+
+drop table student;
+
+create table student(sno number(3) NOT NULL,
+				sname varchar2(10) NOT NULL,
+					sadd varchar2(12) NOT NULL);
+
+insert into student values(101,'raja','hyd');
+
+insert into student values(102,null,'delhi'); //invalid 
+
+insert into student values(null,'ramana','vizag'); //invalid 
+
+insert into student values(103,'rakesh',null); //invalid 
+
+
+
+2) UNIQUE 
+--------------
+A UNIQUE constraint does not accept duplicate values.
+
+It will accept null values.
+
+UNQIUE constraint can be created at column level and table level.
+
+column level
+-----------
+drop table student;
+
+create table student(sno number(3) UNIQUE,
+			sname varchar2(10),
+				sadd varchar2(12));
+
+insert into student values(101,'raja','hyd');
+
+insert into student values(null,'ramana','vizag');
+
+insert into student values(101,'ravi','delhi'); // invalid 
+
+commit;
+
+
+A UNIQUE constraint can be created for multiple columns.
+ex:
+	
+drop table student;
+
+create table student(sno number(3) UNIQUE,
+			sname varchar2(10) UNIQUE,
+				sadd varchar2(12) UNIQUE);
+
+insert into student values(101,'raja','hyd');
+
+insert into student values(101,'ramana','delhi'); //invalid 
+
+insert into student values(102,'raja','vizag'); //invalid 
+
+insert into student values(103,'rakesh','hyd'); //invalid 
+
+commit;
+
+
+table level
+-----------
+drop table student;
+
+create table student(sno number(3),
+			sname varchar2(10),
+				sadd varchar2(12), 
+					UNIQUE(sno));
+
+insert into student values(101,'raja','hyd');
+
+insert into student values(null,'ramana','vizag');
+
+insert into student values(101,'ravi','delhi'); // invalid 
+
+commit;
+
+
+3) PRIMARY KEY
+-----------------
+PRIMARY KEY is a combination of NOT NULL and UNIQUE constraint.
+
+Primary key does not accept null values and duplicate values.
+
+A table can have only one primary key.
+
+Primary key can be created at column level and table level.
+
+
+column level
+------------
+drop table student;
+
+create table student(sno number(3) PRIMARY KEY,
+			sname varchar2(10),
+				sadd varchar2(12));
+
+insert into student values(101,'raja','hyd');
+
+insert into student values(101,'ravi','delhi'); // invalid 
+
+insert into student values(null,'ramana','vizag'); // invalid 
+
+commit;
+
+
+table level
+--------------
+drop table student;
+
+create table student(sno number(3) ,
+			sname varchar2(10),
+				sadd varchar2(12),
+					PRIMARY KEY(sno));
+
+insert into student values(101,'raja','hyd');
+
+insert into student values(101,'ravi','delhi'); // invalid 
+
+insert into student values(null,'ramana','vizag'); // invalid 
+
+commit;
+
+
+
+4) FOREIGN KEY
+----------------
+A foreign key is used to establish the relationship between two tables.
+
+This relationship is also known as parent and child relationship or master and detailed relationship.
+
+To establish the relationship between two tables a parent table must have primary key or unqiue key and child table must have foreign key.
+
+A primary key column name may or may not match with foreign key column name but datatype must match.
+
+Foreign key will accept only those values which are present in primary key column.
+
+Foreign key will accept null values and duplicate values.
+
+Diagram: oracle5.1
+
+college table
+------------
+drop table college;
+
+create table  college(sno number(3) PRIMARY KEY,
+			sname varchar2(10),
+			  sadd varchar2(12));
+
+insert into college values(101,'raja','hyd');
+
+insert into college values(102,'ravi','delhi');
+
+insert into college values(103,'ramana','vizag');
+
+commit;
+
+library table
+------------
+drop table library;
+
+create table library(rollno number(3) REFERENCES college(sno),
+			book_name varchar2(10));
+
+insert into library values(101,'java');
+
+insert into library values(102,'oracle');
+
+insert into library values(103,'React');
+
+insert into library values(103,'Frameworks');
+
+insert into library values(null,'Angular');
+
+insert into library values(104,'C Lang'); //invalid 
+commit;
+
+5)CHECK 
+------------
+CHECK constraint is used to describe domain of a column.
+
+Domain means what type of value a column must accept.
+
+Check constraint can be created at column level and table level.
+
+ex:1
+-----
+
+column level
+-------------
+
+drop table student;
+
+create table student(sno number(3),
+			sname varchar2(10),
+				smarks number(3) CHECK(smarks<=100));
+
+insert into student values(101,'raja',89);
+
+insert into student values(102,'ravi',106); //invalid 
+
+insert into student values(103,'ramana',768); //invalid 
+
+commit;
+
+
+ex:2
+-------
+
+
+column level
+-------------
+
+drop table student;
+
+create table student(sno number(3),
+			sname varchar2(10),
+				smarks number(3) CHECK(smarks between 0 and 100));
+
+insert into student values(101,'raja',89);
+
+insert into student values(102,'ravi',106); //invalid 
+
+insert into student values(103,'ramana',768); //invalid 
+
+commit;
+
+
+ex:3
+------
+
+
+column level
+-------------
+
+drop table student;
+
+create table student(sno number(3),
+			sname varchar2(10) check(sname=upper(sname)),
+				smarks number(3));
+
+insert into student values(101,'RAJA',89);
+
+insert into student values(102,'ravi',106); //invalid 
+
+insert into student values(103,'RaMaNa',768); //invalid 
+
+commit;
+
+ex:4
+-----
+column level
+-------------
+
+drop table student;
+
+create table student(sno number(3),
+			sname varchar2(10) check(sname=lower(sname)),
+				smarks number(3));
+
+insert into student values(101,'raja',89);
+
+insert into student values(102,'RAJA',106); //invalid 
+
+insert into student values(103,'RaMaNa',768); //invalid 
+
+commit;
+
+
+ex:5
+-----
+table level
+-------------
+
+drop table student;
+
+create table student(sno number(3),
+			sname varchar2(10),
+				smarks number(3), 
+					check(sname=lower(sname)));
+
+insert into student values(101,'raja',89);
+
+insert into student values(102,'RAJA',106); //invalid 
+
+insert into student values(103,'RaMaNa',768); //invalid 
+
+commit;
+
+
+
+
+
+
+
+
+
+
+
+Interview Queries
+---------------------
+
+Q)Write a query to add the constraint in a existing table?
+
+	alter table emp add primary key(eid);
+
+
+Q)Write a query to remove the constraint from existing table?
+
+	alter table emp DROP primary key;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

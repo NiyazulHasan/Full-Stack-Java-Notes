@@ -1,0 +1,127 @@
+Spring Security
+=============
+Spring Security is a framework which provides various security features like  authentication, authorization to create secure Java Enterprise Applications.
+
+It is a sub-project of Spring framework which was started in 2003 by Ben Alex.
+
+Later on, in 2004, It was released under the Apache License as Spring Security 2.0.0.
+
+This framework targets two major areas of application i.e authentication and authorization. 
+
+Authentication 
+---------------------
+It is a process of knowing and identifying the user that wants to access.
+
+Authorization 
+---------------------
+It is a process to allow authority to perform actions in the application.
+
+We can apply authorization to authorize web request, methods and access to individual domain.
+
+Spring Security framework supports wide range of authentication models. 
+
+These models either provided by third parties or framework itself.
+
+
+
+
+Project structure
+--------------------------
+SBSpringSecurity
+|
+|----src/main/java
+|	|
+|	|----com.ge.www
+|		|
+|		|--SBSpringSecurityApplication.java
+|	|
+|	|----com.ge.www.controlller
+|		|
+|		|--MyController.java
+|		
+|---src/main/resources
+|	|
+|	|-----application.properties
+|
+|---src/test/java
+|	|
+|	|-----SBSpringSecurityApplicationTests.java
+
+|---pom.xml
+|
+|
+
+step1:
+---------
+	create a spring starter project.
+	starters: spring web
+		spring security.
+
+step2:
+----------
+	create a Controller to accept the request.
+	
+MyController.java
+--------------------------
+package com.ge.www.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MyController {
+
+	@GetMapping("/msg")
+	public String msg()
+	{
+		return "Welcome to Spring Security";
+	}
+}
+
+step3:
+--------
+	Configure server port number in application.properties file.
+application.properties
+-----------------------------
+server.port=9191
+
+
+step4:
+----------
+	Run the application as spring boot application.
+
+step6:
+----------
+	Test the application by using below url.
+	ex:
+	http://localhost:9191/msg
+
+Note:
+--------
+	When we hit the request ,we will get login page.
+	Default username is "user" and password we can copy from STS console.
+
+step7:
+--------
+	To change the default user and password we can use below properties in 
+	application.properties file.
+
+application.properties
+------------------------------
+server.port=9191
+
+spring.security.user.name=raja
+spring.security.user.password=rani
+
+step8:
+----------	
+	Relaunch the spring boot application.
+
+step9:
+----------
+	Test the application by using below url.
+	ex:
+	http://localhost:9191/msg
+
+
+

@@ -1,0 +1,264 @@
+Spring Boot application to interact with H2 Database
+=====================================================
+
+Diagram: sb3.1
+
+project structure
+------------------
+MVCApp2
+|
+|----src/main/java
+	|
+	|---com.ihub.www
+	|	|
+		|---MVCApp2Application.java
+	|
+	|---com.ihub.www.controller
+		|
+		|---EmployeeController.java (Class)
+	|
+	|---com.ihub.www.repository
+		|
+		|---EmployeeRepository.java (Interface)	
+	|
+	|---com.ihub.www.model
+		|
+		|---Employee.java (Class)
+|
+|
+|----src/main/resources
+	|
+	|---application.properties 
+	|
+
+|-----src
+	|
+	|-----main
+		|
+		|---webapp
+			|
+			|----index.jsp
+
+step1:
+-----
+	Create a spring boot starter project i.e MVCApp2.
+	ex:
+		starters: 
+				spring web 
+				spring data jpa 
+				H2 Database 
+
+step2:
+------
+	Add "Tomcat Embed Jasper" dependency to read the jsp file inside pom.xml.
+	
+
+	ex:
+		<dependency>
+    			<groupId>org.apache.tomcat.embed</groupId>
+    			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+
+step3:
+------
+	Create a EmployeeController inside "com.ihub.www.controller" package.
+
+EmployeeController.java
+------------------------
+package com.ihub.www.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ihub.www.model.Employee;
+import com.ihub.www.repository.EmployeeRepository;
+
+@Controller
+public class EmployeeController 
+{
+
+	@Autowired
+	EmployeeRepository employeeRepository;
+	
+	@RequestMapping("/")
+	public String home()
+	{
+		return "index.jsp";
+	}
+	
+	@RequestMapping("/addEmp")
+	public String addEmployeeDetails(Employee e)
+	{
+		employeeRepository.save(e);
+		
+		return "index.jsp";
+	}
+}
+
+
+step4:
+-----
+	Create index.js file inside "src/main/webapp" folder.
+
+index.js
+----------
+
+<form action="addEmp">
+	<table align="center">
+		<tr>
+			<td>Employee Id </td>
+			<td><input type="text" name="empId"/></td>
+		</tr>
+		<tr>
+			<td>Employee Name </td>
+			<td><input type="text" name="empName"/></td>
+		</tr>
+		<tr>
+			<td>Employee Salary </td>
+			<td><input type="text" name="empSal"/></td>
+		</tr>
+		<tr>
+			<td><input type="reset" value="reset"/></td>
+			<td><input type="submit" value="submit"/></td>
+		</tr>
+	</table>
+</form>
+
+	
+step5:
+------
+	Create a Employee.java file  inside "com.ihub.www.model" package.
+
+Employee.java
+------------
+package com.ihub.www.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table
+public class Employee 
+{
+	@Id
+	private int empId;
+	@Column
+	private String empName;
+	@Column
+	private double empSal;
+	
+	public int getEmpId() {
+		return empId;
+	}
+	public void setEmpId(int empId) {
+		this.empId = empId;
+	}
+	public String getEmpName() {
+		return empName;
+	}
+	public void setEmpName(String empName) {
+		this.empName = empName;
+	}
+	public double getEmpSal() {
+		return empSal;
+	}
+	public void setEmpSal(double empSal) {
+		this.empSal = empSal;
+	}
+}
+
+
+step6:
+-------
+	Create  a EmployeeRepository.java interface inside "com.ihub.www.repository"
+	package.
+
+EmployeeRepository.java
+-------------------
+package com.ihub.www.repository;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.ihub.www.model.Employee;
+
+@Repository
+public interface EmployeeRepository extends CrudRepository<Employee,Integer>
+{
+
+}
+
+
+step7:
+----
+	Configure server port and h2 database properties inside 
+	application.properties file.
+
+application.properties
+------------------------
+server.port=9090
+
+spring.datasource.url= jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+
+
+spring.h2.console.enabled=true
+
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=update
+
+
+step8:
+-------
+	Run the spring boot starter project.
+
+step9:
+-------
+	Test the application by using below request url.
+	ex:
+
+		http://localhost:9090
+		http://localhost:9090/h2-console
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

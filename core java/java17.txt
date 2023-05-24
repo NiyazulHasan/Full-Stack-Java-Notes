@@ -1,0 +1,1038 @@
+How to convert decimal to binary 
+==================================
+	10   - decimal 
+	1010 - binary 	
+
+	2|10
+         --- 0
+	2|5
+         --- 1
+        2|2
+         --- 0		^
+          1		|
+          ---------------
+	1010
+
+ex:
+	decimal - 2 
+	binary  - 0010
+
+	2|2
+         --- 0		^
+          1		|
+	-----------------
+	0010
+
+How to convert binary to decimal
+---------------------------------
+	1010 - binary number 
+	10   - decimal number 
+
+	1  0 1  0
+		  <----
+
+	0*1 + 1*2 + 0*4 + 1*8
+
+	0 + 2 + 0 + 8 
+
+	10
+
+
+Bitwise Operators
+=================
+
+Bitwise AND operator (&)
+-------------------------
+Bitwise AND operator deals with binary numbers.
+
+Truth table
+----------
+T	T	= T
+T	F	= F
+F	T	= F
+F	F	= F 
+
+ex:1
+-----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int a=10,b=15;
+		int c = a & b;
+		System.out.println(c); //10
+	}
+}
+/*
+	10 - 1010
+	15 - 1111
+	-----------
+	&  - 1010
+				<----
+
+	0*1 + 1*2 + 0*4 + 1*8
+
+	0 + 2 + 0 + 8
+
+	10
+	
+*/
+
+
+ex:2
+-------
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int a=2,b=3;
+		int c = a & b;
+		System.out.println(c); //2
+	}
+}
+/*
+	2 - 0010
+	3 - 0011
+	-----------
+	& - 0010
+				<----
+
+	0*1  + 1*2  + 0*4 +  0*8
+
+	0 + 2 + 0 + 0
+
+	2
+	
+*/
+
+Bitwise OR operator (|)
+------------------------
+Bitwise OR operator deals with binary numbers.
+
+Truth table
+-----------
+T	T	= T
+T	F 	= T
+F	T	= T
+F	F	= F
+
+ex:
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int a=10,b=15;
+		int c = a | b;
+		System.out.println(c); //15
+	}
+}
+/*
+	10 - 1010
+	15 - 1111
+	-----------
+	|  - 1111
+				<----
+
+	1*1 + 1*2 + 1*4 + 1*8 
+
+	1 + 2+ 4+ 8
+
+	15
+	
+*/
+
+
+Bitwise XOR operator (^)
+--------------------------
+Bitwise XOR operator deals with binary numbers.
+
+Truth table
+-----------
+T	T	= F
+T	F	= T
+F	T	= T
+F	F	= F
+
+
+ex:
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int a=10,b=5;
+		int c = a ^ b;
+		System.out.println(c); //15
+	}
+}
+/*
+	10 - 1010
+        5  - 0101
+	-----------
+	^  - 1111
+				<----
+
+	1*1 + 1*2 + 1*4 + 1*8 
+
+	1 + 2+ 4+ 8
+
+	15
+	
+*/
+
+Bitwise NOT operator (~)
+--------------------------
+
+ex:
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i=~10;
+
+		System.out.println(i);//-11
+	}
+}
+
+
+ex:
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i=~23;
+
+		System.out.println(i);//-24
+	}
+}
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i=~(-23);
+
+		System.out.println(i);//22
+	}
+}
+
+
+
+
+Right Shift Operator (>>)
+----------------------------
+10 >> 1		=  10 / 2
+
+10 >> 2		=  10 / 4
+
+10 >> 3		=  10 / 8
+
+10 >> 4		=  10 / 16
+
+10 >> 5		=  10 / 32
+
+ex:
+----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i=100;
+
+		int j = i >> 4;   //  100 / 16
+
+		System.out.println(j);// 6
+	}
+}
+
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i=100;
+
+		int j = i >> 7;   //  100 / 128
+
+		System.out.println(j);// 0
+	}
+}
+
+
+Left Shift Operator (<<)
+-----------------------
+10 << 1		=  10 * 2
+
+10 << 2		=  10 * 4
+
+10 << 3		=  10 * 8
+
+10 << 4		=  10 * 16
+
+10 << 5		=  10 * 32
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+
+		int j = i << 3;  // 10 * 8 
+
+		System.out.println(j);// 80
+	}
+}
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i=100;
+
+		int j = i << 5;  // 100 * 32 
+
+		System.out.println(j);// 3200
+	}
+}
+
+Arithmetic operators
+---------------------
+% - modules
+/ - division
+* - multiplication
++ - addition
+- - subtraction 
+
+ex:
+-----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i = 5+6%3+7/2+9*3+4-7;
+
+		System.out.println(i);//
+	}
+}
+
+/*
+	5  +   6%3  +   7/2   +   9*3   +  4-7
+
+	5  +   0  +   7/2   +   9*3   +  4-7
+
+	5  +   0  +   3  +   9*3   +  4-7
+
+	5  +   0  +   3  +   27   +  4-7
+
+	39 - 7 
+	
+	32
+*/
+
+ex:
+------
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i = 10 / 100;
+
+		System.out.println(i);// 0
+
+		int j =10 % 100;
+
+		System.out.println(j);// 10
+	}
+}
+
+
+Assignment operators
+===================
+
+ex:
+----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+
+		i+=2; // i = i+2
+
+		System.out.println(i);//12
+	}
+}
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+
+		i-=2; // i = i-2
+
+		System.out.println(i);//8
+	}
+}
+
+
+ex:
+-----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+
+		i*=2; // i = i*2
+
+		System.out.println(i);//20
+	}
+}
+
+ex:
+-----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+
+		i/=2; // i = i/2
+
+		System.out.println(i);//5
+	}
+}
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+
+		i%=2; // i = i%2
+
+		System.out.println(i);//0
+	}
+}
+
+
+ex:
+------
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+
+		i+=10*2;  // i = i + 10 * 2;
+
+		System.out.println(i);//30
+	}
+}
+
+Increment / Decrement operators (++ / --)
+--------------------------------------------
+
+We have two types of increment operators.
+Increment operators add '1'.
+
+1)Post Increment
+------------
+	ex:
+		i++;
+
+2)Pre Increment 
+-----------------
+	ex:
+		++i;
+
+
+
+We have two types of decrement operators.
+Decrement operators subtract '1'.
+
+1)Post Decrement
+------------
+	ex:
+		i--;
+
+2)Pre Decrement 
+-----------------
+	ex:
+		--i;
+
+
+post increment/decrement operator
+---------------------------------
+Rule1: First Take
+Rule2: Then Change 
+
+ex:1
+-------
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+
+		i++;
+
+		System.out.println(i);//11
+	}
+}
+
+ex:
+----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+
+		System.out.println(i++);
+	}
+}
+
+ex:
+----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+
+		int j= i++;
+
+		System.out.println(i+"   "+j);// 11  10
+	}
+}
+
+ex:
+----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+
+		int j= i--;
+
+		System.out.println(i+"   "+j);// 9  10
+	}
+}
+
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+
+		int j= i++ + i++; //10 + 11
+
+		System.out.println(i+"   "+j);//12  21
+	}
+}
+
+ex:
+-----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+
+		int j= i++ - i++ - i++;
+
+		System.out.println(i+"   "+j);//13  -13
+	}
+}
+
+ex:
+-----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+
+		int j= i++ + i-- + i--;
+
+		System.out.println(i+"   "+j);//9  31
+	}
+}
+
+
+
+pre increment/decrement operator
+---------------------------------
+Rule1: First change
+Rule2: Then Take
+
+ex:1
+-------
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+
+		++i;
+
+		System.out.println(i);//11
+	}
+}
+
+ex:
+----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+
+		int j = ++i;//11
+
+		System.out.println(i+" "+j);//11  11
+	}
+}
+
+ex:
+----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i =10;
+
+		int j = ++i + --i + ++i;// 11     10    11
+		      
+
+		System.out.println(i+" "+j);//11   32
+	}
+}
+
+ex:
+----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i =100;
+
+		--100;
+		      
+		System.out.println(i);//C.T.E 
+	}
+}
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i =100;
+
+		System.out.println(++i++);//C.T.E 
+	}
+}
+
+ex:
+----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		
+		System.out.println(i++ + ++i);//10 + 12
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

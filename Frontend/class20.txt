@@ -1,0 +1,760 @@
+document.getElementById()
+==========================
+It is used to read the elements based on id.
+
+ex:1
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	
+		Name : <input type="text" id="t1"/> <br>
+
+		<button onclick="f1()">submit</button>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				var name=document.getElementById('t1').value;
+				document.writeln("Welcome :"+name);
+			}
+		</script>
+		
+</body>
+</html>
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	
+		Name : <input type="text" id="t1"/> <br>
+
+		<button onclick="f1()">submit</button>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				var name=document.getElementById('t1').tagName;
+				document.writeln(name);
+			}
+		</script>
+		
+</body>
+</html>
+
+ex:3
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	
+		Name : <input type="text" id="t1"/> <br>
+
+		<button onclick="f1()">submit</button>
+		<br><br>
+		<h1 id="result"></h1>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				var name=document.getElementById('t1').value;
+				document.getElementById('result').innerHTML=name;
+			}
+		</script>
+		
+</body>
+</html>
+
+Javascript program to add two text field data 
+================================================
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	
+		<table align="center">
+			<tr>
+				<td>No1:</td>
+				<td><input type="text" id="t1"/></td>
+			</tr>
+			<tr>
+				<td>No2:</td>
+				<td><input type="text" id="t2"/></td>
+			</tr>
+			<tr>
+				<td><button onclick="f1()">ADD</button></td>
+				<td><span id="result"></span></td>
+			</tr>
+		</table>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				var val1=document.getElementById('t1').value;
+				var val2=document.getElementById('t2').value;
+				var c=parseFloat(val1)+parseFloat(val2);
+				document.getElementById('result').innerHTML=c;	
+			}
+		</script>
+		
+</body>
+</html>
+
+
+Javascript program to hide and show a portion of a form page
+===========================================================
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<fieldset id="curr_id">
+		<legend>Current Address</legend>
+		<table align="center">
+			<tr>
+				<td>House No:</td>
+				<td><input type="text" id="t1"/></td>
+			</tr>
+			<tr>
+				<td>Locality:</td>
+				<td><input type="text" id="t2"/></td>
+			</tr>
+			<tr>
+				<td>City:</td>
+				<td><input type="text" id="t3"/></td>
+			</tr>
+			<tr>
+				<td>State:</td>
+				<td><input type="text" id="t4"/></td>
+			</tr>
+		</table>
+	</fieldset>	
+	<br>
+	<input type="checkbox" id="box" onclick="f1()" />Current Address same as permanent address?
+	<br>
+	<br>
+	<fieldset id="per_id">
+		<legend>Permanent Address</legend>
+		<table align="center">
+			<tr>
+				<td>House No:</td>
+				<td><input type="text" id="t1"/></td>
+			</tr>
+			<tr>
+				<td>Locality:</td>
+				<td><input type="text" id="t2"/></td>
+			</tr>
+			<tr>
+				<td>City:</td>
+				<td><input type="text" id="t3"/></td>
+			</tr>
+			<tr>
+				<td>State:</td>
+				<td><input type="text" id="t4"/></td>
+			</tr>
+		</table>
+	</fieldset>	
+
+	<script type="text/javascript">
+		function f1()
+		{
+			if(document.getElementById('box').checked)
+			{
+				document.getElementById('per_id').style.display="none";
+			}		
+			else
+			{
+				document.getElementById('per_id').style.display="block";	
+			}
+		}
+	</script>
+
+</body>
+</html>
+
+
+
+
+document.getElementsByName()
+========================
+It is used to read the elements by a specified name.
+
+ex:1
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	
+		Name: <input type="text" name="t1"/> <br>
+		<button onclick="f1()">submit</button>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				var name=document.getElementsByName('t1')[0].value;
+				document.writeln(name);
+			}
+		</script>
+</body>
+</html>
+
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	
+		Name: <input type="text" name="t1"/> <br>
+		<button onclick="f1()">submit</button>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				var name=document.getElementsByName('t1')[0].tagName;
+				document.writeln(name);
+			}
+		</script>
+</body>
+</html>
+
+ex:3
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	
+		Name: <input type="text" name="t1"/> <br>
+		<button onclick="f1()">submit</button>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				var name=document.getElementsByName('t1').length;
+				document.writeln(name);
+			}
+		</script>
+</body>
+</html>
+
+
+Javascript program to add first name and last name
+====================================================
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	
+		First Name: <input type="text" name="t1"/> <br>
+		Last Name: <input type="text" name="t2"/> <br>
+		
+		<button onclick="f1()">submit</button>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				var fname=document.getElementsByName('t1')[0].value;
+				var lname=document.getElementsByName('t2')[0].value;
+				document.writeln(fname+lname);
+			}
+		</script>
+</body>
+</html>
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	
+		First Name: <input type="text" name="t1"/> <br>
+		Last Name: <input type="text" name="t1"/> <br>
+		
+		<button onclick="f1()">submit</button>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				var fname=document.getElementsByName('t1')[0].value;
+				var lname=document.getElementsByName('t1')[1].value;
+				document.writeln(fname+lname);
+			}
+		</script>
+</body>
+</html>
+
+Javascript program to select multiple checkboxes
+=====================================================
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	
+		<h1>Courses Completed</h1>
+		<button onclick="f1()">All</button>
+		<br><br>
+		<input type="checkbox" name="c1" value="html">HTML <br>
+		<input type="checkbox" name="c1" value="css">CSS <br>
+		<input type="checkbox" name="c1" value="js">JavaScript <br>
+		<input type="checkbox" name="c1" value="bootstrap">Bootstrap <br>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				var x=document.getElementsByName('c1');
+
+				for(var i=0;i<x.length;i++)
+				{
+					if(x[i].type="checkbox")
+					{
+						x[i].checked=true;
+					}
+				}
+			}
+		</script>	
+</body>
+</html>
+
+
+document.getElementsByTagName()
+==================================
+It is used to read the elements by using a specified tag name.
+
+ex:1
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	
+		Name : <input type="text" /> <br>
+
+		<button onclick="f1()">submit</button>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				var name=document.getElementsByTagName('input')[0].value;	
+				document.writeln(name);
+			}
+		</script>
+</body>
+</html>
+
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	
+		Name : <input type="text" /> <br>
+
+		<button onclick="f1()">submit</button>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				var name=document.getElementsByTagName('input')[0].tagName;	
+				document.writeln(name);
+			}
+		</script>
+</body>
+</html>
+
+ex:3
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	
+		Name : <input type="text" /> <br>
+
+		<button onclick="f1()">submit</button>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				var name=document.getElementsByTagName('input').length;	
+				document.writeln(name);
+			}
+		</script>
+</body>
+</html>
+
+ex:4
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	
+		<div>This is div1</div>
+		<div>This is div2</div>
+		<div>This is div3</div>
+
+		<button onclick="f1()">change</button>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				 var x=document.getElementsByTagName('div');
+				 x[0].innerHTML="This is javascript class";
+				 x[1].innerHTML="This is DOM topic";
+				 x[2].innerHTML="This is ihub talent";
+			}
+		</script>
+</body>
+</html>
+
+ex:5
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	
+		<div>This is div1</div>
+		<div>This is div2</div>
+		<div>This is div3</div>
+
+		<button onclick="f1()">change</button>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				 var x=document.getElementsByTagName('div');
+				 x[0].style.color="red";
+				 x[1].style.backgroundColor="yellow";
+				 x[2].style.textAlign="center";
+			}
+		</script>
+</body>
+</html>
+
+document.getElementsByClassName()
+----------------------------------
+It is used to read the elements by using a specified class name.
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.myClass
+		{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	
+		<div class="myClass"></div>
+
+		<button onclick="f1()">submit</button>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				var len=document.getElementsByClassName('myClass').length;
+				document.writeln(len);
+			}
+		</script>
+</body>
+</html>
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.myClass
+		{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	
+		<div class="myClass"></div>
+
+		<button onclick="f1()">submit</button>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				var name=document.getElementsByClassName('myClass')[0].tagName;
+				document.writeln(name);
+			}
+		</script>
+</body>
+</html>
+
+
+document.addEventListener()
+=================================
+It is used to add the handler to a function.
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.myClass
+		{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+		<h1>Click Anywhere </h1>
+		<script type="text/javascript">
+			document.addEventListener("click",function(){
+				alert("You have clicked!");
+			})
+		</script>
+		
+</body>
+</html>
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.myClass
+		{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+		<h1>Click Anywhere </h1>
+		<script type="text/javascript">
+			document.addEventListener("click",f1);
+			
+			function f1()
+			{
+				alert("Yahoo! you clicked");
+			}
+
+
+		</script>
+		
+</body>
+</html>
+
+ex:3
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.myClass
+		{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+		<h1>Mouse over here !!! </h1>
+		<br>
+		<span id="result"></span>
+		<script type="text/javascript">
+			
+			document.addEventListener("mouseover",f1);
+			
+			function f1()
+			{
+				document.getElementById('result').innerHTML="mouse over";
+			}
+
+
+		</script>
+		
+</body>
+</html>
+
+ex:4
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.myClass
+		{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+		<h1 id="hover">Mouse out here !!! </h1>
+		<br>
+		<span id="result"></span>
+		<script type="text/javascript">
+			
+			var y=document.getElementById('hover');
+			y.addEventListener("mouseout",f1);
+			
+			function f1()
+			{
+				document.getElementById('result').innerHTML="mouse out";
+			}
+
+
+		</script>
+		
+</body>
+</html>
+
+Assignment: class20.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,456 @@
+userlist table
+---------------
+drop table userlist;
+
+create table userlist(uname varchar2(10),pwd varchar2(10));
+
+insert into userlist values('raja','rani');
+
+insert into userlist values('king','kingdom');
+
+commit;
+
+
+
+Q)Write a query to check username and password is valid or not?
+
+	select count(*) from userlist where uname='raja' and pwd='rani'; // 1 
+
+	select count(*) from userlist where uname='raja' and pwd='rani1';// 0 
+
+
+What is Dual table
+=====================
+Dual table is a dummy table which is used to perform arithmetic operations and to see the current system date.
+
+Dual table contains one row and one column.
+
+ex:
+	select 10+20 from dual;	
+	select 2*10 from dual;	
+	select sysdate from dual;	
+	select current_date from dual;	
+
+
+2)Scalar Functions
+======================
+Scalar functions are applicable for single row.
+We have following list of scalar functions.
+
+i)Character Functions
+
+ii)Number Functions 
+
+iii)Date Functions 
+
+iv)Conversion Functions 
+
+
+i)Character Functions
+-----------------------
+UPPER() 
+--------
+	It will convert lower case to upper case.
+	ex:
+		select upper('oracle training') from dual;
+		select upper('oracle training') as UPPER from dual;
+	
+LOWER()
+--------
+	It will convert upper case to lower case.
+	ex:
+		select lower('ORACLE TRAINING') from dual;
+		select lower('ORACLE TRAINING') as LOWER from dual;
+		
+INITCAP()
+---------
+	It will display the text in init cap.
+	ex:	
+		select initcap('ORACLE TRAINING') from dual;
+		select initcap('ORACLE TRAINING') as INITCAP from dual;
+
+LPAD()
+---------
+	It will pad the characters towards left side.
+	ex:
+		select LPAD('oracle',10,'z') from dual;//zzzzoracle
+		select LPAD('oracle',10,'z') as LPAD from dual;
+
+RPAD()
+------
+	It will pad the characters towards right side.
+	ex:
+		select RPAD('oracle',10,'z') from dual;//oraclezzzz
+		select RPAD('oracle',10,'z') as RPAD from dual;
+
+LTRIM()
+--------
+	It will trim the character from left side.
+	ex:
+		select LTRIM('zzoraclezz','z') from dual;//oraclezz
+		select LTRIM('zzoraclezz','z') as LTRIM from dual;
+
+RTRIM()
+-------
+	It will trim the character from right side.
+	ex:
+		select RTRIM('zzoraclezz','z') from dual;//zzoracle
+		select RTRIM('zzoraclezz','z') as RTRIM from dual;
+
+TRIM()
+------
+	It will trim the characters from both the sides.
+	ex:
+		select TRIM('z' from 'zzoraclezz') from dual;//oracle
+		select TRIM('z' from 'zzoraclezz') as TRIM from dual;
+
+
+SUBSTR()
+---------
+	It will return sub string.
+	ex:
+		select substr('oracle',2,3) from dual;//rac
+		select substr('training',1,5) from dual;//train
+
+CONCAT()
+--------
+	It will concatinate two strings.
+	ex:
+		select concat('mega','star') from dual;//megastar
+
+		select concat(concat('mega','star'),'chiru') from dual;
+
+
+ii)Number Functions
+--------------------
+ABS()
+------
+	It will return absoluate value.
+	ex:
+		select abs(-5) from dual;//5
+		select abs(-10.45) from dual;//10.45
+
+
+SQRT()
+--------
+	It will return exact square root value.
+	ex:
+		select sqrt(25) from dual; // 5
+		select sqrt(81) from dual; //9
+		select sqrt(26) from dual;//5.09
+
+POWER(A,B)
+------------
+	It will return power value.
+	ex:
+		select power(2,3) from dual;//8
+		select power(5,3) from dual;//125
+
+
+CEIL()
+---------
+	It will return ceil value.
+	ex:	
+		select ceil(10.6) from dual;//11	
+		select ceil(6.1) from dual;//7	
+
+FLOOR()
+---------
+	It will return floor value.
+	ex:
+		select floor(10.7) from dual;//10
+		select floor(4.2) from dual;//4
+
+TRUNC()
+---------
+	It will remove decimal values.
+	ex:
+		select trunc(10.45) from dual;//10
+		select trunc(98.12) from dual;//98
+
+ROUND()
+--------
+	It will return nearest value.
+	ex:
+		select round(10.5) from dual;//11
+		select round(10.4) from dual;//10
+
+GREATEST()
+------------
+	It will return greatest value.
+	ex:
+		select greatest(10,2,67) from dual;//67
+LEAST()
+------
+	It will return lowest value.
+	ex:
+		select least(10,2,67) from dual;//2
+
+ex:
+----
+select  eid,
+	  upper(ename) as ENAME,
+	    esal,
+	      deptno,
+	 	lower(job) as JOB  
+		  from emp;
+
+
+Working with Date values
+--------------------------
+Every database software supports different date pattern.
+
+We need to insert date values in the pattern which is supported by underlying database software.
+ex:
+		Oracle -  dd-MMM-yy
+		MySQL  -  yyyy-MM-dd 
+
+
+emp1 table
+-----------
+drop table emp1;
+
+create table emp1(eid number(3),ename varchar2(10),edoj date);
+
+insert into emp1 values(301,'Lisa','01-JAN-23');
+
+insert into emp1 values(302,'Kelly',sysdate);
+
+insert into emp1 values(303,'Brook',current_date);
+
+commit;
+
+
+iii)Date Functions
+-------------------
+
+ADD_MONTHS()
+------------
+It is used to add the months in a given date.
+ex:
+	select ADD_MONTHS(sysdate,4) from dual;	
+	select ADD_MONTHS(current_date,5) from dual;
+	select ADD_MONTHS('01-JAN-23',4) from dual;			
+
+MONTHS_BETWEEN()
+-----------------
+It will return number of months between two given dates.
+ex:
+	select MONTHS_BETWEEN('10-JAN-23','10-FEB-23') from dual;
+
+	select ABS(MONTHS_BETWEEN('10-JAN-23','10-FEB-23')) from dual;
+
+	select ABS(MONTHS_BETWEEN('10-JAN-23','15-FEB-23')) from dual;
+
+
+NEXT_DAY()
+-----------
+It will return next date of a given day in a week.
+ex:
+	select NEXT_DAY(sysdate,'SUNDAY') from dual;
+	
+	select NEXT_DAY(sysdate,'FRIDAY') from dual;
+
+	select NEXT_DAY('01-JAN-23','FRIDAY') from dual;
+
+
+LAST_DAY()
+-----------
+It will return last date of a month.
+ex:
+	select LAST_DAY(sysdate) from dual;
+
+	select LAST_DAY('15-MAR-23') from dual;
+
+
+iv)Conversion Functions
+------------------------
+It is used to convert from one type to another type.
+
+ex:
+	TO_CHAR() 
+
+We have two pseudo's for TO_CHAR() function.
+
+1) number to_char()
+--------------------
+It will accept '9' in digits and '$' or Euro's symbol.
+
+ex:
+	select eid,ename,esal from emp;
+
+	select eid,ename,TO_CHAR(esal,'9,999') from emp;
+	select eid,ename,TO_CHAR(esal,'99,999') from emp;
+	select eid,ename,TO_CHAR(esal,'$99,999') from emp;
+	select eid,ename,TO_CHAR(esal,'$99,999') as ESAL from emp;
+
+2)date to_char()
+-----------------
+
+	select eid,ename,edoj from emp1;
+
+	select eid,ename,TO_CHAR(edoj,'dd-MM-yyyy') from emp1;
+
+	select eid,ename,TO_CHAR(edoj,'dd-MM-yyyy') as EDOJ from emp1;
+
+	select TO_CHAR(sysdate,'DAY') from dual;
+
+	select TO_CHAR(sysdate,'DY') from dual;
+
+	select TO_CHAR(sysdate,'MONTH') from dual;
+
+	select TO_CHAR(sysdate,'MON') from dual;
+
+	select TO_CHAR(sysdate,'YEAR') from dual;
+
+	select TO_CHAR(sysdate,'dd') from dual;
+
+	select TO_CHAR(sysdate,'MM') from dual;
+	
+	select TO_CHAR(sysdate,'yyyy') from dual;
+
+	select TO_CHAR(sysdate,'HH:MI:SS') from dual;
+
+	select TO_CHAR(sysdate,'yyyy-MM-dd  HH:MI:SS') from dual;
+
+
+Group by clause
+===================
+It is used to divide the rows into groups so that we can apply group functions.
+
+A column which we used in select clause , same column name we need to use in group by clause.
+
+
+Q) Write a query to display sum of salary of each department?
+
+	select sum(esal),deptno from emp group by deptno;
+
+
+Q) Write a query to display highest salary of each department?
+
+	select max(esal),deptno from emp group by deptno;
+
+
+Q) Write a query to display average salary of each job?
+
+	select avg(esal),job from emp group by job;
+
+
+Q)Write a query to display sum of salary of each department except 10 department?
+
+	select sum(esal) from emp where deptno<>10 group by deptno;
+	
+
+Having clause
+===============
+It is used to filter the rows from group by clause.
+
+Having clause must be used after group by clause.
+
+
+Q)Write a query to display sum of salary of each department whose sum of salary is greater then 30000?
+
+	select sum(esal),deptno from emp group by deptno having sum(esal)>30000;
+
+
+Q)Write a query to display min of salary of each department whose min of salary is greater then 15000?
+
+	select min(esal),deptno from emp group by deptno having min(esal)<15000;
+
+
+Order by clause
+-----------------
+It is used to arrange the rows in a database table.
+
+Bydefault it will arrange the records in ascending order.
+
+ex:
+	select * from emp order by eid;
+
+	select * from emp order by eid desc;
+
+	select * from emp order by ename;
+
+	select * from emp order by ename desc;
+
+
+Q)Write a query to display sum of salary of each department whose sum of salary is greater then 30000?
+
+	select sum(esal),deptno from emp group by deptno
+		 having sum(esal)>30000 order by deptno;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,501 @@
+NPM
+=====
+NPM stands for Node Package Manager.
+
+It is integrated tool for NodeJs.
+
+It is used to download node modules/dependencies/libraries.
+
+We can download any mododule as follow.
+ex:
+	cmd> npm  install  -g  node_module/dependency/library
+
+All the modules will downloaded inside "node_modules" folder.
+
+
+Setup for npm command
+-----------------------
+1) Download and Install NodeJS module.
+   ex:
+	https://nodejs.org/en/download		
+
+
+2) Copy the nodejs directory from "C/program files" drive.
+   ex:
+	C:\Program Files\nodejs	
+
+3) Paste nodejs directory in environment variables.
+   ex:
+	right click to my computer --> properties --> advanced system settings -->
+	environmental variables --> user variables --> click to new button -->
+	variable name :  path 
+	variable value : C:\Program Files\nodejs; -->ok -->ok -->ok.
+
+4) Open the command prompt and check below commands.
+   ex:
+	cmd> npm -version 
+	cmd> node --version 
+
+First application development using React/ReactJS
+====================================================
+step1:
+------
+	Make sure Nodejs setup has done perfectly.
+
+step2:
+------
+	Download and Install VSC(Visual Studio Code) editor.
+	ex:
+		https://code.visualstudio.com/
+
+step3:
+------
+	Create a "Reactprojects" folder inside "E" drive.
+
+
+step4:
+------
+	Open the command prompt from "Reactprojects" folder.
+
+step5:
+------
+	Open the visual studio code editor from "Reactprojects" folder.
+	ex:
+		Reactprojects> code  . 
+
+step6:
+------
+	Install "create-react-app" module for creating react applications.
+	ex:
+		Reactprojects> npm  install -g  create-react-app
+
+step7:
+-----
+	Create a "myapp1" react project in VSC editor.
+	ex:
+		Reactprojects> create-react-app  myapp1
+
+step8:
+----
+	Switch to myapp1 project.
+	ex:
+		Reactprojects>cd  myapp1
+
+step9:
+-----
+	Run the myapp1 project.
+	ex:
+		Reactprojects/myapp1> npm start 
+
+
+step10:
+------
+	Test the react application/project.
+	ex:
+		http://localhost:3000
+
+Note
+-----
+By default react application runs on a light weight development server with 3000 port number.
+
+Explaination of React project and Work flow
+============================================
+myapp1
+|
+|----node_modules
+|
+|----public
+|	|
+|	|---favicon.ico
+|	|---index.html
+|	|---manifest.json
+|	|
+|	
+|-----src
+|	|	
+|	|---App.css
+|	|---App.js
+|	|---App.test.js
+|	|---index.css
+|	|---index.js 
+|	|---logo.svg	
+|	|
+|---package.json
+|---README.md
+
+"myapp1" is a Name of a project.
+
+"node_modules" contains all packages and dependencies installed.
+
+"favicon.ico" is a favourite icon for a web site.
+
+"index.html"  file holds HTML template of our application(Main template).
+
+"manifest.json" file provides metadata used when your web app is 
+installed on a  user's mobile device or desktop.
+
+"App.css" is a css file related to App.js but it's global.
+
+"App.js" is parent component of our React app.
+
+"App.test.js" is for test environment.
+
+"index.css" is a css file related to index.js but it's global.
+
+"index.js" is a  javascript entry point.
+
+"logo.svg" is a React logo.
+
+"package.json" contains all dependencies used in React app along with their versions..
+
+
+Note:
+-----
+	To build the project, "index.js" and "index.html" must exist
+	with exact file  name(mandatory).
+
+	Above two files are mandatory at the time of deployment 
+	not at the time of development.
+
+                load to          render to              output
+	App.js--------->index.js------------>index.html------->browser
+
+
+
+Second Application development using React/ReactJS
+========================================================
+myapp2
+|
+|---node_modules
+|
+|
+|-----public
+	|
+	|---favicon.ico
+	|---index.html (3)
+	|---manifest.json
+|
+|-----src
+	|
+	|---index.js (2)
+	|
+	|---App.js (1)
+|
+|-----package.json
+|-----README.md
+
+step1:
+------
+	Create a myapp2 react application/project.
+	ex:
+		Reactprojects> create-react-app  myapp2		
+		or
+		Reactprojects> npx create-react-app myapp2
+
+step2:
+-----
+	Open the VSC editor from Reactprojects folder.
+	ex:
+		Reactprojects> code  .
+
+
+step3:
+----
+	Delete App.css,App.js,App.test.js,index.js and index.css file 
+	from src folder.
+
+step4:
+------
+	Create index.js file inside "src" folder.
+	ex:
+	index.js
+	--------
+	import App from "./App";
+	import React from "react";
+	import ReactDOM from "react-dom/client";
+
+	const root=ReactDOM.createRoot(document.getElementById('root'));
+
+	root.render(
+    		<React.StrictMode>
+            	<App/>
+    		</React.StrictMode>
+		)
+
+
+step5:
+------
+	Create App.js file inside "src" folder.
+	ex:
+	App.js
+	------
+	function App()
+	{
+    		return(
+
+ 		       <h1>I Love ReactJS </h1>
+    		)
+	}
+	export default App;
+
+step6:
+-----
+	Switch to myapp2 project.
+	ex:
+		Reactprojects> cd myapp2
+
+step7:
+------
+	Run the myapp2 project.
+	ex:
+		Reactprojects/myapp2> npm start 
+
+
+step8:
+------
+	Test the application by using below request url.
+	ex:
+		http://localhost:3000
+
+
+
+React Fragment
+=================
+Fragment is used to group of list of childrens without adding 
+extra nodes of the DOM.
+
+In general, We can return 
+only one element at a time but we can't return more then one element directly.
+
+To return more then one element we need to use React Fragment.
+
+syntax
+---------
+<React.Fragment>
+	-
+	-
+</React.Fragment
+
+or
+
+<>
+	-
+	-
+</>
+
+
+Examples
+----------
+App.js
+-----
+function App
+{
+    return (
+        //return react element
+        return  <h1>IHUB Talent</h1>
+                <h2>React Tutorial For Freshers</h2>
+    );
+}
+//export React component
+export default App
+
+
+o/p: Filed to compile
+
+
+
+To overcome above problem we can use <div> tag and inside that
+<div> tag we can declare any child tags.
+
+ex:
+App.js
+-----
+function App
+{
+    return (
+        //return react element
+        return  
+		<div>
+			<h1>IHUB Talent</h1>
+                	<h2>React Tutorial For Freshers</h2>
+		</div>
+    );
+}
+//export React component
+export default App
+
+
+Note:
+----
+	In above program "<div>" tag is a unused tag.
+	To remove unused/unnecessary tags we can use React Fragment.
+
+
+approach1
+------------
+
+App.js
+-------
+import React from "react";
+
+function App()
+{
+    return (
+            <React.Fragment>
+            <h1>IHUB React Tutorial</h1>
+            <h1>React Classes for Freshers</h1>
+            </React.Fragment>
+    );
+
+}
+export default App;
+
+
+approach2
+----------
+
+App.js
+-----
+import React from "react";
+import {Fragment} from 'react';
+function App()
+{
+    return (
+            <Fragment>
+            <h1>IHUB React Tutorial</h1>
+            <h1>React Classes for Freshers</h1>
+            </Fragment>
+    );
+
+}
+export default App;
+
+
+
+approach3
+----------
+
+App.js
+--------
+import React from "react";
+
+function App()
+{
+    return (
+            <>
+            <h1>IHUB React Tutorial</h1>
+            <h1>React Classes for Freshers</h1>
+            </>
+    );
+
+}
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+ 

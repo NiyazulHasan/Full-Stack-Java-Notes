@@ -1,0 +1,258 @@
+Full Stack Development Course 
+===============================
+Faculty :  Niyaz Sir 
+
+Duration : 100 working days
+
+Slot Time : 12:00 pm to 01:30 pm 
+
+Batch No : IH-JAVA-014
+
+				 JAVA FSD 
+	|-------------------------|---------------------------|
+FrontEnd technologies  Middle layer technologies 	BackEnd technologies 
+
+	HTML5			Core Java (java 8)	Oracle (10g or 11g)	
+	CSS3			Advanced Java
+	Javascript			JDBC
+	Bootstrap5			Servlets
+					JSP 
+
+	+
+	Frameworks:
+			Spring Boot
+			Spring Microservices
+
+	+ 
+	Free Recorded videos 
+	Aptitute classes
+	Communication classes 
+	+
+	Java Project
+
+Escape Characters / Escape Sequences
+=====================================
+Whenever we want to display our output in neat and clean manner then we need to use escape characters or escape sequences.
+
+Every escape character start with back slash followed by a single character.
+ex:
+	\n
+
+We have following list of escape characters in java.
+
+1) \n (new line)
+
+2) \t (horizontal tab)
+
+3) \b (back space)
+
+4) \r (carriage return)
+
+5) \f (form feeding)
+
+6) \\ (back slash)
+
+7) \" (double quote)
+
+8) \' (single quote)
+
+and etc.
+
+1) \n (new line)
+-----------------
+class  Test
+{
+	public static void main(String[] args)
+	{
+		System.out.println("IHUB\nTALENT");
+	}	
+}
+o/p:
+	IHUB
+	TALENT
+
+2) \t (horizontal tab)
+-----------------------
+class Gowthami
+{
+	public static void main(String[] args)
+	{
+		System.out.println("IHUB\tTALENT");
+	}	
+}
+o/p:
+	IHUB	TALENT
+
+
+3) \b (back space)
+-------------------
+class  Hiranya
+{
+	public static void main(String[] args)
+	{
+		System.out.println("IHUBTAL\bENT");
+	}
+}
+o/p:
+	IHUBTAENT
+
+
+ex:
+
+class Parvez
+{
+	public static void main(String[] args)
+	{
+		System.out.println("IHUB\b\b\bTALENT");	
+	}
+}
+o/p:
+	ITALENT
+
+
+4) \r (carriage return)
+-------------------------
+
+class Mahendra
+{
+	public static void main(String[] args)
+	{
+		System.out.println("IHUB\rTALENT");
+	}
+}
+
+o/p:
+	TALENT
+
+ex:
+----
+class Ravali
+{
+	public static void main(String[] args)
+	{
+		System.out.println("TALENT\rIHUB");
+	}
+}
+o/p:
+	IHUBNT
+	
+
+6) \\ (back slash)
+---------------------
+
+class Shruthi
+{
+	public static void main(String[] args)
+	{
+		System.out.println("IHUB\\TALENT");
+	}
+}
+o/p:
+	IHUB\TALENT
+
+
+7) \" (double quote)
+---------------------
+class Pavani
+{
+	public static void main(String[] args)
+	{
+		System.out.println("IHUB\"TALENT");
+	}
+}
+o/p:
+	IHUB"TALENT
+
+
+8) \' (single quote)
+-----------------------
+
+class Sreekar
+{
+	public static void main(Strin[] args)
+	{
+		System.out.println("IHUB\'TALENT");
+	}
+}
+o/p:
+	IHUB'TALENT
+
+
+Screening Test
+==============
+
+class Example
+{
+	public static void main(String[] args)
+	{
+		System.out.print("\nkt");
+		System.out.print("\boi");
+		System.out.print("\rha");
+	}	
+}
+o/p:
+	hai 
+
+
+IT companies 
+-------------
+
+service based company 
+-----------------------
+ex:
+	cognizent, capgemini ,TCS and etc.
+
+product based company 
+-------------------
+ex:
+	IBM , Oracle Corporation , Microsoft and etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+

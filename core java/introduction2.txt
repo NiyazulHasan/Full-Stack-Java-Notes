@@ -1,0 +1,242 @@
+Programming language
+=====================
+A language which is used to communicate between user and computer is called 
+programming language.
+
+Programming language acts like meditor or interface between user and computer.
+
+Diagram: introduction2
+
+Programming language divided into two types.
+
+1)Low Level Language
+
+2)High Level Language
+
+
+1)Low Level Language
+------------------------
+A language which is understand by a computer easily is called low level language.
+
+In general, a language which is computer dependent is called low level language.
+
+ex:
+	Machine language
+	Assembly language 
+
+
+Machine language
+-----------------
+It is a fundamental language of a computer which is combination of 0's and 1's.
+
+It is also known as binary language.
+
+A computer may understand many languages but to understand machine language computer does not required any translator.
+
+Advantages:
+
+	> A program writtens in machine language consumes less memory.
+	> It does not required any translator.
+	> It is more efficient when compare to other languages.
+
+Disadvantages:
+	> It is a burdun on a programmer to remember donzen's of binary code.
+	> If anywhere error raised in our program then locating and handling that 
+	  error becomes more difficult.
+	> Modifications can't be done easily.
+
+
+Assembly language 
+------------------
+The second generation language came into an existence is called assembly language.
+
+It is a replacement of symbols and letters for mathematical programming code i.e opcode values (JUMP,AVG and etc).
+
+It is also known as symbolic language.
+
+Assembly language can't understand by a computer directly.We required translator.
+
+We have three types of translators.
+
+1)Assembler
+
+2)Compiler
+
+3)Interpreter 
+
+1)Assembler
+--------------
+It is one of the translator which converts assemblic code to machine code.
+
+Merits:
+	> If anywhere error raised in our program then locating and handling 
+	  that error is easy.
+
+	> Modifications can be done easily.
+
+Demerits:
+	
+	> It is a mintrick to remember all symbolic code.
+
+	> It requires translator.
+
+	> It is less efficient when compare to machine language.
+
+
+
+Q)What is Debugging?
+
+Error is also known as Bug.
+
+The process of eliminating the bugs from the application is called debugging.
+
+
+2)High Level Language
+======================
+A language which is understand by a user easily is called high level language.
+
+In general , a language which is user dependent is called high level language.
+ex:
+	Java, .Net , Python , Perl , GoLang and etc.
+
+High level language can't understand by a computer directly.We required translators.
+
+compiler
+----------
+	It is used to compile and execute our program at a time.
+
+interpreter 
+------------
+	It is used to execute our program line by line procedure.
+
+
+Advantages:
+	
+	> It is easy to learn and easy to use because it is similar to engligh lang.
+
+	> Debugging can be done easily.
+
+	> Modifications can be done easily.
+
+Disadvantages:
+
+	> It require translators.
+
+	> A program writtens in high level language consumes huge amount of memory.
+
+	> It not efficient when compare to low level language.
+
+Project
+==========
+It an individual or collaborative enterprise that is carefully planned to achieve a particular aim or goal.
+
+A project is a collection of modules.
+ex:
+	admin module
+	registration module
+	logic module
+	add to cart module
+	report generating module 
+	and etc.
+
+Every project contains two domains.
+
+1)Technical Domain 
+----------------
+	It describes what language we have used to develop the project.
+	ex:
+		Java
+
+2)Functional Domain 
+---------------------
+	It describes state of a project.
+	ex:
+		Healthcare domain
+		Banking domain 
+		Insaurance domain
+		ERP domain 
+		and etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

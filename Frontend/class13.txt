@@ -1,0 +1,1040 @@
+CSS forms 
+=========
+Form is used to accept the data from the enduser and it will forward the data to server or database for processing.
+
+
+Task3
+|
+|-----images
+|	|
+	|---micky.png
+|
+|-----css
+	|
+	|---mystyles.css
+|
+|-----index.html 
+
+
+index.html
+-----------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- add external css -->
+	<link rel="stylesheet" type="text/css" href="css/mystyles.css">
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="box1">
+			<h1>Login</h1>
+			<form action="">
+				<table>
+					<tr>
+						<td><input type="text" name="username"
+							placeholder="username" autocomplete="off"  required/></td>
+					</tr>
+					<tr>
+						<td><input type="password" name="password" 
+							placeholder="password" required="" /></td>
+					</tr>
+					<tr>
+						<td><input type="submit" value="submit"/></td>
+					</tr>
+				</table>	
+			</form>
+		</div>
+		<div class="box2">
+			<img src="images/micky.png"/>
+		</div>	
+	</div>
+
+</body>
+</html>
+
+mystyles.css
+--------------
+*
+{
+	padding: 0;
+	margin: 0;
+}
+body
+{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.container
+{
+	width: 800px;
+	height: 400px;
+	box-sizing: border-box;	
+	box-shadow: 2px 2px 19px 9px #C3C3C3;
+
+}
+.container .box1
+{
+	width: 400px;
+	height: 400px;
+	box-sizing: border-box;
+	background-color:red;
+	float:left;
+}
+.container .box1 h1
+{
+	color: #FFFFFF;
+	font-style: italic;
+	font-family: monospace;
+	text-align: center;
+	padding:50px 0; 
+}
+
+.container .box1 form
+{
+	margin: 0 45px;
+}
+.container .box1 input[type="text"],input[type="password"]
+{
+	width: 300px;
+	height: 35px;
+	margin: 10px 0;
+	border-radius: 15px;
+	border:none;
+}
+.container .box1 input[type="submit"]
+{
+	width: 300px;
+	padding: 5px;	
+	margin-top: 20px; 
+	color:red;
+	font-size: 20px;
+	border:none;
+}
+.container .box1 input[placeholder]
+{
+	text-align: center;
+	font-size: 22px;
+}
+
+.container .box2
+{
+	width: 400px;
+	height: 400px;
+	box-sizing: border-box;
+	float:left;
+}
+.container .box2 img
+{
+	width: 100%;
+	height: 100%;
+}
+
+CSS Grid layout
+===============
+The CSS grid layout module offers a grid-based layout system with rows and columns.
+
+Grid layout makes easier to design web pages without having a use of floats and positioning tag.
+
+A grid layout consists of a parent element , with one or more child elements.
+
+
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.container
+		{
+			width: 90%;
+			height: 500px;
+			border:2px solid black;
+		}
+		.box1{background-color: red}
+		.box2{background-color: blue}
+		.box3{background-color: green}
+		.box4{background-color: yellow}
+		.box5{background-color: orange}
+		.box6{background-color: cyan}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box1">box1</div>
+		<div class="box2">box2</div>
+		<div class="box3">box3</div>
+		<div class="box4">box4</div>
+		<div class="box5">box5</div>
+		<div class="box6">box6</div>
+	</div>
+</body>
+</html>
+
+ex:2
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.container
+		{
+			width: 90%;
+			height: 500px;
+			border:2px solid black;
+			display: grid;
+		}
+		.box1{background-color: red}
+		.box2{background-color: blue}
+		.box3{background-color: green}
+		.box4{background-color: yellow}
+		.box5{background-color: orange}
+		.box6{background-color: cyan}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box1">box1</div>
+		<div class="box2">box2</div>
+		<div class="box3">box3</div>
+		<div class="box4">box4</div>
+		<div class="box5">box5</div>
+		<div class="box6">box6</div>
+	</div>
+</body>
+</html>
+
+ex:3
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.container
+		{
+			width: 90%;
+			height: 500px;
+			border:2px solid black;
+			display: grid;
+			grid-template-rows: 150px 150px;
+			grid-template-columns: 150px 150px 150px;
+		}
+		.box1{background-color: red}
+		.box2{background-color: blue}
+		.box3{background-color: green}
+		.box4{background-color: yellow}
+		.box5{background-color: orange}
+		.box6{background-color: cyan}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box1">box1</div>
+		<div class="box2">box2</div>
+		<div class="box3">box3</div>
+		<div class="box4">box4</div>
+		<div class="box5">box5</div>
+		<div class="box6">box6</div>
+	</div>
+</body>
+</html>
+
+ex:4
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.container
+		{
+			width: 90%;
+			height: 500px;
+			border:2px solid black;
+			display: grid;
+			grid-template-rows: 150px 150px;
+			grid-template-columns: 150px 150px 1fr;
+		}
+		.box1{background-color: red}
+		.box2{background-color: blue}
+		.box3{background-color: green}
+		.box4{background-color: yellow}
+		.box5{background-color: orange}
+		.box6{background-color: cyan}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box1">box1</div>
+		<div class="box2">box2</div>
+		<div class="box3">box3</div>
+		<div class="box4">box4</div>
+		<div class="box5">box5</div>
+		<div class="box6">box6</div>
+	</div>
+</body>
+</html>
+
+ex:5
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.container
+		{
+			width: 90%;
+			height: 500px;
+			border:2px solid black;
+			display: grid;
+			grid-template-rows: 150px 150px;
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+		.box1{background-color: red}
+		.box2{background-color: blue}
+		.box3{background-color: green}
+		.box4{background-color: yellow}
+		.box5{background-color: orange}
+		.box6{background-color: cyan}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box1">box1</div>
+		<div class="box2">box2</div>
+		<div class="box3">box3</div>
+		<div class="box4">box4</div>
+		<div class="box5">box5</div>
+		<div class="box6">box6</div>
+	</div>
+</body>
+</html>
+
+ex:6
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.container
+		{
+			width: 90%;
+			height: 500px;
+			border:2px solid black;
+			display: grid;
+			grid-template-rows: repeat(2,150px);
+			grid-template-columns: repeat(3,1fr);
+		}
+		.box1{background-color: red}
+		.box2{background-color: blue}
+		.box3{background-color: green}
+		.box4{background-color: yellow}
+		.box5{background-color: orange}
+		.box6{background-color: cyan}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box1">box1</div>
+		<div class="box2">box2</div>
+		<div class="box3">box3</div>
+		<div class="box4">box4</div>
+		<div class="box5">box5</div>
+		<div class="box6">box6</div>
+	</div>
+</body>
+</html>
+
+ex:7
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.container
+		{
+			width: 90%;
+			height: 500px;
+			border:2px solid black;
+			display: grid;
+			grid-template-rows: repeat(2,150px);
+			grid-template-columns: repeat(3,1fr);
+			grid-row-gap: 10px;
+			grid-column-gap: 10px;
+		}
+		.box1{background-color: red}
+		.box2{background-color: blue}
+		.box3{background-color: green}
+		.box4{background-color: yellow}
+		.box5{background-color: orange}
+		.box6{background-color: cyan}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box1">box1</div>
+		<div class="box2">box2</div>
+		<div class="box3">box3</div>
+		<div class="box4">box4</div>
+		<div class="box5">box5</div>
+		<div class="box6">box6</div>
+	</div>
+</body>
+</html>
+
+ex:8
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.container
+		{
+			width: 90%;
+			height: 500px;
+			border:2px solid black;
+			display: grid;
+			grid-template-rows: repeat(2,150px);
+			grid-template-columns: repeat(3,1fr);
+			grid-gap: 20px;
+		}
+		.box1{background-color: red}
+		.box2{background-color: blue}
+		.box3{background-color: green}
+		.box4{background-color: yellow}
+		.box5{background-color: orange}
+		.box6{background-color: cyan}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box1">box1</div>
+		<div class="box2">box2</div>
+		<div class="box3">box3</div>
+		<div class="box4">box4</div>
+		<div class="box5">box5</div>
+		<div class="box6">box6</div>
+	</div>
+</body>
+</html>
+
+HTML pattern attribute
+=========================
+The pattern attribute specifies a regular expression that the <input> element's value is checked against on form submission.
+
+Note: The pattern attribute works with the following input types: text, date, search, url, tel, email, and password.
+
+
+ex:1
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+</head>
+<body>
+	<form>
+		Name: <input type="text" name="t1" 
+				pattern="[a-zA-Z]" required/> <br>
+
+		<input type="submit" value="submit"/>
+
+	</form>
+</body>
+</html>
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+</head>
+<body>
+	<form>
+		Name: <input type="text" name="t1" 
+				pattern="[a-zA-Z]" 
+				title="numbers not allowed" required/> <br>
+
+		<input type="submit" value="submit"/>
+
+	</form>
+</body>
+</html>
+
+ex:3
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+</head>
+<body>
+	<form>
+		Name: <input type="text" name="t1" 
+				pattern="[a-zA-Z]{3}" 
+				title="enter exact three characters" required/> <br>
+
+		<input type="submit" value="submit"/>
+
+	</form>
+</body>
+</html>
+
+ex:4
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+</head>
+<body>
+	<form>
+		Name: <input type="text" name="t1" 
+				pattern="[a-zA-Z]{3,10}" 
+				title="enter exact three characters" required/> <br>
+
+		<input type="submit" value="submit"/>
+
+	</form>
+</body>
+</html>
+
+ex:5
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+</head>
+<body>
+	<form>
+		Phone: <input type="text" name="t1" 
+				pattern="[0-9]{10}" 
+				title="Enter 10 digits " required/> <br>
+
+		<input type="submit" value="submit"/>
+
+	</form>
+</body>
+</html>
+
+
+
+CSS cursor property
+====================
+The cursor property specifies the mouse cursor to be displayed when pointing over an element.
+
+
+ex:1
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		h1
+		{
+			text-align: center;
+		}
+		h1:hover
+		{
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+		<h1>This is heading tag</h1>
+</body>
+</html>
+
+ex:2
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		h1
+		{
+			text-align: center;
+		}
+		h1:hover
+		{
+			cursor: copy;
+		}
+	</style>
+</head>
+<body>
+		<h1>This is heading tag</h1>
+</body>
+</html>
+
+ex:3
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		h1
+		{
+			text-align: center;
+		}
+		h1:hover
+		{
+			cursor:not-allowed;
+		}
+	</style>
+</head>
+<body>
+		<h1>This is heading tag</h1>
+</body>
+</html>
+
+ex:4
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		h1
+		{
+			text-align: center;
+		}
+		h1:hover
+		{
+			cursor:zoom-in;
+		}
+	</style>
+</head>
+<body>
+		<h1>This is heading tag</h1>
+</body>
+</html>
+
+ex:5
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		h1
+		{
+			text-align: center;
+		}
+		h1:hover
+		{
+			cursor:zoom-out;
+		}
+	</style>
+</head>
+<body>
+		<h1>This is heading tag</h1>
+</body>
+</html>
+
+
+CSS FontAwesome Icons 
+========================
+Font Awesome gives you scalable vector icons that can instantly be customized.
+
+To use fontawesome icons we need to add below <link> inside <head> tag.
+ex:
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+ex:1
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- add fontawesome cdn link -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+<body>
+		<i class="fa fa-heart"></i>
+		<i class="fa fa-home"></i>
+		<i class="fa fa-phone"></i>
+</body>
+</html>
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- add fontawesome cdn link -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+<body>
+		<i class="fa fa-heart" style="color:red;font-size:40px;"></i>
+
+		<i class="fa fa-home" style="color:blue;font-size:40px;"></i>
+		
+		<i class="fa fa-phone" style="color:green;font-size:40px;"></i>
+</body>
+</html>
+
+
+ex:3
+--------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- add fontawesome cdn link -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+<body>
+		<i class="fa fa-facebook" style="color:blue;"></i>
+
+		<i class="fa fa-instagram" style="color:pink"></i>
+		
+		<i class="fa fa-whatsapp" style="color:green"></i>
+
+		<i class="fa fa-twitter" style="color:skyblue;"></i>
+
+		<i class="fa fa-youtube" style="color:red;"></i>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

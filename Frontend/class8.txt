@@ -1,0 +1,2150 @@
+CSS border properties
+=======================
+The CSS border properties allows us to specify the style,width and color of 
+an element's border.
+
+1)CSS border style
+-------------------------
+The border-style property specifies ,what kind of border to be display.
+
+dotted 		-->	dotted border
+
+dashed		-->	dashed border
+
+solid		-->	solid border
+
+double		-->	double border
+
+groove		-->	groove border
+
+ridge		-->	ridged border
+
+inset		-->	3D inset border
+
+outset		-->	3D outset border
+
+none		-->	no border
+
+hidden		-->	hidden border
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-style:solid;
+			}
+			h2
+			{
+				border-style:double;
+			}
+			h3
+			{
+				border-style:dotted;
+			}
+			h4
+			{
+				border-style:dashed;
+			}
+			h5
+			{
+				border-style:groove;
+			}
+			h6{
+				border-style:ridge;
+			}
+			div
+			{
+				border-style:inset;
+			}
+			p
+			{
+				border-style:outset;
+			}
+		</style>
+	</head>
+	<body>
+			<h1>This is Heading tag</h1>
+			<h2>This is Heading tag</h2>
+			<h3>This is Heading tag</h3>
+			<h4>This is Heading tag</h4>
+			<h5>This is Heading tag</h5>
+			<h6>This is Heading tag</h6>
+			<div>This is division tag</div>
+			<p>This is paragraph tag</p>
+	</body>
+</html>
+
+ex:2
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-style:none;
+			}
+			h2
+			{
+				border-style:hidden;
+			}
+			
+		</style>
+	</head>
+	<body>
+			<h1>This is Heading tag</h1>
+			<h2>This is Heading tag</h2>
+			
+	</body>
+</html>
+
+
+ex:3
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-top-style:solid;
+				border-left-style:double;
+				border-bottom-style:dashed;
+				border-right-style:dotted;
+			}
+			
+		</style>
+	</head>
+	<body>
+			<h1>This is Heading tag</h1>
+			
+	</body>
+</html>
+
+ex:4
+-------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-style:solid double dashed dotted;
+				
+			}
+			
+		</style>
+	</head>
+	<body>
+			<h1>This is Heading tag</h1>
+			
+	</body>
+</html>
+
+ex:5
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-style:solid double dotted;
+				
+			}
+			
+		</style>
+	</head>
+	<body>
+			<h1>This is Heading tag</h1>
+			
+	</body>
+</html>
+
+
+ex:6
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-style:solid double;
+				
+			}
+			
+		</style>
+	</head>
+	<body>
+			<h1>This is Heading tag</h1>
+			
+	</body>
+</html>
+
+2)CSS border width
+---------------------------------
+The border-width property specifies the width of four borders.
+
+The width can be set as a specific size like in px,pt,cm,em and etc.	
+
+We can use one of the predefined value like thin,medium and thick.
+
+ex:
+
+ex:1
+------
+ <!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-style:solid;
+				border-width:5px;
+			}
+			h2
+			{
+				border-style:solid;
+				border-width:1cm;
+			}
+			h3
+			{
+				border-style:solid;
+				border-width:1em;
+			}
+		</style>
+	</head>
+	<body>
+			<h1>This is Heading tag</h1>
+			<h2>This is heading tag </h2>
+			<h3>This is heading tag </h3>
+	</body>
+</html>
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-style:solid;
+				border-top-width:5px;
+				border-right-width:10px;
+				border-bottom-width:15px;
+				border-left-width:20px;
+			}
+			
+		</style>
+	</head>
+	<body>
+			<h1>This is Heading tag</h1>
+			
+	</body>
+</html>
+
+ex:3
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-style:solid;
+				border-width:5px 10px 15px 20px;
+			
+		</style>
+	</head>
+	<body>
+			<h1>This is Heading tag</h1>
+			
+	</body>
+</html>
+
+ex:4
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-style:solid;
+				border-width:5px 10px 20px;
+			
+		</style>
+	</head>
+	<body>
+			<h1>This is Heading tag</h1>
+			
+	</body>
+</html>
+
+ex:5
+-------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-style:solid;
+				border-width:5px 10px;
+			
+		</style>
+	</head>
+	<body>
+			<h1>This is Heading tag</h1>
+			
+	</body>
+</html>
+
+
+3)CSS border color
+-------------------------------
+The border-color property is used to set the color of four borders.
+
+Color can be set by
+
+1)With color name like red.
+
+2)with HEX value like #FFFF00.
+
+3)With RGB value like rgb(255,0,0).
+
+4)With HSL value like hsl(0,100%,50%).	
+
+Note:
+----
+	Bydefault , all the boders will be displayed with black color.
+
+
+ex:1
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-style:solid;
+				border-width:5px;
+				border-color:red;
+			}
+			h2
+			{
+				border-style:solid;
+				border-width:5px;
+				border-color:#A2F400;
+			}
+			h3
+			{
+				border-style:solid;
+				border-width:5px;
+				border-color:rgb(0,0,255);
+			}
+			h4
+			{
+				border-style:solid;
+				border-width:5px;
+				border-color:hsl(300, 100%, 50%);
+			}
+			
+		</style>
+	</head>
+	<body>
+			<h1>This is Heading tag</h1>
+			<h2>This is Heading tag</h2>
+			<h3>This is Heading tag</h3>
+			<h4>This is Heading tag</h4>
+	</body>
+</html>
+
+ex:2
+-------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-style:solid;
+				border-width:5px;
+				border-top-color:red;
+				border-right-color:green;
+				border-bottom-color:blue;
+				border-left-color:yellow;
+			}
+			
+		</style>
+	</head>
+	<body>
+			<h1>This is Heading tag</h1>
+			
+	</body>
+</html>
+
+ex:3
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-style:solid;
+				border-width:5px;
+				border-color:red green blue yellow;
+			}
+			
+		</style>
+	</head>
+	<body>
+			<h1>This is Heading tag</h1>
+			
+	</body>
+</html>
+
+ex:4
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-style:solid;
+				border-width:5px;
+				border-color:red blue yellow;
+			}
+			
+		</style>
+	</head>
+	<body>
+			<h1>This is Heading tag</h1>
+			
+	</body>
+</html>
+
+ex:5
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-style:solid;
+				border-width:5px;
+				border-color:red blue;
+			}
+			
+		</style>
+	</head>
+	<body>
+			<h1>This is Heading tag</h1>
+			
+	</body>
+</html>
+4)CSS border shorthand property
+-------------------------------------------------------
+It is used to shorthand the property.
+
+It is also possible to declare all the individual properties to one property.
+
+In order to make border shorthand property we need to using following below 
+given order.
+
+ex:	
+border-width : 2px;
+border-style : solid; 
+border-color : red;
+
+or
+
+border : 2px solid red;
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border : 2px solid red;
+
+			}
+			
+		</style>
+	</head>
+	<body>
+			<h1>This is Heading tag</h1>
+			
+	</body>
+</html>
+
+CSS Margins
+=============
+CSS margin properties are used create space around elements ,outside of 
+defined border.
+
+
+CSS contains following properties to specify the margins for each side of 
+an element.
+
+1)margin-top
+
+2)margin-right
+
+3)margin-bottom
+
+4)margin-left
+
+
+All the above margin properties can have following values . They are 
+
+1)auto 		-	The browser calculates the margin.
+
+2)length	-	It declare margin in px,pt,cm,em and etc.
+
+3)%		- 	It declare margin in percentage(%).
+
+4)inherit	-   	It declare the margin should be inherited from parent element.
+
+
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid black;
+				margin-top:100px;
+				margin-right:100px;
+				margin-bottom:100px;
+				margin-left:100px;
+			}
+			
+		</style>
+	</head>
+	<body>
+			<div>This is span tag</div>
+			
+	</body>
+</html>
+
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid black;
+				margin-top:10%;
+				margin-right:20%;
+				margin-bottom:30%;
+				margin-left:40%;
+			}
+			
+		</style>
+	</head>
+	<body>
+			<div>This is span tag</div>
+			
+	</body>
+</html>
+
+ex:3
+-------
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid black;
+				margin-top:50px;
+				margin-right:50px;
+				margin-bottom:50px;
+				margin-left:50px;
+			}
+			h1
+			{
+				border :2px solid red;
+				margin-top:inherit;
+				margin-right:inherit;
+				margin-bottom:inherit;
+				margin-left:inherit;
+			}
+			
+		</style>
+	</head>
+	<body>
+			<div>
+				<h1>This is heading tag</h1>
+			</div>
+			
+	</body>
+</html>
+
+
+shorthand property
+--------------------
+
+If margin contains four values.
+
+margin: 25px  50px  75px 100px;
+
+	top   right  bottom  left 
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid black;
+				margin: 25px  50px  75px 100px;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+			<div>
+				This is div tag
+			</div>
+			
+	</body>
+</html>
+
+
+If margin contains three values.
+
+margin: 25px  50px  75px;
+
+	top   left and right  bottom   
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid black;
+				margin: 25px  50px  75px;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+			<div>
+				This is div tag
+			</div>
+			
+	</body>
+</html>
+
+If margin contains two  values.
+
+margin: 50px  100px;
+
+	top and bottom    left and right    
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid black;
+				margin: 50px  100px;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+			<div>
+				This is div tag
+			</div>
+			
+	</body>
+</html>
+
+If margin contains one value.
+
+margin:100px;
+
+	all sides are 100px 
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid black;
+				margin:100px;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+			<div>
+				This is div tag
+			</div>
+			
+	</body>
+</html>
+
+
+Note:
+------
+A margin property can accept negative numbers.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid black;
+				margin-top:-50px;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+			<h1>This is heading tag 1</h1>
+			<h2>This is heading tag 2</h1>
+			<div>
+				This is div tag
+			</div>
+			
+	</body>
+</html>
+
+
+CSS padding 
+==============
+The CSS padding properties are used to generate space around elements content.
+
+We have following CSS properties for specifying padding for each side.
+
+1)padding-top
+
+2)padding-right
+
+3)padding-bottom
+
+4)padding-left
+
+All the above padding properties can have following values.
+
+Note:
+-----
+	Negative values are not allowed but in margin -ve values are allowed.	
+	Margin is page/screen level and padding is a content level.
+
+
+ex:1
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border:2px solid black;
+				padding-top:100px;
+				padding-left:100px;
+				padding-bottom:100px;
+				padding-right:100px;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+			<h1>This is heading tag 1</h1>
+			
+			
+	</body>
+</html>
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border:2px solid black;
+				padding-top:10%;
+				padding-left:20%;
+				padding-bottom:30%;
+				padding-right:40%px;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+			<h1>This is heading tag 1</h1>
+			
+			
+	</body>
+</html>
+
+ex:3
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid red;
+				padding-top:50px;
+				padding-right:50px;
+				padding-bottom:50px;
+				padding-left:50px;
+			}
+			h1
+			{
+				border:2px solid black;
+				padding-top:inherit;
+				padding-right:inherit;
+				padding-bottom:inherit;
+				padding-left:inherit;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+			<div>
+				<h1>This is heading tag 1</h1>
+			</div>
+			
+			
+	</body>
+</html>
+
+shorthand property
+------------------
+
+If padding contains four values.
+
+padding: 25px  50px 75px  100px;
+
+	 top   right  bottom   left
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			h1
+			{
+				border:2px solid black;
+				padding: 25px  50px 75px  100px;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+			
+				<h1>This is heading tag 1</h1>
+		
+			
+			
+	</body>
+</html>
+
+
+
+If padding contains three values.
+
+padding: 25px  50px  100px;
+
+	 top   left and right  bottom
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			h1
+			{
+				border:2px solid black;
+				padding: 25px  50px  100px;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+			
+				<h1>This is heading tag 1</h1>
+		
+			
+			
+	</body>
+</html>
+
+
+If padding contains two values.
+
+padding:50px  100px;
+
+	 top and bottom   left and right 
+
+ex:
+----
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			h1
+			{
+				border:2px solid black;
+				padding:50px  100px;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+			
+				<h1>This is heading tag 1</h1>
+		
+			
+			
+	</body>
+</html>
+
+If padding contains one value.
+
+padding:100px;
+
+	all sides are 100px.
+
+ex:
+----
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			h1
+			{
+				border:2px solid black;
+				padding:100px;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+			
+				<h1>This is heading tag 1</h1>
+		
+			
+			
+	</body>
+</html>
+
+
+CSS setting Height and Width
+===========================
+The "height" and "width" property is used to set the height and width of an element.
+
+The height and width properties do not include padding ,borders and margins.
+
+It set height and width of the area inside the padding ,borders ,margins and other elements.
+
+ex:1
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			div
+			{
+				border:2px solid black;
+				width: 300px;
+				height:300px;
+				background-color:cyan;
+				margin:145px auto;
+			}
+			
+		</style>
+	</head>
+	<body>
+			
+		<div></div>
+			
+			
+	</body>
+</html>
+
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			div
+			{
+				border:2px solid black;
+				max-width: 300px;
+				min-height:300px;
+				background-color:cyan;
+				margin:145px auto;
+			}
+			
+		</style>
+	</head>
+	<body>
+			
+		<div></div>
+			
+			
+	</body>
+</html>
+
+CSS text property
+====================
+
+color property
+---------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			h1
+			{
+				color:red;
+			}
+			
+		</style>
+	</head>
+	<body>
+			
+		<h1>This is heading tag </h1>
+			
+			
+	</body>
+</html>
+
+background-color property
+-----------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			h1
+			{
+				color:red;
+				background-color:yellow;
+			}
+			
+		</style>
+	</head>
+	<body>
+			
+		<h1>This is heading tag </h1>
+			
+			
+	</body>
+</html>
+
+text-align  property
+---------------
+
+ex:1
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			h1
+			{
+				color:red;
+				background-color:yellow;
+				text-align:center;
+			}
+			
+		</style>
+	</head>
+	<body>
+			
+		<h1>This is heading tag </h1>
+			
+			
+	</body>
+</html>
+
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			h1
+			{
+				color:red;
+				background-color:yellow;
+				text-align:right;
+			}
+			
+		</style>
+	</head>
+	<body>
+			
+		<h1>This is heading tag </h1>
+			
+			
+	</body>
+</html>
+
+ex:3
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			h1
+			{
+				color:red;
+				background-color:yellow;
+				text-align:left;
+			}
+			
+		</style>
+	</head>
+	<body>
+			
+		<h1>This is heading tag </h1>
+			
+			
+	</body>
+</html>
+
+text-transform
+---------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			h1
+			{
+				color:red;
+				background-color:yellow;
+				text-align:center;
+				text-transform:uppercase;
+			}
+			
+		</style>
+	</head>
+	<body>
+			
+		<h1>This is heading tag </h1>
+			
+			
+	</body>
+</html>
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			h1
+			{
+				color:red;
+				background-color:yellow;
+				text-align:center;
+				text-transform:lowercase;
+			}
+			
+		</style>
+	</head>
+	<body>
+			
+		<h1>This is heading tag </h1>
+			
+			
+	</body>
+</html>
+
+ex:3
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			h1
+			{
+				color:red;
+				background-color:yellow;
+				text-align:center;
+				text-transform:capitalize;
+			}
+			
+		</style>
+	</head>
+	<body>
+			
+		<h1>This is heading tag </h1>
+			
+			
+	</body>
+</html>
+
+
+text-decoration property
+----------------------
+
+ex:1
+-------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			h1
+			{
+				color:red;
+				background-color:yellow;
+				text-align:center;
+				text-transform:capitalize;
+				text-decoration:underline;
+			}
+			
+		</style>
+	</head>
+	<body>
+			
+		<h1>This is heading tag </h1>
+			
+			
+	</body>
+</html>
+
+ex:2
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			h1
+			{
+				color:red;
+				background-color:yellow;
+				text-align:center;
+				text-transform:capitalize;
+				text-decoration:none;
+			}
+			
+		</style>
+	</head>
+	<body>
+			
+		<h1>This is heading tag </h1>
+			
+			
+	</body>
+</html>
+
+letter-spacing property
+----------------------
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			h1
+			{
+				color:red;
+				background-color:yellow;
+				text-align:center;
+				text-transform:capitalize;
+				text-decoration:none;
+				letter-spacing:4px;
+			}
+			
+		</style>
+	</head>
+	<body>
+			
+		<h1>This is heading tag </h1>
+			
+			
+	</body>
+</html>
+
+font-size property
+-------------------
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			h1
+			{
+				color:red;
+				background-color:yellow;
+				text-align:center;
+				text-transform:capitalize;
+				text-decoration:none;
+				letter-spacing:4px;
+				font-size:50px;
+			}
+			
+		</style>
+	</head>
+	<body>
+			
+		<h1>This is heading tag </h1>
+			
+			
+	</body>
+</html>
+
+font-family property
+-------------------
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			h1
+			{
+				color:red;
+				background-color:yellow;
+				text-align:center;
+				text-transform:capitalize;
+				text-decoration:none;
+				letter-spacing:4px;
+				font-size:50px;
+				font-family:cursive;
+			}
+			
+		</style>
+	</head>
+	<body>
+			
+		<h1>This is heading tag </h1>
+			
+			
+	</body>
+</html>
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			h1
+			{
+				color:red;
+				background-color:yellow;
+				text-align:center;
+				text-transform:capitalize;
+				text-decoration:none;
+				letter-spacing:4px;
+				font-size:50px;
+				font-family:serif;
+			}
+			
+		</style>
+	</head>
+	<body>
+			
+		<h1>This is heading tag </h1>
+			
+			
+	</body>
+</html>
+
+
+ex:3
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			h1
+			{
+				color:red;
+				background-color:yellow;
+				text-align:center;
+				text-transform:capitalize;
+				text-decoration:none;
+				letter-spacing:4px;
+				font-size:50px;
+				font-family:sans-serif;
+			}
+			
+		</style>
+	</head>
+	<body>
+			
+		<h1>This is heading tag </h1>
+			
+			
+	</body>
+</html>
+
+ex:4
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			h1
+			{
+				color:red;
+				background-color:yellow;
+				text-align:center;
+				text-transform:capitalize;
+				text-decoration:none;
+				letter-spacing:4px;
+				font-size:50px;
+				font-family:monospace;
+			}
+			
+		</style>
+	</head>
+	<body>
+			
+		<h1>This is heading tag </h1>
+			
+			
+	</body>
+</html>
+
+ex:5
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			h1
+			{
+				color:red;
+				background-color:yellow;
+				text-align:center;
+				text-transform:capitalize;
+				text-decoration:none;
+				letter-spacing:4px;
+				font-size:50px;
+				font-family:fantasy;
+			}
+			
+		</style>
+	</head>
+	<body>
+			
+		<h1>This is heading tag </h1>
+			
+			
+	</body>
+</html>
+
+font-weight
+----------------
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			i
+			{
+				color:red;
+				background-color:yellow;
+				text-align:center;
+				text-transform:capitalize;
+				text-decoration:none;
+				letter-spacing:4px;
+				font-size:50px;
+				font-family:fantasy;
+				font-weight:bold;
+			}
+			
+		</style>
+	</head>
+	<body>
+			
+		<i>This is heading tag </i>
+			
+			
+	</body>
+</html>
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+		
+			i
+			{
+				color:red;
+				background-color:yellow;
+				text-align:center;
+				text-transform:capitalize;
+				text-decoration:none;
+				letter-spacing:4px;
+				font-size:50px;
+				font-family:fantasy;
+				font-weight:thin;
+			}
+			
+		</style>
+	</head>
+	<body>
+			
+		<i>This is heading tag </i>
+			
+			
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

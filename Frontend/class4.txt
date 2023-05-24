@@ -1,0 +1,1034 @@
+HTML forms
+============
+In html, forms are used to read the input data from the enduser.
+
+Forms will transfer the data to database or server for processing.
+
+To create a form in a html we need to use <form> tag.
+
+syntax:
+	<form>
+		-
+		- //form components
+		-
+	</form>
+
+A <form> tag/element may contains number of <input> elements/tags for textfield,textarea,password filed ,radio,checkbox and etc.
+
+
+We have following list of <input> elements/tags
+
+ex:
+
+1)<input type="text"/>		-	It is used to represent textfield
+
+2)<input type="password"/>	-	It is used to represent password field.
+
+3)<input type="number"/>	-	It is used to represent number field.
+
+4)<input type="checkbox"/>	-	It is used to represent checkbox.
+
+5)<input type="radio"/>		-	It is used to represent radio button.
+
+6)<input type="hidden"/>	-	It is used to represent hidden textfield.
+
+7)<input type="date"/>		-	It is used to represent date field.
+
+8)<input type="color"/>		-	It is used to specify color.
+
+9)<input type="button"/>	-	It is used to represent HTML button.
+
+10)<input type="email"/>	-	IT is used to represent email field.
+
+11)<input type="search"/>	-	It is used to represent search field.
+
+12)<input type="submit"/>	-	It is used to represent submit button.
+
+13)<input type="reset"/>	-	It is used to represent reset button.
+
+14)<input type="file"/>		-	It is used to select a file.
+
+and etc.
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Name : <input type="text" name="t1"/>	
+	</body>
+</html>
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Password : <input type="password" name="t1"/>	
+	</body>
+</html>
+
+ex:3
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Age : <input type="number" name="t1"/>	
+	</body>
+</html>
+
+ex:4
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Maritial Status: 
+		<input type="checkbox" value="single" name="t1"/>SINGLE	
+		&nbsp;
+		<input type="checkbox" value="married" name="t1"/>MARRIED	
+	</body>
+</html>
+	
+ex:5
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Gender: 
+		<input type="radio" value="male" name="t1"/>MALE	
+		&nbsp;
+		<input type="radio" value="female" name="t1"/>FEMALE
+	</body>
+</html>
+	
+ex:6
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Name: <input type="hidden" name="t1"/>
+	</body>
+</html>
+	
+ex:7
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		DOJ : <input type="date" name="t1"/>
+	</body>
+</html>
+	
+ex:8
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Color Name : <input type="color" name="t1"/>
+	</body>
+</html>
+	
+ex:9
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<input type="button" value="submit"/>
+	</body>
+</html>
+	
+ex:10
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Email : <input type="email" name="t1"/>
+	</body>
+</html>
+	
+ex:11
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Search : <input type="search" name="t1"/>
+	</body>
+</html>
+	
+
+ex:12
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<input type="submit" value="submit"/>
+
+		<input type="submit" value="login"/>
+
+		<input type="submit" value="signin"/>
+	</body>
+</html>
+	
+ex:13
+-------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<input type="reset" value="reset"/>
+
+		<input type="reset" value="refresh"/>
+
+		
+	</body>
+</html>
+	
+ex:14
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		File1: <input type="file" name="t1"/> <br>
+
+		File2: <input type="file" name="t2"/>
+
+		
+	</body>
+</html>
+
+HTML TextArea 
+============
+A <textarea> tag is used to represent text area in HTML.
+
+It contains two attributes i.e rows and cols.
+
+
+ex:
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Address:
+		<textarea rows="5" cols="10"></textarea>
+		
+	</body>
+</html>
+	
+
+HTML select box
+=================
+A <select> tag is used to represent select box in HTML.
+
+To add the options in select box we need to use <option> tag.
+
+ex:
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Country
+		<select>
+			<option>none</option>
+			<option>India</option>
+			<option>America</option>
+			<option>Australia</option>
+		</select>
+		
+	</body>
+</html>
+	
+HTML <form> tag
+==================
+All form components we need to place inside <form> tag or element.
+
+
+ex:
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<form>
+			UserName: <input type="text" name="t1"/> <br>
+			Password: <input type="password" name="t2"/> <br>
+			<input type="submit" value="submit"/>
+		</form>
+	</body>
+</html>
+	
+Form action attribute
+==========================
+A form "action" attribute specifies what actions has to be performed when user submit  
+the data.
+
+Basically,form submit the data to database or server for processing.
+
+ex:
+----
+
+a.html
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>A.html</title>
+	</head>
+	<body bgcolor="forestgreen">
+		<center>
+			<h1>Welcome to HTML </h1>
+		</center>
+	</body>
+</html>
+	
+
+index.html
+----------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<form action="a.html">
+			UserName: <input type="text" name="t1"/> <br>
+			Password: <input type="password" name="t2"/> <br>
+			<input type="submit" value="submit"/>
+		</form>
+	</body>
+</html>
+	
+
+Form target attribute
+========================
+A form "target" attribute specifies either submitted data must open in a current window or a new window.
+
+A default value for target attribute is "_self".
+
+ex:1
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<form action="a.html" target="_self">
+			UserName: <input type="text" name="t1"/> <br>
+			Password: <input type="password" name="t2"/> <br>
+			<input type="submit" value="submit"/>
+		</form>
+	</body>
+</html>
+	
+ex:2
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<form action="a.html" target="_blank">
+			UserName: <input type="text" name="t1"/> <br>
+			Password: <input type="password" name="t2"/> <br>
+			<input type="submit" value="submit"/>
+		</form>
+	</body>
+</html>
+
+Form name attribute
+=======================
+A form "name" attribute specifies name to a form.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<form name="myform"  action="a.html" target="_blank">
+			UserName: <input type="text" name="t1"/> <br>
+			Password: <input type="password" name="t2"/> <br>
+			<input type="submit" value="submit"/>
+		</form>
+	</body>
+</html>
+		
+
+Form method attribute
+========================
+A form "method" attribute specifies HTTP methods.
+
+The default methodology is GET.
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<form name="myform"  action="a.html" target="_blank" method="GET">
+			UserName: <input type="text" name="t1"/> <br>
+			Password: <input type="password" name="t2"/> <br>
+			<input type="submit" value="submit"/>
+		</form>
+	</body>
+</html>
+	
+ex:2
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<form name="myform"  action="a.html" target="_blank" method="POST">
+			UserName: <input type="text" name="t1"/> <br>
+			Password: <input type="password" name="t2"/> <br>
+			<input type="submit" value="submit"/>
+		</form>
+	</body>
+</html>
+	
+HTML <label> tag
+==================
+A <label> tag is used to represent label in a HTML.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<label>Name</label> : <input type="text" name="t1"/>
+	</body>
+</html>
+
+HTML form using table 
+===========================
+
+ex:1
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<form action="" target="_self" name="myform" method="GET">
+			<table>
+				<tr>
+					<td><label>Name</label></td>
+					<td><input type="text" name="t1"/></td>
+				</tr>
+				<tr>
+					<td><label>Password:</label></td>
+					<td><input type="password" name="t2"/></td>
+				</tr>
+				<tr>
+					<td>Age:</td>
+					<td><input type="number" name="t3"/></td>
+				</tr>
+				<tr>
+					<td><input type="reset" value="reset"/></td>
+					<td><input type="submit" value="submit"/></td>
+				</tr>
+			</table>	
+		</form>
+	</body>
+</html>
+	
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<form action="" target="_self" name="myform" method="GET">
+			<table align="center">
+				<caption>Enter the Details</caption>
+				<tr>
+					<td><label>Name</label></td>
+					<td><input type="text" name="t1"/></td>
+				</tr>
+				<tr>
+					<td><label>Password:</label></td>
+					<td><input type="password" name="t2"/></td>
+				</tr>
+				<tr>
+					<td>Age:</td>
+					<td><input type="number" name="t3"/></td>
+				</tr>
+				<tr>
+					<td><input type="reset" value="reset"/></td>
+					<td><input type="submit" value="submit"/></td>
+				</tr>
+			</table>	
+		</form>
+	</body>
+</html>
+	
+ex:3
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<form action="" target="_self" name="myform" method="GET">
+			<table align="center">
+				<caption>Enter the Details</caption>
+				<tr>
+					<td><label>Name</label></td>
+			<td><input type="text" name="t1" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><label>Password:</label></td>
+		<td><input type="password" name="t2" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td>Age:</td>
+		<td><input type="number" name="t3" autocomplete="off"/></td>
+				</tr>
+				<tr>
+					<td><input type="reset" value="reset"/></td>
+					<td><input type="submit" value="submit"/></td>
+				</tr>
+			</table>	
+		</form>
+	</body>
+</html>
+	
+ex:4
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<form action="" target="_self" name="myform" method="GET">
+			<table align="center">
+				<caption>Enter the Details</caption>
+				<tr>
+					<td><label>Name</label></td>
+			<td><input type="text" name="t1" autocomplete="off" required/></td>
+				</tr>
+				<tr>
+					<td><label>Password:</label></td>
+		<td><input type="password" name="t2" autocomplete="off" required/></td>
+				</tr>
+				<tr>
+					<td>Age:</td>
+		<td><input type="number" name="t3" autocomplete="off" required/></td>
+				</tr>
+				<tr>
+					<td><input type="reset" value="reset"/></td>
+					<td><input type="submit" value="submit"/></td>
+				</tr>
+			</table>	
+		</form>
+	</body>
+</html>
+	
+ex:5
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<form action="" target="_self" name="myform" method="GET">
+			<table align="center">
+				<caption>Enter the Details</caption>
+				<tr>
+					
+			<td><input type="text" placeholder="enter the name" name="t1" autocomplete="off" required/></td>
+				</tr>
+				<tr>
+					
+		<td><input type="password" placeholder="enter the password" name="t2" autocomplete="off" required/></td>
+				</tr>
+				<tr>
+					
+		<td><input type="number" placeholder="enter the age" name="t3" autocomplete="off" required/></td>
+				</tr>
+				<tr>
+					
+					<td><input type="submit" value="submit"/></td>
+				</tr>
+			</table>	
+		</form>
+	</body>
+</html>
+	
+datalist tag
+==============
+A <datalist> tag/element is used to specify list of predefine options for an <input> tag/element.
+
+A <datalist> tag/element provides autocomplete features for an <input> element/tag.
+
+User will see a drop-down list of predefine options for an <input> tag/element.
+
+A <datalist> tag/element  "id" attribute must be same as <input> tag/element
+"list" attribute.
+
+
+ex:
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Country : <input type="text" name="c1" list="countries"/>
+
+		<datalist id="countries">
+			<option value="India">	
+			<option value="Indoniasia">
+			<option value="Ireland">
+			<option value="Iraq">
+			<option value="Iran">
+			<option value="America">	
+			<option value="Australia">
+			<option value="Argentina">						
+		</datalist>	
+		
+	</body>
+</html>
+	
+
+Details tag
+================
+A <details> tag/element is used display special content where a user can open and close on demand. 
+
+A <details> tag is used to design interactive widgets where user can
+open and close.
+
+A <details> tag contains <summary> tag.
+
+We can keep any sort of tags inside <details> tags.
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<details>
+			<summary>HTML</summary>
+			<p>HTML is a widely used language on web</p>
+			<div>HTML is a case insensitive language</div>
+			<h1>HTML is a tag based language</h1>
+		</details>
+		
+	</body>
+</html>
+	
+HTML <del> and <ins> tag
+===========================
+The <del> HTML element represents a range of text that has been deleted from a document. 
+
+The <ins> element can be used for the opposite purpose: to indicate text that has been added to the document.
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		My Hero is <del>Mahesh Babu</del> <ins>Allu Arjun</ins>
+	</body>
+</html>
+
+HTML <sub> tag
+================
+The <sub> tag defines subscript text. 
+
+Subscript text appears half a character below the normal line, and is sometimes rendered in a smaller font.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<h1>H<sub>2</sub>O</h1>
+	</body>
+</html>
+		
+HTML <sup> tag
+================
+The <sup> tag defines superscript text. 
+
+Superscript text appears half a character above the normal line, and is sometimes 
+rendered in a smaller font.
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<h1>
+			a<sup>2</sup>+b<sup>2</sup>
+		</h1>
+	</body>
+</html>
+	
+HTML <bdo> tag
+===============
+BDO stands for Bi-Directional Override. 
+
+The <bdo> tag is used to override the current text direction.
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<h1>Hello</h1>
+
+		<h1>
+			<bdo dir="rtl">Hello</bdo>
+		</h1>
+
+		<h1>
+			<bdo dir="ltr">Hello</bdo>
+		</h1>
+	</body>
+</html>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

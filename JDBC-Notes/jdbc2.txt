@@ -1,0 +1,326 @@
+ResultSet object
+==================
+ResultSet is an interface which is present in java.sql package.
+
+Every ResultSet contains two positions.
+
+1)BFR (Before First Record/Row)
+
+2)ALR (After Last Record/Row)
+
+Bydefault every record pointer points to BFR position.
+
+Every record ResultSet having 1 as base index and 1 as column index.
+
+rs.next()
+-----------
+It is used to move from current position to next position.
+
+If next position is a record then it will return true.
+
+If next position is a ALR then it will return false.
+
+We can read record ResultSet by using getXxx() method  by using column names or index numbers.
+
+Diagram: jdbc2.1
+
+Steps to develop JDBC application
+===================================
+There are six steps to develop JDBC application.
+
+step1:
+	Register JDBC Driver with DriverManager service.
+
+step2:
+	Establish the connection with database software.
+
+step3:
+	Create Statement object.
+
+step4:
+	Sends and Executes SQL Query in database software.
+
+step5:
+	Gather the result from database software to process the result.
+
+step6:
+	Close all jdbc connection objects.	
+
+
+Types of Queries in JDBC
+===========================
+According to JDBC point of view, we have two types of queries.
+
+1)Select query
+
+2)Non-Select query 
+
+1)Select query
+--------------
+Select query will give bunch of records from database.
+ex:
+	select * from emp;
+
+To execute select query we need to use executeQuery() method of Statement object.
+ex:
+	ResultSet rs=st.executeQuery("select * from emp");
+
+2)Non-Select query 
+-------------------
+It will return numeric value representing number of records effected in database table.
+ex:
+	delete from emp;
+
+To execute non-select query we need to use executeUpdate() method of Statement object.
+ex:
+	int result=st.executeUpdate("delete from emp");
+
+
+
+Type4 JDBC Driver 
+=====================
+					class name 
+				     ------------	
+driver name 	: oracle.jdbc.driver.OracleDriver 
+		  -------------------
+			pkg name 
+
+ 				protocol 
+		 -----------------------------------	
+driver url 	: jdbc:oracle:thin:@localhost:1521:XE
+		  -----------------   |         |    |  
+			sub protocol  hostname portno logical database name 
+			
+
+database username : system
+
+database password : admin 
+
+
+
+Eclipse 
+===========
+Environment	:	JAVA JEE IDE (Integrated Development Environment)
+
+Flavour		:	Kepler, Indigo , Luna , Mars and etc.
+
+Vendor 		:	Eclipse organization 
+
+website		:	www.eclipse.org 
+
+Download link	:
+
+https://www.eclipse.org/downloads/packages/release/kepler/sr2/eclipse-ide-java-ee-developers
+
+ 
+Extract Eclipse IDE
+===================
+Right click to Eclipse Zip file --> extract files --> 
+select any drive from computer --> ok.
+
+
+Steps to develop first jdbc application using eclipse IDE to select the records from student table
+=========================================================
+step1:
+------
+	Make sure Eclipse IDE is installed in our computer.
+
+step2:
+-----
+	Launch eclipse IDE by choosing workspace location.
+
+step3:
+------
+	Create a "IH-JAVA-014" project inside eclipse IDE.	 
+	ex:
+	File --> new --> Project --> Java project --> next --> 
+	Project Name : IH-JAVA-014  --> next --> libraries --> add external jars
+	--> select "ojdbc14.jar" file --> open -->Finish.
+	
+
+step4:
+------
+	create "com.ihub.www" package inside "src" folder.
+	ex:
+	Rightclick to src folder --> new --> package --->
+	package name : com.ihub.www  --> finish.
+
+
+step5:
+------
+	create "SelectApp.java" file inside "com.ihub.www" package.
+	ex:
+	Right click to com.ihub.www package --> new --> class -->
+	class name : SelectApp --> Finish.
+
+
+SelectApp.java
+--------------
+
+package com.ihub.www;
+
+// ctrl + shift + o 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class SelectApp 
+{
+	public static void main(String[] args)throws Exception  
+	{
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+		Statement st=con.createStatement();
+		ResultSet rs=st.executeQuery("select * from student");
+		while(rs.next())
+		{
+			System.out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getString(3));
+		}
+		rs.close();
+		st.close();
+		con.close();
+	}
+}
+
+step6:
+----
+	Run the jdbc application.
+	ex:
+	Right click to SelectApp.java file --> run as --> Java application.
+
+
+approach2
+----------
+package com.ihub.www;
+
+// ctrl + shift + o 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class SelectApp 
+{
+	public static void main(String[] args)throws Exception  
+	{
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+		Statement st=con.createStatement();
+		ResultSet rs=st.executeQuery("select * from student order by sno desc");
+		while(rs.next())
+		{
+			System.out.println(rs.getInt("sno")+" "+rs.getString("sname")+" "+rs.getString("sadd"));
+		}
+		rs.close();
+		st.close();
+		con.close();
+	}
+}
+
+ex:3
+----
+package com.ihub.www;
+
+// ctrl + shift + o 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class SelectApp 
+{
+	public static void main(String[] args)
+	{
+		Connection con=null;
+		Statement st=null;
+		ResultSet rs=null;
+		String qry=null;
+		try
+		{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+			st=con.createStatement();
+			qry="select * from student";
+			rs=st.executeQuery(qry);
+			while(rs.next())
+			{
+				System.out.println(rs.getInt("sno")+" "+rs.getString("sname")+" "+rs.getString("sadd"));
+			}
+			rs.close();
+			st.close();
+			con.close();
+		}
+		catch(Exception e )
+		{
+			e.printStackTrace();
+		}
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

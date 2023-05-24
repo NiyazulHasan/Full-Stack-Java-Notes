@@ -1,0 +1,211 @@
+History of Java
+=================
+In 1990, Sun micro system company has taken one project to develop a software called consumer electronic device which can be controlled by a remote like setup box.That time project was called stealth project and later it was renamed to green project.
+
+James Gosling, Mike Sheradin and Patrick Naughton were there to develop this project.
+They met in a place called Aspan/Colarado to start the work with graphic system.James Gosling decided to use C and C++ languages developed that project.But problem what they have faced is C and C++ language are system dependent.Then James Gosling decided why don't we create our own programming language? which is system independent.
+
+In 1991, they have developed one programming language called an OAK.OAK means strength , itself is a coffee seed name and it is a national tree for many contries like Germany , France , USA and etc.
+
+Later in 1995, they have renamed OAK to JAVA. JAVA is a island of an Indonasia where first coffee of seed was produced.During the development of project they were consuming lot of coffee's that why symbol of java is a cup of coffee with saucer.
+
+Naming Convention in java
+==========================
+In java uppercase letters will consider as different and lower case letter will consider as different thats why we consider java is a case sensitive programming language.
+
+As java is a case sensitive, we must and should follow naming conventions for following things.
+ex:
+	classes
+	interfaces
+	variables
+	methods
+	keywords
+	packages
+	constants 
+
+classes
+-----------
+In java,A class must and should starts with uppercase letter and if it contains multiple words then each inner word must starts with initcap.
+ex:
+	Predefined class		Userdefined class
+	----------------		------------------
+	System 				Test
+	FileWriter			TestApp
+	BufferedReader			IhubTalent
+	Scanner 
+
+interfaces
+-----------
+In java,An interface must and should starts with uppercase letter and if it contains multiple words then each inner word must starts with initcap.
+ex:
+	Predefined interface		Userdefined interface
+	-----------------		-----------------------
+	Runnable			ITest
+	Serializable			IExample
+	ListIterator			IIhubTalent
+	Enumeration 
+	and etc.
+
+variables
+----------
+In java, a variable name must and should starts with lower case letter and if it contains multiple words then each inner word must starts with initcap.
+
+ex:
+	predefined variables		userdefined variables
+	----------------		--------------------
+	length				i
+	out				a
+	err				empId
+	in 				studName 
+	and etc.
+
+
+methods
+----------
+In java, a method name must and should starts with lower case letter and if it contains multiple words then each inner word must starts with initcap.
+ex:
+	predefined methods		userdefined methods
+	------------------		-------------------
+	getPriority()			m1()
+	hashCode()			getEmployeeDetails()
+	getClass()			setInfo()
+	setName()			calculateBillAmount()
+	and etc.
+
+keywords
+==========
+In java ,all keywords we need to write under lowercase letters.
+
+ex:
+	predefined keywords
+	-----------------
+	public 
+	static
+	void
+	if
+	for 
+	else
+	and etc.
+
+packages
+-----------
+In java, all packages we need to write under lower case letters.
+ex:
+	predefined packages		userdefined packages
+	-----------------		------------------
+	java.lang			manohar 
+	java.io				com.manohar.www
+	java.util			com.ihub.www
+	java.text
+	java.time
+	javax.servlet
+	javax.jsp 
+	and etc.
+
+constants
+-----------
+In java, all constants we need to write under uppercase letters.
+
+ex:
+	predefined constants
+	--------------------
+	MAX_PRIORITY
+	NORM_PRIORITY
+	MIN_PRIOROITY
+	MAX_VALUE
+	MIN_VALUE
+
+Interview Questions
+=====================
+
+Q) What is Java ? 
+
+Java is a object oriented , platform indepent , case sensitive , high level ,
+strongly typed checking , open source programming language developed by James Gosling in the year of 1995.
+
+
+Q)Features of Java?
+
+1)Simple 
+2)Object oriented 
+3)Platform indepent
+4)Portable
+5)Architecture Neutral               
+6)Highly secured 
+7)Distributed
+8)Dynamic 	
+
+
+Q)A .class file contains what code?
+
+	byte code 
+
+Q)Which package consider as a default package in java?
+
+	java.lang package 
+
+
+Q)Who is the  creator of Java?
+
+	James Gosling 
+
+Q)Java is a product of which company?
+
+	Oracle corporation (Sun micro system)
+
+
+Q)Which is the latest version of java?
+
+	Java 19   or   JDK 1.19
+
+Q)Java originally known as ?
+	
+	OAK 
+
+Q)In which year java was developed?
+
+	In 1995
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

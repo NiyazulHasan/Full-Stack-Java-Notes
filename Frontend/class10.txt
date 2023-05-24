@@ -1,0 +1,1302 @@
+CSS clear property
+===================
+The clear property specifies on which side of an element floating elements are not allowed to float.
+
+value		Description
+-------		----------------
+none		Default allows floating elements to both the side.
+
+left		No floating elements allowed on the left side.
+
+right 		No floating elements allowed on the right side.
+
+both		No floating elements allowed on the both side.
+
+
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		#box1
+		{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			float:left;
+		}
+		#box2
+		{
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+			float:right;
+		}
+		#box3
+		{
+			width: 100%;
+			height: 200px;
+			background-color: yellow;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="box1"></div>
+	<div id="box2"></div>
+	<div id="box3"></div>
+</body>
+</html>
+
+clear: both
+-------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		#box1
+		{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			float:left;
+		}
+		#box2
+		{
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+			float:right;
+		}
+		#box3
+		{
+			width: 100%;
+			height: 200px;
+			background-color: yellow;
+			clear: both;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="box1"></div>
+	<div id="box2"></div>
+	<div id="box3"></div>
+</body>
+</html>
+
+
+clear:left
+----------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		#box1
+		{
+			width: 200px;
+			height: 300px;
+			background-color: red;
+			float:left;
+		}
+		#box2
+		{
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+			float:right;
+		}
+		#box3
+		{
+			width: 100%;
+			height: 200px;
+			background-color: yellow;
+			clear: left;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="box1"></div>
+	<div id="box2"></div>
+	<div id="box3"></div>
+</body>
+</html>
+
+
+clear:right
+------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		#box1
+		{
+			width: 200px;
+			height: 300px;
+			background-color: red;
+			float:left;
+		}
+		#box2
+		{
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+			float:right;
+		}
+		#box3
+		{
+			width: 100%;
+			height: 200px;
+			background-color: yellow;
+			clear: right;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="box1"></div>
+	<div id="box2"></div>
+	<div id="box3"></div>
+</body>
+</html>
+
+CSS List properties
+==================
+In HTML, there are two types of lists.
+
+1)Order list (<ol>)
+------------------------
+	The list items are marked with numbers and letters.
+
+
+2)Unorder list (<ul>)
+------------------------------
+	The list items are marked with bullets.
+
+
+The "list-style-type" property specifies the types of lits item marker.
+
+
+
+unorderlist
+-----------
+
+ex:1
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	Courses
+	<ul>
+		<li>ReactJS</li>
+		<li>AngularJS</li>
+		<li>NodeJS</li>
+		<li>ExpressJS</li>
+		<li>VueJS</li>
+	</ul>
+</body>
+</html>
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		.myclass
+		{
+			list-style-type: disc;
+		}		
+	</style>
+</head>
+<body>
+	Courses
+	<ul class="myclass">
+		<li>ReactJS</li>
+		<li>AngularJS</li>
+		<li>NodeJS</li>
+		<li>ExpressJS</li>
+		<li>VueJS</li>
+	</ul>
+</body>
+</html>
+
+ex:3
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		.myclass
+		{
+			list-style-type: square;
+		}		
+	</style>
+</head>
+<body>
+	Courses
+	<ul class="myclass">
+		<li>ReactJS</li>
+		<li>AngularJS</li>
+		<li>NodeJS</li>
+		<li>ExpressJS</li>
+		<li>VueJS</li>
+	</ul>
+</body>
+</html>
+
+ex:4
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		.myclass
+		{
+			list-style-type: circle;
+		}		
+	</style>
+</head>
+<body>
+	Courses
+	<ul class="myclass">
+		<li>ReactJS</li>
+		<li>AngularJS</li>
+		<li>NodeJS</li>
+		<li>ExpressJS</li>
+		<li>VueJS</li>
+	</ul>
+</body>
+</html>
+
+ex:5
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		.myclass
+		{
+			list-style-type: none;
+		}		
+	</style>
+</head>
+<body>
+	Courses
+	<ul class="myclass">
+		<li>ReactJS</li>
+		<li>AngularJS</li>
+		<li>NodeJS</li>
+		<li>ExpressJS</li>
+		<li>VueJS</li>
+	</ul>
+</body>
+</html>
+
+ex:6
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		.myclass
+		{
+			list-style-image: url("images/arrow.png");
+		}		
+	</style>
+</head>
+<body>
+	Courses
+	<ul class="myclass">
+		<li>ReactJS</li>
+		<li>AngularJS</li>
+		<li>NodeJS</li>
+		<li>ExpressJS</li>
+		<li>VueJS</li>
+	</ul>
+</body>
+</html>
+
+ex:7
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		ul
+		{
+			border:2px solid black;
+			list-style-position: inside;
+		}		
+		ul li
+		{
+			border:2px solid red;	
+		}
+	</style>
+</head>
+<body>
+	Courses
+	<ul class="myclass">
+		<li>ReactJS</li>
+		<li>AngularJS</li>
+		<li>NodeJS</li>
+		<li>ExpressJS</li>
+		<li>VueJS</li>
+	</ul>
+</body>
+</html>
+
+
+
+orderlist 
+----------
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		.myclass
+		{
+			list-style-type: lower-roman;
+		}		
+	</style>
+</head>
+<body>
+	Courses
+	<ol class="myclass">
+		<li>ReactJS</li>
+		<li>AngularJS</li>
+		<li>NodeJS</li>
+		<li>ExpressJS</li>
+		<li>VueJS</li>
+	</ol>
+</body>
+</html>
+
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		.myclass
+		{
+			list-style-type: upper-roman;
+		}		
+	</style>
+</head>
+<body>
+	Courses
+	<ol class="myclass">
+		<li>ReactJS</li>
+		<li>AngularJS</li>
+		<li>NodeJS</li>
+		<li>ExpressJS</li>
+		<li>VueJS</li>
+	</ol>
+</body>
+</html>
+
+ex:3
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		.myclass
+		{
+			list-style-type: lower-alpha;
+		}		
+	</style>
+</head>
+<body>
+	Courses
+	<ol class="myclass">
+		<li>ReactJS</li>
+		<li>AngularJS</li>
+		<li>NodeJS</li>
+		<li>ExpressJS</li>
+		<li>VueJS</li>
+	</ol>
+</body>
+</html>
+
+ex:4
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		.myclass
+		{
+			list-style-type: upper-alpha;
+		}		
+	</style>
+</head>
+<body>
+	Courses
+	<ol class="myclass">
+		<li>ReactJS</li>
+		<li>AngularJS</li>
+		<li>NodeJS</li>
+		<li>ExpressJS</li>
+		<li>VueJS</li>
+	</ol>
+</body>
+</html>
+
+
+CSS table 
+===========
+To specify table borders in CSS , use the border property.
+
+
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>EID</th>
+			<th>ENAME</th>
+			<th>ESAL</th>
+		</tr>
+		<tr>
+			<td>101</td>
+			<td>Alan</td>
+			<td>10000</td>
+		</tr>
+		<tr>
+			<td>102</td>
+			<td>Jose</td>
+			<td>20000</td>
+		</tr>
+		<tr>
+			<td>103</td>
+			<td>Jack</td>
+			<td>30000</td>
+		</tr>
+		<tr>
+			<td>104</td>
+			<td>Nancy</td>
+			<td>40000</td>
+		</tr>
+		<tr>
+			<td>105</td>
+			<td>Lucy</td>
+			<td>50000</td>
+		</tr>
+	</table>
+</body>
+</html>
+
+
+ex:2
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		table,tr,th,td
+		{
+			border:2px solid black;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>EID</th>
+			<th>ENAME</th>
+			<th>ESAL</th>
+		</tr>
+		<tr>
+			<td>101</td>
+			<td>Alan</td>
+			<td>10000</td>
+		</tr>
+		<tr>
+			<td>102</td>
+			<td>Jose</td>
+			<td>20000</td>
+		</tr>
+		<tr>
+			<td>103</td>
+			<td>Jack</td>
+			<td>30000</td>
+		</tr>
+		<tr>
+			<td>104</td>
+			<td>Nancy</td>
+			<td>40000</td>
+		</tr>
+		<tr>
+			<td>105</td>
+			<td>Lucy</td>
+			<td>50000</td>
+		</tr>
+	</table>
+</body>
+</html>
+
+ex:3
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		table
+		{
+			border-collapse: collapse;
+		}
+		th,td
+		{
+			border:2px solid black;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>EID</th>
+			<th>ENAME</th>
+			<th>ESAL</th>
+		</tr>
+		<tr>
+			<td>101</td>
+			<td>Alan</td>
+			<td>10000</td>
+		</tr>
+		<tr>
+			<td>102</td>
+			<td>Jose</td>
+			<td>20000</td>
+		</tr>
+		<tr>
+			<td>103</td>
+			<td>Jack</td>
+			<td>30000</td>
+		</tr>
+		<tr>
+			<td>104</td>
+			<td>Nancy</td>
+			<td>40000</td>
+		</tr>
+		<tr>
+			<td>105</td>
+			<td>Lucy</td>
+			<td>50000</td>
+		</tr>
+	</table>
+</body>
+</html>
+
+ex:4
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		table
+		{
+			border-collapse: collapse;
+			width: 100%;
+		}
+		tr
+		{
+			border-bottom: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>EID</th>
+			<th>ENAME</th>
+			<th>ESAL</th>
+		</tr>
+		<tr>
+			<td>101</td>
+			<td>Alan</td>
+			<td>10000</td>
+		</tr>
+		<tr>
+			<td>102</td>
+			<td>Jose</td>
+			<td>20000</td>
+		</tr>
+		<tr>
+			<td>103</td>
+			<td>Jack</td>
+			<td>30000</td>
+		</tr>
+		<tr>
+			<td>104</td>
+			<td>Nancy</td>
+			<td>40000</td>
+		</tr>
+		<tr>
+			<td>105</td>
+			<td>Lucy</td>
+			<td>50000</td>
+		</tr>
+	</table>
+</body>
+</html>
+
+ex:5
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		table
+		{
+			border-collapse: collapse;
+			width: 100%;
+		}
+		th,td
+		{
+			border:2px solid black;
+		}
+		tr:hover
+		{
+			background-color: #C2C2C2;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>EID</th>
+			<th>ENAME</th>
+			<th>ESAL</th>
+		</tr>
+		<tr>
+			<td>101</td>
+			<td>Alan</td>
+			<td>10000</td>
+		</tr>
+		<tr>
+			<td>102</td>
+			<td>Jose</td>
+			<td>20000</td>
+		</tr>
+		<tr>
+			<td>103</td>
+			<td>Jack</td>
+			<td>30000</td>
+		</tr>
+		<tr>
+			<td>104</td>
+			<td>Nancy</td>
+			<td>40000</td>
+		</tr>
+		<tr>
+			<td>105</td>
+			<td>Lucy</td>
+			<td>50000</td>
+		</tr>
+	</table>
+</body>
+</html>
+
+ex:6
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		table
+		{
+			border-collapse: collapse;
+			width: 100%;
+		}
+		th,td
+		{
+			border:2px solid black;
+		}
+		tr:nth-child(even)
+		{
+			background-color: #C2C2C2;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>EID</th>
+			<th>ENAME</th>
+			<th>ESAL</th>
+		</tr>
+		<tr>
+			<td>101</td>
+			<td>Alan</td>
+			<td>10000</td>
+		</tr>
+		<tr>
+			<td>102</td>
+			<td>Jose</td>
+			<td>20000</td>
+		</tr>
+		<tr>
+			<td>103</td>
+			<td>Jack</td>
+			<td>30000</td>
+		</tr>
+		<tr>
+			<td>104</td>
+			<td>Nancy</td>
+			<td>40000</td>
+		</tr>
+		<tr>
+			<td>105</td>
+			<td>Lucy</td>
+			<td>50000</td>
+		</tr>
+	</table>
+</body>
+</html>
+
+CSS display property
+====================
+The display property spcifies the display behaviour of an element.
+
+syntax
+--------
+	display: value;
+
+value		description
+---------	-------------------
+none		The element is completely removed.
+
+inline 		displays an element as on inline element.
+		Any height and width properties will not effect.
+
+block		Displays an element as block element.
+		IT starts on a new line and takes up the whole width.
+
+inline-block	displays an element as an inline-level container.
+		The element itself is formatting  as an inline element.
+		but we can apply height and width values.
+
+inherit		Inherits this property from its parent element.
+
+
+
+
+display:none
+---------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		h1
+		{
+			display: none;
+		}
+		p
+		{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+		<h1>This is heading tag</h1>
+		<p>This is paragraph tag</p>
+</body>
+</html>
+
+display:block 
+----------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		span
+		{
+			display: block;
+			border:2px solid black;
+		}
+	</style>
+</head>
+<body>
+		<span>This is span tag1</span>
+		<span>This is span tag2</span>
+		<span>This is span tag3</span>
+</body>
+</html>
+
+display:inline
+-----------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		div
+		{
+			border:2px solid black;
+			display: inline;
+		}
+	</style>
+</head>
+<body>
+		<div>This is div tag1</div>
+		<div>This is div tag2</div>
+		<div>This is div tag3</div>
+</body>
+</html>
+
+Inline elements does not support height and width property.
+
+ex:
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		div
+		{
+			border:2px solid black;
+			display: inline;
+			width: 300px;
+		}
+	</style>
+</head>
+<body>
+		<div>This is div tag1</div>
+		<div>This is div tag2</div>
+		<div>This is div tag3</div>
+</body>
+</html>
+
+
+To overcome this limitation we need to use display: inline-block .
+
+display:inline-block 
+--------------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		div
+		{
+			border:2px solid black;
+			display: inline-block;
+			width: 300px;
+		}
+	</style>
+</head>
+<body>
+		<div>This is div tag1</div>
+		<div>This is div tag2</div>
+		<div>This is div tag3</div>
+</body>
+</html>
+
+
+CSS Design
+=========
+Task2
+|
+|------images
+|	|
+	|-----facebook.png
+
+|------css
+|	|
+	|-----mystyles.css
+
+|---index.html
+|
+
+index.html
+-------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+
+	<!-- add favicon -->
+	<link rel="icon" href="images/facebook.png">
+
+	<!-- add external css -->
+	<link rel="stylesheet" type="text/css" href="css/mystyles.css">
+
+</head>
+<body>
+		<header>
+			<h1>I<span>HUB</span>TALENT</h1>
+			<ul>
+				<li><a href="">HOME</a></li>
+				<li><a href="">ABOUT</a></li>
+				<li><a href="">SERVICE</a></li>
+				<li><a href="">PORTFOLIO</a></li>
+				<li><a href="">CONTACT</a></li>
+			</ul>
+		</header>
+</body>
+</html>
+
+
+mystyles.css
+-----------
+*
+{
+	padding: 0;
+	margin: 0;
+}
+header
+{
+	padding: 10px;
+	background-color: #eccc68;
+	height: 50px;
+}
+header h1
+{
+	float:left;
+	margin-left:30px;
+}
+header h1 span
+{
+	color:#FFF;
+	font-style: italic;
+}
+header  ul
+{
+	float:right;
+}
+header ul li
+{
+	display: inline-block;
+	margin: 0px  30px;	
+	line-height: 50px;
+}
+header ul li a
+{
+	text-decoration: none;
+	color:#000;
+	font-size:18px;
+}
+header ul li a:hover
+{
+	text-decoration: none;
+	color:#FFF;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

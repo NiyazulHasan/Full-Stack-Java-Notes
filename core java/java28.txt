@@ -1,0 +1,126 @@
+object
+======
+Object is an outcome of a blue print.
+
+It is a instance of a class.
+
+Here instance means allocating memory for our data members.
+
+Memory space will be created when we create an object.
+
+We can create object as follow.
+
+syntax:
+	Class_name   reference_variable=new Constructor();
+ex:
+	Test   t = new  Test();
+
+It is possible to create more then one object in a single class.
+
+ex:
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Test t1=new Test();
+		Test t2=new Test();
+		Test t3=new Test();
+		
+		System.out.println(t1.hashCode());
+		System.out.println(t2.hashCode());
+		System.out.println(t3.hashCode());
+
+		System.out.println(t1);//Test@Hexadecimal 
+		System.out.println(t2.toString());//Test@Hexadecimal 
+		System.out.println(t3.toString());//Test@Hexadecimal 
+	}
+}
+
+
+hashCode()
+===========
+It is a method present in Object class.
+
+For every object, JVM will create a unique identification number i.e hash code.
+
+In order to read hash code we need to use hashCode() method.
+
+Diagram: java28.1
+
+
+toString()
+============
+It is a method present in Object class.
+
+Whenever we are trying to display any object reference directly or indirectly toString() method will be executed.
+
+
+Data Hiding
+==============
+It is used to hide the data from the outsider.
+
+It means outside person must not access our data directly.
+
+Using private modifier we can implement data hiding concept.
+
+ex:
+	class  Account
+	{
+		private double balance;
+		-
+		-
+	}
+
+
+Object class
+==============
+Object class present in java.lang package.
+
+Object class consider as a parent class for every java program.
+
+Object class contains following methods.
+
+ex:
+	cmd> javap   java.lang.Object 	
+
+	getClass()
+	clone()
+	finalize()
+	equals()
+	hashCode()
+	toString()
+	notify()
+	notifyAll()
+	wait()
+	and etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

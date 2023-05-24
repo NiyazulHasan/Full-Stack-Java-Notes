@@ -1,0 +1,1589 @@
+CSS position property
+=====================
+The position property specifies the type of positioning method used for an element (static, relative, absolute, fixed, or sticky).
+
+The following are the list of values to position property.
+
+static 
+---------------
+	It is default value. Elements render in order, as they appear in the document flow 	
+
+absolute 
+--------------
+	The element is positioned relative to its first positioned (not static) ancestor element 	
+fixed 	
+-----------
+	The element is positioned relative to the browser window 	
+relative 
+-------------
+	The element is positioned relative to its normal position, so "left:20px" adds 20 pixels 	to the element's LEFT position.
+ 	
+sticky 	
+-----------
+	The element is positioned based on the user's scroll position 
+
+
+css position property mandatory should have following properties.
+i)left
+ii)right
+iii)top
+iv)bottom
+
+
+position: static 
+-----------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		img
+		{
+			width: 200px;
+			height: 200px;
+			position: static;
+			top:0;
+			left: 0;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<img src="images/girl3.jpg" />	
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+</body>
+</html>
+
+
+position: absolute
+-----------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		img
+		{
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			top:100px;
+			left: 100px;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<img src="images/girl3.jpg" />	
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+</body>
+</html>
+
+
+position:relative
+--------------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		img
+		{
+			width: 200px;
+			height: 200px;
+			position: relative;
+			top:100px;
+			left:100px;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<img src="images/girl3.jpg" />	
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+</body>
+</html>
+
+position:fixed
+----------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		img
+		{
+			width: 200px;
+			height: 200px;
+			position: fixed;
+			top:0px;
+			left:0px;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<img src="images/girl3.jpg" />	
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+</body>
+</html>
+
+
+position:sticky
+----------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		img
+		{
+			width: 200px;
+			height: 200px;
+			position: sticky;
+			top:0px;
+			left:0px;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<img src="images/girl3.jpg" />	
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+</body>
+</html>
+
+
+CSS z-index property
+====================
+The z-index property specifies the stack order of an element.
+
+An element with greater stack order is always in front of an element with a lower stack order.
+
+Note: z-index only works on positioned elements.
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		img
+		{
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			top: 10px;
+			left: 100px;
+			z-index: 1;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML.Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML.Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<img src="images/girl3.jpg" />	
+	
+</body>
+</html>
+
+ex:2
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		img
+		{
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			top: 10px;
+			left: 100px;
+			z-index: -1;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML.Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<p>
+		Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML.Web technologies refers to the way computers/devices communicate. with each other using mark up languages. It invo It is communication. across the web, and create, deliver or manage web content using hypertext markup language (HTML).  A web page is a web document which is written in in HTML
+	</p>
+	<img src="images/girl3.jpg" />	
+	
+</body>
+</html>
+
+
+CSS flexbox
+=============
+Flexbox is a one-dimensional layout methods for laying out items in rows and columns.
+
+CSS flexbox is a better way to align items into a container.
+
+Flexbox= flexible + box.
+
+To create a flexbox model, we need to define a "flex-container".
+
+
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.container
+		{
+			width: 900px;
+			height: 400px;
+			border:2px solid black;
+			box-sizing: border-box;
+		}	
+		.container .item
+		{
+			width: 150px;
+			height: 150px;
+			background-color: yellow;
+			border:2px solid black;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item">box1</div>
+		<div class="item">box2</div>
+		<div class="item">box3</div>
+		<div class="item">box4</div>
+		<div class="item">box5</div>
+		<div class="item">box6</div>
+	</div>
+	
+</body>
+</html>
+
+ex:2
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.container
+		{
+			width: 1000px;
+			height: 400px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+
+		}	
+		.container .item
+		{
+			width: 150px;
+			height: 150px;
+			background-color: yellow;
+			border:2px solid black;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item">box1</div>
+		<div class="item">box2</div>
+		<div class="item">box3</div>
+		<div class="item">box4</div>
+		<div class="item">box5</div>
+		<div class="item">box6</div>
+	</div>
+	
+</body>
+</html>
+
+ex:3
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.container
+		{
+			width: 1000px;
+			height: 400px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: row;
+		}	
+		.container .item
+		{
+			width: 150px;
+			height: 150px;
+			background-color: yellow;
+			border:2px solid black;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item">box1</div>
+		<div class="item">box2</div>
+		<div class="item">box3</div>
+		<div class="item">box4</div>
+		<div class="item">box5</div>
+		<div class="item">box6</div>
+	</div>
+	
+</body>
+</html>
+
+
+ex:4
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.container
+		{
+			width: 1000px;
+			height: 400px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: row-reverse;
+		}	
+		.container .item
+		{
+			width: 150px;
+			height: 150px;
+			background-color: yellow;
+			border:2px solid black;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item">box1</div>
+		<div class="item">box2</div>
+		<div class="item">box3</div>
+		<div class="item">box4</div>
+		<div class="item">box5</div>
+		<div class="item">box6</div>
+	</div>
+	
+</body>
+</html>
+
+ex:5
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.container
+		{
+			width: 1000px;
+			height: 400px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: column;
+		}	
+		.container .item
+		{
+			width: 150px;
+			height: 150px;
+			background-color: yellow;
+			border:2px solid black;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item">box1</div>
+		<div class="item">box2</div>
+		<div class="item">box3</div>
+		<div class="item">box4</div>
+		<div class="item">box5</div>
+		<div class="item">box6</div>
+	</div>
+	
+</body>
+</html>
+
+ex:6
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.container
+		{
+			width: 1000px;
+			height: 400px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: column-reverse;
+		}	
+		.container .item
+		{
+			width: 150px;
+			height: 150px;
+			background-color: yellow;
+			border:2px solid black;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item">box1</div>
+		<div class="item">box2</div>
+		<div class="item">box3</div>
+		<div class="item">box4</div>
+		<div class="item">box5</div>
+		<div class="item">box6</div>
+	</div>
+	
+</body>
+</html>
+
+ex:7
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.container
+		{
+			width: 1000px;
+			height: 400px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;	
+		}	
+		.container .item
+		{
+			width: 150px;
+			height: 150px;
+			background-color: yellow;
+			border:2px solid black;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item">box1</div>
+		<div class="item">box2</div>
+		<div class="item">box3</div>
+		<div class="item">box4</div>
+		<div class="item">box5</div>
+		<div class="item">box6</div>
+	</div>
+	
+</body>
+</html>
+
+ex:8
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.container
+		{
+			width: 1000px;
+			height: 400px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;	
+		}	
+		.container .item
+		{
+			width: 150px;
+			height: 150px;
+			background-color: yellow;
+			border:2px solid black;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item">box1</div>
+		<div class="item">box2</div>
+		<div class="item">box3</div>
+		<div class="item">box4</div>
+		<div class="item">box5</div>
+		<div class="item">box6</div>
+	</div>
+	
+</body>
+</html>
+
+ex:9
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.container
+		{
+			width: 1000px;
+			height: 400px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+			flex-flow: row wrap;
+		}	
+		.container .item
+		{
+			width: 150px;
+			height: 150px;
+			background-color: yellow;
+			border:2px solid black;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item">box1</div>
+		<div class="item">box2</div>
+		<div class="item">box3</div>
+		<div class="item">box4</div>
+		<div class="item">box5</div>
+		<div class="item">box6</div>
+	</div>
+	
+</body>
+</html>
+
+ex:10
+-----
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.container
+		{
+			width: 1000px;
+			height: 400px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: center;
+		}	
+		.container .item
+		{
+			width: 150px;
+			height: 150px;
+			background-color: yellow;
+			border:2px solid black;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item">box1</div>
+		<div class="item">box2</div>
+		<div class="item">box3</div>
+		<div class="item">box4</div>
+		<div class="item">box5</div>
+		<div class="item">box6</div>
+	</div>
+	
+</body>
+</html>
+
+
+ex:11
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.container
+		{
+			width: 1000px;
+			height: 400px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: center;
+			align-items: center;
+		}	
+		.container .item
+		{
+			width: 150px;
+			height: 150px;
+			background-color: yellow;
+			border:2px solid black;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item">box1</div>
+		<div class="item">box2</div>
+		<div class="item">box3</div>
+		<div class="item">box4</div>
+		<div class="item">box5</div>
+		<div class="item">box6</div>
+	</div>
+	
+</body>
+</html>
+
+ex:12
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.container
+		{
+			width: 1000px;
+			height: 400px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: space-between;
+			
+		}	
+		.container .item
+		{
+			width: 150px;
+			height: 150px;
+			background-color: yellow;
+			border:2px solid black;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item">box1</div>
+		<div class="item">box2</div>
+		<div class="item">box3</div>
+		<div class="item">box4</div>
+		<div class="item">box5</div>
+		<div class="item">box6</div>
+	</div>
+	
+</body>
+</html>
+
+ex:13
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		.container
+		{
+			width: 1000px;
+			height: 400px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: space-around;
+			
+		}	
+		.container .item
+		{
+			width: 150px;
+			height: 150px;
+			background-color: yellow;
+			border:2px solid black;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item">box1</div>
+		<div class="item">box2</div>
+		<div class="item">box3</div>
+		<div class="item">box4</div>
+		<div class="item">box5</div>
+		<div class="item">box6</div>
+	</div>
+	
+</body>
+</html>
+
+CSS  Gradients
+=====================
+CSS gradients let you display smooth transitions between two or more specified colors.
+
+CSS defines three types of gradients:
+
+1)Linear Gradients (goes down/up/left/right/diagonally)
+
+2)Radial Gradients (defined by their center)
+
+3)Conic Gradients (rotated around a center point)
+
+linear-gradient
+-------------------
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		body
+		{
+			height: 100vh;
+			background: linear-gradient(yellow,red);
+		}		
+	</style>
+</head>
+<body>
+
+	
+</body>
+</html>
+
+ex:2
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		body
+		{
+			height: 100vh;
+			background: linear-gradient(red,yellow);
+		}		
+	</style>
+</head>
+<body>
+
+	
+</body>
+</html>
+
+ex:3
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		body
+		{
+			height: 100vh;
+			background: linear-gradient(to left,yellow,red);
+		}		
+	</style>
+</head>
+<body>
+
+	
+</body>
+</html>
+
+
+ex:4
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		body
+		{
+			height: 100vh;
+			background: linear-gradient(to right,yellow,red);
+		}		
+	</style>
+</head>
+<body>
+
+	
+</body>
+</html>
+
+
+
+
+conic-gradient
+---------------
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		body
+		{
+			height: 100vh;
+			background-image: conic-gradient(yellow,red);
+		}		
+	</style>
+</head>
+<body>
+
+	
+</body>
+</html>
+
+
+radial-gradient
+--------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style type="text/css">
+		body
+		{
+			height: 100vh;
+			background-image: radial-gradient(yellow,red);
+		}		
+	</style>
+</head>
+<body>
+
+	
+</body>
+</html>
+
+
+Google Fonts
+===============
+CSS Google Fonts
+=================
+If we do not want to use any of the standard fonts in HTML, you can use Google Fonts.
+
+Google Fonts are free to use, and have more than 1000 fonts to choose.
+
+
+To use any google fonts we need to use below url.
+ex:
+	https://fonts.google.com/
+
+
+ex:1
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+		body
+		{
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background: linear-gradient(#F79F1F,#C4E538) ;
+			font-family: 'Dancing Script', cursive;
+		}
+
+	</style>
+</head>
+<body>
+		<h1>Welcome to Google Fonts</h1>
+</body>
+</html>
+Note:
+-----
+	@import we need to place inside <style> tag.
+
+
+ex:2
+------
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+	
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet"> 
+
+	<style type="text/css">
+		
+		body
+		{
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background: linear-gradient(#F79F1F,#C4E538) ;
+			font-family: 'Dancing Script', cursive;
+		}
+
+	</style>
+</head>
+<body>
+		<h1>Welcome to Google Fonts</h1>
+</body>
+</html>
+Note:
+-----
+	<link> tag we need to place inside <head> tag.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+CSS flexbox 
+CSS gradients 
+CSS Google Fonts 

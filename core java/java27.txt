@@ -1,0 +1,796 @@
+Q)Write a java program to remove element from given array?
+
+int arr[] = { 4, 5, 9, 8, 1 };
+
+index = 3
+
+Ouptut:
+	4 5 9 1
+
+ex:
+
+import java.util.Arrays;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int arr[] = { 4, 5, 9, 8, 1 };
+
+		int[] resArr=new int[arr.length-1];
+		
+		int index = 3,j=0;
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			if(i==index)
+			{
+				continue;	
+			}
+			resArr[j++]=arr[i];
+		}
+
+		for(int ele:resArr)
+		{
+			System.out.print(ele+" ");
+		}
+	}
+}
+
+Q)write a java program to delete element from given array?
+
+int arr[] = { 4, 5, 9, 8, 1 };
+
+ele=9
+
+Ouptut:
+	4 5 8 1
+
+import java.util.Arrays;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int arr[] = { 4, 5, 9, 8, 1 };
+
+		int[] resArr=new int[arr.length-1];
+		
+		int ele = 9,j=0;
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			if(arr[i]==ele)
+			{
+				continue;	
+			}
+			resArr[j++]=arr[i];
+		}
+
+		for(int i:resArr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+
+Q)Write a java program to delete first occurance element from given array?
+
+int[] arr={ 4, 5, 9, 8, 1, 9, 3, 9};
+ele = 9
+
+Output:
+	4 5 8 1 9 3 9	
+
+import java.util.Arrays;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int arr[] = { 4, 5, 9, 8, 1, 9, 3, 9};
+
+		int[] resArr=new int[arr.length-1];
+		
+		int ele = 9,j=0;
+		
+		int cnt=0;
+		for(int i=0;i<arr.length;i++)
+		{
+			if(arr[i]==ele && cnt==0)
+			{
+				cnt++;
+				continue;
+			}
+			
+			resArr[j++]=arr[i];
+		}
+
+		for(int i:resArr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+
+
+Source Code Platform
+=====================
+Q)Write a java program to find out leader elements from given array?
+
+Q)Write a java program to display missing element from given array?
+
+
+Two-Dimensional Array
+=======================
+Two dimensional array is a combination of rows and columns.
+
+Two dimensional array is implemented based on array of arrays approach but not matrix form.
+
+We can declare two dimensional array as follow.
+
+syntax:
+	datatype[][] variable_name=new int[rows][cols];
+
+ex:
+	int[][] arr=new int[3][3];
+
+	Here we can store 9 elements.
+
+Two dimensional is used to develop matrix type of applications, gaming applications,
+business oriented applications and etc.
+
+Q)Write a java program to accept some elements in two dimensional array and display them?
+
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the rows :");
+		int rows=sc.nextInt();
+
+		System.out.println("Enter the cols :");
+		int cols=sc.nextInt();
+
+		int[][] arr=new int[rows][cols];
+
+		//inserting elements
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.println("Enter the element :");
+				arr[i][j]=sc.nextInt();
+			}
+		}
+
+		//display elements
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.print(arr[i][j]+" ");
+			}
+		}
+
+	}
+}
+
+Q)Write a java program to display array elements in matrix form?
+
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the rows :");
+		int rows=sc.nextInt();
+
+		System.out.println("Enter the cols :");
+		int cols=sc.nextInt();
+
+		int[][] arr=new int[rows][cols];
+
+		//inserting elements
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.println("Enter the element :");
+				arr[i][j]=sc.nextInt();
+			}
+		}
+
+		//display elements
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.print(arr[i][j]+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+
+	}
+}
+
+Q)Write a java program to display square of a matrix ?
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the rows :");
+		int rows=sc.nextInt();
+
+		System.out.println("Enter the cols :");
+		int cols=sc.nextInt();
+
+		int[][] arr=new int[rows][cols];
+
+		//inserting elements
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.println("Enter the element :");
+				arr[i][j]=sc.nextInt();
+			}
+		}
+
+		//display elements
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.print(arr[i][j] * arr[i][j]+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+
+	}
+}
+
+
+Q)Write a java program to perform sum of diagonal elements?
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		
+		int[][] arr={{1,2,3},{4,5,6},{7,8,9}};
+
+		//display elements
+		int sum=0;
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				if(i==j)
+				{
+					sum+=arr[i][j];
+				}
+			}
+		}
+
+		System.out.println("Sum of diagonal elements is ="+sum);
+	}
+}
+
+Q)Write a java program to perform sum of upper triangle elements?
+
+
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		
+		int[][] arr={{1,2,3},{4,5,6},{7,8,9}};
+
+		//display elements
+		int sum=0;
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				if(i<j)
+				{
+					sum+=arr[i][j];
+				}
+			}
+		}
+
+		System.out.println("Sum of diagonal elements is ="+sum);
+	}
+}
+
+Q)Write a java program to perform sum of lower triangle elements?
+
+ex:
+
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		
+		int[][] arr={{1,2,3},{4,5,6},{7,8,9}};
+
+		//display elements
+		int sum=0;
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				if(i>j)
+				{
+					sum+=arr[i][j];
+				}
+			}
+		}
+
+		System.out.println("Sum of diagonal elements is ="+sum);
+	}
+}
+
+Q)Write a java program to perform sum of right side diagonal elements?
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the rows :");
+		int rows=sc.nextInt();
+
+		System.out.println("Enter the cols :");
+		int cols=sc.nextInt();
+
+		int[][] arr=new int[rows][cols];
+
+		//inserting elements
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.println("Enter the element :");
+				arr[i][j]=sc.nextInt();
+			}
+		}
+
+		//display elements
+		int sum=0;
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				if(i+j==cols-1)
+				{
+					sum+=arr[i][j];
+				}
+			}
+		}
+		System.out.println("sum of right side diagonal element is ="+sum);
+	}
+}
+
+Multi-Dimensional Array
+==========================
+If array contains more then two dimensions is called multi-dimensional array.
+
+We can declare multi-dimensional array as follow.
+
+ex:
+	int[][][] arr=new int[3][3][3];
+
+	Here we can store 27 elements.
+
+The main objective of multi dimensional array is memory utilization.
+
+ex:
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		int[][][] arr=new int[3][3][3];
+
+		//inserting elements
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				for(int k=0;k<3;k++)
+				{
+					System.out.println("Enter the Element :");
+					arr[i][j][k]=sc.nextInt();
+				}
+			}
+		}
+
+		//display elements
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				for(int k=0;k<3;k++)
+				{
+					System.out.print(arr[i][j][k]+" ");
+				}
+			}
+			//new line
+			System.out.println("");
+		}
+		
+	}
+}
+
+approach2:
+----------
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		int[][][] arr=new int[3][3][3];
+
+		//inserting elements
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				for(int k=0;k<3;k++)
+				{
+					System.out.println("Enter the Element of arr["+i+"]["+j+"]["+k+"] :");
+					arr[i][j][k]=sc.nextInt();
+				}
+			}
+		}
+
+		//display elements
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				for(int k=0;k<3;k++)
+				{
+					System.out.print(arr[i][j][k]+" ");
+				}
+			}
+			//new line
+			System.out.println("");
+		}
+		
+	}
+}
+
+
+Interview Question
+=================
+Q)What is Anonymous array ?
+
+Array without name is called anonymous array.
+
+In general, nameless array is called anonymous array.
+
+We can declare anonymous array as follow.
+ex:
+	new int[]{10,20,30};
+	new int[][]{{10,20,30},{40,50,60}};
+
+example
+-------
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(sumOfElements(new int[]{10,20,30}));
+	}
+	public static  int  sumOfElements(int[] arr)
+	{
+
+		//for each loop
+		int sum=0;
+		for(int i:arr)
+		{
+			sum+=i;
+		}
+
+		return sum;
+	}
+}
+
+
+OOPS
+========
+OOPS stands for Object Oriented Programming System/Structure.
+
+
+Object oriented technology
+--------------------------
+A technology which provides very good environment to represent our data inthe form of objects is called object oriented technology.
+
+A technology said to be object oriented ,if it supports following features.
+
+ex:
+	class
+	object
+	Abstraction
+	Ecapsulation
+	Inheritance and 
+	Polymorphism.
+
+
+
+class
+========
+A class is a blue print of an object.
+
+A class is a collection of variables and methods.
+
+A class is a reusable component.
+
+A class will accept following modifiers.
+ex:
+	default
+	public
+	final
+	abstract 
+
+We can declare a class as follow.
+syntax:
+	optional 
+	|
+	modifier  class class_name  <extends> Parent_classname
+			      <implements> Interface_name
+	{
+		-
+		- // variables and methods
+		-
+	}
+
+
+Q)What is the difference between default class and public class?
+
+default class
+-----------
+We can access default class within the package.
+ex:
+	class  A
+	{
+		-
+	}
+
+public class
+-----------
+We can access public class within the package and outside of the package.
+ex:
+	public class  A
+	{
+		-
+	}
+
+Q)What is final class?
+
+If we declare any class as final then creating child class is not possible.
+ex:
+	final class A
+	{
+		-
+	}
+
+Q)What is abstract class ?
+
+If we declare any class as abstract then creating object of that class is not possible.
+ex:
+	abstract class A
+	{
+		-
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,497 @@
+Basic tags of HTML
+====================
+
+Heading tag
+------------
+It is used to declare a heading in a web page.
+
+We have six heading tags from h1 to h6.
+
+Heading tag will display the text in bold and size of the text dependening upon the number of heading tag.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<h1>This Heading1 Tag</h1>
+		<h2>This Heading1 Tag</h2>
+		<h3>This Heading1 Tag</h3>
+		<h4>This Heading1 Tag</h4>
+		<h5>This Heading1 Tag</h5>
+		<h6>This Heading1 Tag</h6>	
+	</body>
+</html>
+
+Paragraph tag
+------------
+A <p> tag is used to declare a paragraph in a web page.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<p>
+			Our expert team has done all the hard work and knowledge sharing to accomplish various levels of application development projects.
+		</p>	
+	</body>
+</html>
+
+
+Breakline tag
+-------------
+A <br> tag is used to break the line in a web page.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Welcome to IHUB TALENT MANAGEMENT
+		<br>
+		This Is HTML class	
+	</body>
+</html>
+
+bold tag
+------------
+A <b> tag is used to display the text in bold without importance.
+
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<b>This is HTML classes for IHUB students</b>
+	</body>
+</html>
+
+strong tag
+-----------
+A <strong> tag is used to display the text in bold with importance.
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<strong>This is HTML classes for IHUB students</strong>
+	</body>
+</html>
+
+italic tag
+-------------
+A <i> tag is used to display the text in italic without force.
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<i>Welcome to Niyaz Sir class</i>
+	</body>
+</html>
+
+emphasize tag
+----------------
+A <em> tag is used to display the text in italic with force.
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<em>Welcome to Niyaz Sir class</em>
+	</body>
+</html>
+
+underline tag
+----------------
+A <u> tag is used to display the text in underline.
+
+HTML5 does not support <u> tag.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<u>This is HTML class</u>
+	</body>
+</html>
+
+center tag
+-----------
+A <center> tag is used to display the text in a center.
+
+HTML5 does not support <center> tag.
+
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<center>This is HTML class</center>
+	</body>
+</html>	
+
+Marquee tag
+---------------
+A <marquee> tag is used to display the text with scroll.
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<marquee>
+		Welcome to IHUB TALENT MANAGEMENT training center
+		</marquee>
+	</body>
+</html>
+
+Horizontal tag
+--------------
+A <hr> tag is used to declare a horizontal line.
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<p>Ihub Talent Management</p>
+		<hr>
+		<p>Quality Thought</p>
+		
+	</body>
+</html>
+
+font tag
+------------
+A <font> tag is used to display the text in color.
+
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<font color="blue">
+			This is font tag
+		</font>
+		
+	</body>
+</html>
+
+Nested Tags in HTML
+====================
+We can declare nested tags in html.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<center>
+			<h1>
+				<font color="red">
+					ReactJs is a FrontEnd JavaScript Library
+				</font>
+			</h1>
+		</center>
+	</body>
+</html>
+
+
+Phrase Tags in HTML
+===================
+Phrase tags are special purpose tags which defines structural meaning to the block of text or content.
+
+We have following list of phrase tags.
+
+1) Abbreviation - <abbr>
+
+2) short quote  - <q>
+
+3) address      - <address>
+
+4) code         - <code>
+
+5) keyboard     - <kbd> 
+
+6) Strike 	- <strike> or <s> 
+
+and etc.
+
+
+1) Abbreviation - <abbr>
+-------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<abbr title="HyperText Markup Language">HTML</abbr> 
+			is a widely used language on web.
+	</body>
+</html>
+
+2) short quote  - <q>
+-----------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<q>HTML is used to develop web pages and web applications.</q>
+	</body>
+</html>
+ 
+3) address      - <address>
+-----------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<address>
+		 1-4-654/1 , Nilgiri Block, Ameerpet, Hyderabad, 500036.
+		</adress>
+	</body>
+</html>
+
+4) code         - <code>
+------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<code>
+		void main()
+		{
+			clrscr();
+			printf("Hello World");
+			getch();
+		}
+		</code>
+	</body>
+</html>
+
+5) keyboard     - <kbd> 
+--------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		To copy press <kbd> CTRL+C </kbd> button
+	</body>
+</html>
+
+6) Strike 	- <strike> or <s> 
+-------------------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<strike>This is HTML class</strike>
+		<br>
+		<s>This is website development class</s>
+	</body>
+</html>
+
+
+
+Interview Question
+---------------------
+Q)Types of tags in html?
+
+We have two types of tags in html.
+
+1)paired tags / container tags 
+---------------------------
+It contains opening tag and closing tag.
+ex:
+	<h1>,<p>,<body>,<head>,<html> and etc.
+
+2)Unpaired tags / Empty tags 
+---------------------------
+It contains only opening tag and does not have closing tag.
+ex:
+	<br>, <hr>, <link> , <meta> , <img> and etc 
+
+
+HTML colors
+============
+There are four ways to provide the color name in HTML.
+
+1) valid color name 
+2) Hexa value
+3) rgb value 
+4) hsl value  
+
+
+
+valid color name
+-----------
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body bgcolor="cyan">
+		<h1>This is heading tag</h1>
+	</body>
+</html>
+
+ex:2
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<font color="violet">
+		<h1>This is heading tag</h1>
+		</font>
+	</body>
+</html>
+
+
+hexa value
+-----------
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body bgcolor="#FFFF00">
+		
+		<h1>This is heading tag</h1>
+	
+	</body>
+</html>
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<font color="#FF0000">
+		<h1>This is heading tag</h1>
+		</font>
+	</body>
+</html>
+
+rgb value
+----------
+rgb value does not support in HTML.
+
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body bgcolor="rgb(255,0,0)">
+		
+		<h1>This is heading tag</h1>
+		
+	</body>
+</html>
+
+hsl value
+------
+hsl value does not support in html.
+
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body bgcolor="hsl(240, 100%, 50%)">
+		
+		<h1>This is heading tag</h1>
+		
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

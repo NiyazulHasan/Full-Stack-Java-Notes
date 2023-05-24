@@ -1,0 +1,321 @@
+TCL commands
+=============
+We have three commands in TCL.
+
+1)commit
+
+2)rollback
+
+3)savepoint 
+
+1)commit
+---------
+It is used to make the changes permanent to database.
+ex:
+	create table student(sno number(3),sname varchar2(10),sadd varchar2(12));
+
+	insert into student values(101,'raja','hyd');
+
+	insert into student values(102,'ravi','delhi');
+
+	insert into student values(103,'ramana','vizag');
+
+	select * from student; // 3 records selected 
+
+	commit;
+
+	select * from student; // 3 records selected 
+
+
+rollback
+-----------
+It is used to undo the changes which are not permanent.
+
+ex:
+	drop table student;
+
+	create table student(sno number(3),sname varchar2(10),sadd varchar2(12));
+
+	insert into student values(101,'raja','hyd');
+
+	insert into student values(102,'ravi','delhi');
+
+	commit;
+
+	insert into student values(103,'ramana','vizag');
+
+	insert into student values(104,'ramulu','pune');
+
+	select * from student; // 4 records selected 
+
+	rollback;
+
+	select * from student; // 2 records selected
+
+3)savepoint
+-------------
+It is used to mark the logical transaction in a table.
+
+Instead of complete rollback we can rollback upto savepoint. 
+
+syntax:
+------
+	savepoint <savepoint_name>;
+ex:
+----
+	drop table student;
+
+	create table student(sno number(3),sname varchar2(10),sadd varchar2(12));
+
+	insert into student values(101,'raja','hyd');
+
+	insert into student values(102,'ravi','delhi');
+
+	savepoint sp1;
+
+	insert into student values(103,'ramana','vizag');
+
+	insert into student values(104,'ramulu','pune');
+
+	savepoint sp2;
+
+	insert into student values(105,'raj','goa');
+
+	insert into student values(106,'rakesh','mumbai');
+
+	select * from student; // 6 records selected
+
+	rollback to sp2;
+
+	select * from student; // 4 records selected
+
+
+PSEUDO columns
+================
+PSEUDO column means a column which is not real.
+
+We have two pseudo columns.
+
+1)ROWNUM
+
+2)ROWID 
+
+1)ROWNUM
+----------
+ROWNUM always start with 1 and increment by 1.
+
+ROWNUM values are temperory.Once the query is executed we will loss the rownum values.
+
+ex:
+	select eid,ename,esal from emp;
+
+	select rownum,eid,ename,esal from emp;
+
+	select rownum,sno,sname,sadd from student;
+
+
+2)ROWID
+--------
+ROWID contains hexadecimal value.
+
+ROWID values are permanent.
+
+ROWID is a memory address where our records will store in a database table.
+
+ex:
+	select rownum,eid,ename,esal from emp;
+	select rowid,rownum,eid,ename,esal from emp;
+
+
+Interview queries
+-------------------
+
+Q)Write a query to display first three records from emp table?
+
+	select * from emp where rownum<=3;
+
+
+
+Q)Write a query to display 4 record from emp table?
+
+	select * from emp where rownum=4; //no rows selected 
+
+	
+	select * from emp where rownum<=4
+	minus
+	select * from emp where rownum<=3;
+
+
+DCL commands
+============
+We have two type of DCL commands.
+
+1)grant 
+
+2)revoke 
+
+
+schema
+------
+	Schema is a memory location which is used to run SQL commands.
+
+Privileges
+------------
+	Permissions given to a user is called privileges.
+
+	In general, rights given to a user is called privileges.
+
+	We have two types of privileges.
+
+	1)System privilege : Permissions given by DBA to user.
+
+	2)Object privilege : Permissions given by one developer to another.
+
+
+1)grant 
+--------
+It is used to grant the permissions to ther user.
+
+syntax:
+
+	grant <privilege1>,<privilege2> to user;
+
+2)revoke
+----------
+It is used to revoke the permissions from user.
+
+syntax:
+
+	revoke <privilege1>,<privilege2> from user;
+
+
+DBA> create user suresh identified by suresh;
+DBA> create user laxmi identified by laxmi;
+
+suresh> conn  suresh/suresh  //logon denied 
+
+laxmi > conn   laxmi/laxmi  //logon denied 
+
+DBA> grant  resource,connect to suresh;
+DBA> grant  resource,connect to laxmi;
+DBA> grant  resource,connect to suresh,laxmi;
+
+suresh> conn  suresh/suresh  
+
+laxmi > conn   laxmi/laxmi 
+
+
+suresh> 
+create table employee(eid number(3),ename varchar2(10),esal number(10,2));
+insert into employee values(401,'Nancy',10000);
+insert into employee values(402,'Lucy',20000);
+insert into employee values(403,'Kelly',30000);
+commit;
+select * from employee;
+
+
+suresh> grant select on employee to laxmi;
+
+laxmi>  select * from suresh.employee;
+
+laxmi> delete from suresh.employee; // insufficient privilege
+
+suresh> grant delete,update on employee to laxmi;
+
+laxmi> 
+delete from suresh.employee;
+commit;
+
+
+suresh> select * from employee; //no rows selected
+
+suresh> revoke select,update,delete on employee from laxmi; 
+
+
+laxmi> disc  
+
+suresh> disc 
+
+DBA> revoke connect,resource from laxmi,suresh;
+
+laxmi> conn  laxmi/laxmi  // logon denied 
+
+suresh>  conn suresh/suresh // logon denied
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

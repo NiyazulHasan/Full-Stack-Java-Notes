@@ -1,0 +1,512 @@
+2)Selection statement
+=======================
+
+switch case
+-------------
+It will execute the source code based on multiple conditions.
+
+It is similar to if else if ladder.
+
+syntax:
+-------
+	switch(expression/condition)
+	{
+		case value1:  //code to be execute
+			      break stmt; 
+		case value2:  //code to be execute
+			      break stmt; 
+		-
+		-
+		default:  //code to be execute if all cases are false.	
+	}
+
+
+Declaration of break statement is optional.
+
+If we won't use break stmt then from where our condition is satisfied from there all cases will be executed that state is called fall through state of switch case.
+
+ex:1
+-----
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the option :");
+		int option=sc.nextInt();
+
+		switch(option)
+		{
+			case 100: System.out.println("It is Police number");
+					  break;
+			case 103: System.out.println("It is Enquiry number");
+					  break;
+			case 108: System.out.println("It is Emergency number");
+					  break;
+			default:  System.out.println("Invalid option");
+		}
+	}
+}
+
+ex:
+------
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the option :");
+		int option=sc.nextInt();
+
+		switch(option)
+		{
+			case 100: System.out.println("It is Police number");
+					  //break;
+			case 103: System.out.println("It is Enquiry number");
+					  //break;
+			case 108: System.out.println("It is Emergency number");
+					  //break;
+			default:  System.out.println("Invalid option");
+		}
+	}
+}
+
+
+
+Q)Write a java program to find out given alphabet is a vowel or consonent?
+
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Alphabet :");
+		char ch=sc.next().charAt(0);
+
+		switch(ch)
+		{
+			case 'a': System.out.println("It is a vowel");
+					  break;
+			case 'e': System.out.println("It is a vowel");
+					  break;
+			case 'i': System.out.println("It is a vowel");
+					  break;
+			case 'o': System.out.println("It is a vowel");
+					  break;
+			case 'u': System.out.println("It is a vowel");
+					  break;
+			default:  System.out.println("It is a consonent");
+		}
+	}
+}
+
+ex:
+-----
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the String :");
+		String str=sc.next();
+
+		switch(str)
+		{
+			case "one": System.out.println("It is January");
+					  break;
+			case "two": System.out.println("It is February");
+					  break;
+			case "three": System.out.println("It is March");
+					  break;
+			case "four": System.out.println("It is a April");
+					  break;
+			case "five": System.out.println("It is a May");
+					  break;
+			
+			default:  System.out.println("Coming Soon....");
+		}
+	}
+}
+
+switch case does not support float and double datatype.
+
+ex:
+-----
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Float value :");
+		float ft=sc.nextFloat();
+
+		switch(ft)
+		{
+			case 10.0f: System.out.println("stmt1");
+					  break;
+			case 10.1f: System.out.println("stmt2");
+					  break;
+			case 10.2f: System.out.println("stmt3");
+					  break;
+			case 10.3f: System.out.println("stmt4");
+					  break;
+			default:  System.out.println("Not Found");
+		}
+	}
+}
+
+	
+iii)Iteration Statement
+======================
+Iteration statement is used to execute the code repeatedly.
+
+Iteration statement is possible using LOOPS.
+
+We have four types of LOOPS.
+
+1) do while loop
+
+2) while loop
+
+3) for loop
+
+4) for each loop 
+
+1) do while loop
+----------------
+It will execute the source code untill our condition is true.
+
+syntax:
+-------
+	do
+	{
+		-
+		-//code to be execute
+		-
+	}while(condition);
+
+In do while loop, our code will execute atleast for one time either our condition
+is true or false.
+
+
+ex:
+-----
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i=11;
+		do
+		{
+			System.out.println(i); //11
+		}
+		while (i<=10);
+	}
+}
+
+ex:
+-----
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i=1;
+		do
+		{
+			System.out.print(i+" "); //infinite 1
+		}
+		while (i<=10);
+	}
+}
+
+Q)Write a java program to display 10 natural numbers?
+
+natural numbers : 1 2 3 4 5 6 7 8 9 10
+
+ex:
+
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i=1;
+		do
+		{
+			System.out.print(i+" ");//1 2 3 4 5 6 7 8 9 10
+			i++;
+		}
+		while (i<=10);
+	}
+}
+
+Q)Write a java program to display 10 natural numbers in descending order?
+
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		do
+		{
+			System.out.print(i+" ");//10 9 8 7 6 5 4 3 2 1 
+			i--;
+		}
+		while (i>=1);
+	}
+}
+
+Q)Write a java program to perform sum of 10 natural numbers?
+
+sum of 10 natural : 1+2+3+4+5+6+7+8+9+10 = 55
+
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i=1,sum=0;
+		do
+		{
+			sum=sum+i;
+			i++;
+		}
+		while (i<=10);
+
+		System.out.println("Sum of 10 natural numbers is ="+sum);//55
+	}
+}
+
+Q)Write a java program to find out factorial of a given number?
+
+factorial :   
+		n =5 
+
+		5*4*3*2*1 = 120
+
+ex:
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt(); //5
+
+		int i=n,fact=1;   
+		do
+		{
+			fact=fact*i;
+			i--;
+		}
+		while (i>=1);
+
+		System.out.println("Factorial of a given number is ="+fact);
+
+	}
+}
+
+Q)Write a java program to find out multiplication table of a given number?
+
+Input:
+		n = 5;
+
+Output:
+		2 * 1 = 2
+		2 * 2 = 4
+		-
+		-
+		-
+		-
+
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt(); //5
+
+		int i=1;
+		do
+		{
+			System.out.println(n+" * "+i+" = "+n*i);
+			i++;
+		}
+		while (i<=10);
+
+	}
+}
+
+Assignment
+===============
+1)Write a java program to find out number of even's and odd's from 10 natural numbers?
+
+Expectation:
+		1 2 3 4 5 6 7 8 9 10
+
+		Even numbers : 5
+		Odd numbers  : 5
+
+
+2)Write a java program to find out sum of even's and odd's from 10 natural numbers?
+
+Expectation:
+		1 2 3 4 5 6 7 8 9 10
+
+		sum of evens : 30 
+		sum of odds  : 25
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

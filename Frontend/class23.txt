@@ -1,0 +1,817 @@
+Q)Differences between  var , let and const?
+
+var				let			const
+-----				-----			--------
+It is a functional scope.	It is a block scope.	It is a block scope.
+
+It can be declare without	It can be declare	It can't be declare 
+initialization.			without initialization. without initialization.
+
+It can be updated.		It can be updated.	It can't be updated.
+
+It can be redeclared.		It can't be redeclared.	It can't be redeclared.
+
+It can be access without	It can be access without It can’t be access without	
+initialization as it default	initialization as it 	 initialization.
+value is undefined.		default value is 
+				undefined.
+
+
+
+Intialization
+---------------
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>mypage!</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+			var i;
+			document.writeln(i);//undefined
+
+		</script>
+	</body>
+</html>
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>mypage!</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+			let i;
+			document.writeln(i);//undefined
+
+		</script>
+	</body>
+</html>
+
+ex:3
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>mypage!</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+			const i;
+			document.writeln(i);//invalid 
+
+		</script>
+	</body>
+</html>
+
+Update
+----------
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>mypage!</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+			var i=10;
+			i=20;
+			document.writeln(i);//20
+
+		</script>
+	</body>
+</html>
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>mypage!</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+			let i=10;
+			i=20;
+			document.writeln(i);//20
+
+		</script>
+	</body>
+</html>
+
+ex:3
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>mypage!</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+			const i=10;
+			i=20;
+			document.writeln(i);//invalid 
+
+		</script>
+	</body>
+</html>
+
+Redeclared
+--------------
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>mypage!</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+			var i=10;
+			var i=20;
+			document.writeln(i);//20
+
+		</script>
+	</body>
+</html>
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>mypage!</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+			let i=10;
+			let i=20;
+			document.writeln(i);//
+
+		</script>
+	</body>
+</html>
+
+ex:3
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>mypage!</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+			const i=10;
+			const i=20;
+			document.writeln(i);//
+
+		</script>
+	</body>
+</html>
+
+How to store form data in a localStorage
+=======================================
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>mypage!</title>
+	</head>
+	<body>
+			<form>
+				<table align="center">
+					<tr>
+						<td>No:</td>
+						<td><input type="text" id="t1"/></td>
+					</tr>
+					<tr>
+						<td>Name:</td>
+						<td><input type="text" id="t2"/></td>
+					</tr>
+					<tr>
+						<td>Address:</td>
+						<td><input type="text" id="t3"/></td>
+					</tr>
+					<tr>
+						<td><input type="reset" value="reset"/></td>
+				<td><input type="submit" value="submit" onclick="f1()"/></td>
+					</tr>
+				</table>
+			</form>
+
+			<script type="text/javascript">
+				function f1()
+				{
+					//reading form data
+					var no=document.getElementById('t1').value;
+					var name=document.getElementById('t2').value;
+					var add=document.getElementById('t3').value;
+
+					//store the items to localStorage
+
+					localStorage.setItem("studNo",no);
+					localStorage.setItem("studName",name);
+					localStorage.setItem("studAdd",add);
+				}	
+			</script>
+	</body>
+</html>
+
+
+
+Javascript Set
+===============
+A JavaScript Set is a collection of unique values.
+
+Each value can only occur once in a Set.
+
+A Set can hold any value of any data type.
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+</head>
+<body>
+		<script type="text/javascript">
+			var letters=new Set();
+			letters.add(6);
+			letters.add(1);
+			letters.add(1);
+			letters.add(5);
+			letters.add(9);
+
+			letters.forEach(function(value){
+				document.writeln(value);
+			})
+
+		</script>
+</body>
+</html>
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+</head>
+<body>
+		<script type="text/javascript">
+			var letters=new Set([6,1,5,9,1,6]);
+
+			letters.forEach(function(value){
+				document.writeln(value);
+			})
+
+		</script>
+</body>
+</html>
+
+
+ex:3
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+</head>
+<body>
+		<script type="text/javascript">
+			var letters=new Set([6,1,5,9]);
+
+			// Create an Iterator
+			const myIterator = letters.values();
+
+			// List all Values
+			for (const entry of myIterator) 
+			{
+  				document.writeln(entry+"<br>");
+			}
+
+		</script>
+</body>
+</html>
+
+ex:4
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+</head>
+<body>
+		<script type="text/javascript">
+			var letters=new Set(["a","b","c","d"]);
+
+			// Create an Iterator
+			const myIterator = letters.values();
+
+			// List all Values
+			for (const entry of myIterator) 
+			{
+  				document.writeln(entry+"<br>");
+			}
+
+		</script>
+</body>
+</html>
+
+
+JavaScript Maps
+=================
+A Map holds key-value pairs where the keys can be any datatype.
+
+A Map remembers the original insertion order of the keys.
+
+ex:1
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+</head>
+<body>
+		<script type="text/javascript">
+			// Create a Map
+		const myMap = new Map([
+  				["one", 1],
+  				["two", 2],
+  				["three", 3]
+		]);
+		document.writeln(myMap.size); //3
+		document.writeln(myMap.get("one"));//1
+		myMap.delete("three");
+		myMap.clear();	
+
+		</script>
+</body>
+</html>
+
+ex:2
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+</head>
+<body>
+		<script type="text/javascript">
+			// Create a Map
+		const myMap = new Map([
+  				["one", 1],
+  				["two", 2],
+  				["three", 3]
+		]);
+		myMap.forEach(function(value, key) 
+		{
+	 	document.writeln(value+" "+key+"<br>");
+		})	
+
+
+		</script>
+</body>
+</html>
+
+ex:3
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+</head>
+<body>
+		<script type="text/javascript">
+			// Create a Map
+		const myMap = new Map([
+  				["one", 1],
+  				["two", 2],
+  				["three", 3]
+		]);
+		for (const x of myMap.keys()) {
+		 document.writeln(x);
+	}
+
+
+		</script>
+</body>
+</html>
+
+ex:4
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+</head>
+<body>
+		<script type="text/javascript">
+			// Create a Map
+		const myMap = new Map([
+  				["one", 1],
+  				["two", 2],
+  				["three", 3]
+		]);
+		for (const x of myMap.values()) {
+		 document.writeln(x);
+	}
+
+
+		</script>
+</body>
+</html>
+
+
+
+Q)What is JavaScript Math object?
+
+The JavaScript Math object allows you to perform mathematical tasks on numbers.
+ex:
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+</head>
+<body>
+		<script type="text/javascript">
+			
+		document.writeln(Math.ceil(10.6));
+
+		document.writeln(Math.floor(10.6));
+
+		document.writeln(Math.round(10.6));
+
+		document.writeln(Math.trunc(10.56));
+		</script>
+</body>
+</html>
+
+Object Oriented Programming System / Structure (OOPS)
+======================================================
+A technology or language said to be object oriented if it supports following features.
+
+ex:
+	class
+	object
+	abstraction
+	encapsulation
+	inheritance 
+	and 
+	polymorphism
+
+JavaScript is not a object oriented programming language . It is a object based programming language.
+
+
+Q)What is class in JavaScript?
+
+A JavaScript class is not an object.
+It is a template for JavaScript objects.
+Use the class keyword to create a class.
+A class keyword is used to declare a class with any particular name.
+According to JavaScript naming conventions, the name of the class always starts 
+with an uppercase letter.
+Ex:
+	<script>
+	class Example
+	{
+		-
+		-//code to be declare
+		-
+	}
+</script>
+
+
+
+
+Q)What is Constructor in JavaScript?
+
+A JavaScript constructor is a special type of method which is used to initialize and create an object.
+
+It is called when memory is allocated for an object.
+
+The constructor keyword is used to declare a constructor method.
+
+The class can contain one constructor method only.
+
+JavaScript allows us to use parent class constructor through super keyword.
+Ex:
+	class Example
+	{
+		constructor()
+		{
+			-
+			-// code to be declare
+			-
+		}
+	}
+
+
+Q)What is object in JavaScript?
+
+A JavaScript object is an entity having state and behavior (properties and methods).
+Syntax:
+	var objectname =new Object();
+
+
+ex:1
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+</head>
+<body>
+		<script type="text/javascript">
+			class  Example
+			{
+				constructor()
+				{
+					document.writeln("Hello World");		
+				}	
+			}
+
+			var e=new Example();
+			
+
+		</script>
+</body>
+</html>
+
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+</head>
+<body>
+		<script type="text/javascript">
+			class  Example
+			{
+				constructor()
+				{
+					document.writeln("Hello World");		
+				}	
+			}
+
+			var e1=new Example();
+			var e2=new Example();
+
+
+		</script>
+</body>
+</html>
+
+ex:3
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+</head>
+<body>
+		<script type="text/javascript">
+			class  Example
+			{
+				constructor(id)
+				{
+					document.writeln(id+"<br>");		
+				}	
+			}
+
+			var e1=new Example(101);
+			var e2=new Example(201);
+
+
+		</script>
+</body>
+</html>
+
+
+
+Q)What is Abstraction in JavaScript?
+
+Hiding internal implementation and highlighting the set of services is called Abstraction.
+
+The best example of Abstraction is GUI(Graphical User Interface) ATM machine where
+bank people will hide internal implementation and highlights the set of services like
+banking, withdrawal, mini statement, balance enquiry and etc.
+
+
+
+
+
+
+Q)What is Encapsulation in JavaScript?
+
+The process of wrapping property and function within a single unit is known as
+encapsulation.
+
+To achieve an encapsulation in JavaScript we need to do following things.
+> Use var keyword to make data members private.
+> Use setter methods to set the data and getter methods to get that data.
+
+ex:
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+</head>
+<body>
+		<script type="text/javascript">
+			class  Example
+			{
+				//setter 
+				constructor(id,name,sal)
+				{
+					this.eid=id;
+					this.ename=name;
+					this.esal=sal;
+				}
+
+				//getter 
+				getId()
+				{
+					return this.eid;
+				}	
+				getName()
+				{
+					return this.ename;
+				}
+				getSal()
+				{
+					return this.esal;
+				}
+
+			}
+			var e=new Example(101,'Alan',1000.0);
+			document.writeln(e.getId()+"<br>");
+			document.writeln(e.getName()+"<br>");
+			document.writeln(e.getSal()+"<br>");
+
+		</script>
+</body>
+</html>
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+</head>
+<body>
+		<script type="text/javascript">
+			class  Example
+			{
+				//setter 
+				setId(id)
+				{
+					this.eid=id;
+				}
+				setName(name)
+				{
+					this.ename=name;
+				}
+				setSal(sal)
+				{
+					this.esal=sal;
+				}
+
+				//getter 
+				getId()
+				{
+					return this.eid;
+				}	
+				getName()
+				{
+					return this.ename;
+				}
+				getSal()
+				{
+					return this.esal;
+				}
+
+			}
+			var e=new Example(101,'Alan',1000.0);
+			e.setId(501);
+			e.setName("Jose");
+			e.setSal(2000.0);
+			document.writeln(e.getId()+"<br>");
+			document.writeln(e.getName()+"<br>");
+			document.writeln(e.getSal()+"<br>");
+
+		</script>
+</body>
+</html>
+
+
+Q)What is Inheritance in JavaScript?
+
+The JavaScript inheritance is a mechanism that allows us to create new classes on the
+basis of already existing classes.
+
+It provides flexibility to the child class to reuse the methods and variables of a parent class.
+
+The JavaScript extends keyword is used to create a child class on the basis of a parent class.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+</head>
+<body>
+		<script type="text/javascript">
+			class A
+			{
+				f1()
+				{
+					document.writeln("A-class <br>");
+				}
+			}
+			class B extends A
+			{
+				f2()
+				{
+					document.writeln("B-class <br>");
+				}	
+			}
+			var a=new A();
+			a.f1();
+			var b=new B();
+			b.f1();
+			b.f2();
+		</script>
+</body>
+</html>
+
+
+
+Q)What is polymorphism in JavaScript?
+
+The ability to represent in a different forms is called polymorphism.
+Ex:
+	class A
+	{
+		display()
+		{
+			document.writeln("A is invoked<br>");
+		}
+	}
+	class B extends A
+	{
+		display()
+		{
+			document.writeln("B is invoked");
+		}
+	}
+	A a=new A();
+	a.display(); // A is invoked
+	B b=new B();
+	b.display(); // B is invoked
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

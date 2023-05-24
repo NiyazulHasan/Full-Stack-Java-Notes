@@ -1,0 +1,264 @@
+Java methods are categories into four types
+==============================================
+
+1)No returntype with no argument 
+
+2)No returntype with argument 
+
+3)With returntype with no argument
+
+4)With returntype with argument 
+
+1)No returntype with no argument 
+--------------------------------
+If we don't have arguments then we need to ask input values inside callie method.
+
+import java.util.Scanner;
+class Test
+{
+	public static void main(String[] args)
+	{
+		//caller 
+		sum();
+	}
+	//callie 
+	public  static void sum()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the First Number :");
+		int a=sc.nextInt();
+		System.out.println("Enter the Second Number :");
+		int b=sc.nextInt();
+		int c=a+b;
+		System.out.println("sum of two numbers is ="+c);
+	}
+}
+
+Q)Write a java program to find out square of a given number ?
+
+import java.util.Scanner;
+class Test
+{
+	public static void main(String[] args)
+	{
+		//caller 
+		find();
+	}
+	//callie function
+	public static void find()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();
+		int square=n*n;
+		System.out.println("Square of a given number is ="+square);		
+	}	
+}
+
+2)No returntype with argument 
+-------------------------------
+If we have arguments then we need to ask input values inside main method.
+
+Here arguments are depend upon number of inputs.
+
+ex:
+
+import java.util.Scanner;
+class Test
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the First Number :");
+		int a=sc.nextInt();
+
+		System.out.println("Enter the Second Number :");
+		int b=sc.nextInt();
+
+		//caller 
+		sum(a,b);
+	}
+	//callie 
+	public static void  sum(int a,int b)
+	{
+		int c=a+b;
+		System.out.println("sum of two numbers is ="+c);
+	}
+	
+}
+
+Q)Write a java program to perform square of a given number ?
+
+import java.util.Scanner;
+class Test
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();
+
+		//caller 
+		find(n);
+	}
+	//callie 
+	public static void  find(int n)
+	{
+		int square=n*n;
+		System.out.println("Square of a given number is  ="+square);
+	}
+	
+}
+
+
+3)With returntype with no argument
+-----------------------------------
+Here returntype is depends upon output datatype.
+
+
+Q)Write a java program to perform sum of two numbers?
+
+import java.util.Scanner;
+class Test
+{
+	public static void main(String[] args)
+	{
+		//caller
+		int k=sum();	
+		System.out.println("sum of two numbers is ="+k);	
+	}
+	public static int sum()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the First Number :");
+		int a=sc.nextInt();
+		System.out.println("Enter the Second Number :");
+		int b=sc.nextInt();
+
+		int c= a+b;	
+
+		return c;
+	
+	}
+	
+	
+}
+
+Q)Write a java program to perform area of a circle?
+
+
+import java.util.Scanner;
+class Test
+{
+	public static void main(String[] args)
+	{
+		//caller 
+		System.out.println("Area of a circle is ="+circle());	
+	}
+	public static float circle()	
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Radius :");
+		int r=sc.nextInt();
+
+		float area= 3.14f*r*r;
+
+		return area;
+	}
+}
+
+
+
+
+4)With returntype with argument 
+----------------------------------
+
+Q)write a java program to perform sum of two numbers?
+
+import java.util.Scanner;
+class Test
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the First Number :");
+		int a=sc.nextInt();
+		System.out.println("Enter the Second Number :");
+		int b=sc.nextInt();
+
+		//caller 
+		System.out.println("sum of two numbers is ="+sum(a,b));
+	}
+	//callie 
+	public static  int sum(int a,int b)
+	{
+		int c=a+b;
+		return c;
+	}
+	
+}
+
+Q)Write a java program to perform perimeter of a circle?
+
+import java.util.Scanner;
+class Test
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the radius :");
+		int r=sc.nextInt();
+
+		//caller 
+		System.out.println("Perimeter of a circle is ="+perimeter(r));
+	}
+	//callie 
+	public static  float perimeter(int r)
+	{
+		float peri=2*3.14f*r;
+		return peri;
+	}
+	
+}
+
+Assignment
+============
+Q)Write a java program to find out swapping of two numbers ?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,253 @@
+Command line argument
+========================
+Arguments which are passing through command prompt such type of arguments are called command line arguments.
+
+In command line argument we need pass our inputs always at runtime.
+
+ex:
+	javac     Test.java
+
+	java      Test    101   Alan   M  1000.0
+			   |	  |    |    |______args[3]
+			   |	  |    |___________args[2]
+			   |	  |________________args[1]
+			   |_______________________args[0]
+
+ex:
+------
+class  Test
+{
+	public static void main(String[] args)
+	{
+		System.out.println(args[0]);	
+		System.out.println(args[1]);	
+		System.out.println(args[2]);	
+		System.out.println(args[3]);		
+	}
+}
+
+o/p:
+	javac  Test.java
+	java   Test 101 Alan M  1000.0
+
+System.out.println()
+=======================
+It is a output statement in java.
+
+Whenever we want to display any data or userdefined messages then we need to output statement.
+
+syntax:
+			static variable 
+			|
+		System.out.println();
+		|		|
+		predefined	predefined
+		final 		method
+		class
+
+Diagram:  java10.1
+
+ex:
+----
+class  Test
+{
+	public static void main(String[] args)
+	{
+		System.out.println("stmt1");
+		System.out.print("stmt2");
+		System.out.printf("stmt3");		
+	}
+}
+
+Various ways to display the data or values
+===========================================
+1)
+	System.out.println("Hello World");
+
+
+2) 
+	int i=10; 
+	System.out.println(i);//10
+	System.out.println("The value is ="+i);
+
+3) 
+	int i=10,j=20;
+	System.out.println(i+"  "+j);//10    20
+	System.out.println(i+" and "+j);//10 and 20	
+
+4)
+	int i=1,j=2,k=3;
+	System.out.println(i+" "+j+" "+k);
+	
+
+Q)What is the difference between System.out.println() and System.err.println()?
+
+System.out.println()
+----------------------
+It is used to redirect the output only on console.
+ex:
+class  Test
+{
+	public static void main(String[] args)
+	{
+		System.out.println("Welcome Java");		
+	}
+}
+
+System.err.println()
+-----------------------
+It will redirect our output on console as well as in physical file.
+
+ex:1
+-----
+class  Test
+{
+	public static void main(String[] args)
+	{
+		System.err.println("Welcome Java");		
+	}
+}
+javac  Test.java
+java  Test
+
+
+ex:2
+------
+class  Test
+{
+	public static void main(String[] args)
+	{
+		System.err.println("Welcome Java");		
+	}
+}
+o/p:
+javac  Test.java
+
+java   Test 2>abc.txt
+
+Interview Questions
+====================
+
+Q)What is package?
+
+Package is a collection of classes ,interfaces ,enums , exceptions , errors and annotations.
+
+
+Q)What is the difference between default class and public class?
+
+default class
+----------------
+We can access that class within the package.
+ex:
+	class  A
+	{
+		-
+		- //code to be execute
+		-
+	}
+
+public class
+-------------
+We can access that class within the package and outside of the package.
+ex:
+	public class A
+	{
+		-
+		- //code to be execute
+		-
+	}
+
+
+Q)What is final class?
+
+If we declare any class as final then creating child class is not possible.
+ex:
+	public final class A
+	{
+		-
+		- //code to be execute
+		-
+	}
+
+	or
+
+	final class A
+	{
+		-
+		- //code to execute
+		-
+	}
+
+Q)What is abstract class?
+
+If we declare any class as abstract then creating object for that class is not 
+possible.
+ex:
+	public abstract class A
+	{
+		-
+		- //code to be execute
+		-
+	}
+
+	or
+
+	abstract class A
+	{
+		-
+		- //code to be execute
+		-
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

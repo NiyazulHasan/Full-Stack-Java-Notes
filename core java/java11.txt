@@ -1,0 +1,161 @@
+Java Basic Programs
+=====================
+
+Q)Write a java program to perform sum of two numbers?
+
+import java.util.Scanner;
+class  Example1
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the First Number: ");
+		int a=sc.nextInt();
+
+		System.out.println("Enter the Second Number :");
+		int b=sc.nextInt();
+
+		int c=a+b;
+		
+		System.out.println("sum of two numbers is="+c);
+	}
+}
+
+Q)Write a java program to perform sum of two numbers without using third variable?
+
+import java.util.Scanner;
+class Example2
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the First Number :");
+		int a=sc.nextInt();//5
+
+		System.out.println("Enter the Second Number :");
+		int b=sc.nextInt();//10
+
+		System.out.println("Sum of two numbers is ="+(a+b));
+	}
+}
+
+Q)Write a java program to find out square of a given number?
+
+import java.util.Scanner;
+class Example3
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();
+
+		int square=n*n;
+
+		System.out.println("Square of a given number is="+square);	
+		
+	}
+}
+
+Q)Write a java program to find out cube of a given number ?
+
+import java.util.Scanner;
+class Example4
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();
+
+		int cube=n*n*n;
+
+		System.out.println("Cube of a given number is="+cube);	
+		
+	}
+}
+
+Q)Write a java program to accept one salary then find out 10 percent of TDS from the given salary?
+
+import java.util.Scanner;
+class Example5
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the Salary :");
+		int salary=sc.nextInt();
+
+		float tds=(float)salary*10/100;
+
+		System.out.println("10% TDS is ="+tds);
+		
+	}
+}
+
+Q)Write a java program to accept six marks of a student then find out total and average?
+
+class Example6
+{
+	public static void main(String[] args)
+	{
+		int m1=89,m2=45,m3=39,m4=56,m5=53,m6=69,total=0;
+		
+		total=m1+m2+m3+m4+m5+m6;
+
+		float avg=(float)total/6;
+
+		System.out.println("Total ="+total);
+		System.out.println("Average ="+avg);		
+		
+	}
+}
+
+Q)Write a java program to convert CGPA to Percentage?
+
+import java.util.Scanner;
+class Example7
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the CGPA :");
+		float cgpa=sc.nextFloat();	
+
+		//logic
+		float percent=cgpa*9.5f;
+		
+		System.out.println("CGPA to Percentage is ="+percent); 
+			
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

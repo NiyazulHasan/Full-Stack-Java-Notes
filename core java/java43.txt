@@ -1,0 +1,484 @@
+Problems without synchronization
+=================================
+If we won't have synchronization then we will face following problems.
+
+1) Thread interference.
+
+2) Data inconsistency problem. 
+
+ex:
+------
+
+class Table
+{
+	void printTable(int n)
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println(n*i);
+			try
+			{
+				Thread.sleep(2000);
+			}
+			catch (InterruptedException ie)
+			{
+				ie.printStackTrace();
+			}
+		}
+	}
+}
+class MyThread1 extends Thread
+{
+	Table t;
+	MyThread1(Table t)
+	{
+		this.t=t;
+	}
+	public void run()
+	{
+		t.printTable(5);
+	}
+}
+class MyThread2 extends Thread
+{
+	Table t;
+	MyThread2(Table t)
+	{
+		this.t=t;
+	}
+	public void run()
+	{
+		t.printTable(10);
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		Table obj=new Table();
+
+		MyThread1 t1=new MyThread1(obj);
+		MyThread2 t2=new MyThread2(obj);
+
+		t1.start();
+		t2.start();
+
+	}
+}
+
+
+synchronization
+================
+A synchronized keyword is applicable for methods and blocks.
+
+A synchronization is allowed one thread to execute given object.Hence we achieve thread safety.
+
+The main advantage of synchronization is we solve data inconsistence problem.
+
+The main disadvantage of synchronization is ,it will increase waiting time of a thread which reduce the performance of the system.
+
+If there is no specific requirement then it is never recommanded to use synchronization concept.
+
+synchronization internally uses lock mechanism.
+
+Whenever a thread wants to access object , first it has to acquire lock of an object and thread will release the lock when it completes it's task.
+
+When a thread wants to execute synchronized method.It automatically gets the lock of an object.
+
+When one thread is executing synchronized method then other threads are not allowed to execute other synchronized methods in a same object concurently.But other threads are allowed to execute non-synchronized method concurently.
+
+ex:
+class Table
+{
+	synchronized void printTable(int n)
+	{
+		for(int i=1;i<=5;i++)
+		{
+				System.out.println(n*i);
+				try
+				{
+					Thread.sleep(2000);
+				}
+				catch (InterruptedException ie)
+				{
+					ie.printStackTrace();
+				}
+		}
+	}
+}
+class MyThread1 extends Thread
+{
+	Table t;
+	MyThread1(Table t)
+	{
+		this.t=t;
+	}
+	public void run()
+	{
+		t.printTable(5);
+	}
+}
+
+class MyThread2 extends Thread
+{
+	Table t;
+	MyThread2(Table t)
+	{
+		this.t=t;
+	}
+	public void run()
+	{
+		t.printTable(10);
+	}
+}
+
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Table obj=new Table();
+		MyThread1 t1=new MyThread1(obj);
+		MyThread2 t2=new MyThread2(obj);
+
+		t1.start();
+		t2.start();
+	}
+}
+
+synchronized block
+====================
+If we want to perform synchronization on specific resource of a program then we need to use 
+synchronization.
+
+ex:
+	If we have 100 lines of code and if we want to perform synchronization only for 
+	10 lines then we need to use synchronized block.
+
+If we keep all the logic in synchronized block then it will act as a synchronized method.
+
+ex:
+class Table
+{
+	 void printTable(int n)
+	{
+		synchronized(this)
+		{
+		for(int i=1;i<=5;i++)
+		{
+				System.out.println(n*i);
+				try
+				{
+					Thread.sleep(2000);
+				}
+				catch (InterruptedException ie)
+				{
+					ie.printStackTrace();
+				}
+		}
+		}//sync
+	}
+}
+class MyThread1 extends Thread
+{
+	Table t;
+	MyThread1(Table t)
+	{
+		this.t=t;
+	}
+	public void run()
+	{
+		t.printTable(5);
+	}
+}
+
+class MyThread2 extends Thread
+{
+	Table t;
+	MyThread2(Table t)
+	{
+		this.t=t;
+	}
+	public void run()
+	{
+		t.printTable(10);
+	}
+}
+
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Table obj=new Table();
+		MyThread1 t1=new MyThread1(obj);
+		MyThread2 t2=new MyThread2(obj);
+
+		t1.start();
+		t2.start();
+	}
+}
+
+
+
+3)Static synchronization
+=====================
+In static synchronization the lock will be on class but not on object.
+
+If we declare any static method as synchronized then it is called static synchronization method.
+
+ex:
+class Table
+{
+	static synchronized void printTable(int n)
+	{
+	
+		for(int i=1;i<=5;i++)
+		{
+				System.out.println(n*i);
+				try
+				{
+					Thread.sleep(2000);
+				}
+				catch (InterruptedException ie)
+				{
+					ie.printStackTrace();
+				}
+		}
+		
+	}
+}
+class MyThread1 extends Thread
+{
+	
+	public void run()
+	{
+		Table.printTable(5);
+	}
+}
+
+class MyThread2 extends Thread
+{
+
+	public void run()
+	{
+		Table.printTable(10);
+	}
+}
+
+class Test 
+{
+	public static void main(String[] args)
+	{
+		
+		MyThread1 t1=new MyThread1();
+		MyThread2 t2=new MyThread2();
+
+		t1.start();
+		t2.start();
+	}
+}
+
+
+
+.Inter-Thread Communication
+==========================
+Two threads can communicate with one another by using wait(),notify() and notifyAll() method.
+
+The Thread which is expecting updations it has to wait() method and the thread which is performing updations it has to call notify() method.
+
+wait(),notify() and notifyAll() method present in Object class but not in Thread class.
+
+To call wait(),notify() and notifyAll() method our current thread must be in a synchronized area otherwise we will get IllegalMonitorStateException.
+
+Once a thread calls wait() method on a given object ,1st it will release the lock of that  object immediately and entered into waiting state. 
+
+ Once a thread calls notify() and notifyAll() method on a given object.It will release the lock of that object but not immediately.
+
+Except wait(),notify() and notifyAll() method ,there is no such concept where lock release can happen.
+
+ex:
+class MyThread extends Thread
+{
+	int total=0;
+	public void run()
+	{
+		
+		synchronized(this)
+		{
+				System.out.println("Child Thread started calculation");
+				for(int i=1;i<=10;i++)
+				{
+					total=total+i;
+				}
+				System.out.println("Child thread giving notification");
+				this.notify();
+		}
+	}
+}
+class Test
+{
+	public static void main(String[] args)throws InterruptedException
+	{
+		MyThread t=new MyThread();
+		t.start();
+		synchronized(t)
+		{
+			System.out.println("Main Thread waiting for updating");
+			t.wait();
+			System.out.println("Main -Thread got notification ");
+			System.out.println(t.total);
+		}
+	}
+}
+
+
+DeadLock in java
+===============
+DeadLock will occur in a suitation when one thread is waiting to access 
+object lock which is acquired by another thread and that thread is waiting
+to access object lock which is acquired by first thread.
+
+Here both the threads are waiting release the thread but no body will 
+release such situation is called DeadLock.
+
+ex:
+
+class Test
+{
+	public static void main(String[] args)
+	{
+		final String res1="hi";
+		final String res2="bye";
+
+		Thread t1=new Thread()
+		{
+			public void run()
+			{
+				synchronized(res1)
+				{
+					System.out.println("Thread1: Locking Resource 1");
+					synchronized(res2)
+					{
+						System.out.println("Thread1: Locking Resource2");
+					}
+				}
+			}
+		};
+
+		Thread t2=new Thread()
+		{
+			public void run()
+			{
+				synchronized(res2)
+				{
+					System.out.println("Thread2: Locking Resource 2");
+					synchronized(res1)
+					{
+						System.out.println("Thread1: Locking Resource 1");
+					}
+				}
+			}
+		};
+
+		t1.start();
+		t2.start();
+	}
+}
+
+Drawbacks of multithreading
+======================
+1)DeadLock
+2)Thread Starvation
+
+
+
+Q)Explain Types of Data structure in java?
+
+Diagram: java43.1
+
+
+Q) Write a java program to find out duplicate occurrence in a given String?
+
+Example
+Input:
+	I am am Learning java java
+Output:
+	I=1 , am=2, Learning=1, java=2
+
+
+import java.util.*;
+class Test
+{
+public static void main(String[] args)
+{
+	findDuplicatesWords("I am am Learning java java");
+}
+public static void findDuplicatesWords(String str)
+{
+	LinkedHashMap<String,Integer> lhm=new LinkedHashMap<String,Integer>();
+
+	String[] s=str.split(" "); // I   am   am  learning   java  java 
+	
+	for(String tempString: s)
+	{
+		if(lhm.get(tempString)!=null)
+		{
+			lhm.put(tempString,lhm.get(tempString)+1);
+		}
+		else
+		{
+			lhm.put(tempString,1);
+		}
+	}
+	System.out.println(lhm);
+	}
+}
+
+Q) Write a java program to find out number of characters occurrence in String?
+
+Example
+Input:
+	java
+
+Output:
+	j=1, a=2, v=1
+
+
+
+import java.util.*;
+class Test
+{
+	public static void main(String[] args)
+	{
+		findDuplicatesCharacters("java");
+	}
+
+	public static void findDuplicatesCharacters(String str)
+	{
+	LinkedHashMap<Character,Integer> lhm=new LinkedHashMap<Character,Integer>();
+	for(int i=0;i<str.length();i++)
+	{
+
+		char c=str.charAt(i);
+		if(lhm.get(c)!=null)
+		{
+			lhm.put(c,lhm.get(c)+1);
+		}
+		else
+		{
+			lhm.put(c,1);
+		}
+	}
+	System.out.println(lhm);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

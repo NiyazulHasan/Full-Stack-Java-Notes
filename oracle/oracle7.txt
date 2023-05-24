@@ -1,0 +1,435 @@
+Indexes
+==========
+Index is an object which is used to improve the performance of select stmt.
+
+Index in a database is same as index in a book.
+
+We need to create index only to those columns which are widely used in a where clause.
+
+Whenever we create index , two columns will be generated.One contains ROWID and another contains indexed column. All the records will store in ascending order in indexed column.
+
+			index table
+	--------------------------------------------
+	ROWID			|	INDEX-COLUMN
+	---------------------------------------------
+				|	9000
+				|	17000
+				|	18000
+				|	19000	
+				|	29000
+				|	34000
+	---------------------------------------------	
+
+We have two types of indexes.
+
+1)simple index
+
+2)complex index 
+
+
+1)simple index
+----------------
+When index is created only for one column is called simple index.
+
+syntax:
+	create index <index_name> on <table_name>(column_name);
+ex:
+
+	create index  idx1 on emp(eid);
+
+	select * from emp where eid=205;
+
+	Here index is used when we call "eid" in where condition.
+
+2)complex index 
+---------------
+When index is created  for multiple columns is called complex index.
+
+syntax:
+	create index <index_name> on <table_name>(column1,column2,..,columnN);
+ex:
+	create index  idx2 on  emp(job,comm);
+
+	select * from emp where job='Clerk' and comm=100;
+
+	Here index is used when we call job and comm in where condition.
+
+
+Indexes are categories into two types.
+
+1)Non-Unique index
+
+2)Unique index 
+
+1)Non-Unique index
+--------------------
+Bydefault every index is a non-unique index.
+
+Index which is created for those columns which is having duplicates is called non-unique index.
+
+ex:
+	create index  idx3 on  emp(deptno);
+
+
+2)Unique index
+-----------------
+Index which is created for those columns which does not have duplicates is called unique index.
+
+Unique index will be generated when a table contains primary key or unique key.
+
+ex:
+	create unique index  idx4 on emp(eid);
+
+
+Q)Write a query to see list of indexes present in database?
+
+	select  index_name from user_indexes;
+
+Q)Write a query to drop the index from database?
+
+	drop index  idx1;
+	drop index  idx2;
+	drop index  idx3;
+	drop index  idx4;
+
+Sequence
+================
+Sequence is an object which is used to generate the numbers.
+
+syntax
+------
+	create sequence <sequence_name> start with <value> increment by <value>;
+
+ex:
+	create sequence  sq1 start with 101 incremet by 1;
+
+	create sequence  sq2 start with 10 incremet by 10;
+
+
+Sequence contains two pseudo's.
+
+1)NEXTVAL
+---------
+	It is used to generate the next number in sequence.
+
+student table
+----------------
+
+create sequence sq1 start with 101 increment by 1;
+
+drop table student;
+
+create table student(sno number(3),sname varchar2(10),sadd varchar2(12));
+
+insert into student values(sq1.NEXTVAL,'raja','hyd');
+
+insert into student values(sq1.NEXTVAL,'ravi','delhi');
+
+insert into student values(sq1.NEXTVAL,'ramana','vizag');
+
+commit;
+
+
+
+2)CURRVAL 
+---------
+	It is used to return current value of a sequence.
+	ex:
+		select sq1.CURRVAL from dual;
+
+
+Q)Write  a query to see the list of sequences present in database?
+
+	select sequence_name from user_sequences;
+
+
+Q)Write a query to drop the sequence from database?
+
+	drop sequence sq1;
+
+
+Synonyms 
+==========
+Alternate name given to an object(table) is called synonym.
+
+We can use synonym name instead of table name for all commands.
+
+Using synonym length of table will reduce.
+
+syntax:
+	create synonym <synonym_name> for <object_name>;
+ex:
+	create synonym  syn1 for student;
+
+	select * from student;
+	select * from syn1;
+
+	delete from student;
+	delete from syn1;
+
+Q)Write a query to see the list of synonyns present in database?
+
+	select synonym_name from user_synonyms;
+
+	
+Q)Write a query to drop the synonym?
+	
+	drop synonym  syn1;
+
+
+Joins
+=======
+	select * from emp,dept; // 6 * 4 = 24 records
+
+	select eid,ename,esal,deptno,dname,dloc from emp,dept;
+
+	To overcome this limitation we can use table_name.column_name.
+	
+	select emp.eid,emp.ename,emp.esal,dept.deptno,dept.dname,dept.dloc
+	from emp,dept; // 6 * 4 = 24 records 
+
+Table alias
+-----------
+A userdefined name given to a table is called table alias.
+
+Table alias is temperory.Once the query is executed we will loss the table alias.
+
+Using table alias length of the query will reduce meaning while performance will maintained.
+ex:
+	select e.eid,e.ename,e.esal,d.deptno,d.dname,d.dloc
+	from emp e,dept d; // 6 * 4 = 24 records 
+	
+Definition of join
+---------------------
+Joins are used to retrieve the data from one or more then one table.
+
+We have different types of joins.
+
+1)Equi join
+
+2)Non-Equi join
+
+3)Self join
+
+4)Cartisian product
+
+5)Inner join
+
+6)Outer join 
+
+1)Equi join
+---------------
+When two tables are joined based on common columns is called equi-join.
+ex:
+	select e.eid,e.ename,e.esal,d.dname,d.dloc from emp e,dept d
+	where(e.deptno=d.deptno); //  6 records 
+
+2)Non-Equi join
+------------------
+When tables are not joined using join operator is called non-equi join.
+
+ex:
+	select e.eid,e.ename,e.esal,d.dname,d.dloc from emp e,dept d
+	where esal>20000; 2 * 4 = 8 records 
+
+
+3)Self join
+-----------
+When table is joined to itself is called self join.
+
+In self join we need to create two table alias for same table.
+
+ex:
+	select e1.eid,e1.ename,e1.esal,e2.job,e2.comm from emp e1,emp e2
+	where(e1.deptno=e2.deptno); // 6 + 6 = 12 records 
+
+
+4)Cartisian product
+-------------------
+It will return all possible combinations.
+
+In cartisian product we don't need to write any join condition.
+
+ex:
+	select e.eid,e.ename,e.esal,d.dname,d.dloc from emp e,dept d; // 6 * 4 =24	
+
+
+5)Inner join
+---------------
+It is similar to equi-join.
+
+Inner join given by ANSI people.
+
+ANSI means American National Standards Institute.
+
+ex:
+---
+	select e.eid,e.ename,e.esal,d.dname,d.dloc 
+	from emp e INNER JOIN  dept d
+	ON(e.deptno=d.deptno);	// 6 records 
+
+ex:
+---
+	select e.eid,e.ename,e.esal,d.dname,d.dloc 
+	from emp e  JOIN  dept d
+	ON(e.deptno=d.deptno);	// 6 records 
+
+
+6)Outer join
+---------------
+It is a extension of equi-join.
+
+It will return matching as well as not matching records.
+
+A '+' symbol denotes as outer join operator.
+
+We have three types of outer joins.
+
+1)Left outer join
+------------------
+	SQL
+	------
+		select e.eid,e.ename,e.esal,e.deptno,d.deptno,d.dname,d.dloc
+		from emp e,dept d where(e.deptno=d.deptno(+));	
+	ANSI
+	----
+		select e.eid,e.ename,e.esal,e.deptno,d.deptno,d.dname,d.dloc
+		from emp e LEFT OUTER JOIN dept d 
+		ON (e.deptno=d.deptno);	
+
+2)Right outer join
+-------------------
+	SQL
+	------
+		select e.eid,e.ename,e.esal,e.deptno,d.deptno,d.dname,d.dloc
+		from emp e,dept d where(e.deptno(+)=d.deptno);	
+	ANSI
+	----
+		select e.eid,e.ename,e.esal,e.deptno,d.deptno,d.dname,d.dloc
+		from emp e RIGHT OUTER JOIN dept d 
+		ON (e.deptno=d.deptno);		
+
+3)Full outer join
+--------------
+	ANSI
+	----
+		select e.eid,e.ename,e.esal,e.deptno,d.deptno,d.dname,d.dloc
+		from emp e FULL OUTER JOIN dept d 
+		ON (e.deptno=d.deptno);	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

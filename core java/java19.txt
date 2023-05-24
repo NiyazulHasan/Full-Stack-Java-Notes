@@ -1,0 +1,287 @@
+iii)if else if ladder
+=======================
+It will execute the source code based on multiple conditions.
+
+syntax:
+	if(cond1)
+	{
+		-
+		-  //code to be execute if cond1 is true 
+		-
+	}
+	else  if(cond2)
+	{
+		-
+		-  //code to be execute if cond2 is true 
+		-
+	}
+	else  if(cond3)
+	{
+		-
+		-  //code to be execute if cond3 is true 
+		-
+	}
+	else
+	{	
+		-
+		-  //code to be execute if all conditions are false.
+		-
+	}
+
+ex:
+-----
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the Option :");
+		int option=sc.nextInt();
+
+		if(option==100)
+			System.out.println("It is a police number");
+		else if(option==103)
+			System.out.println("It is a enquiry number");
+		else if(option==108)
+			System.out.println("It is a emergency number");
+		else
+			System.out.println("Invalid option");
+	}
+}
+
+Q)Write a java program to find out given alphabet is a vowel or not?
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the Alphabet :");
+		char ch=sc.next().charAt(0); // j
+
+		if(ch=='a')
+			System.out.println("It is a vowel");
+		else if(ch=='e')
+			System.out.println("It is a vowel");
+		else if(ch=='i')
+			System.out.println("It is a vowel");
+		else if(ch=='o')
+			System.out.println("It is a vowel");
+		else if(ch=='u')
+			System.out.println("It is a vowel");
+		else 
+			System.out.println("It is not a vowel");	
+	}
+}
+
+Q)Write a java program to check given alphabet is a upper case letter, lower case letter, digit or special symbol?
+
+ex:
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the Alphabet :");
+		char ch=sc.next().charAt(0); 
+
+		if(ch>='A' && ch<='Z')
+			System.out.println("It is a uppercase letter");
+		else if(ch>='a' && ch<='z')
+			System.out.println("It is a lowercase letter");
+		else if(ch>='0' && ch<='9')
+			System.out.println("It is a Digit");
+		else
+			System.out.println("It is a special symbol");
+	}
+}
+
+Q)Write a java program to accept 6 marks of a student then find out total, average and grade?
+
+i)If average is greater then equals to 70 then A grade.
+
+ii)If average is greater then equals to 50 then B grade.
+
+iii)If average is greater then equals to 35 then C grade.
+
+iv)If average is less then 35 then Failed.
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int m1=56,m2=45,m3=63,m4=89,m5=39,m6=66,total=0;
+		float avg;
+		
+		total=m1+m2+m3+m4+m5+m6;
+		avg=(float)total/6;
+
+		System.out.println("Total ="+total);
+		System.out.println("Average :"+avg);
+
+		if(avg>=70)
+			System.out.println("Grade : A grade");
+		else if(avg>=50)
+			System.out.println("Grade : B grade");
+		else if(avg>=35)
+			System.out.println("Grade : C grade");
+		else
+			System.out.println("Grade : Failed");
+	}
+}
+
+iv)nested if stmt 
+====================
+If stmt contains another if stmt is called nested if stmt.
+
+syntax:
+	if(condition)
+	{
+		if(condition)
+		{
+			-
+			-
+			-
+		}
+	}	
+
+ex:
+----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(true)
+		{
+			System.out.println("stmt2");
+			if(5>2)
+			{
+				System.out.println("stmt3");
+			}
+			System.out.println("stmt4");
+		}
+		System.out.println("stmt5");
+	}
+}
+o/p:
+stmt1
+stmt2
+stmt3
+stmt4
+stmt5
+
+ex:
+-----
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(true)
+		{
+			System.out.println("stmt2");
+			if(5>20)
+			{
+				System.out.println("stmt3");
+			}
+			System.out.println("stmt4");
+		}
+		System.out.println("stmt5");
+	}
+}
+o/p:
+stmt1
+stmt2
+stmt4
+stmt5
+
+
+Q)Write a java program to find out given number is +ve or -ve by using nested if stmt?
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();
+
+		if(n!=0)
+		{
+			if(n>0)
+				System.out.println("It is positive number");
+			if(n<0)
+				System.out.println("It is negative number");
+		}
+	}
+}
+
+
+Right Shift operator (>>)
+---------------------------
+10 >> 1   = 10/2 = 5
+
+-10 >> 1   = 10/2 = -5
+
+ex:
+class Test 
+{
+	public static void main(String[] args) 
+	{	
+		System.out.println(-10 >> 1 );
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

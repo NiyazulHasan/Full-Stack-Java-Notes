@@ -1,0 +1,346 @@
+iii)for loop
+===============
+It will execute the source code untill our condition is true.
+
+syntax:
+	for(initialization;condition;Incrementation/Decrementation)
+	{
+		-
+		- //code to be execute
+		-
+	}
+
+If number of iterations are known by the user then we need to use for loop.
+
+If number of iterations are not known by the user then we need to while loop.
+
+If number of iterations are not known by the user but code must execute atleast for one time then we need to use do while loop.
+
+
+ex:
+----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i;
+
+		for(i=1;i<=10;i++)
+		{
+			System.out.print(i+" ");//1 2 3 4 5 6 7 8 9 10
+		}
+
+	}
+}
+
+ex:
+----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		for(;;)
+		{
+			System.out.print("Hello");//infinite Hello
+		}
+
+	}
+}
+
+Q)Write a java program to find out sum of 10 natural numbers?
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int sum=0;
+		for(int i=1;i<=10;i++)
+		{
+			sum+=i;
+		}
+		System.out.println("sum of 10 natural numbers is ="+sum);
+	}
+}
+
+Q)Write a java program to display sum of even numbers from 1 to 10?
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int sum=0;
+		for(int i=1;i<=10;i++)
+		{
+			if(i%2==0)
+			{
+				sum+=i;
+			}
+		}
+		System.out.println("sum of even numbers is ="+sum);
+	}
+}
+
+Q)Write a java program to find out sum of alternate even numbers from 1 to 10?
+
+	alternate even = 2 + 6 + 10 = 18
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int sum=0;
+		for(int i=1;i<=10;i++)
+		{
+			if(i%2==0)
+			{
+				sum+=i;
+
+				i=i+2;
+			}
+		}
+		System.out.println("sum of alter even numbers is ="+sum);
+	}
+}
+
+Q)Write a java program to find out number of even and odd numbers from 1 to 10?
+
+ex:
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int even=0,odd=0;
+		for(int i=1;i<=10;i++)
+		{
+			if(i%2==0) 
+				even++;
+			else
+				odd++;
+		}
+		System.out.println("No of even numbers  ="+even);
+		System.out.println("No of odd numbers ="+odd);
+	}
+}
+
+Q)Write a java program to find out fibonacci series of a given number?
+
+Fibonacci series : 0 1 1 2 3 5 8 
+
+ex:
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();//5
+
+		int a=0,b=1,c;
+
+		System.out.print(a+" "+b+" ");
+
+		for(int i=1;i<=n;i++)
+		{
+			c=a+b;
+			System.out.print(c+" ");
+			a=b;
+			b=c;
+		}
+
+
+	}
+}
+
+Q)Write a java program to check given number is prime or not?
+
+prime numbers : 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 
+		43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97.
+
+ex:
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();//5
+
+		int flag=0;
+		for(int i=2;i<=n/2;i++)
+		{
+			if(n%i==0)
+			{
+				flag=1;
+				break;
+			}
+		}
+		if(flag==0)
+			System.out.println("It is prime number ");
+		else
+			System.out.println("It is not prime number ");
+
+	}
+}
+
+
+Q)Write a java program to find out given number is perfect or not?
+
+input:
+	6 (1+2+3)
+
+Output:
+	It is a perfect number
+
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();//5
+
+		int sum=0;
+		for(int i=1;i<=n/2;i++)
+		{
+			if(n%i==0)
+			{
+				sum=sum+i;
+			}
+		}
+		if(sum==n)
+			System.out.println("It is perfect number ");
+		else
+			System.out.println("It is not perfect number ");
+
+	}
+}
+
+
+
+Q)Write a java program to display all the prime numbers from 1 to N?
+
+N=100
+
+2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97.
+
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();//100
+
+		//numbers 
+		for(int i=2;i<=n;i++)
+		{
+			boolean flag=true;
+
+			for(int j=2;j<i;j++)   
+			{
+				if(i%j==0)  
+				{
+					flag=false;
+					break;
+				}
+			}
+			if(flag==true)
+				System.out.print(i+" ");//
+		}
+
+	}
+}
+
+Q)Write a java program to find out Nth element of fibonacci series 
+using recursion ?
+
+ex:
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt(); //5
+
+		System.out.println(fib(n));
+	}
+	public static int fib(int n)
+	{
+		if(n==0 || n==1)
+			return 0;
+		if(n==2)
+			return 1;
+
+		return fib(n-1)+fib(n-2);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

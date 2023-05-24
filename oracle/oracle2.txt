@@ -1,0 +1,357 @@
+select command
+===============
+It is used to retrieve the data from database.
+
+syntax:
+	select * from <table_name>;
+
+ex:
+	select * from student;
+	select * from emp;
+	select * from dept;
+
+	Here '*' means all rows and columns.
+
+
+Projection
+------------
+Selecting specific columns from the database table is called projection.
+ex:
+	select * from student;
+	select sno,sname,sadd from student;
+	select sno from student;
+	student sname from student;
+	student sadd from student;
+
+
+Column alias
+---------------
+A userdefined heading given to a column is called column alias.
+
+Column alias is temperory.
+
+Once the query is executed we will loss the column alias.
+
+Column alias can applied to any column.
+
+ex:
+	select  sno as ROLL_NO,
+		  sname as FIRST_NAME, 
+		    sadd as CITY  
+			from student; 
+
+Arithmetic operations
+-----------------------
+In select command we can perform arithmetic operations also.
+ex:
+	select sno+100,sname,sadd from student;
+	select sno-100,sname,sadd from student;
+	select sno-100 as SNO,sname,sadd from student;
+
+Interview Queries
+===================
+
+Q)Write a query to display all the employees information from emp table?
+
+	select * from emp;
+
+
+Q)Write a query to display employee id, employee name and employee salary from emp table?
+
+	select eid,ename,esal from emp;
+
+
+Q)Write a query to display employee id, employee name, employee salary and annual salary from emp table?
+
+	select eid,ename,esal,esal*12 from emp;
+
+
+Q)Write a query to display employee id, employee name, employee salary and annual salary as ANNUAL_SAL from emp table?
+
+	select eid,ename,esal,esal*12 as ANNUAL_SAL from emp;
+
+
+Q)Write a query to display all the tables present in database?
+
+	select * from tab;
+
+
+Q)Write a query to display logical database name / schema?
+
+	select * from global_name; //10g -XE    or   11g -ORCL 
+
+
+Q)Write a query to display all the users?
+
+	select * from all_users;
+
+where clause
+=============
+If we want to select specific record from the database table then we need to use where clause.
+
+syntax:
+	select * from <table_name> where condition;
+ex:
+	select * from student where sno=101;
+	select * from student where sname='raj';
+	select * from student where sname='RAJ'; // no rows selected
+	select * from student where sadd='hyd';
+
+
+Interview Queries
+----------------
+Q) Write a query to display all the employees information those who are working in 10 department?
+
+	select * from emp where deptno=10;
+
+
+Q)Write a query to display all the employees information those who are working as a Manager?
+
+	select * from emp where job='Manager';
+
+
+Q)Write a query to display student information who is living in hyderabad?
+
+	select * from student where sadd='hyd';
+
+
+Q)Write a query to display employee information whose comm is null?
+
+	select * from emp where comm=null; //no rows selected
+
+	select * from emp where comm is null;
+
+update command
+=================
+It is used to update the data present in database.
+
+syntax:
+	update <table_name> set <col_name>=value where condition;
+
+ex:
+	update student set sname='rani' where sno=105;
+
+	update student set sname='raj' where sadd='pune';
+
+	update student set sname='gogo',sadd='delhi' where sno=105;
+
+Note:
+-----
+	if we won't use where clause then all rows will be updated.
+ex:
+	update student set sno=101;			
+	update student set sname='raja';	
+	update student set sadd='hyd';
+
+
+delete command
+============
+It is used to delete the records/rows from database table.
+
+syntax:
+	delete from <table_name> where condition;
+ex:
+	delete from student where sno=101;
+	delete from student where sname='raja';
+	delete from student where sadd='pune';
+
+Note:
+-----
+	If we won't use where clause then all rows will be deleted.
+ex:
+	delete from student;
+	delete from emp;
+	delete from dept;
+
+Logical Operators
+====================
+If we want to declare more then one condition in a query then we need to use logical operators.
+
+We have three logical operators.
+
+1)AND
+
+2)OR
+
+3)NOT 
+
+1)AND
+--------
+It will return/retrieve the records if all conditions are true.
+
+Here conditions must be from same row only.Otherwise we won't get any output.
+
+ex:
+	select * from emp where eid=201 and ename='Alan'; 
+
+	select * from emp where eid=201 and ename='Jose'; //no rows selected
+
+
+2)OR
+-------
+It will return/retrieve the records if and if one condition is true.
+
+Here conditions can be from any row.
+
+ex:
+	select * from emp where eid=201 OR ename='Alan'; 
+
+	select * from emp where eid=201 OR ename='Jose';
+
+3)NOT 
+-------
+It will return/retrieve the records except the condition.
+
+Here '<>' symbol denoted as not operator.
+
+ex:
+	select * from emp where eid=201;
+
+	select * from emp where NOT eid=201;
+
+	select * from emp where eid<>201;
+
+
+Interview Queries
+------------------
+Q)Write a query to display employees information whose employee id is 201,202,203?
+
+	select * from emp where eid=201 OR eid=202 OR eid=203;
+
+
+
+Q)Write a query to display employees information whose salary is greater then 
+  20000 and less then 40000?
+
+	select * from emp where esal>20000 and esal<40000;
+	
+
+Q)Write a query to display employees information those who are not working in 10 department?
+
+	select * from emp where NOT deptno=10;
+
+	select * from emp where deptno<>10;
+
+
+between operator
+--------------------
+It is used to display the records those who are matching in the range of values.
+
+Between operator will take the support of AND operator.
+
+In between operator , first we need to write lower limit then upper limit.
+
+ex:
+	select * from emp where eid between 201 AND 206;
+
+	select * from emp where esal between 10000 AND 40000;
+
+In operator
+--------------
+It will display the records those who are matching in the list of values.
+In operator is a replacement of OR operator.
+ex:
+	select * from emp where eid IN(201,202,203,209);
+
+	select * from emp where ename IN('Alan','Jose','Kane');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

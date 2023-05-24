@@ -1,0 +1,554 @@
+Interfaces
+============
+Interface is a collection of zero or more abstract methods.
+
+Abstract method is a incomplete method which ends with semicolon and does not have any body.
+ex:
+	 public abstract void m1();
+
+It is not possible to create object for interfaces.
+
+To write the implementation of abstract methods of an interface we will use implementation class.
+
+It is possible to create object for implementation class because it contains method with body.
+
+By default , every abstract method is a public and abstract.
+
+Interface contains only constants i.e public static final.
+
+syntax:
+--------
+	interface  interface_name
+	{
+		-
+		- //constants
+		- //abstract methods
+		-
+	}
+
+ex:1
+------
+interface A
+{
+	//abstract method
+	public abstract void m1();
+}
+class B implements A
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		B b=new B();
+		b.m1();
+	}
+}
+
+ex:2
+----
+interface A
+{
+	//abstract method
+	public abstract void m1();
+}
+class B implements A
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		A a=new B();
+		a.m1();
+	}
+}
+
+
+ex:3
+-----
+interface A
+{
+	//abstract method
+	public abstract void m1();
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		//Anonymous inner class
+		A a=new A()
+		{
+			public  void m1()
+			{
+				System.out.println("From M1 Method");
+			}
+		};
+		a.m1();
+	}
+}
+
+In java, a class can't extends more then one class.
+But interface can extends more then one interface.
+
+ex:
+
+interface A
+{
+	void m1();
+}
+interface B
+{
+	void m2();
+}
+interface C  extends A,B
+{
+	void m3();
+}
+class D implements C
+{
+	public void m1()
+	{
+		System.out.println("From M1 Method");
+	}
+	public void m2()
+	{
+		System.out.println("From M2 Method");
+	}
+	public void m3()
+	{
+		System.out.println("From M3 Method");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		C c=new D();
+		c.m1();
+		c.m2();
+		c.m3();
+	}
+}
+
+If interface contains four methods then we need to override all four methods otherwiser we will get compile time error.
+
+ex:
+interface A
+{
+	public abstract void see();
+	public void show();
+	abstract void display();
+	void view();
+}
+class B implements A
+{
+	public void see()
+	{
+		System.out.println("From See method");
+	}
+	public void show()
+	{
+		System.out.println("From Show method");
+	}
+	public void display()
+	{
+		System.out.println("From Display method");
+	}
+	public void view()
+	{
+		System.out.println("From View method");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		A a=new B();
+		a.see();
+		a.show();
+		a.display();
+		a.view();
+	}
+}
+
+
+In java, a class can implements more then one interface.
+
+ex:
+-----
+interface Father
+{
+	float HT=6.2f;
+	void height();
+}
+interface Mother
+{
+	float HT=5.8f;
+	void height();
+}
+class Child implements Father,Mother
+{
+	public void height()
+	{
+		float height=(Father.HT+Mother.HT)/2;
+		System.out.println("Child Height is ="+height);//6.0
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		Child c=new Child();
+		c.height();
+	}
+}
+
+Note:
+-----
+	Interface is also known as purely abstract class.
+
+Note:
+-----
+From java 8 version ,Interface contains default methods and static methods.
+
+
+
+Abstract class
+===============
+Abstract class is a collection of zero or more abstract methods and zero or more concrete methods.
+
+A "abstract" keyword is applicable only for class and method but not for variable.
+
+It is not possible to create object for abstract class.
+
+To write the implementation of abstract methods of an abstract class we will use sub classes.
+
+By default every abstract method is a public and abstract.
+
+Abstract class contains only instance variables.
+
+syntax:
+	abstract class  class_name
+	{
+		-
+		- //instance variables 	
+		- //abstract methods
+		- //concrete methods
+		-	
+	}
+
+ex:
+-----
+abstract class Plan
+{
+	//instance variable
+	protected double rate;
+
+	//abstract method
+	public abstract void getRate();
+	
+	//concrete method
+	//Non-abstract method
+	public void calculateBillAmt(int units)
+	{
+		System.out.println("Total Units = "+units);
+		System.out.println("Total Bill  = "+(rate*units));
+	}
+}
+class DomesticPlan extends Plan
+{
+	public void getRate()
+	{
+		rate=2.5f;
+	}
+}
+
+class CommercialPlan extends Plan
+{
+	public void getRate()
+	{
+		rate=5.0f;
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		DomesticPlan dp=new DomesticPlan();
+		dp.getRate();
+		dp.calculateBillAmt(250);
+
+		CommercialPlan cp=new CommercialPlan();
+		cp.getRate();
+		cp.calculateBillAmt(250);
+	}
+}
+
+Q)Differences between interface and abstract class?
+
+Interface				Abstract class
+-------------				--------------
+To declare interface we will use 	To declare abstract class we will use 
+interface keyword.			abstract keyword.
+
+Interface is a collection of abstract	Abstract class is a collection of abstract
+methods,default methods and static 	methods and concrete methods.
+methods.
+
+Interface contains constants.		Abstract class contains instance variables.
+
+We can achieve multiple inheritance.	We can't achieve multiple inheritence.
+
+It does not support constructor.	It supports constructor.
+
+It does not support blocks.		It supports blocks.
+
+To write the implementation of 		To write the implementation of abstract
+abstract methods we need to use 	methods we need to use sub class.
+implementation class.
+
+If we know only specification then	If we know partial implementation then
+we need to use interface.		we need to use abstract class.
+
+Inner class
+=============
+Sometimes we will declare a class inside another class such concept is called inner class.
+
+ex:
+	class Outer_Class
+	{
+		class Inner_Class
+		{
+			-
+			- //code to be execute 
+			-
+		}
+	}
+
+Inner classes introduced as a part of event handling to remove GUI bugs.
+
+But because of powerful features and benefits of inner classes, Programmers started to user inner class in regular programming code.
+ 
+Inner class does not accept static members i.e static variable, static method and static block.
+
+Accessing inner class data from static area of outer class
+=========================================================
+class Outer
+{
+	class Inner
+	{
+		//non-static
+		public void m1()
+		{
+			System.out.println("M1 Method");
+		}
+	}
+
+	public static void main(String[] args)
+	{
+		Outer.Inner i=new Outer().new Inner();
+		i.m1();
+	}
+}
+
+Note:
+-----
+If we compile above program we will get two .class file i.e "Outer.class" and 
+"Outer$Inner.class".
+
+
+ex:2
+-----
+class Outer
+{
+	class Inner
+	{
+		//non-static
+		public void m1()
+		{
+			System.out.println("M1 Method");
+		}
+	}
+
+	public static void main(String[] args)
+	{
+		new Outer().new Inner().m1();
+		
+	}
+}
+
+Accessing inner class data from non-static area of outer class
+===============================================================
+class Outer
+{
+	class Inner
+	{
+		//non-static
+		public void m1()
+		{
+			System.out.println("M1 Method");
+		}
+	}
+	//non-static
+	public void m2()
+	{
+		Inner i=new Inner();
+		i.m1();
+	}
+	public static void main(String[] args)
+	{
+		Outer o=new Outer();
+		o.m2();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

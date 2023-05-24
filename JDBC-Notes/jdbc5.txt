@@ -1,0 +1,568 @@
+Working with Date values
+==============================
+While dealing with DOB,DOA,DOD,DOR and etc we need to insert or retrieve date values.
+
+It is never recommanded to insert date values in the form of String because it will not give proper comparision between two dates.
+
+Every database software support different date pattern.
+ex:
+	oracle -->  dd-MMM-yy
+	mysql   -->  yyyy-MM-dd
+
+We can't place Date values directly to query parameter by using Simple Statement object.
+
+To overcome this limitation we need to use PreparedStatement object.
+
+java.util.Date class is not suitable to perform date operations.
+
+java.sql.Date class is suitable to perform database operations.
+
+To we can set date values to query parameter by using setDate(-,-) method of PreparedStatement object.
+
+Once the date value goes to jdbc driver then jdbc driver will insert date value in the pattern which is supported by underlying database software.
+
+Standard procedure to insert date value
+========================================
+
+Diagram: jdbc5.1
+
+1)First enduser will give date value in the form of String.
+
+2)A java.text.SimpleDateFormat class contains parse() method to convert
+  String date to java.util.Date class object.
+
+3)Our application converts java.util.Date class object to java.sql.Date class object.
+
+4)By using ps.setDate(-,-) method, we can set the date value directly to query parameter.
+
+5)Once the jdbc driver will get date value then it will insert in pattern
+which is supported underlying database software. 
+
+emp1 table
+===========
+drop table emp1;
+create table emp1(eid number(3), ename varchar2(10), edoj date);
+
+
+ex:
+-----
+package com.ihub.www;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.text.SimpleDateFormat;
+import java.util.Scanner;
+
+public class DateInsertApp 
+{
+	public static void main(String[] args)throws Exception 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the employee id :");
+		int id=sc.nextInt();
+		
+		System.out.println("Enter the employeen name :");
+		String name=sc.next();
+		
+		System.out.println("Enter the employee DOJ(dd-MM-yyyy) :");
+		String sdoj=sc.next();
+		
+		//converting string date to util date
+		SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+		java.util.Date udoj=sdf.parse(sdoj);
+		
+		//converting util date to sql date
+		long ms=udoj.getTime();
+		java.sql.Date sqldoj=new java.sql.Date(ms);
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+	
+		String qry="insert into emp1 values(?,?,?)";
+		
+		PreparedStatement ps=con.prepareStatement(qry);
+		
+		//set the values
+		ps.setInt(1,id);
+		ps.setString(2,name);
+		ps.setDate(3,sqldoj);
+		
+		//execute 
+		int result=ps.executeUpdate();
+		if(result==0)
+			System.out.println("No record inserted");
+		else
+			System.out.println("Record inserted");
+		
+		ps.close();
+		con.close();
+		
+	}
+}
+
+Date Retrieve application
+===========================
+
+ex:
+----
+package com.ihub.www;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+
+public class DateRetrieveApp {
+
+	public static void main(String[] args)throws Exception 
+	{
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+		Statement st=con.createStatement();
+		String qry="select * from emp1";
+		ResultSet rs=st.executeQuery(qry);
+		while(rs.next())
+		{
+			int id=rs.getInt(1);
+			String name=rs.getString(2);
+			java.sql.Date sqldoj=rs.getDate(3);
+			
+			//converting sql date to util date
+			java.util.Date udoj=(java.util.Date)sqldoj;
+			
+			//converting util date to string date
+			SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+			String sdoj=sdf.format(udoj);
+			
+			System.out.println(id+" "+name+" "+sdoj);
+		}
+		rs.close();
+		st.close();
+		con.close();
+
+	}
+
+}
+
+Working with LOB(Large Objects) values
+======================================
+Files are known as LOB's.
+
+We have two types of LOB's.
+
+1)BLOB (Binary Large object)
+--------------------------
+ex:
+	images, audio,video, avi file and etc.
+
+2)CLOB (Character large object)
+--------------------------
+ex:
+	text file ,adv text file , doc file and etc.
+
+While dealing with matrimonial application, job portal application and profile management application we need to insert and retrieve lob values.
+
+To deal with lob values we need to take the support of PreparedStement object.
+
+We can set lob values directly to query parameter by using following methods.
+ex:
+	setBLOB(-,-,-)/setBinaryStream(-,-,-) 
+	setCLOB(-,-,-)/setCharacterStream(-,-,-) 
+
+
+emp2 table
+-----------
+drop table emp2;
+create table emp2(eid number(3),ename varchar2(10),ephoto BLOB);
+
+ex:
+----
+package com.ihub.www;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.util.Scanner;
+
+public class PhotoInsertApp 
+{
+	public static void main(String[] args)throws Exception 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the employee id :");
+		int id=sc.nextInt();
+		System.out.println("Enter the employee name :");
+		String name=sc.next();
+	
+		//locate a file 
+		File f=new File("src/com/ihub/www/girl3.jpg");
+		FileInputStream fis=new FileInputStream(f);
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+		String qry="insert into emp2 values(?,?,?)";
+		PreparedStatement ps=con.prepareStatement(qry);
+		//set the values
+		ps.setInt(1,id);
+		ps.setString(2,name);
+		ps.setBinaryStream(3, fis,(int)f.length());
+		
+		//execute
+		int result=ps.executeUpdate();
+		if(result==0)
+			System.out.println("No record inserted");
+		else
+			System.out.println("Record inserted");
+		ps.close();
+		con.close();
+	}
+}
+
+Photo Retrieve Application
+----------------------------
+
+package com.ihub.www;
+
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class PhotoRetrieveApp 
+{
+	public static void main(String[] args)throws Exception 
+	{
+
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+		Statement st=con.createStatement();
+		String qry="select * from emp2";
+		ResultSet rs=st.executeQuery(qry);
+		while(rs.next())
+		{
+			InputStream is=rs.getBinaryStream(3);
+			
+			int byteReads=0;
+			byte[] buff=new byte[400];
+			
+		FileOutputStream fos=new FileOutputStream("E:\\DEMO\\pic.jpg");
+			
+			while((byteReads=is.read(buff))!=-1)
+			{
+				fos.write(buff,0,byteReads);
+			}
+			fos.close();
+		}
+		System.out.println("Please check the location");
+		rs.close();
+		st.close();
+		con.close();
+	}
+}
+
+ResultSetMetaData
+==================
+ResultSetMetaData is an interface which is present in java.sql package.
+
+ResultSetMetaData provides metadata of a table.
+
+It gives information about number of columns, types of columns, name of columns , size of columns and etc.
+
+We can create ResultSetMetaData object by using getMetaData() method of ResultSet object.
+ex:
+	ResultSetMetaData rsmd=rs.getMetaData();
+
+ex:
+----
+package com.ihub.www;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
+
+public class RSMDApp 
+{
+	public static void main(String[] args)throws Exception 
+	{
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+		Statement st=con.createStatement();
+		
+		String qry="select * from student";
+		
+		ResultSet rs=st.executeQuery(qry);
+		
+		ResultSetMetaData rsmd=rs.getMetaData();
+		System.out.println(rsmd.getColumnCount());
+		System.out.println(rsmd.getColumnTypeName(1));
+		System.out.println(rsmd.getColumnName(1));
+		System.out.println(rsmd.getColumnDisplaySize(1));
+		
+		rs.close();
+		st.close();
+		con.close();
+		
+	}
+}
+
+JDBC Flexible Application
+=========================
+In JDBC , Connection object is a heavy weight object.
+
+It is never recommanded to create Connection object in a every jdbc application.
+
+We need to create a seperate class which returns JDBC Connection object.
+
+ex:
+----
+DBConnection.java
+--------------------
+package com.ihub.www;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DBConnection 
+{
+	private static Connection con=null;
+	
+	private DBConnection()
+	{
+		
+	}
+	
+	public  static Connection getConnection()
+	{
+		try
+		{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return con;
+	}
+}
+
+
+FlexibleApp.java
+-----------------
+package com.ihub.www;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class FlexibleApp 
+{
+	public static void main(String[] args)throws Exception 
+	{
+		Connection con=DBConnection.getConnection();
+		Statement st=con.createStatement();
+		String qry="select * from student";
+		ResultSet rs=st.executeQuery(qry);
+		while(rs.next())
+		{
+			System.out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getString(3));
+		}
+		
+		rs.close();
+		st.close();
+		con.close();
+	}
+}
+
+Working with Properties file
+==============================
+In regular intervals, Our DBA will change username and password for security reason.
+
+It is never recommanded to pass database properties directly to jdbc application.
+
+It is always recommanded to read database properties from properties file.
+
+A properties file contains key and value pair.
+
+dbdetails.properties
+--------------------
+driver=oracle.jdbc.driver.OracleDriver
+url=jdbc:oracle:thin:@localhost:1521:XE
+username=system
+password=admin
+
+PropertiesFileApp.java
+-----------------------
+package com.ihub.www;
+
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Properties;
+
+public class PropertiesFileApp {
+
+	public static void main(String[] args)throws Exception 
+	{
+		//locate  a properties file
+		FileInputStream fis=new FileInputStream("src/com/ihub/www/dbdetails.properties");
+		
+		//declare properties class object
+		Properties p=new Properties();
+		
+		//load the data from properties file to properties class
+		p.load(fis);
+		
+		//read the data from properties class
+		String s1=p.getProperty("driver");
+		String s2=p.getProperty("url");
+		String s3=p.getProperty("username");
+		String s4=p.getProperty("password");
+		
+		Class.forName(s1);
+		Connection con=DriverManager.getConnection(s2,s3,s4);
+		Statement st=con.createStatement();
+		String qry="select * from student";
+		ResultSet rs=st.executeQuery(qry);
+		while(rs.next())
+		{
+			System.out.println(rs.getRow()+" "+rs.getInt(1)+" "+rs.getString(2)+" "+rs.getString(3));
+		}
+		
+		rs.close();
+		st.close();
+		con.close();
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

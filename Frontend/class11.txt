@@ -1,0 +1,1110 @@
+box-sizing  property
+=====================
+The box-sizing property defines how the width and height of an element are calculated: should they include padding and borders, or not.
+
+
+box-sizing:content-box
+----------------------------
+It will take seperate width,border and padding.But it will not take  margin.
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		#box
+		{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			border:2px solid blue;
+			padding:10px ;
+			box-sizing: content-box;
+		}
+	</style>
+</head>
+<body>
+		<div id="box">
+			
+		</div>
+</body>
+</html>
+
+
+box-sizing:border-box
+---------------------------
+It includes width,border and padding.But it will not include marging.
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		#box
+		{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			border:2px solid blue;
+			padding:10px ;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+		<div id="box">
+			
+		</div>
+</body>
+</html>
+
+CSS tranform
+==============
+CSS tranform property allows use to move ,rotate  or skew elements.
+
+CSS tranform property contains following transformation methods.
+
+ex:
+	translate()
+	rotate()
+	scaleX()
+	scaleY()
+	skewX()
+	skewY()
+	skew()
+
+
+transform: translate()
+-----------------------
+The translate() method moves  an element from its current position to the parameters given by the X-axis and the Y-axis.
+ex:
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		#box
+		{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			box-sizing: border-box;
+			transform: translate(400px,100px);
+		}
+	</style>
+</head>
+<body>
+		<div id="box">
+			
+		</div>
+</body>
+</html>
+
+transform: rotate()
+------------------
+The rotate() method rotates an element clockwise or counter-clockwise according to a given degree.
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		#box
+		{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			box-sizing: border-box;
+			margin: 100px auto;
+			transform: rotate(30deg);
+		}
+	</style>
+</head>
+<body>
+		<div id="box">
+			
+		</div>
+</body>
+</html>
+
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		#box
+		{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			box-sizing: border-box;
+			margin: 100px auto;
+			transform: rotate(-30deg);
+		}
+	</style>
+</head>
+<body>
+		<div id="box">
+			
+		</div>
+</body>
+</html>
+
+If we pass negative value then it will rotate counter-clock wise.
+
+
+transform: scaleX()
+-----------------------
+The scaleX() method increases and decreases the width of the element.
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		#box
+		{
+			width: 200px;
+			height: 200px;
+			border:2px solid black;
+			box-sizing: border-box;
+			margin: 100px auto;
+			transform: scaleX(2);
+		}
+	</style>
+</head>
+<body>
+		<div id="box">
+			This is div tag
+		</div>
+</body>
+</html>
+
+
+transform: scaleY()
+--------------------
+The scaleY() method increases and decreases the height of the element.
+
+ex:
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		#box
+		{
+			width: 200px;
+			height: 200px;
+			border:2px solid black;
+			box-sizing: border-box;
+			margin: 100px auto;
+			transform: scaleY(2);
+		}
+	</style>
+</head>
+<body>
+		<div id="box">
+			This is div tag
+		</div>
+</body>
+</html>
+
+transform: scale()
+--------------------
+The scale() method increase and decrease the size of an element according to the parameters given for the width and height .
+
+ex:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		#box
+		{
+			width: 200px;
+			height: 200px;
+			border:2px solid black;
+			box-sizing: border-box;
+			margin: 100px auto;
+			transform: scale(2);
+		}
+	</style>
+</head>
+<body>
+		<div id="box">
+			This is div tag
+		</div>
+</body>
+</html>
+
+
+transform: skewX()
+---------------------
+The skewX() method skews an element along the X-axis by the given angle.
+ex
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		#box
+		{
+			width: 200px;
+			height: 200px;
+			border:2px solid black;
+			box-sizing: border-box;
+			margin: 100px auto;
+			transform: skewX(30deg);
+		}
+	</style>
+</head>
+<body>
+		<div id="box">
+			This is div tag
+		</div>
+</body>
+</html>
+
+transform: skewY()
+--------------------
+The skewY() method skews an element along with y-axis by the given angle.
+ex:
+
+ex:
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		#box
+		{
+			width: 200px;
+			height: 200px;
+			border:2px solid black;
+			box-sizing: border-box;
+			margin: 100px auto;
+			transform: skewY(30deg);
+		}
+	</style>
+</head>
+<body>
+		<div id="box">
+			This is div tag
+		</div>
+</body>
+</html>
+
+
+transform : skew() 
+--------------------
+The skew() method skews an element along the X-axis and Y-axis by the given angle.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		#box
+		{
+			width: 200px;
+			height: 200px;
+			border:2px solid black;
+			box-sizing: border-box;
+			margin: 100px auto;
+			transform: skew(30deg);
+		}
+	</style>
+</head>
+<body>
+		<div id="box">
+			This is div tag
+		</div>
+</body>
+</html>
+
+
+
+
+CSS transition property
+=======================
+CSS transition property allows us to change property value smoothly , over a given duration.
+
+To see the effects on an element ,we need to use mouse over to the element.
+
+We have following properties in CSS transition.
+ex:
+	transition-delay
+	transition-duration
+	transition-property
+	transition-timing-function
+	transition
+
+
+
+transition-property
+--------------------
+
+ex:1
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		#box
+		{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			box-sizing: border-box;
+			margin: 100px auto;
+			transition-property: width,height;
+		}
+		#box:hover
+		{
+			width:400px;
+			height: 400px;
+		}
+	</style>
+</head>
+<body>
+		<div id="box">
+			
+		</div>
+</body>
+</html>
+
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		#box
+		{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			box-sizing: border-box;
+			margin: 100px auto;
+			transition-property: all;
+		}
+		#box:hover
+		{
+			width:400px;
+			height: 400px;
+		}
+	</style>
+</head>
+<body>
+		<div id="box">
+			
+		</div>
+</body>
+</html>
+
+transition-duration
+---------------------
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		#box
+		{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			box-sizing: border-box;
+			margin: 100px auto;
+			transition-property: all;
+			transition-duration: 2s;
+		}
+		#box:hover
+		{
+			width:400px;
+			height: 400px;
+		}
+	</style>
+</head>
+<body>
+		<div id="box">
+			
+		</div>
+</body>
+</html>
+
+transition-timing-function
+-------------------------
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		#box
+		{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			box-sizing: border-box;
+			margin: 100px auto;
+			transition-property: all;
+			transition-duration: 2s;
+			transition-timing-function: linear;
+		}
+		#box:hover
+		{
+			width:400px;
+			height: 400px;
+		}
+	</style>
+</head>
+<body>
+		<div id="box">
+			
+		</div>
+</body>
+</html>
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		#box
+		{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			box-sizing: border-box;
+			margin: 100px auto;
+			transition-property: all;
+			transition-duration: 2s;
+			transition-timing-function: ease-in;
+		}
+		#box:hover
+		{
+			width:400px;
+			height: 400px;
+		}
+	</style>
+</head>
+<body>
+		<div id="box">
+			
+		</div>
+</body>
+</html>
+
+ex:3
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		#box
+		{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			box-sizing: border-box;
+			margin: 100px auto;
+			transition-property: all;
+			transition-duration: 2s;
+			transition-timing-function: ease-out;
+		}
+		#box:hover
+		{
+			width:400px;
+			height: 400px;
+		}
+	</style>
+</head>
+<body>
+		<div id="box">
+			
+		</div>
+</body>
+</html>
+
+ex:4
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		#box
+		{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			box-sizing: border-box;
+			margin: 100px auto;
+			transition-property: all;
+			transition-duration: 2s;
+			transition-timing-function: ease-in-out;
+		}
+		#box:hover
+		{
+			width:400px;
+			height: 400px;
+		}
+	</style>
+</head>
+<body>
+		<div id="box">
+			
+		</div>
+</body>
+</html>
+
+transition-delay 
+-----------------
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		#box
+		{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			box-sizing: border-box;
+			margin: 100px auto;
+			transition-property: all;
+			transition-duration: 2s;
+			transition-timing-function: ease-in-out;
+			transition-delay: 3s;
+		}
+		#box:hover
+		{
+			width:400px;
+			height: 400px;
+		}
+	</style>
+</head>
+<body>
+		<div id="box">
+			
+		</div>
+</body>
+</html>
+
+
+transition (shorthand property)
+--------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		#box
+		{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			box-sizing: border-box;
+			margin: 100px auto;
+			transition:2s all linear 3s;
+		}
+		#box:hover
+		{
+			width:400px;
+			height: 400px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+		<div id="box">
+			
+		</div>
+</body>
+</html>
+
+CSS Design 1
+=================
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		img
+		{
+			width: 300px;
+			height: 300px;
+			margin-top: 100px;
+			transition: all 2s linear;
+		}
+		img:hover
+		{
+			transform: rotate(360deg);	
+		}
+	</style>
+</head>
+<body>
+		<center>
+			<img src="images/prabhas.jpeg"/>
+		</center>
+</body>
+</html>
+
+
+CSS Design 2 
+================
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		img
+		{
+			width: 300px;
+			height: 300px;
+			margin: 120px 50px;
+			filter: grayscale(100%);
+			transition:all 1s ease-in-out;
+		}
+		img:hover
+		{
+			transform: scale(1.2,1.2);
+			filter: grayscale(0%);
+		}
+	</style>
+</head>
+<body>
+		<img src="images/girl1.jpeg"/>
+		<img src="images/girl2.jpg"/>
+		<img src="images/girl3.jpeg"/>
+</body>
+</html>
+
+
+CSS opacity property
+======================
+The opacity property sets the opacity level for an element.
+
+The opacity-level describes the transparency-level, where 1 is not transparent at all, 0.5 is 50% see-through, and 0 is completely transparent.
+
+
+ex:1
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		div
+		{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+		<div></div>
+</body>
+</html>
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		div
+		{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			opacity: .5;
+		}
+	</style>
+</head>
+<body>
+		<div></div>
+</body>
+</html>
+
+ex:3
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	<style type="text/css">
+		div
+		{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			opacity: .1;
+		}
+	</style>
+</head>
+<body>
+		<div></div>
+</body>
+</html>
+
+
+CSS Design 3
+============
+
+index.html
+----------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>facebook</title>
+	
+	<!-- add external css -->
+	<link rel="stylesheet" type="text/css" href="css/mystyles.css">
+
+</head>
+<body>
+		<div class="container">
+			<img src="images/girl1.jpeg"/>
+			<img src="images/girl2.jpg"/>
+			<img src="images/girl3.jpg"/>
+		</div>
+</body>
+</html>
+
+
+mystyles.css
+-----------
+*
+{
+	margin: 0;
+	padding: 0;
+}
+.container 
+{
+	width: 1000px;
+	height: 300px;
+	box-sizing: border-box;
+	margin: 100px auto;
+}
+.container img
+{
+	width: 300px;
+	height: 300px;
+	margin: 0 14px;
+	transition:1s all linear ;
+}
+
+.container:hover img
+{
+	opacity: .5;
+}
+.container img:hover
+{
+	opacity: 1;
+	transform: scale(1.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

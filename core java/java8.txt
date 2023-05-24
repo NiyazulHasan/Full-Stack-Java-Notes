@@ -1,0 +1,417 @@
+Q)Write a java program to display the range of int datatype?
+
+int ->  -2147483648 to 2147483647
+
+ex
+----
+class Test
+{
+	public static void main(String[] args)
+	{
+		System.out.println(Integer.MIN_VALUE);
+		System.out.println(Integer.MAX_VALUE);
+	}
+}
+
+Q)Write a java program to display range of short datatype?
+
+Range : -32768 to 32767
+
+class Test
+{
+	public static void main(String[] args)
+	{
+		System.out.println(Short.MIN_VALUE);
+		System.out.println(Short.MAX_VALUE);
+	}
+}
+
+Q)Write a java program to display range of char datatype?
+
+range :  space   ? 
+
+class Test
+{
+	public static void main(String[] args)
+	{
+		System.out.println(Character.MIN_VALUE);
+		System.out.println(Character.MAX_VALUE);
+	}
+}
+
+Identifiers
+============
+A name in java is called identifier.
+
+It can be class name, variable name, method name and label name.
+
+ex:
+	class Test
+	{
+		public   static   void   main(String[]  args)
+		{
+			
+			int  i  =  10;
+		
+			System.out.println(i);
+		}
+	}
+
+	Here Test, main , args and i are identifiers.
+
+Rules to declare an identifiers
+=================================
+Rule1:
+	Identifier will accept following characters.
+	ex:
+		A-Z
+		a-z
+		0-9
+		_
+		$
+
+Rule2:
+	If we take other characters then we will get compile time error.
+	ex:
+		int $=10; //valid 
+
+		int *=20;   //invalid 
+ 		
+		
+Rule3:
+	Every identifer must and should starts with alphabet,underscore or dollar 
+	symbol but not with digits.	
+	ex:
+		int   a123;  //valid
+		int  _123;  //valid  
+		int  1abcd;   //invalid 
+
+
+Rule4:
+	We can't take reserved words as an identifier.
+	ex:
+		int   if; //invalid 
+		int   else; //invalid 
+		int   for; //invalid 
+
+Rule5:
+	We can take predefined classes and interfaces as an identifier name but 
+	it is not good programming practice.
+	ex:
+		int  String=10;  //valid 
+		int  Runnable=20; //valid 
+
+Rule6:
+	Identifier can be alpha , numeric , character also.
+	ex:
+		int  emp_Id1;  //valid
+
+		int  stud#No2;  //invalid 
+
+
+Reserved Words
+=================
+There are some identifiers which are reserved to associate some functionality or meaning such type of identifiers are called reserved words.
+
+All reserved words we need to write under lower case letters only.
+
+Java supports 53 reserved words and it is divided into two types.
+
+Diagram: java8.1
+
+Used keywords with respect to class
+-----------------------------------
+import
+package
+enum
+class
+extends 
+implements
+interface
+
+Used keywords with respect to object
+-----------------------------
+new
+instanceof
+this
+super
+
+Used keywords with respect to modifiers
+---------------------------------------
+default
+public
+private
+protected
+static
+final
+abstract
+strictfp
+synchronized
+transient
+volatile 
+
+Used keywords with respect to flow control
+-----------------------------------------
+if
+else
+switch
+case
+break
+continue
+do
+while
+for 
+
+Used keywords with respect to returntype
+---------------------------
+void 
+
+Used keywords with respect to exception handling
+--------------------------------------
+try
+catch
+throw
+throws
+finally
+assert 
+
+Used keywords with respect to datatypes
+--------------------------------
+short
+byte
+int
+long
+float
+double
+char 
+boolean 
+
+Types of variables
+====================
+A name which is given to a memory location is called variable.
+
+Purpose of variable is used to store the data.
+
+In java, variables are divided into two types.
+
+1)Primitive variables 
+---------------------
+	It is used to represent primitive values.
+
+2)Reference variables 
+-------------------
+	It is used to represent object.
+	ex:
+		Student s=new Student();
+			|
+			reference variable 
+			
+Based on position and execution these variables are categories into three types.
+
+1)Instance variable / non-static variable 
+
+2)Static variable  / Global variable 
+
+3)Local variable / temperory variable / Automatica variable 
+
+
+1)Instance variable
+---------------------
+A value of a variable which is varied(changes) from object to object is called
+instance variable.
+
+Instance variable will be created at the time of object creation and it will destroy at the time of object destruction.Hence scope of instance variable is same as scope of an object.
+
+Instance variables will store in heap area as a part of an object.
+
+Instance variable must and should declare immediately after the class but not inside methods ,blocks and constructors.
+
+Instance variable we can access directly from instance area but we can't access directly from static area.
+
+To access instance variable from static area we need to create object  reference.
+
+ex:1
+---
+class  Test
+{
+	//instance variable
+	int  i=10;
+
+	public static void main(String[] args)
+	{
+		System.out.println(i);//C.T.E 	
+	}
+}
+
+ex:2
+-----
+class  Test
+{
+	//instance variable
+	int  i=10;
+
+	public static void main(String[] args)
+	{
+		Test t=new Test();
+		System.out.println(t.i);//10	
+	}
+}
+
+ex:3
+------
+class  Test
+{
+	//non-static method
+	public void m1()
+	{
+		System.out.println("Non-Static Method");
+	}
+
+	public static void main(String[] args)
+	{
+		Test t=new Test();
+		t.m1();
+	}
+}
+
+Note:
+------
+If we won't intialize any value to instance variable then JVM Will intialized 
+default values.
+ex:
+class  Test
+{
+	//instance variable
+	boolean b;
+
+	public static void main(String[] args)
+	{
+		Test t=new Test();
+		System.out.println(t.b);//false
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

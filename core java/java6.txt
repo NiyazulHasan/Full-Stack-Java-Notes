@@ -1,0 +1,123 @@
+
+Q)Write a java program to display sum of two numbers?
+
+
+class Example1
+{
+	public static void main(String[] args)
+	{
+		int a,b,c;
+
+		a=10;
+		b=20;
+		c=a+b;
+
+		System.out.println(c);	
+	}
+}
+
+Q)Write a java program to find out square of a given number?
+
+class Example2
+{
+	public static void main(String[] args)
+	{
+		int n,square;
+
+		n=5;
+
+		square=n*n;
+
+		System.out.println(square);	
+	}
+}
+
+
+Q)Write a java program to find out cube of a given number? 
+
+class Example3
+{
+	public static void main(String[] args)
+	{
+		int n,cube;
+		
+		n=5;
+
+		cube = n*n*n;
+
+		System.out.println(cube);	
+	}
+}
+
+Q)Write a java program to find out area of a square?
+
+class Example4
+{
+	public static void main(String[] args)
+	{
+		int side,area;
+
+		side=10;
+
+		area = side * side;
+
+		System.out.println(area);	
+	}
+}
+
+Q)Write a java program to find out area of a circle?
+
+class Example5
+{
+	public static void main(String[] args)
+	{
+		int radius;
+		float area;
+
+		radius=5;
+		area = 3.14f * radius * radius;
+		System.out.println(area);
+		
+	}
+}
+
+
+Q)Write a java program to find out perimeter of a circle ? 
+
+class Example6
+{
+	public static void main(String[] args)
+	{
+		int radius;
+		float perimeter;	
+		
+		radius=5;
+		perimeter=2*3.14f*radius;
+
+		System.out.println(perimeter);
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

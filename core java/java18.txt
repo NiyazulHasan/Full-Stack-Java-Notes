@@ -1,0 +1,578 @@
+Control Statements
+===================
+Control statement enables the programmer to control flow of the program.
+
+Control statement allows the programmer to create decisions,to jump from one section of code to another section and to execute the code repeatedly.
+
+We have four types of control statements in java.
+
+1)Decision Making Statement
+
+2)Selection Statement
+
+3)Iteration Statement
+
+4)Jump Statement 
+
+1)Decision Making Statement
+-----------------------------
+Decision making statement is used to create a condition in our program.
+
+Decision making statement is possible by using following ways.
+
+i) if stmt
+
+ii) if else stmt 
+
+iii) if else if stmt 
+
+iv) nested if stmt 
+
+
+i) if stmt
+------------
+It is used to execute the source code only if condition is true.
+
+syntax:
+	if(condition/expression)
+	{
+		-
+		- //code to be execute 
+		-	
+	}
+
+ex:
+----
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(5>2)
+		{
+			System.out.println("stmt2");
+		}
+		System.out.println("stmt3");
+	}
+}
+o/p:
+stmt1
+stmt2
+stmt3
+
+ex:2
+-------
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(5>20)
+		{
+			System.out.println("stmt2");
+		}
+		System.out.println("stmt3");
+	}
+}
+o/p:
+stmt1
+stmt3
+
+ex:
+------
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		if(false)
+			System.out.println("stmt1");
+			System.out.println("stmt2");
+			System.out.println("stmt3");
+	}
+}
+o/p:
+stmt2
+stmt3
+
+Q)Write a java program to find out greatest of two numbers?
+
+import java.util.Scanner;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the First Number :");
+		int a=sc.nextInt();
+		System.out.println("Enter the Second Number :");
+		int b=sc.nextInt();
+
+		if(a>b)
+			System.out.println(a+" is greatest");
+		if(b>a)
+			System.out.println(b+" is greatest");
+	}
+}
+
+Q)Write a java program to find out greatest of three numbers?
+
+import java.util.Scanner;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the First Number :");
+		int a=sc.nextInt();
+		System.out.println("Enter the Second Number :");
+		int b=sc.nextInt();
+		System.out.println("Enter the Third Number :");
+		int c=sc.nextInt();
+
+		if(a>b && a>c)
+			System.out.println(a+" is greatest");
+		if(b>a && b>c)
+			System.out.println(b+" is greatest");
+		if(c>a && c>b)
+			System.out.println(c+" is greatest");
+	}
+}
+
+ii) if else stmt 
+-------------------
+It will execute the source code either our condition is true or false.
+
+syntax:
+	if(condition/expression)
+	{
+		-
+		- //code to be execute if cond is true
+		-
+	}
+	else
+	{
+		-
+		- //code to be execute if cond is false
+		-	
+	}
+
+ex:
+---
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(!(5>20))
+		{
+			System.out.println("stmt2");
+		}
+		else
+		{
+			System.out.println("stmt3");
+		}
+		System.out.println("stmt4");
+	}
+}
+o/p:
+stmt1
+stmt2
+stmt4
+
+ex:
+------
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(!(5>2))
+		{
+			System.out.println("stmt2");
+		}
+		else
+		{
+			System.out.println("stmt3");
+		}
+		System.out.println("stmt4");
+	}
+}
+o/p:
+stmt1
+stmt3
+stmt4
+
+
+Q)Write a java program to find out given age is eligible to vote or not?
+
+import java.util.Scanner;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Age :");
+		int age=sc.nextInt();
+
+		if(age>=18)
+			System.out.println("U r eligible to vote ");
+		else 
+			System.out.println("U r not eligible to vote");
+	}
+}
+
+
+Q)Write a java program to find out given number is positive or negative?
+
+import java.util.Scanner;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();
+
+		if(n==0)
+		{
+			System.out.println("It is not a positive or negative number");
+			System.exit(0);
+		}
+
+		if(n>0)
+			System.out.println("It is positive number");
+		else 
+			System.out.println("It is negative number");
+	}
+}
+
+Q)Write a java program to find out given number is even or odd?
+
+import java.util.Scanner;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();
+
+		if(n%2==0)
+			System.out.println("It is even number");
+		else 
+			System.out.println("It is odd number");
+	}
+}
+
+Q)Write a java program to find out given number is odd or not?
+
+import java.util.Scanner;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();
+
+		if(n%2!=0 || n%2==1)
+			System.out.println("It is odd number");
+		else 
+			System.out.println("It is not odd number");
+	}
+}
+
+Q)Write a java program to find out given year is a leap year or not?
+
+import java.util.Scanner;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the year :");
+		int year=sc.nextInt();
+
+		if(year%4==0)
+			System.out.println("It is a leap year");
+		else 
+			System.out.println("It is not a leap year");
+	}
+}
+
+Screening Test Programs
+========================
+Q)Write a java program to find out given number is even or odd?
+
+
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		//code here 	
+	}
+	public static int find(int n)
+	{
+
+		//code here 
+		
+	}
+}
+
+solution
+--------
+import java.util.Scanner;
+public class MyProgram
+{
+    public static void main(String[] args) 
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Number :");
+	    int n=sc.nextInt();
+		//caller 
+		int k=find(n);
+		if(k==1)
+		    System.out.println("It is even number ");
+		else
+		    System.out.println("It is odd number ");
+	}
+	public static int find(int n)
+	{
+	   if(n%2==0)
+	    return 1;
+	   else
+	    return 0;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

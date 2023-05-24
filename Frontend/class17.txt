@@ -1,0 +1,584 @@
+4)for IN loop
+================
+It is used to iterate the data from array.
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<script>
+			var arr=[10,20,30,40];
+
+			for(var i in arr)
+			{
+				document.writeln(arr[i]+" ");	
+			}
+
+		</script>
+</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<script>
+			var arr=['a','b','c','d'];
+
+			for(var i in arr)
+			{
+				document.writeln(arr[i]+" ");	
+			}
+
+		</script>
+</body>
+</html>
+
+
+Q)Write a javascript program to find out given number is palindrome or not?
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<script>
+			var n=parseInt(prompt("Enter the number :"));
+
+			var temp=n;
+
+			var rem,rev=0;	
+			while(n>0)
+			{
+				rem=n%10;
+				rev=rev*10+rem;
+				n=parseInt(n/10);
+			}
+			if(rev==temp)
+				document.writeln("It is a palindrome number");
+			else
+				document.writeln("It is not a palindorm number");
+
+		</script>
+</body>
+</html>
+
+Q)Write a javascript program to display below loop pattern?
+
+* * * * 
+* * * *
+* * * * 
+* * * * 
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<script>
+			
+			for(var i=1;i<=4;i++)
+			{
+				for(var j=1;j<=4;j++)
+				{
+					document.writeln("* ");
+				}
+				//new line
+				document.writeln("<br>");
+			}
+
+		</script>
+</body>
+</html>
+
+
+Q)Write a javascript program to display below loop pattern?
+
+* 
+* * 
+* * * 
+* * * * 
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<script>
+			
+			for(var i=1;i<=4;i++)
+			{
+				for(var j=1;j<=i;j++)
+				{
+					document.writeln("* ");
+				}
+				//new line
+				document.writeln("<br>");
+			}
+
+		</script>
+</body>
+</html>
+
+
+Javascript Functions
+=======================
+Javascript function is a block of code which is used to perform perticular task.
+
+Javascript function can be declare by using function keywords , followed by name and followed by paranetheses i.e '()'.
+
+Javascript function contains letters,digits,underscore and dollar.same rule as variables.
+
+Javascript paranetheses contains parameters/arguments and each argument seperated with comma (,).
+
+syntax:
+---------
+	function  fun_name(parameter1,parameter2,...,parameterN)
+	{
+		-
+		-//code to be execute
+		-
+	}
+
+JavaScript functions are executed at the time when they are invoke/call.
+
+1)When it is called from javascript code.
+
+2)When event is occur (when user click on button).
+
+3)Self invocation.
+
+
+1)When it is called from javascript code
+-----------------------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			function f1()
+			{
+				document.writeln("This is Function");
+			}
+
+			//call
+			f1();	
+		</script>
+	</body>
+</html>
+
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			function f1()
+			{
+				document.bgColor="#FFFF00";
+			}
+
+			//call
+			f1();	
+		</script>
+	</body>
+</html>
+
+2)When event is occur 
+--------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			function f1()
+			{
+				document.writeln("This is Function");
+			}	
+		</script>
+
+		<button onclick="f1()">click</button>
+	</body>
+</html>
+
+ex:
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			function f1()
+			{
+				document.bgColor="#FF0000";
+			}	
+		</script>
+
+		<button onclick="f1()">click</button>
+	</body>
+</html>
+
+No returntype with No argument function
+------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<script>
+			
+		function f1()
+		{
+			document.writeln("Javascript class");
+		}
+
+		f1();
+
+		</script>
+
+		
+</body>
+</html>
+
+
+
+No returntype with Argument function
+--------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<script>
+			
+		function f1(a,b)
+		{
+			var c=a+b;
+			document.writeln(c);
+		}
+
+		f1(10,20);
+
+		</script>
+
+		
+</body>
+</html>
+
+
+
+
+With returntype with No argument function
+------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<script>
+			
+		function f1()
+		{
+			return "Hello Javascript people";
+		}
+
+		document.writeln(f1());
+
+		</script>
+
+		
+</body>
+</html>
+
+
+With returntype with Argument function 
+----------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<script>
+			
+		function f1(a,b)
+		{
+			return a+b;
+		}
+
+		document.writeln(f1(10,20));
+
+		</script>
+
+		
+</body>
+</html>
+
+
+Interview Questions
+=====================
+
+Q)What is JavaScript?
+
+JavaScript is a scripting language.
+It is a case sensitive language.
+It is an object based language.
+It is a loosely typed checking language.
+It was developed by Brendan Eich in 1995.
+The original name of JavaScript is LiveScript.
+
+
+
+Q)Advantages of javascript?
+
+Speed/Faster
+Simplicity
+Interoperability
+Versatility
+Rich interfaces
+Reduce Server Load
+No compiler and No interpreter
+Weakly typed language
+Platform independent
+Client Side validation
+
+
+Q)Disadvantages of JavaScript?
+
+Client-Side Security
+Browser Support
+Stop Rendering
+Slow Bitwise Operation
+Single Inheritance
+
+
+Q)Types of Functions in javascript?
+
+We have three types of functions in javascript.
+
+1)Named Function
+
+2)Anonymous Function
+
+3)Arrow Function 
+
+1)Named Function
+---------------
+These types of functions contains name at the time of definition.
+ex:
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<script>
+			
+		function f1()
+		{
+			document.writeln("Named Function");
+		}
+		f1();
+		</script>
+
+		
+</body>
+</html>
+
+2)Anonymous Function
+---------------------
+These types of functions don’t contain any name.
+They are declared dynamically at runtime.
+ex:
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<script>
+			
+		var f1=function()
+				{
+				document.writeln("Anonymous Function");
+				}
+		f1();
+		</script>
+
+		
+</body>
+</html>
+
+
+3)Arrow function
+--------------------
+According to ES6 standard we need to use arrow function.
+
+Arrow functions are more secured when compare to named function and anonymous function.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<script>
+			
+		var f1=()=>
+				{
+				document.writeln("Arrow Function");
+				}
+		f1();
+		</script>
+
+		
+</body>
+</html>
+
+
+
+Q) What is JavaScript Closure?
+
+A closure is the combination of a function bundled together along lexical scope.
+
+In other words, a closure gives you access to an outer function's scope from an inner
+function.
+
+In JavaScript, closures are created every time when function is created.
+
+Ex:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<script>
+			//lexical scope 
+			var a=10;
+			function f1()
+			{
+				//lexical scope
+				var b=20;
+				function f2()
+				{
+					document.writeln(a+" "+b);	
+				}
+				f2();
+			}
+			f1();	
+
+		</script>
+
+		
+</body>
+</html>
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

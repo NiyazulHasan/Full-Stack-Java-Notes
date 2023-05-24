@@ -1,0 +1,175 @@
+Comments in Java
+===================
+Comments are created for documentation purpose.
+
+Comments are used to improve readability of our code.
+
+Whenever compiler reads comments, it will ignore the statement.Hence we won't get comments in our outputs.
+
+It is highly recommanded to use comments in our regular programming.
+
+We have two types of comments in java.
+
+1)Single Line Comment
+--------------------
+	It is used to comment a single line.
+	syntax:
+		// comment here 
+		
+2)Multiple line comment
+----------------------
+	It is used to comment multiple lines.
+	ex:
+		/*
+			-
+			- comment here 
+			-
+		*/
+
+ex:
+
+//class declaration 
+class Example
+{
+	//main method 
+	public static void main(String[] args)
+	{
+		//output stmt 		
+		System.out.println("Hello World");
+	}
+}
+
+
+Modules in Java
+==================
+We have three modules in java.
+
+				Modules
+	   |-----------------------|-----------------------|	
+	JSE/J2SE		JEE/J2EE		JME/J2ME		
+(Java Standard Edition)	 (Java Enterprises Edition) (Java Micro/Mobile Edition)
+
+> Standalone App	> Distributed App		> Mobile App
+
+> Desktop App		> Enterprises App
+
+> Two-tier App		> N-tier App
+
+			> Applets
+
+
+
+> Standalone App
+----------------
+A normal java program which contains main method is called standalone application.
+
+ex:
+	class  Test
+	{
+		public static void main(String[] args)
+		{
+			-
+			- //code to be execute 
+			-
+		}	
+	}
+
+
+> Desktop App
+---------------
+It is a softare application designed to performed perticular task.
+It is local to a computer.
+ex:
+	control panel
+	VLC media player
+	recycle bin 
+	
+> Two-tier App
+-----------------
+Having more then one tier is called two-tier application.
+ex:
+	JDBC application
+	Servlet application
+	JSP application
+	and etc.
+
+Diagram: java2.1
+Diagram: java2.2
+
+
+
+> Distributed App
+------------------
+In client/Server architecture.If multiple clients are giving the request to main server then main server will distribute the request to it's parallel servers to reduce the burdun of main server is called distributed application.
+
+Diagram: java2.3
+
+
+> Enterprises App
+-----------------
+Application which deals with large business complex logic with the help of middleware services is called enterprises application.
+
+Here middleware services means additional services like authentication, autherization,malwareproduction,security,transaction and etc.
+
+ex:
+	Facebook 
+	Online Shopping websites
+
+N-tier App
+------------
+Having more then two tier is called N-tier application.
+
+Diagram: java2.4
+
+JNTU university 
+
+
+> Applets
+-----------
+It is a compiled java class which is used to send over the network as web pages.
+
+If we need a web page with performance then we need to use HTML.
+
+If we need a web page with security then we need to use Applets.
+
+> Mobile App
+-------------
+It is a software application or a program which is developed for wireless network devices like phone,tab,cellular,mobile and etc rather then laptop's and PC's.
+ex:
+	Gpay
+	AmazonPay
+	TempleRun
+	Subway
+	and etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

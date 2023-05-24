@@ -1,0 +1,490 @@
+ii)while loop
+==============
+It will execute the source code untill our condition is true.
+
+syntax:
+	while(condition/expression)
+	{
+		-
+		- //code to be execute 
+		-
+	}
+
+In while loop, our code will execute zero or more times.
+
+ex:
+------
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int i=1;
+		while(i<=10)
+		{
+			System.out.print(i+" ");//infinite 1
+		}
+	}
+}
+
+Q)Write a java program to display 10 natural numbers?
+
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int i=1;
+		while(i<=10)
+		{
+			System.out.print(i+" ");//1 2 3 4 5 6 7 8 9 10
+			i++;
+		}
+	}
+}
+
+Q)Write a java program to display sum of 10 natural numbers?
+
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int i=1,sum=0;
+		while(i<=10)
+		{
+			sum+=i;
+			i++;
+		}
+		System.out.println("sum of 10 natural numbers is ="+sum);
+	}
+}
+
+
+Q)Write a java program to find out factorial of a given number?
+
+factorial : n=5 --> 5*4*3*2*1 = 120 
+
+import java.util.Scanner;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();
+
+		int i=n,fact=1;
+		while(i>=1)
+		{
+			fact*=i;
+			i--;
+		}
+
+		System.out.println("Factorial of a given number is ="+fact);
+	}	
+}
+
+
+Q)Write a java program to find out multiplication table of a given number?
+
+import java.util.Scanner;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();
+
+		int i=1;
+		while(i<=10)
+		{
+
+			System.out.println(n+" * "+i+" = "+n*i);
+			i++;
+		}
+	}
+		
+}
+
+Q)Write a java program to find out sum of digits of a given number?
+
+Input:
+	123
+
+Output:
+	6
+
+ex:
+
+import java.util.Scanner;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();
+
+		int rem,sum=0;
+		while(n>0)
+		{
+			rem = n%10;
+			sum= sum+rem;
+			n = n/10;
+		}
+		System.out.println("Sum of digits of a given number is ="+sum);
+		
+	}
+		
+}
+
+
+Q)Write a java program to display reverse of a given number?
+
+Input:
+	123
+
+Output:
+	321
+
+ex:
+
+import java.util.Scanner;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();
+
+		int rem,rev=0;
+		while(n>0)
+		{
+			rem = n%10;
+			rev= rev*10+rem;
+			n = n/10;
+		}
+		System.out.println("Reverse of a given number is ="+rev);
+		
+	}
+		
+}
+
+Q)Write a java program to find out given number is palindrome or not?
+
+Input:
+	121
+
+Output:
+	It is a palindrome number 
+
+ex:
+import java.util.Scanner;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();
+
+		int temp=n;
+
+		int rem,rev=0;
+		while(n>0)
+		{
+			rem = n%10;
+			rev= rev*10+rem;
+			n = n/10;
+		}
+	
+		if(temp==rev)
+			System.out.println("It is a palindrome number");
+		else
+			System.out.println("It is not a palindrome number");
+		
+	}
+		
+}
+
+Q)Write a java program to find out given number is Armstrong or not?
+
+Input:
+	 153   (1*1*1 + 5*5*5  + 3*3*3)  --> (1 + 125 + 27)
+
+Output:
+	It is armstrong number 
+
+ex:
+----
+import java.util.Scanner;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();
+
+		int temp=n;
+
+		int rem,sum=0;
+		while(n>0)
+		{
+			rem = n%10;
+			sum= sum+rem*rem*rem;
+			n = n/10;
+		}
+	
+		if(temp==sum)
+			System.out.println("It is a armstrong number");
+		else
+			System.out.println("It is not a armstrong number");
+		
+	}
+		
+}
+
+Recursion
+=============
+A method which called self for many number of times is called recursion.
+
+Recursion is similar to loopings.
+
+
+Q)Write a java program to find out factorial of a given number using recursion?
+
+
+import java.util.Scanner;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt(); //5
+		//caller
+		System.out.println("factorial of a given number is ="+factorial(n));	
+	}
+	public static int factorial(int n)
+	{
+		if(n<0)
+			return -1;
+
+		if(n==0)
+			return 1;
+
+		return n*factorial(n-1);
+
+	}
+		
+}
+
+Q)Write a java program to find out sum of two numbers using recursion?
+
+import java.util.Scanner;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the First Number :");
+		int a=sc.nextInt(); //5
+		
+		System.out.println("Enter the Second Number :");
+		int b=sc.nextInt(); //10
+
+		//caller
+		System.out.println("sum of two numbers is ="+sum(a,b));
+	}
+	//callie 
+	public static int sum(int a,int b)
+	{
+			if(a==0)
+				return b;
+
+			return sum(--a,++b);
+	}
+		
+}
+
+Q)Write a java program to display 10 natural numbers without using loops?
+
+import java.util.Scanner;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		//caller 
+		display(1);
+	}
+	//callie 
+	public static void display(int i)
+	{
+		if(i<=10)
+		{
+			System.out.print(i+" ");
+			display(i+1);
+		}
+	}
+		
+}
+
+
+Screen Test 
+-----------
+import java.util.Scanner;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int i=5,j=7;
+		
+		System.out.println("First value ="+i*j); // 35
+
+		System.out.println("Second value ="+i+j); //57 
+		
+		System.out.println("Third value="+(i+j));//12
+		
+
+	}
+		
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

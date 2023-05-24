@@ -1,0 +1,268 @@
+Junit
+=======
+It is a Java Framework to perform unit testing.
+
+Unit testing is about testing a small piece of code which is working 
+according to requirement or not.
+
+To test the code in junit we need to create test cases or test suites.
+
+
+step1:
+	create a project.
+	ex:
+	file --> project --> java project --> next -->
+	project Name : JunitProject -->next --> finish
+
+step2:
+	create "com.ihub.www" package inside the project.
+	ex:
+		right click to src folder--> new ---> package
+		--> name : com.ihub.www---> finish.
+
+step3:
+	create a DemoApp program with two methods.
+	ex:
+		right click to com.ihub.www-> class -->
+		Name : DemoApp --> finish.
+
+DemoApp.java
+-------------
+package com.ihub.www;
+
+public class DemoApp {
+	
+	public String concatinate(String s1,String s2)
+	{
+		return s1+s2;
+	}
+
+	public int sum(int a,int b)
+	{
+		return a+b;
+	}
+}
+
+
+step4:
+-----
+	Create Junit test cases on methods.
+	ex:
+	right click to DemoApp.java program --> new -->
+	others --> Junit --> Junit testcases -->next -->
+	next--> select on concatination and sum method -->finish-->ok.
+
+
+step5:
+	Write the logics for Test cases.
+	ex:
+DemoAppTest.java
+------------------
+package com.ihub.www;
+
+import junit.framework.TestCase;
+
+public class DemoAppTest extends TestCase {
+
+	public void testConcatinate() {
+		DemoApp da=new DemoApp();
+		String result=da.concatinate("ihub","talent");
+		assertEquals("ihubtalent", result);
+	}
+
+	public void testSum() {
+		DemoApp da=new DemoApp();
+		int result=da.sum(10, 20);
+		assertEquals(30,result);
+	}
+
+}
+	
+step6:
+------
+	Run the test cases.
+	ex:
+	rightclick to DemoAppTest.java --> debug as --> Junit test case
+	
+Note:
+	Green color indicates testcases done successfully.
+	brown color indicates test cases are unsuccessfull.
+
+
+
+Maven
+========
+Maven is a project building Management Tool.
+
+Maven contains pom.xml file.Here POM stands for Project Object Model.
+
+A pom.xml file contains dependencies,goals and other cofiguration details.
+
+
+Steps to develop Maven Project
+-------------------------------
+step1:
+	Open eclipse IDE by choosing workspace location.
+
+step2:
+	create a "Dynamic web project" i.e MavenProj.
+	ex:
+	File-->new --> dynamic web project -->Project : MavenProject
+	---> select 3.0 as dynamic web module version -->next-->next-->
+	generate web.xml file --> finish.
+
+step3:
+-----
+	Convert Dynamic web project to Maven Project.
+	ex:
+	Right click to project --> configure--> convert to maven project
+	--->group Id :com.ihub.www 
+	--->artifact id : MavenProj
+	--->Name : MavenProj
+	-->description: My First Maven Project --> finish.	
+
+step4:
+----
+	add "servlet-api" maven dependency in pom.xml file
+	ex:
+	pom.xml
+	-------
+	--
+	--
+	<dependencies>
+  		<dependency>
+    			<groupId>javax.servlet</groupId>
+    			<artifactId>servlet-api</artifactId>
+    			<version>2.5</version>
+    			<scope>provided</scope>
+		</dependency>
+  	</dependencies>
+  
+  	<build>	
+	-
+	-
+	-
+
+
+step5:
+-----
+	Create ABC.jsp file in "Web Content " folder.
+	ex:
+	ABC.jsp
+	--------
+	<center>
+	<h1>
+		<%
+			java.util.Date d=new java.util.Date();
+			out.println(d);
+		%>
+	</h1>
+	</center>	
+
+
+step6:
+------
+	Add "ABC.jsp file" as welcome file in web.xml file
+	ex:
+	web.xml
+	-------
+	<?xml version="1.0" encoding="UTF-8"?>
+	<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 	xmlns="http://java.sun.com/xml/ns/javaee" 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" 	version="2.5">
+  
+  	<welcome-file-list>
+ 		<welcome-file>ABC.jsp</welcome-file>
+  	</welcome-file-list>
+  
+	</web-app>
+
+
+step 7:
+-------
+	Run the Maven project.
+	ex:
+	Right click to project -->run as --> run on server -->
+	Select Tomcat7.0 --> next -->  finish.
+
+
+step8:
+------
+	Test the project by using below request url.
+	ex:
+	http://localhost:2525/Maven/
+
+
+Git/GITHUB
+==========
+GITHUB is a hosting server for GIT.
+GITHUB contains remote repository.
+The default branch for remote repository is main branch.
+
+GIT is a distributed version control system which is used to track changes
+of each file in a project.
+
+GIT contains local repository.
+
+
+Steps to push the code to Git repository
+------------------------------------------
+step1:
+	create an account in GITHUB.
+	ex:
+		https://github.com/
+
+step2:
+	Sign in with username and password.
+	ex:
+		username : saitejaeee97@gmail.com
+		password : saiteja@97
+
+step3:
+	Install GIT software in our local machine.
+	ex:
+		https://git-scm.com/downloads
+		
+step4:
+-------
+	Open Eclipse IDE 
+
+step5:
+------
+	create a repository in GIThub.
+	ex:
+		start project --> repository Name : ih-java-014
+		---> create repository --> 
+		
+
+
+step6:
+------
+	Goto quick access (search bar)
+	ex:
+	quick access --> git repository ---> clone a git repository -->
+	URI : https://github.com/saitejaeee/ih-java-014 --> next -->
+	--> next -->finish.
+
+step7:
+------
+	Share the maven project
+	ex:
+	right click to maven project --> team --> share project -->
+	select git --> next --> repository : (select ih-java-014) -->
+	Finish.
+
+step8:
+------
+	Add all the files to git repository.
+	ex:
+	Right click to maven project --> team --> commit -->
+	commit msg :  this is my first commit --> select All -->
+	commit and push.
+	
+
+step9:
+--------
+	Refresh the github page
+	ex:
+	https://github.com/saitejaeee/ih-java-014
+
+

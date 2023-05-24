@@ -1,0 +1,489 @@
+Enum
+======
+Enum is a group of named constants.
+
+Enum concept is introduced in 1.5 version.
+
+Using enum we can create our own datatype called enumerated datatype.
+
+When compare to old language enum, java enum is more powerful.
+
+Enum is a special class.
+
+To declare enum we need to use enum keyword.
+
+syntax
+------
+	enum  enum_type_name
+	{
+		val1,val2,....,valN
+	}
+
+ex:
+-----
+	enum  Months
+	{
+		JAN,FEB,MAR
+	}
+
+ex:
+	enum week
+	{
+		SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY
+	}
+
+Internal implementation of enum
+==============================
+Every enum internal consider as final class and extended with java.lang.Enum class.
+
+Every enum constant is a reference variable of enum type.
+
+
+enum Months			public final class Months extends java.lang.Enum
+{				{
+	JAN,FEB,MAR  ==>	public static final Months JAN=new Months();	
+}				public static final Months FEB=new Months();
+				public static final Months MAR=new Months();
+				}
+
+
+Declaration and Usage of enum
+============================
+enum Months
+{
+	JAN,FEB,MAR
+}
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Months m=Months.JAN;
+		System.out.println(m);//JAN
+	}
+}
+
+ex:
+----
+enum Months
+{
+	JAN,FEB,MAR
+}
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Months m=Months.DEC;
+		System.out.println(m);//C.T.E 
+	}
+}
+
+ex:
+------
+enum Months
+{
+	JAN,FEB,MAR
+}
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Months m=Months.FEB;
+		switch(m)
+		{
+			case JAN: System.out.println("January"); break;
+			case FEB: System.out.println("February"); break;
+			case MAR: System.out.println("March"); break;
+		}
+		
+	}
+}
+
+java.lang.Enum
+--------------
+Power to enum will be inherited from java.lang.Enum class.
+
+It contains following two methods.
+
+1)values()
+-------
+	It is a static method which returns all the constants of enum.
+
+2)ordinal() 
+----------
+	It is used to return ordinal numbers.
+
+ex:
+----
+enum Months
+{
+	JAN,FEB,MAR
+}
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Months[] m=Months.values();
+		
+		//for each loop
+		for(Months m1:m)
+		{
+			System.out.println(m1+" -----  "+m1.ordinal());
+		}
+		
+	}
+}
+
+When compare to old language enum , java enum is more powerful because in addition to constants we can declare constructors, variables and methods.
+
+ex:1
+-----
+enum Months
+{
+	JAN,FEB,MAR;
+	Months()
+	{
+		System.out.println("constructor");
+	}
+}
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Months m=Months.JAN;
+		
+	}
+}
+
+ex:2
+----
+enum Months
+{
+
+	JAN,FEB,MAR;
+	static int i=10;
+	public static void main(String[] args) 
+	{
+		System.out.println(i);
+	}
+}
+
+Wrapper classes
+=================
+The main objective of wrapper class is used to wrap primitive to wrapper object 
+and vice versa.
+
+To defined serveral utility methods.
+
+
+Primitive type				Wrapper class
+---------------				----------------
+byte					Byte
+short					Short
+int					Integer
+long					Long
+float					Float
+double					Double
+boolean					Boolean
+char					Character 
+
+
+constructors
+--------------
+Every wrapper contains following two constructors.One will take corresponding primitive as an argument and another will take corresponding String as an argument.
+
+wrapper class				constructor
+----------------			------------
+Byte					byte or String
+Short					short or String
+Integer					int or String
+Long					long or String
+Float					float or String
+Double					double or String
+Boolean					boolean or String
+Character 				char 
+
+ex:1
+----
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Integer i1=new Integer(10); // corresponding primitive 
+		System.out.println(i1);//10
+
+		Integer i2=new Integer("20"); // corresponding string  
+		System.out.println(i2);//20
+		
+	}
+}
+
+ex:2
+------
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Boolean b1=new Boolean(true);
+		System.out.println(b1);
+
+		Boolean b2=new Boolean("false");
+		System.out.println(b2);
+		
+	}
+}
+
+ex:3
+-----
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Character c=new Character('a');
+		System.out.println(c);//a
+		
+	}
+}
+
+Utility methods
+=================
+
+1)valueOf() method
+--------------------
+It is similar to constructor.
+It converts primitive type to wrapper object.
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Integer i1=Integer.valueOf(10);
+		System.out.println(i1);
+
+		Integer i2=Integer.valueOf("20");
+		System.out.println(i2);
+		
+	}
+}
+
+	
+
+2)xxxValue() method
+------------------
+It is used to convert Wrapper type to primitive type.
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Integer i1=new Integer(10);
+		byte b=i1.byteValue();
+		System.out.println(b);//10
+
+		short s=i1.shortValue();
+		System.out.println(s);//10
+	}
+}
+	
+
+3)parseXxx() method
+----------------
+It is used to convert string type to primitive type.
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="20";
+
+		int i=Integer.parseInt(str);
+		System.out.println(i);//20
+		
+		long l=Long.parseLong(str);
+		System.out.println(l);//20
+
+		float f=Float.parseFloat(str);
+		System.out.println(f);//20.0
+		
+	}
+}
+	
+
+
+4)toString() method 
+-------------------
+It is used to convert wrapper type   to String type.
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Integer i1=new Integer(10);
+		String s=i1.toString();
+		System.out.println(s);//10
+	}
+}
+	
+Interview Question
+===================
+
+Q)Types of objects in java?
+
+We have two types of objects in java.
+
+1)Immutable object
+
+2)Mutable object 
+
+1)Immutable object
+--------------------
+After object creation, if we perform any changes then for every change a new object will be created such type of object is called immutable object.
+ex:
+	String
+	Wrapper class
+
+2)Mutable object
+------------------
+After object creation, if we perform any changes then each change will be  reflected in a single object only such type of object is called mutable object.
+ex:
+	StringBuffer
+	StringBuilder 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

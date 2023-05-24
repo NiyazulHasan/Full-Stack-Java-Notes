@@ -1,0 +1,575 @@
+HTML
+========
+HTML stands for Hypertext Markup Language.
+
+It is a widely used language on web to develop web pages and web applications.
+
+It is a case insensitive language.
+
+It is developed by Burner's Lee in late 1991.
+
+It is a tag based language.
+
+Every tag contains opening tag and closing tag.
+ex:
+	<html> - opening tag
+
+	</html> - closing tag 
+
+In html we can't create custom tags.
+
+Every tag contains attribute and each attribute contains name and value.
+ex:
+	<body bgcolor="red">
+
+	</body>
+
+A tag can have multiple attributes and each attribute must be seperated with space.
+
+ex:
+	<body  bgcolor="value"  background="">
+
+	</body> 
+
+All HTML documents we need to save with ".html" or ".html" extension.
+
+All HTML documents will execute in a browser window.
+ex:
+	Chrome
+	Mozilla
+	Microsoft Edge
+	Opera	
+	IE
+	Chromium and etc.
+
+HTML is used to create  client side components.
+
+A simple HTML document is known as component.
+
+HTML2.0 specification was released in the year of 1995.
+
+HTML4.0 specification was released in the year of 1999.
+
+HTML5 which is a extension of HTML4.0 was released in the year of 2005.
+
+The main objective of HTML5 is to create light weight components.
+
+HTML5 is also known as Advanced Hypertext Markup Language.
+
+
+Simple Skeleton for HTML document
+================================
+<!DOCTYPE>
+<HTML>
+	<HEAD>
+		- // head related tags 
+	</HEAD>
+	<BODY>
+		- // body related tags 
+	</BODY>
+</HTML>
+
+Note:
+----
+	Here <!DOCTYPE> represent HTML document.	
+
+
+
+Simple Skeleton for HTML5 document
+================================
+<!DOCTYPE html>
+<HTML>
+	<HEAD>
+		- // head related tags 
+	</HEAD>
+	<BODY>
+		- // body related tags 
+	</BODY>
+</HTML>
+
+Note:
+----
+	Here <!DOCTYPE html> represent HTML5 document.	
+
+<html> tag
+-------------
+It is a root tag for entire html document.
+It contains two child tags.
+ex:
+	<head> tag
+	<body> tag
+
+<head> tag
+----------
+A <head> tag is used to declare following things.
+ex:
+	1) title of a page
+	2) favicon of a page 
+	3) metadata of a page
+	4) styles
+	5) scripts
+
+<body> tag
+-------------
+A <body> tag contains actual content of a web page.
+
+
+Note:
+------
+All the above tags are optional.
+
+
+ex:1
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		
+	</head>
+	<body>
+		Welcome to HTML class
+	</body>
+</html>
+
+Q)How to add title to a web page ?
+------------------------------------
+A <title> tag is used to add the title to a web page.
+
+A <title> tag is used to declare inside <head> tag.
+
+ex:
+	
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Welcome to HTML class
+	</body>
+</html>
+
+
+Q)How to add the favicon to a web page?
+------------------------------------------
+A <link> tag is used to add the favicon to a web page.
+
+A <link> tag we need to declare inside <head> tag.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+
+		<link rel="icon"  href="images/facebook.png">
+	</head>
+	<body>
+		Welcome to HTML class
+	</body>
+</html>
+
+Q)How to change the background color?
+----------------------------------------
+To change the background color we need to use bgcolor attribute of <body> tag.
+
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+
+		<link rel="icon"  href="images/facebook.png">
+	</head>
+	<body bgcolor="yellow">
+		Welcome to HTML class
+	</body>
+</html>
+
+
+Q)How to add background image in a html document?
+--------------------------------------------------
+To set background image in a web page we need to use background attribute of <body> tag.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+
+		<link rel="icon"  href="images/facebook.png">
+	</head>
+	<body background="images/bg.jpg">
+		Welcome to HTML class
+	</body>
+</html>
+
+
+HTML comments
+=================
+Comments are created for documentation purpose.
+
+Comments are used to improve readability of our code.
+
+Comments will not displayed on the browser window.
+
+HTML support only one comment.
+
+syntax:
+	<!--  comment here -->
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- title of page -->
+		<title>IHUBTALENT</title>
+
+		<!-- favicon -->
+		<link rel="icon"  href="images/facebook.png">
+	</head>
+	<body>
+		
+		<!-- custom msg -->
+		Welcome to HTML class
+	</body>
+</html>
+
+
+Meta tag in HTML
+===================
+A <meta> tag is used to describe metadata of a document.
+
+Here metadata means data of a data.
+
+Metadata used by browser window, search engine and other web services.
+
+A <meta> tag must be used inside <head> tag.
+
+We can use <meta> to declare following things.
+
+1)Description
+
+2)Author
+
+3)Keywords
+
+4)viewport
+
+5)refresh
+
+6)copyright
+
+and etc.
+
+
+UTF-8
+---------
+UTF stands for Unicode Transformation Format.
+
+It is a encoding method which describes what characters set a website is written with.
+
+ex:
+	<meta charset="UTF-8">
+
+
+1)Description
+-----------------
+It is used to add description to the web page.
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- title of a page -->
+		<title>IHUBTALENT</title>
+
+		<!-- favicon of a page -->
+		<link rel="icon" href="images/logo.png">
+
+		<!-- meta tag -->
+		<meta charset="UTF-8">
+		<meta name="description" content="NIYAZ Sir classes on HTML">
+	
+	</head>
+	<body>
+		<!-- simple msg to display -->
+		Welcome to HTML Classes
+	</body>
+</html>
+
+2)Author
+---------
+It is used to declare author.
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- title of a page -->
+		<title>IHUBTALENT</title>
+
+		<!-- favicon of a page -->
+		<link rel="icon" href="images/logo.png">
+
+		<!-- meta tag -->
+		<meta charset="UTF-8">
+		<meta name="description" content="NIYAZ Sir classes on HTML">
+		<meta name="author" content="IHUB TALENT">
+	</head>
+	<body>
+		<!-- simple msg to display -->
+		Welcome to HTML Classes
+	</body>
+</html>
+
+3)Keywords
+---------------
+It is used to declare keywords.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- title of a page -->
+		<title>IHUBTALENT</title>
+
+		<!-- favicon of a page -->
+		<link rel="icon" href="images/logo.png">
+
+		<!-- meta tag -->
+		<meta charset="UTF-8">
+		<meta name="description" content="NIYAZ Sir classes on HTML">
+		<meta name="author" content="IHUB TALENT">
+		<meta name="keywords" content="HTML,CSS,JAVASCRIPT,Bootstrap">
+	</head>
+	<body>
+		<!-- simple msg to display -->
+		Welcome to HTML Classes
+	</body>
+</html>
+
+4)viewport
+----------------
+It is used to create make our design as responsive.
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- title of a page -->
+		<title>IHUBTALENT</title>
+
+		<!-- favicon of a page -->
+		<link rel="icon" href="images/logo.png">
+
+		<!-- meta tag -->
+		<meta charset="UTF-8">
+		<meta name="description" content="NIYAZ Sir classes on HTML">
+		<meta name="author" content="IHUB TALENT">
+		<meta name="keywords" content="HTML,CSS,JAVASCRIPT,Bootstrap">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+	</head>
+	<body>
+		<!-- simple msg to display -->
+		Welcome to HTML Classes
+	</body>
+</html>
+
+5)refresh
+------------
+It is used to refresh the page after given seconds.
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- title of a page -->
+		<title>IHUBTALENT</title>
+
+		<!-- favicon of a page -->
+		<link rel="icon" href="images/logo.png">
+
+		<!-- meta tag -->
+		<meta charset="UTF-8">
+		<meta name="description" content="NIYAZ Sir classes on HTML">
+		<meta name="author" content="IHUB TALENT">
+		<meta name="keywords" content="HTML,CSS,JAVASCRIPT,Bootstrap">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta http-equiv="refresh" content="05">
+	</head>
+	<body>
+		<!-- simple msg to display -->
+		Welcome to HTML Classes 
+	</body>
+</html>
+
+6)copyright
+--------------
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- title of a page -->
+		<title>IHUBTALENT</title>
+
+		<!-- favicon of a page -->
+		<link rel="icon" href="images/logo.png">
+
+		<!-- meta tag -->
+		<meta charset="UTF-8">
+		<meta name="description" content="NIYAZ Sir classes on HTML">
+		<meta name="author" content="IHUB TALENT">
+		<meta name="keywords" content="HTML,CSS,JAVASCRIPT,Bootstrap">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta http-equiv="refresh" content="05">
+		<meta name="copyright" content="copyright by IHUB TALENT">
+	</head>
+	<body>
+		<!-- simple msg to display -->
+		Welcome to HTML Classes 
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

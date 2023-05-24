@@ -1,0 +1,234 @@
+Datatypes
+============
+Datatype describes what type of value we want to store inside a variable.
+
+Datatype also tells , how much memory has to be created for a variable.
+
+In java, datatypes are divided into two types.
+
+Diagram: java7.1
+
+byte
+======
+It is smallest datatype in java.
+
+size: 1 byte(8 bits)
+
+Range: -128 to 127 (-2^7 to 2^7-1)
+
+ex:
+	1) byte b=50;
+	   System.out.println(b);//50
+
+	2) byte b=130;
+	   System.out.println(b);//C.T.E 
+
+short
+-------
+It is rarely used datatype in java.
+
+size: 2 bytes(16 bits)
+
+Range: -32768 to 32767 (-2^15 to 2^15-1)
+
+ex:
+	1) byte b=10;
+	   short s=b;
+	   System.out.println(s);//10
+
+	2) short s=10.5;
+	   System.out.println(s);//C.T.E 	
+	
+	3) short s=true;
+	   System.out.println(s);//C.T.E 
+
+
+int
+------
+It is widely used datatype in java.
+
+size: 4 bytes (32 bits)
+
+Range : -2147483648 to 2147483647 (-2^31 to 2^31-1)
+
+ex:
+	1) int i=10.5; 
+	   System.out.println(i);// C.T.E
+
+	2) int i=true;
+	   System.out.println(i);// C.T.E 
+
+	3) int i='a'; 
+	   System.out.println(i);// 97
+
+	4) int i="false";
+	   System.out.println(i);// C.T.E 
+
+
+Universal Unicode value
+=====================
+Every character contains unicode value.
+ex:
+	a = 97 
+	A = 65 	
+	
+long
+---------
+When int datatype is not enough to hold large value then we need to use long datatype.
+
+Size: 8 bytes (64 bits)
+
+Range: (-2^63 to 2^63-1)
+
+ex:
+	1) long l='A';
+	   System.out.println(l); //65
+
+	2) long l=true;
+	   System.out.println(l); //C.T.E 
+
+	3) long l=10.5;
+	   System.out.println(l); //C.T.E 
+
+	4) long l="ihub";
+	   System.out.println(l); //C.T.E 
+
+float						double
+--------					---------
+If we need 4 to 6 decimal points of accuracy	If we need 14 to 16 decimal points
+then we need to use float.			of accuracy then we need to use 
+						double.
+
+Size: 4 bytes (32 bits)				Size : 8 bytes (64 bits)
+
+
+Range: -3.4e38 to 3.4e38			Range: -1.7e308 to 1.7e308
+
+To make a float value we need to suffix with 	To make a double value we need to 
+'f'.						suffix with 'd'.
+ex:						ex:
+	10.5f;						10.5d;
+
+
+ex:
+	1) float f=10;
+	   System.out.println(f);//10.0
+
+	2) float f=10.5f;
+	   System.out.println(f);//10.5
+
+	3) float f=true;	
+	   System.out.println(f); // C.T.E 
+
+	4) float f="hi";'
+	   System.out.println(f); // C.T.E 
+
+	5) float f='a';
+	   System.out.println(f); // 97.0	
+
+ex:
+	1) double d=10;
+	   System.out.println(d);//10.0
+
+	2) double d=10.5d;
+	   System.out.println(d);//10.5
+
+	3) double d=true;	
+	   System.out.println(d); // C.T.E 
+
+	4) double d="hi";'
+	   System.out.println(d); // C.T.E 	
+
+	5) double d='a';
+	   System.out.println(d); // 97.0
+
+
+boolean 
+--------
+It is used to represent boolean values either true or false.
+
+Size: (Not applicable)
+Range: (Not applicable)
+
+ex:
+	1) boolean b=true;
+	   System.out.println(b);// true
+
+	2) boolean b=FALSE;
+	   System.out.println(b);// C.T.E cannot find symbol
+
+	3) boolean b="false";
+	   System.out.println(b); // C.T.E 
+
+
+char
+--------
+It is a single character which is enclosed in a single quotation.
+
+size: 2 bytes (16 bits)
+
+range : 0 to 65535	
+
+ex:
+	1) char ch='a';
+	   System.out.println(ch);//a
+
+	2) char ch=100;
+	   System.out.println(ch); // d
+
+	3) char ch="hi";
+	   System.out.println(ch); // C.T.E 
+	
+	4) char ch=97.5f;
+	   System.out.println(ch); //C.T.E 
+
+	
+Diagram: java7.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

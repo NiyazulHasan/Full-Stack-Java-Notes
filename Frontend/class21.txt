@@ -1,0 +1,520 @@
+Javascript program to convert Feet to Inches
+==============================================
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<table align="center">
+			<tr>
+				<td>Feet</td>
+				<td>&nbsp;</td>
+				<td>Inches</td>
+			</tr>
+			<tr>
+				<td><input type="text" id="feet"/></td>
+				<td><big>=</big></td>
+				<td><input type="text" id="inches"/></td>
+			</tr>
+		</table>
+		<script type="text/javascript">
+			var feet=document.getElementById('feet');
+			var inches=document.getElementById('inches');
+			feet.addEventListener('input',function(){
+				var f=this.value;
+				var i=f*12;
+				inches.value=i;
+
+			})
+			inches.addEventListener('input',function(){
+				var i=this.value;
+				var f=i/12;
+				if(!Number.isInteger(f))
+				{
+					f=f.toFixed(2);
+				}
+				feet.value=f;
+			})
+		</script>
+		
+</body>
+</html>
+
+Javascript program on money conversion application
+==================================================
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	
+	<table align="center">
+		<tr>
+			<td>USD</td>
+			<td><input type="text" id="usd"/></td>
+			<td><big>=</big></td>
+			<td>INR</td>
+			<td><input type="text" id="inr"/></td>
+		</tr>
+	</table>
+
+	<script type="text/javascript">
+		var usd=document.getElementById('usd');
+		var inr=document.getElementById('inr');
+		usd.addEventListener('input',function(e){
+				var dollar=e.target.value;
+				var rupees=dollar*81.85;
+				inr.value=rupees;
+		})
+	</script>
+		
+</body>
+</html>
+
+removeEventListener()
+=========================
+It is used to remove the handler from the function.
+
+ex:
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	
+	<h1 id="hover">Mouse Over Here !</h1>	
+	
+	<button onclick="stop()">stop event</button>
+
+	<div id="result"></div>
+
+	<script type="text/javascript">
+		var y=document.getElementById('hover');
+		y.addEventListener('mouseover',mouseOver);
+
+		function mouseOver()
+		{
+			document.getElementById('result').innerHTML+="<p>Mouse is over</p>";	
+		}
+		function stop()
+		{
+			y.removeEventListener('mouseover',mouseOver);
+			document.getElementById('result').innerHTML+="<p>Mouse is stopped</p>";	
+		}
+	</script>		
+
+</body>
+</html>
+
+JavaScript Date object
+======================
+JavaScript Date is used to display date and time.
+
+Using javascript Date we can display timer on the web page.
+
+ex:1
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		var d=new Date();
+		var h=d.getHours();
+		var m=d.getMinutes();
+		var s=d.getSeconds();
+		document.writeln(h+":"+m+":"+s);	
+	</script>		
+
+</body>
+</html>
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		var d=new Date();
+		var dd=d.getDate();  
+		var mm=d.getMonth()+1;
+		var yy=d.getFullYear();
+		document.writeln(dd+"/"+mm+"/"+yy);	
+	</script>		
+
+</body>
+</html>
+
+
+ex:3
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	
+	<!-- add external css -->
+	<link rel="stylesheet" type="text/css" href="css/mystyles.css">
+</head>
+<body>
+		<span id="result"></span>
+
+
+		<script type="text/javascript">
+			window.onload=function(){getTime();}
+
+			function getTime()
+			{
+				var date=new Date();
+				var h=date.getHours();
+				var m=date.getMinutes();
+				var s=date.getSeconds();
+
+				m=check(m);
+				s=check(s);
+
+				document.getElementById('result').innerHTML=h+":"+m+":"+s;
+			}
+			function check(i)
+			{
+				if(i<10)
+				{
+					i = "0"+i;
+				}
+				return i;
+			}
+
+			setInterval(getTime,1000);
+		</script>
+</body>
+</html>
+
+
+mystyles.css
+---------------
+*
+{
+	margin: 0;
+	padding: 0;
+}
+body
+{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background:linear-gradient(yellow,red);
+}
+span
+{
+	padding:10px;
+	width:80px;
+	box-sizing: border-box;
+	box-shadow: 2px 2px 9px 5px #FFF;
+}
+
+
+Q)What is the difference between innerHTML and innerText ?
+
+innerText:
+==========
+The innerText property is used to write the simple text using 
+JavaScript dynamically.
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<h1 id="result"></h1>
+
+		<button onclick="f1()"> clickHere </button>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				document.getElementById('result').innerText="This is javascript";
+			}
+		</script>		
+</body>
+</html>
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<h1 id="result"></h1>
+
+		<button onclick="f1()"> clickHere </button>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				document.getElementById('result').innerText="<font color='red'>This is javascript</font>";
+			}
+		</script>		
+</body>
+</html>
+
+innerHTML:
+-----------
+The innerHTML property is used to write the HTML code using JavaScript
+dynamically.
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<h1 id="result"></h1>
+
+		<button onclick="f1()"> clickHere </button>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				document.getElementById('result').innerHTML="This is javascript";
+			}
+		</script>		
+</body>
+</html>
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<h1 id="result"></h1>
+
+		<button onclick="f1()"> clickHere </button>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				document.getElementById('result').innerHTML="<font color='red'>This is javascript</font>";
+			}
+		</script>		
+</body>
+</html>
+
+
+
+Q) What is JavaScript hoisting?
+
+Hoisting is the default behavior of JavaScript where all the variable and function
+declarations are moved on top.
+
+This means that irrespective of where the variables and functions are declared, they are moved on top of the scope.
+
+The scope can be both local and global.
+
+
+Ex1:
+	i=100;				var i;
+	document.writeln(i);  ==> 	i=100;
+	var i;				document.writeln(i);
+
+
+
+Ex2:
+	//calling 				//declaring
+	f1();					function f1()
+						{
+	//declaring					document.writeln("Hello");
+	function f1()				}
+	{
+		document.writeln("Hello"); => 	//calling
+	}					f1();	
+
+
+Q)What are the types of errors in JavaScript?
+
+There are two types of errors in JavaScript.
+
+1)Syntax error:
+------------
+Syntax errors are mistakes or spelling problems in the code that cause the
+program to not execute at all or to stop running halfway through.
+
+2)Logical error:
+-----------
+Reasoning mistakes occur when the syntax is proper but the logic or program is
+incorrect. The application executes without problems in this case. However, the
+output findings are inaccurate.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

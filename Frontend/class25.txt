@@ -1,0 +1,1279 @@
+
+Bootstrap spacing
+==================
+Spacing utility is used to assign the responsive friendly margin or padding
+values to an element or a subset of its sides with shorthand classes.
+
+It includes individual properties , all properties ,vertical properties 
+and horizontal properties.
+
+
+bootstrap margin
+======================
+m - for classes that set margin
+
+Where sides is one of:
+
+t - for classes that set margin-top or padding-top
+b - for classes that set margin-bottom or padding-bottom
+s - (start) for classes that set margin-left or padding-left in LTR, margin-right or padding-right in RTL
+e - (end) for classes that set margin-right or padding-right in LTR, margin-left or padding-left in RTL
+x - for classes that set both *-left and *-right
+y - for classes that set both *-top and *-bottom
+blank - for classes that set a margin or padding on all 4 sides of the element
+Where size is one of:
+
+0 - for classes that eliminate the margin or padding by setting it to 0
+1 - (by default) for classes that set the margin or padding to $spacer * .25
+2 - (by default) for classes that set the margin or padding to $spacer * .5
+3 - (by default) for classes that set the margin or padding to $spacer
+4 - (by default) for classes that set the margin or padding to $spacer * 1.5
+5 - (by default) for classes that set the margin or padding to $spacer * 3
+auto - for classes that set the margin to auto
+
+
+ex:1
+--------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+		<!-- container -->
+		<div class="container-fluid">
+			<div class="border border-danger m-1">
+					This is div
+			</div>	
+			<div class="border border-danger m-2">
+					This is div
+			</div>	
+			<div class="border border-danger m-3">
+					This is div
+			</div>
+			<div class="border border-danger m-4">
+					This is div
+			</div>	
+			<div class="border border-danger m-5">
+					This is div
+			</div>	
+		</div>
+</body>
+</html>
+
+ex:2
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+		<!-- container -->
+		<div class="container-fluid">
+			<div class="border border-danger mt-5">
+					This is div
+			</div>
+			<div class="border border-danger ms-5">
+					This is div
+			</div>	
+			<div class="border border-danger me-5">
+					This is div
+			</div>
+			<div class="border border-danger mb-5">
+					This is div
+			</div>
+			<div class="border border-danger mx-5">
+					This is div
+			</div>
+			<div class="border border-danger my-5">
+					This is div
+			</div>
+
+		</div>
+</body>
+</html>
+
+Bootstrap padding
+======================
+p - for classes that set padding
+
+Where sides is one of:
+
+t - for classes that set margin-top or padding-top
+b - for classes that set margin-bottom or padding-bottom
+s - (start) for classes that set margin-left or padding-left in LTR, margin-right or padding-right in RTL
+e - (end) for classes that set margin-right or padding-right in LTR, margin-left or padding-left in RTL
+x - for classes that set both *-left and *-right
+y - for classes that set both *-top and *-bottom
+blank - for classes that set a margin or padding on all 4 sides of the element
+Where size is one of:
+
+0 - for classes that eliminate the margin or padding by setting it to 0
+1 - (by default) for classes that set the margin or padding to $spacer * .25
+2 - (by default) for classes that set the margin or padding to $spacer * .5
+3 - (by default) for classes that set the margin or padding to $spacer
+4 - (by default) for classes that set the margin or padding to $spacer * 1.5
+5 - (by default) for classes that set the margin or padding to $spacer * 3
+auto - for classes that set the margin to auto
+
+
+
+
+ex:1
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+		<!-- container -->
+		<div class="container-fluid">
+			<div class="border border-danger p-1">
+					This is div
+			</div>
+			<div class="border border-danger p-2">
+					This is div
+			</div>
+			<div class="border border-danger p-3">
+					This is div
+			</div>
+			<div class="border border-danger p-4">
+					This is div
+			</div>
+			<div class="border border-danger p-5">
+					This is div
+			</div>
+
+		</div>
+</body>
+</html>
+
+ex:2
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+		<!-- container -->
+		<div class="container-fluid">
+			<div class="border border-danger pt-5">
+					This is div
+			</div>
+			<div class="border border-danger pb-5">
+					This is div
+			</div>			
+			<div class="border border-danger ps-5">
+					This is div
+			</div>	
+			<div class="border border-danger pe-5">
+					This is div
+			</div>	
+			<div class="border border-danger px-5">
+					This is div
+			</div>	
+			<div class="border border-danger py-5">
+					This is div
+			</div>		
+		</div>
+</body>
+</html>
+
+Bootstrap 5 Grid System
+========================
+Bootstrap's grid system is built with flexboxes.
+
+To create a row in a grid system we need to use "row" class.
+
+It  allows to create 12 columns in a single row and It is not required that we 
+must use all 12 columns.
+
+The Grid system is responsive and the column will rearrange automatically
+dependent upon the screen size.
+
+Grid class
+----------
+According Bootstrap5 ,A grid system contains 6 classes.
+
+col-		- extra small device
+
+col-sm- 	- small devices
+
+col-md-	 	- medium devices
+
+col-lg- 	- large devices
+
+col-xl- 	- xlarge devices. 
+
+col-xxl-        - too xlarge device 
+
+ex:1
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+		<!-- container -->
+		<div class="container-fluid">
+			
+			<!-- row -->
+			<div class="row">
+
+				<!-- col with 12 col space --> 
+				<div class="col bg-primary">
+					column1
+				</div>
+			</div>
+		</div>
+</body>
+</html>
+
+ex:2
+--------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+		<!-- container -->
+		<div class="container-fluid">
+			
+			<!-- row -->
+			<div class="row">
+
+				<!-- 2 columns with 6 col space  --> 
+				<div class="col bg-primary">
+					column1
+				</div>
+				<div class="col bg-warning">
+					column2
+				</div>
+			</div>
+		</div>
+</body>
+</html>
+
+ex:3
+---------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+		<!-- container -->
+		<div class="container-fluid">
+			
+			<!-- row -->
+			<div class="row">
+
+				<!-- 3 columns with 4 col space  --> 
+				<div class="col bg-primary">
+					column1
+				</div>
+				<div class="col bg-warning">
+					column2
+				</div>
+				<div class="col bg-info">
+					column3
+				</div>
+			</div>
+		</div>
+</body>
+</html>
+
+ex:4
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+		<!-- container -->
+		<div class="container-fluid">
+			
+			<!-- row -->
+			<div class="row">
+
+				<!-- 4 columns with 3 col space  --> 
+				<div class="col bg-primary">
+					column1
+				</div>
+				<div class="col bg-warning">
+					column2
+				</div>
+				<div class="col bg-info">
+					column3
+				</div>
+				<div class="col bg-success">
+					column4
+				</div>
+			</div>
+		</div>
+</body>
+</html>
+
+
+ex:5
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+		<!-- container -->
+		<div class="container-fluid">
+			
+			<!-- row -->
+			<div class="row">
+
+				<!-- 5 columns with equal distribution  --> 
+				<div class="col bg-primary">
+					column1
+				</div>
+				<div class="col bg-warning">
+					column2
+				</div>
+				<div class="col bg-info">
+					column3
+				</div>
+				<div class="col bg-success">
+					column4
+				</div>
+				<div class="col bg-danger">
+					column5
+				</div>
+			</div>
+		</div>
+</body>
+</html>
+
+ex:6
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+		<!-- container -->
+		<div class="container-fluid">
+			
+			<!-- row -->
+			<div class="row">
+
+				<!-- 6 columns with 2 col space  --> 
+				<div class="col bg-primary">
+					column1
+				</div>
+				<div class="col bg-warning">
+					column2
+				</div>
+				<div class="col bg-info">
+					column3
+				</div>
+				<div class="col bg-success">
+					column4
+				</div>
+				<div class="col bg-danger">
+					column5
+				</div>
+				<div class="col bg-secondary">
+					column6
+				</div>
+			</div>
+		</div>
+</body>
+</html>
+
+ex:7
+-----------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+		<!-- container -->
+		<div class="container-fluid">
+			
+			<!-- row -->
+			<div class="row">
+
+				<!-- 3 columns -->
+				<div class="col-6 bg-primary">
+					column1
+				</div>
+				<div class="col-4 bg-warning">
+					column2
+				</div>
+				<div class="col-2 bg-info">
+					column3
+				</div>
+			</div>
+		</div>
+</body>
+</html>
+
+ex:8
+--------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+		<!-- container -->
+		<div class="container-fluid">
+			
+			<!-- row -->
+			<div class="row">
+
+				<!-- 3 columns -->
+				<div class="col-sm-6 bg-primary">
+					column1
+				</div>
+				<div class="col-sm-4 bg-warning">
+					column2
+				</div>
+				<div class="col-sm-2 bg-info">
+					column3
+				</div>
+			</div>
+		</div>
+</body>
+</html>
+
+ex:9
+--------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+		<!-- container -->
+		<div class="container-fluid">
+			
+			<!-- row -->
+			<div class="row">
+
+				<!-- 3 columns -->
+				<div class="col-md-6 bg-primary">
+					column1
+				</div>
+				<div class="col-md-4 bg-warning">
+					column2
+				</div>
+				<div class="col-md-2 bg-info">
+					column3
+				</div>
+			</div>
+		</div>
+</body>
+</html>
+
+ex:10
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+		<!-- container -->
+		<div class="container-fluid">
+			
+			<!-- row -->
+			<div class="row">
+
+				<!-- 3 columns -->
+				<div class="col-lg-6 bg-primary">
+					column1
+				</div>
+				<div class="col-lg-4 bg-warning">
+					column2
+				</div>
+				<div class="col-lg-2 bg-info">
+					column3
+				</div>
+			</div>
+		</div>
+</body>
+</html>
+
+
+ex:11
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+		<!-- container -->
+		<div class="container-fluid">
+			
+			<!-- row -->
+			<div class="row">
+
+				<!-- 3 columns -->
+				<div class="col-xl-6 bg-primary">
+					column1
+				</div>
+				<div class="col-xl-4 bg-warning">
+					column2
+				</div>
+				<div class="col-xl-2 bg-info">
+					column3
+				</div>
+			</div>
+		</div>
+</body>
+</html>
+
+ex:12
+--------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+		<!-- container -->
+		<div class="container-fluid">
+			
+			<!-- row -->
+			<div class="row">
+
+				<!-- 3 columns -->
+		<div class="col-lg-6 col-md-6  col-sm-6  col-6 bg-primary">
+					column1
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-4 col-4 bg-warning">
+					column2
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-2 col-2 bg-info">
+					column3
+		</div>
+			</div>
+		</div>
+</body>
+</html>
+
+
+Bootstrap Sample Design using Grid System
+============================================
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>mypage!</title>
+
+	<!-- add bootstrap plugins -->
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+	</head>
+	<body>
+		
+		<div class="container mt-5">
+			
+			<div class="row ">
+				<div class="col-12 col-sm-6 col-md-4 col-lg-4 d-block mx-auto">
+					<img src="images/girl1.jpeg" class="w-100 h-100"/>
+				</div>
+				<div class="col-12 col-sm-6 col-md-4 col-lg-4 d-block mx-auto">
+					<img src="images/girl2.jpg" class="w-100 h-100" />
+				</div>
+				<div class="col-12 col-sm-6 col-md-4 col-lg-4 d-block mx-auto">
+					<img src="images/girl3.jpg" class="w-100 h-100"/>
+				</div>
+
+			</div>
+
+		</div>
+
+	</body>
+</html>
+
+
+
+Bootstrap images
+==================
+3 classes to display the images. 
+
+1)rounded image (rounded)
+
+2)circle image (rounded-circle)
+
+3)thumbnail (img-thumbnail)
+
+
+1) rounded
+--------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+	<div class="container mt-5">
+		<img src="images/rock.png" 
+			class="w-50 h-50 border border-danger rounded"/>
+	</div>
+</body>
+</html>
+
+2)circle 
+-------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+	<div class="container mt-5">
+		<img src="images/rock.png" 
+			class="w-50 h-50 border border-danger rounded-circle"/>
+	</div>
+</body>
+</html>
+
+
+3)thumbnail
+-------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+	<div class="container mt-5">
+		<img src="images/rock.png" 
+			class="w-50 h-50  img-thumbnail"/>
+	</div>
+</body>
+</html>
+
+
+
+
+Bootstrap tables
+================
+
+ex:1
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+	<div class="container">
+		<table class="table">
+			<tr>
+				<th>EID</th>
+				<th>ENAME</th>
+				<th>EMAIL</th>
+			</tr>
+			<tr>
+				<td>101</td>
+				<td>Alan</td>
+				<td>alan@gmail.com</td>
+			</tr>
+			<tr>
+				<td>102</td>
+				<td>Amanda</td>
+				<td>amanda@yahoo.com</td>
+			</tr>
+			<tr>
+				<td>103</td>
+				<td>Lucy</td>
+				<td>lucy@rediff.com</td>
+			</tr>
+			<tr>
+				<td>104</td>
+				<td>James</td>
+				<td>james@zoho.com</td>
+			</tr>
+		</table>	
+	</div>
+</body>
+</html>
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+	<div class="container mt-4">
+		<table class="table table-bordered">
+			<tr>
+				<th>EID</th>
+				<th>ENAME</th>
+				<th>EMAIL</th>
+			</tr>
+			<tr>
+				<td>101</td>
+				<td>Alan</td>
+				<td>alan@gmail.com</td>
+			</tr>
+			<tr>
+				<td>102</td>
+				<td>Amanda</td>
+				<td>amanda@yahoo.com</td>
+			</tr>
+			<tr>
+				<td>103</td>
+				<td>Lucy</td>
+				<td>lucy@rediff.com</td>
+			</tr>
+			<tr>
+				<td>104</td>
+				<td>James</td>
+				<td>james@zoho.com</td>
+			</tr>
+		</table>	
+	</div>
+</body>
+</html>
+
+ex:3
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+	<div class="container mt-4">
+		<table class="table table-borderless">
+			<tr>
+				<th>EID</th>
+				<th>ENAME</th>
+				<th>EMAIL</th>
+			</tr>
+			<tr>
+				<td>101</td>
+				<td>Alan</td>
+				<td>alan@gmail.com</td>
+			</tr>
+			<tr>
+				<td>102</td>
+				<td>Amanda</td>
+				<td>amanda@yahoo.com</td>
+			</tr>
+			<tr>
+				<td>103</td>
+				<td>Lucy</td>
+				<td>lucy@rediff.com</td>
+			</tr>
+			<tr>
+				<td>104</td>
+				<td>James</td>
+				<td>james@zoho.com</td>
+			</tr>
+		</table>	
+	</div>
+</body>
+</html>
+
+ex:4
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+	<div class="container mt-4">
+		<table class="table table-bordered table-hover">
+			<tr>
+				<th>EID</th>
+				<th>ENAME</th>
+				<th>EMAIL</th>
+			</tr>
+			<tr>
+				<td>101</td>
+				<td>Alan</td>
+				<td>alan@gmail.com</td>
+			</tr>
+			<tr>
+				<td>102</td>
+				<td>Amanda</td>
+				<td>amanda@yahoo.com</td>
+			</tr>
+			<tr>
+				<td>103</td>
+				<td>Lucy</td>
+				<td>lucy@rediff.com</td>
+			</tr>
+			<tr>
+				<td>104</td>
+				<td>James</td>
+				<td>james@zoho.com</td>
+			</tr>
+		</table>	
+	</div>
+</body>
+</html>
+
+ex:5
+-------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+	<div class="container mt-4">
+		<table class="table table-bordered table-hover table-dark">
+			<tr>
+				<th>EID</th>
+				<th>ENAME</th>
+				<th>EMAIL</th>
+			</tr>
+			<tr>
+				<td>101</td>
+				<td>Alan</td>
+				<td>alan@gmail.com</td>
+			</tr>
+			<tr>
+				<td>102</td>
+				<td>Amanda</td>
+				<td>amanda@yahoo.com</td>
+			</tr>
+			<tr>
+				<td>103</td>
+				<td>Lucy</td>
+				<td>lucy@rediff.com</td>
+			</tr>
+			<tr>
+				<td>104</td>
+				<td>James</td>
+				<td>james@zoho.com</td>
+			</tr>
+		</table>	
+	</div>
+</body>
+</html>
+
+ex:6
+--------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+	<div class="container mt-4">
+		<table class="table table-bordered table-striped">
+			<tr>
+				<th>EID</th>
+				<th>ENAME</th>
+				<th>EMAIL</th>
+			</tr>
+			<tr>
+				<td>101</td>
+				<td>Alan</td>
+				<td>alan@gmail.com</td>
+			</tr>
+			<tr>
+				<td>102</td>
+				<td>Amanda</td>
+				<td>amanda@yahoo.com</td>
+			</tr>
+			<tr>
+				<td>103</td>
+				<td>Lucy</td>
+				<td>lucy@rediff.com</td>
+			</tr>
+			<tr>
+				<td>104</td>
+				<td>James</td>
+				<td>james@zoho.com</td>
+			</tr>
+		</table>	
+	</div>
+</body>
+</html>
+
+ex:7
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- Add bootstrap -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- Option 1: Bootstrap Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+	<div class="container mt-4">
+		<table class="table table-bordered table-success">
+			<tr>
+				<th>EID</th>
+				<th>ENAME</th>
+				<th>EMAIL</th>
+			</tr>
+			<tr>
+				<td>101</td>
+				<td>Alan</td>
+				<td>alan@gmail.com</td>
+			</tr>
+			<tr>
+				<td>102</td>
+				<td>Amanda</td>
+				<td>amanda@yahoo.com</td>
+			</tr>
+			<tr>
+				<td>103</td>
+				<td>Lucy</td>
+				<td>lucy@rediff.com</td>
+			</tr>
+			<tr>
+				<td>104</td>
+				<td>James</td>
+				<td>james@zoho.com</td>
+			</tr>
+		</table>	
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

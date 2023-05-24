@@ -1,0 +1,343 @@
+Q)write a java program to display swapping of two numbers?
+
+import java.util.Scanner;
+class  Example8
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the First Number :");
+		int a=sc.nextInt();
+
+		System.out.println("Enter the Second Number :");
+		int b=sc.nextInt();
+
+		System.out.println("Before swapping a="+a+" and b="+b);
+
+		//logic
+		int temp=a;
+		a=b;
+		b=temp;
+
+		System.out.println("After swapping a="+a+" and b="+b);					
+	}
+}
+
+Q)Write a java program to perform swapping of two numbers without using third variable?
+
+import java.util.Scanner;
+class  Example8
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the First Number :");
+		int a=sc.nextInt();
+
+		System.out.println("Enter the Second Number :");
+		int b=sc.nextInt();
+
+		System.out.println("Before swapping a="+a+" and b="+b);
+
+		//logic
+		a=a+b;
+		b=a-b;
+		a=a-b;		
+
+
+		System.out.println("After swapping a="+a+" and b="+b);					
+	}
+}
+
+approach2
+-------------
+import java.util.Scanner;
+class  Example8
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the First Number :");
+		int a=sc.nextInt();
+
+		System.out.println("Enter the Second Number :");
+		int b=sc.nextInt();
+
+		System.out.println("Before swapping a="+a+" and b="+b);
+
+		//logic
+		a=a*b;
+		b=a/b;
+		a=a/b;		
+
+
+		System.out.println("After swapping a="+a+" and b="+b);					
+	}
+}
+
+Q)Write a java program to find out area of a circle?
+
+
+import java.util.Scanner;
+class Example9
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the Radius :");
+		int r=sc.nextInt();
+
+		//logic
+		float area=3.14f*r*r;
+
+		System.out.println("Area of a circle is ="+area);
+	}
+}
+
+
+Q)Write a java program to find out perimeter of a circle?
+
+import java.util.Scanner;
+class Example9
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the Radius :");
+		int r=sc.nextInt();
+
+		//logic
+		float perimeter=2*3.14f*r;
+
+		System.out.println("Perimeter of a circle is ="+perimeter);
+	}
+}
+		
+var-arg method
+================
+Untill 1.4 version , it is not possible to declare a method with variable number of arguments but from 1.5 version onwards it is possible to declare a method with variable number of arguments.
+
+We can declare var-arg method as follow.
+ex:
+		   var-arg parameter 
+                  ---------
+	methodOne(int...  i)
+		      |
+		    ellipse 
+
+We can invoke var-arg method with any number of integer values including zero.
+
+without arg method
+--------------------
+class Test
+{
+	public static void main(String[] args)
+	{
+		//call the method
+		methodOne(1);	
+		//methodOne();	
+		//methodOne(10,20);
+	}
+	public static void methodOne(int i)
+	{
+		System.out.println("Thank you");
+	}
+}
+
+with var-arg method
+---------------------
+class Test
+{
+	public static void main(String[] args)
+	{
+		//call the method
+		methodOne();
+		methodOne(10);
+		methodOne(10,20);
+		methodOne(10,20,30);
+		
+	}
+	public static void methodOne(int... i)
+	{
+		System.out.println("Thank you");
+	}
+}
+
+case1:
+------
+	We can mix var-parameter with general parameters also.
+	ex:
+		methodOne(int x,int... y)
+		methodOne(int i,int j,int... k)
+
+case2:
+-------
+	If we mix var-parameter with general parameter then var-arg parameter must 
+	be last parameter.
+	ex:
+		ex:
+		methodOne(int x,int... y)  //valid 
+
+		methodOne(int... x,int y)   //invalid 
+
+case3:
+------
+	A var-arg method can have only one var-arg paremeter.
+	ex:
+		methodOne(int... x)           //valid 
+		methodOne(int x,int... y)     //valid 
+		methodOne(int... x,int... y)  //invalid  	
+	
+Java Source File structure
+============================
+case1:
+------
+	A java program can have multiple classes.
+
+
+case2:
+------
+	If a java program contains multiple classes then we need to check which
+	class contains main method.That class will treated as main class and we 
+	need to save our program name with main class only.	
+	ex:
+
+	Test.java
+	----------
+	class A
+	{
+		-
+		-
+	}
+	class Test
+	{
+		public static void main(String[] args)
+		{
+			-
+			-
+			-
+		}	
+	}	
+
+case3:
+------
+	If a java program contains multiple classes with main method then 
+	we can save that program name with any name.
+	ex:
+	B.java
+	-------
+	class A
+	{
+		public static void main(String[] args)
+		{
+			System.out.println("A-class");
+		}
+	}
+	class B
+	{
+		public static void main(String[] args)
+		{
+			System.out.println("B-class");
+		}
+	}
+	class C
+	{
+		public static void main(String[] args)
+		{
+			System.out.println("C-class");
+		}
+	}
+	If we compile above program we will get three .class files i.e 
+	A.class, B.class and C.class.
+
+case4:
+------
+	If a java program contains multiple classes with main method then we 
+	need to declare any class as public.That public class will treated as 
+	main method.We need to save our program name with public class name.
+	ex:
+	class A
+	{
+		public static void main(String[] args)
+		{
+			System.out.println("A-class");
+		}
+	}
+	public class B
+	{
+		public static void main(String[] args)
+		{
+			System.out.println("B-class");
+		}
+	}
+	class C
+	{
+		public static void main(String[] args)
+		{
+			System.out.println("C-class");
+		}
+	}
+
+
+Assignment
+-----------
+Q)Write a java program to find out Celsius to Fahrenheit? 
+
+
+Q)Write a java program to find out Fahrenheit to Celsius 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

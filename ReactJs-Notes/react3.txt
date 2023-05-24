@@ -1,0 +1,700 @@
+React Components
+=================
+Components are Building blocks of any React app.
+
+Component allows us to split UI into independent reusable pieces.
+ex:
+	navbar, header, footer , body and etc.
+
+Components are like Javascript functions.They accept arbitrary inputs called "props" and return React Element describing what should appears on the screen.
+
+A Component name always starts with capital letter.
+
+ex:
+	 <div> represent as HTML div tag.
+	 But <Div> represent a component in react.
+
+we can create react component in two ways.
+
+1)Function Component /functional component
+
+2)Class Component
+
+
+1)Function Component
+========================
+It is a Javascript function which accept single "props" object as argument
+with data and returns a React Element.
+
+The functional component is also known as a stateless component because they do not hold or manage state.
+
+syntax
+---------
+function function_name()
+{
+
+	return element;
+}
+
+
+Project Directory structure
+============================
+myapp3
+|
+|----node_modules
+|
+|----public
+|	|
+|	|---favicon.ico
+|	|---index.html (3)
+|	|---manifest.json
+|	|
+|	
+|-----src
+|	|	
+|	|---index.js   (2)
+|	|---App.js (1)
+|	|
+|---package.json
+|---README.md
+
+step1:
+-----
+	Develop React Application 
+	ex:
+	E:/BUI-2pm/ReactProjects>create-react-app  myapp3
+
+step2:
+--------
+	Delete all the starting 6 files from src folder.
+
+step3:
+------
+	create a App.js file in src folder to develop a function component.
+
+Student.js
+----------
+function App()
+{
+  return <h1>Function Component Example</h1>
+}
+export default App;
+
+
+Note:
+-----
+Above code is applicable for older versions and for lastest versions  like EC6 ,we use below code.
+ex:
+
+App.js
+--------
+const App=()=>{
+    return <h1>Function Component Example</h1>
+}
+export default App;
+
+
+step4:
+--------
+create "index.js" file to render the component to index.html file.
+
+index.js
+----------
+import App from './App';
+import ReactDOM from 'react-dom/client';
+import React from 'react';
+
+const root=ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+      <React.StrickMode>	
+      <App/>
+      </React.StrickMode>
+)
+
+
+step5:
+-------
+	move to myapp3
+	ex:
+		cmd/ReactProjects>cd myapp3
+
+step6:
+-----
+	Run the Application
+	ex:
+		cmd/myapp3> npm start
+
+step7:
+-----
+	Test the Application.
+	ex:
+		http://localhost:3000
+
+
+
+
+Function component with props
+===============================
+In order to use props in a component We need to perform following changes in react "myapp3" project.
+
+syntax
+--------
+function fun_name(props)
+{
+	return React Element
+}
+
+
+ex:1
+------
+
+App.js
+---------
+function App(props)
+{
+  return <h1>Hello {props.name}</h1>
+}
+
+export default App;
+
+or
+
+App.js
+-------
+const Student=(props)=>
+{
+  return <h1>Hello {props.name}</h1>
+}
+
+export default App;
+
+
+Rendering the Component
+-----------------------
+we can render the component in index.js file as given below.
+
+index.js
+-----------
+import App from './App';
+import ReactDOM from 'react-dom/client';
+import React from 'react';
+
+const root=ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+      <React.StrickMode>	
+      <App name="Alan"/>
+      </React.StrickMode>
+)
+
+
+
+
+
+ex2:
+------
+
+App.js
+----------
+const App=(props)=>
+{
+  return (
+          <>
+          <h1>First Name : {props.firstName}</h1>
+          <h1>Second Name: {props.lastName}</h1>
+          </>
+  )
+}
+export default App;
+
+
+
+index.js
+----------
+import App from './App';
+import ReactDOM from 'react-dom/client';
+import React from 'react';
+
+const root=ReactDOM.createRoot(document.getElementById('root'));
+root.render(     
+      <React.StrickMode>	
+      	<App firstName="Alan" lastName="Morries"/>
+      </React.StrickMode>	
+)
+
+
+2)Class Component
+====================
+A class Component requires to extends from React Component.
+
+The class must implements a render() method function which returns A react
+Element to be render.This is Similar to return value of a functional 
+component.
+
+In a class based component props are accessible via this.props.
+
+The class component is also known as a stateful component because they can hold or manage local state.
+
+
+syntax
+-------
+class Class_name extends Component
+{
+	render()
+	{
+		return element.
+	}
+}
+
+Project  structure
+--------------------
+myapp4
+|
+|------node-modules
+|
+|------public
+|	|
+|	|------favicon.ico
+|	|------index.html (3)
+|	|------manifest.json
+|
+|------src
+	|
+	|------index.js(2)
+	|------App.js (1)
+|	|
+|
+|------package.json
+|------README.md
+
+step1:
+------
+	Develop React Application.
+	ex:
+		cmd/ReactProjects>create-react-app  myapp4
+
+step2:
+------
+	Delete all the files from src folder.
+
+step3:
+------
+	create a "App.js" file in "src " folder.
+	
+App.js
+---------
+import { Component } from "react";
+export default class App extends Component
+{
+  render()
+  {
+    return <h1>First Class Component</h1>
+  }
+}
+
+
+
+
+step4:
+-----
+	create "index.js" file to render the output to index.html file.
+
+index.js
+---------
+
+import App from './App';
+import ReactDOM from 'react-dom/client';
+import React from 'react';
+
+const root=ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+      <React.StrictMode>
+             <App />
+      </React.StrictMode>
+)
+
+
+step5:
+-----
+	move to myapp4
+	ex:
+		cmd/ReactProjects> cd myapp4
+
+step6:
+-----
+	Run the application.
+	ex:
+		cmd/ReactProjects/myapp4>npm start
+
+step7:
+-------
+	Test the React Application.
+	ex:
+		http://localhost:3000
+
+
+
+Class component with props
+==============================
+In order to use props in a class component we need to perform following changes.
+
+App.js
+------------
+import { Component } from "react";
+export default class App extends Component
+{
+  render()
+  {
+    return <h1>Name : {this.props.name}</h1>
+  }
+}
+
+
+index.js
+----------
+import App from './App';
+import ReactDOM from 'react-dom/client';
+import React from 'react';
+
+const root=ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+      <React.StrictMode>
+             <App name="Kelvin"/>
+      </React.StrictMode>
+    
+)
+
+Composing Components in React
+==============================
+A component can refer to other components in their output is called composing component.
+
+Let us use some component abstraction for any level of details.
+
+
+Project structure
+-----------------
+myapp4
+|
+|-----node_modules
+|
+|-----public
+|	|
+	|---index.html (main template)
+	|---favicon.ico (favicon)
+	|---manifest.json (metadata)
+|
+|-----src
+|	|
+	|---index.js (entry point)
+	|
+	|
+	|---App.js  (parent component)
+	|
+	|---Student.js (custom component)
+
+|
+|-----package.json
+|-----README.md
+
+
+step1:
+------
+	Create a React Application.
+	ex:
+		ReactProjects> create-react-app  myapp4
+
+
+step2:
+	Start Visual Studio Code (VSC) Editor.
+	ex:
+		ReactProjects> code   .  
+
+
+step3:
+	Delete all the files from "src" folder.
+
+
+step4:
+	Create "index.js" file inside "src" folder.
+
+index.js
+----------
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+
+const root=ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
+    <React.StrictMode>
+        <App/>
+    </React.StrictMode>
+)
+
+
+step5:
+	Create App.js file inside "src" folder.
+
+App.js
+--------
+import Student from './Student';
+
+function App()
+{
+    return (
+        <Student/>
+    )
+}
+export default App;
+
+
+step6:
+	Create Student.js file inside "src" folder.
+
+Student.js
+----------
+
+function Student()
+{
+    return (
+        <h1>Student Component</h1>
+    )
+}
+export default Student;
+
+
+step7:
+	Move to myapp4.
+	ex:
+		ReactProjects> cd  myapp4
+
+step8:
+	Run the react application.
+	ex:
+		ReactProjects/myapp4> npm start
+
+step9:
+	Check the output by using below url.
+	ex:
+		http://localhost:3000
+
+
+composing components using props
+================================
+
+
+index.js
+--------
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+
+const root=ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
+    <React.StrictMode>
+        <App course="React"/>
+    </React.StrictMode>
+)
+
+App.js
+--------
+import Student from './Student';
+
+function App(props)
+{
+    return (
+       <Student crs={props.course}/>
+    )
+}
+export default App;
+
+
+Student.js
+----------
+
+function Student(props)
+{
+    return (
+        <h1>My Course Name : {props.crs}</h1>
+    )
+}
+export default Student;
+
+
+
+React CSS
+==============
+CSS in React is used to style the React App or Component.
+
+There are three ways available to add styling to your React App or Component with CSS.
+
+1) Inline Styling
+2) CSS Stylesheet
+3) CSS Module
+
+1)Inline CSS
+===============
+Inline CSS represent by "style" attribute in React application.
+
+The inline styles are specified with a JavaScript object in camelCase version of the style name.
+
+ex:
+
+App.js
+----------
+import Student from "./Student";
+
+function App()
+{
+  return <>
+         <h1 style={{color:"green"}}>React Inline CSS</h1>
+         <h1 style={{backgroundColor:"yellow"}}>React Inline CSS</h1>
+          </>
+}
+export default App;
+
+
+The inline styling also allows us to create an object with styling information and 
+refer it in the style attribute.
+
+App.js
+---------
+import Student from "./Student";
+
+function App()
+{
+  const mystyle = {
+    color: "white",
+    backgroundColor: "DodgerBlue",
+    padding: "10px",
+    fontFamily: "Arial"
+  };
+  return <>
+         <h1 style={mystyle}>React Inline CSS</h1>
+         <h1 style={{backgroundColor:"yellow"}}>React Inline CSS</h1>
+          </>
+}
+export default App;
+
+
+
+2) CSS Stylesheet
+===================
+We can write styling in a separate file for your React application, and save the file with a .css extension. 
+
+Later we can import .css file in our required application.
+
+ex:1
+----------
+
+App.js
+--------
+import Student from "./Student";
+import './App.css';
+function App()
+{
+  
+  return <>
+         <h1>React CSS styles</h1>
+         <h1>React CSS styles</h1>
+          </>
+}
+export default App;
+
+
+App.css
+------------
+body{
+  background-color: yellow;
+}
+h1
+{
+  color:blue;
+}
+
+
+
+ex:2
+----------
+
+App.js
+--------
+import Student from "./Student";
+import './App.css';
+function App()
+{
+  
+  return <>
+         <h1 id="myId">React CSS styles</h1>
+         <h1 className="myClass">React CSS styles</h1>
+          </>
+}
+export default App;
+
+App.css
+---------
+body{
+  background-color: yellow;
+}
+#myId
+{
+  color:blue;
+}
+.myClass
+{
+  color:red;
+}
+
+
+3. CSS Module
+====================
+CSS Module is another way of adding styles to your application. 
+
+It is a CSS file where all class names and animation names are scoped locally by default. 
+
+It is available only for the component which imports it, means any styling you add can never be applied to other components without your permission, and you never need to worry about name conflicts.
+
+We can create CSS Module with the .module.css extension like a myStyles.module.css.
+
+ex:
+---------
+
+App.js
+--------
+import Student from "./Student";
+import styles from './mystyles.module.css';
+function App()
+{
+  
+  return <>
+         <h1  className={styles.mystyle}>React CSS styles</h1>
+         <h1 className={styles.parastyle}>React CSS styles</h1>
+          </>
+}
+export default App;
+
+mystyles.module.css
+-----------------------
+.mystyle {  
+    background-color: #cdc0b0;  
+    color: Red;  
+    padding: 10px;  
+    font-family: Arial;  
+    text-align: center;  
+  }  
+    
+  .parastyle{  
+    color: Green;  
+    font-family: Arial;  
+    font-size: 35px;  
+    text-align: center;  
+  }  
+
+
+
+
+
+
+
+
+

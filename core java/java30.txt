@@ -1,0 +1,410 @@
+Is-A relationship
+===================
+Is a relationship is also known as inheritance.
+
+Using extends keyword we can implement Is-a relationship.
+
+The main objective of is-a relationship is to provide reusability.
+
+ex:
+
+class Parent
+{
+	public void m1()
+	{
+		System.out.println("Parent-M1 method");
+	}
+}
+class Child extends  Parent
+{
+	public void m2()
+	{
+		System.out.println("Child-M2 method");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		Parent p=new Parent();
+		p.m1();
+
+		Child c=new Child();
+		c.m1();
+		c.m2();
+
+		Parent p1=new Child();
+		p1.m1();
+
+		//Child c1=new Parent(); C.T.E 
+	}
+}
+conclusion
+-----------
+Whatever a parent contains property by default it goes to child.But whatever a child contains property  it will never goes back to parent.
+
+A parent reference can hold child object.But a child reference can't hold parent 
+object.
+
+Types of inheritance
+===========================
+We have five types of inheritance.
+
+1)Single level inheritance
+
+2)Multi level inheritance
+
+3)Multiple inheritance
+
+4)Hierarchical inheritance
+
+5)Hybrid inheritance 
+
+1)Single level inheritance
+--------------------------
+If a class is derived from one base class is called single level inheritance.
+ex:
+	A (parent / super / base class)
+	|
+	|
+	|
+	B (child / sub / derived class)
+
+ex:
+
+class A
+{
+	public void m1()
+	{
+		System.out.println("M1 Method");
+	}
+}
+class B extends A
+{
+	public void m2()
+	{
+		System.out.println("M2 Method");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		A a=new A();
+		a.m1();
+
+		B b=new B();
+		b.m1();
+		b.m2();
+
+	}
+}
+
+
+2)Multi level inheritance
+-------------------------
+If a class is derived from one base class and that class is derived from another base class is called multi level inheritance.
+
+ex:
+	A
+	|
+	|
+	|
+	B
+	|
+	|
+	|
+	C
+
+ex:
+
+class A
+{
+	public void m1()
+	{
+		System.out.println("M1 Method");
+	}
+}
+class B extends A
+{
+	public void m2()
+	{
+		System.out.println("M2 Method");
+	}
+}
+class C extends B
+{
+	public void m3()
+	{
+		System.out.println("M3 Method");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		A a=new A();
+		a.m1();
+
+		B b=new B();
+		b.m1();
+		b.m2();
+
+		C c=new C();
+		c.m1();
+		c.m2();
+		c.m3();
+
+	}
+}
+
+3)Multiple inheritance
+------------------------
+If a class is derived from more then one base class is called multiple inheritance.
+ex:
+	A		B
+	|---------------|
+		|
+		C
+
+In java, we can't extends more then one class simultenously because java does not support multiple inheritance.
+ex:
+	class A
+	{
+	}
+	class B
+	{
+	}
+	class C extends A,B    // invalid 
+	{
+	}
+
+In java, interface can extends more then one interface so we can achieve multiple inheritance concept through interfaces.
+ex:
+	interface A
+	{
+	}
+	interface B
+	{
+	}
+	interface C extends A,B
+	{
+	}
+			
+If our class does not extends any other class then our class is a direct child class of Object class.
+ex:
+	class A 		Object 
+	{			|
+				|
+	}			|
+				A
+
+If our class extends some other class then our class is a  indirect child class of Object class.
+ex:
+	class A			Object 
+	{			|
+	}			|
+	class B extends A	A  (Multi level inheritance)
+	{			|
+	}			|
+				B
+
+Java does not support cyclic inheritance.
+ex:
+	class A extends B
+	{
+	}
+	class B extends A 
+	{
+	}	
+
+Q)Why java does not support multiple inheritance?
+
+There is a chance of raising ambiguity problem that's why java does not support multiple inheritance.
+ex:
+		p1.m1()			p2.m1()
+		|--------------------------|
+				|
+				c.m1()
+
+
+
+4)Hierarchical inheritance
+---------------------------
+If multiple class are derived from one base class is called hierarchical inheritance.
+
+ex:
+			A
+			|
+	|-------------------------------|
+	B				C
+
+ex:
+
+class A
+{
+	public void m1()
+	{
+		System.out.println("M1 Method");
+	}
+}
+class B extends A
+{
+	public void m2()
+	{
+		System.out.println("M2 Method");
+	}
+}
+class C extends A
+{
+	public void m3()
+	{
+		System.out.println("M3 Method");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		A a=new A();
+		a.m1();
+
+		B b=new B();
+		b.m1();
+		b.m2();
+
+		C c=new C();
+		c.m1();
+		c.m3();
+
+	}
+}
+
+5)Hybrid inheritance
+---------------------
+It is a combination of more then one inheritance.
+
+Java does not support hybrid inheritance.
+
+ex:
+		A
+		|
+	-----------------
+	|		|
+	B		C
+	|---------------|
+		|
+		D
+
+
+Has-A relationship
+=======================
+Has-A relationship is also known as composition and aggregation.
+
+There is no specific keyword to implement Has-A relationship but mostly we will use new operator.
+
+The main objective of Has-A relationship is to provide reusability.
+
+Has-A relationship will increase dependency between two components.
+
+ex:
+	class Engine
+	{
+		-
+		- //engine specific functionality
+		-
+	}
+	class Car
+	{
+		Engine e=new Engine();
+		-
+	}
+
+ex:
+
+class Course
+{
+	public String courseName()
+	{
+		return "Java-FSD";
+	}
+	public double courseFee()
+	{
+		return 25000d;
+	}
+	public String courseTrainer()
+	{
+		return "Niyaz sir";
+	}
+}
+class Usha
+{
+	public void getCourseDetails()
+	{
+		Course c=new Course();
+		System.out.println("Course Name :"+c.courseName());
+		System.out.println("Course Fee :"+c.courseFee());
+		System.out.println("Course Trainer :"+c.courseTrainer());
+	}
+}
+class Student
+{
+	public static void main(String[] args)
+	{
+		Usha u=new Usha();
+		u.getCourseDetails();
+	}
+}
+
+composition
+==============
+Without existing container object there is a no chance of having contained object then the relationship between container object and contained object is called composition which is strongly association.
+
+Diagram: java30.1
+
+
+aggregation
+==============
+Without existing container object there is a  chance of having contained object then the relationship between container object and contained object is called aggregation which is loosely association.
+
+Diagram: java30.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

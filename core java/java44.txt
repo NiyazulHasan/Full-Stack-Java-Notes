@@ -1,0 +1,725 @@
+Java 1.8 Features
+===================
+
+Functional Interface
+===================
+An interface that contains exactly one abstract method is known as functional interface.
+ex:
+	Runnable -> run()
+	Comparable -> compareTo()
+	ActionListener -> actionPerformed()
+
+It can have any number of default and static methods.
+
+Function interface is also known as Single Abstract Method Interface or SAM interface.
+
+It is a new feature in java which helps in to achieve functional programming .
+ex:
+	a=f1(){}
+
+	f1(f2(){})
+	{
+	}
+
+@FunctionalInterface is a annotation which is used to declare functional interface and it is optional.
+
+ex:1
+-----------
+interface A
+{
+	void show();
+}
+class B implements A
+{
+	public void show()
+	{
+		System.out.println("A- show method");
+	}
+}
+class  Test
+{
+	public static void main(String[] args) 
+	{
+			B b=new B();
+			b.show();
+	}
+}
+
+ex:2
+---------
+interface A
+{
+	void show();
+}
+
+class  Test
+{
+	public static void main(String[] args) 
+	{
+			A a=new A()
+			{
+				public void show()
+				{
+					System.out.println("From show method");
+				}
+			};
+			a.show();
+	}
+}
+
+ex:3
+-----------
+@FunctionalInterface
+interface A
+{
+	void show();
+}
+
+class  Test
+{
+	public static void main(String[] args) 
+	{
+			A a=new A()
+			{
+				public void show()
+				{
+					System.out.println("From show method");
+				}
+			};
+			a.show();
+	}
+}
+
+
+Lamda Expression
+================
+Lamda Expression introduced in java 1.8v.
+
+Lamda Expression is used to enable functional programming.
+
+It is used to concise the code (To reduce the code).
+
+Lamda Expression can be used when we have functional interface.
+
+Lamda expression considered as a method not a class.
+
+Lamda expression does not support modifier,return type  and method name.
+
+ex:
+	without lamda expression
+	----------------------------------
+	public void m1()
+	{
+		System.out.println("Hello');
+	}
+
+	with lamda expression
+	----------------------------
+	 ()->
+	{
+		System.out.println("Hello');
+	};
+
+
+ex:
+@FunctionalInterface
+interface A
+{
+	void show();
+}
+
+class  Test
+{
+	public static void main(String[] args) 
+	{
+			A a=()->
+				{
+					System.out.println("From show method");
+				};
+			a.show();
+	}
+}
+
+ex:2
+---------
+@FunctionalInterface
+interface A
+{
+	String show();
+}
+
+class  Test
+{
+	public static void main(String[] args) 
+	{
+			A a=()->
+				{
+					return "hello world";
+				};
+			System.out.println(a.show());
+	}
+}
+
+
+ex:3
+----------
+@FunctionalInterface
+interface A
+{
+	void show(int i,int j);
+}
+
+class  Test
+{
+	public static void main(String[] args) 
+	{
+			A a=(int i,int j)->
+				{
+					System.out.println("sum of two number is ="+(i+j));
+				};
+			a.show(10,20);
+	}
+}
+
+
+ex:4
+--------
+@FunctionalInterface
+interface A
+{
+	int show(int i,int j);
+}
+
+class  Test
+{
+	public static void main(String[] args) 
+	{
+			A a=(int i,int j)->
+				{
+					return i+j;
+				};
+			System.out.println("sum of two number is ="+a.show(10,20));
+	}
+}
+
+
+Java default methods in interface
+===========================
+Java provide sa facility to create a default methods  inside the interface.
+
+Methods which are defined inside the interface  and tagged with default keyword are known as default methods.
+
+Default methods are non-abstract methods.
+
+We can override default methods.
+
+syntax
+-------
+	Modifier interface  interface_name
+	{
+		//abstract methods
+		//default methods
+	}
+
+ex:1
+--------
+interface A
+{
+	public abstract void m1();
+
+	default void m2()
+	{
+		System.out.println("from default method");
+	}
+}
+class B implements A
+{
+	public void m1()
+	{
+		System.out.println("from abstract method");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		B b=new B();
+		b.m1();
+		b.m2();
+	}
+}
+
+ex:2
+---------
+interface A
+{
+	public abstract void m1();
+
+	default void m2()
+	{
+		System.out.println("from default method");
+	}
+}
+class B implements A
+{
+	public void m1()
+	{
+		System.out.println("from abstract method");
+	}
+	public void m2()
+	{
+		System.out.println("Override default method");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		B b=new B();
+		b.m1();
+		b.m2();
+	}
+}
+
+As we know , java does not support mutiple inheritence .
+But we can solve this problem by using default methods of an interface.
+
+
+ex:1
+-----------
+interface Right
+{
+	default void m1()
+	{
+		System.out.println("Right-M1 method");
+	}
+}
+interface Left
+{
+	default void m1()
+	{
+		System.out.println("Left-M1 method");
+	}
+}
+class Middle implements Right,Left
+{
+	public void m1()
+	{
+		System.out.println("Middle-M1 method");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		Middle m=new Middle();
+		m.m1();
+	}
+}
+
+ex:2
+---------
+interface Right
+{
+	default void m1()
+	{
+		System.out.println("Right-M1 method");
+	}
+}
+interface Left
+{
+	default void m1()
+	{
+		System.out.println("Left-M1 method");
+	}
+}
+class Middle implements Right,Left
+{
+	public void m1()
+	{
+		Right.super.m1();
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		Middle m=new Middle();
+		m.m1();
+	}
+}
+
+ex:3
+-------
+interface Right
+{
+	default void m1()
+	{
+		System.out.println("Right-M1 method");
+	}
+}
+interface Left
+{
+	default void m1()
+	{
+		System.out.println("Left-M1 method");
+	}
+}
+class Middle implements Right,Left
+{
+	public void m1()
+	{
+		Left.super.m1();
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		Middle m=new Middle();
+		m.m1();
+	}
+}
+
+ex:4
+---------
+interface Right
+{
+	default void m1()
+	{
+		System.out.println("Right-M1 method");
+	}
+}
+interface Left
+{
+	default void m1()
+	{
+		System.out.println("Left-M1 method");
+	}
+}
+class Middle implements Right,Left
+{
+	public void m1()
+	{
+		Right.super.m1();
+		Left.super.m1();
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		Middle m=new Middle();
+		m.m1();
+	}
+}
+
+static methods in interface
+========================
+Static methods in interface are those methods which are defined in the interface with static keyword.
+
+Unlike  other methods in interface, these static methods contains the complete definition of the function and since the definition is complete and method is static ,there fore these methods cannot be overridden  or change in class.
+
+syntax
+---------
+	modifier interface interface_name
+	{
+		//default methods
+		//abstract methods
+		//static methods
+	}
+
+ex:1
+--------
+interface A
+{
+	public static void m1()
+	{
+		System.out.println("From static method");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		A.m1();
+	}
+}0
+
+
+
+
+
+
+
+
+Stream API
+=============
+If we want to process the objects from Collections then we need to use Stream API.
+
+Stream is an interface which is present in java.util.stream package.
+
+Stream is use to perform bulk operations on Collections.
+
+We can create Stream object as follow.
+
+syntax
+------
+	Stream s=c.stream();
+
+
+ex:1
+--------
+import java.util.*;
+import java.util.stream.*;
+class Test
+{
+	public static void main(String[] args)
+	{
+		List<Integer> l=new ArrayList<Integer>();
+		l.add(10);
+		l.add(4);
+		l.add(1);
+		l.add(7);
+		l.add(6);
+		l.add(9);
+		System.out.println(l);//[10,4,1,7,6,9]
+
+		//to display even elements
+		List<Integer> list=l.stream().filter(i->i%2==0).collect(Collectors.toList());
+		System.out.println(list);
+	}
+}
+
+ex:2
+--------
+import java.util.*;
+import java.util.stream.*;
+class Test
+{
+	public static void main(String[] args)
+	{
+		List<Integer> l=new ArrayList<Integer>();
+		l.add(10);
+		l.add(4);
+		l.add(1);
+		l.add(7);
+		l.add(6);
+		l.add(9);
+		System.out.println(l);//[10,4,1,7,6,9]
+
+		//to display even elements
+		List<Integer> list=l.stream().filter(i->i%2!=0).collect(Collectors.toList());
+		System.out.println(list);
+	}
+}
+
+ex:3
+-----
+import java.util.*;
+import java.util.stream.*;
+class Test
+{
+	public static void main(String[] args)
+	{
+		List<Integer> l=new ArrayList<Integer>();
+		l.add(45);
+		l.add(89);
+		l.add(76);
+		l.add(49);
+		l.add(65);
+		l.add(59);
+		System.out.println(l);//[45,89,76,49,65,59]
+
+		//Add 10 grace marks 
+		List<Integer> list=l.stream().map(i->i+10).collect(Collectors.toList());
+		System.out.println(list);//[55,99,86,59,75,69]
+	}
+}
+
+
+ex:4
+----------
+import java.util.*;
+import java.util.stream.*;
+class Test
+{
+	public static void main(String[] args)
+	{
+		List<Integer> l=new ArrayList<Integer>();
+		l.add(45);
+		l.add(89);
+		l.add(76);
+		l.add(25);
+		l.add(65);
+		l.add(15);
+		System.out.println(l);//[45,89,76,25,65,15]
+
+		//How many students are failed 
+		long failed=l.stream().filter(i->i<35).count();
+		System.out.println(failed);
+		
+	}
+}
+
+
+ex:5
+-------
+import java.util.*;
+import java.util.stream.*;
+class Test
+{
+	public static void main(String[] args)
+	{
+		List<Integer> l=new ArrayList<Integer>();
+		l.add(45);
+		l.add(89);
+		l.add(76);
+		l.add(25);
+		l.add(65);
+		l.add(15);
+		System.out.println(l);//[45,89,76,25,65,15]
+
+		//sort the elements 
+		List<Integer> list=l.stream().sorted().collect(Collectors.toList());
+		System.out.println(list);//[15,25,45,65,76,89]
+		
+	}
+}
+
+
+
+ex:6
+-------
+import java.util.*;
+import java.util.stream.*;
+class Test
+{
+	public static void main(String[] args)
+	{
+		List<Integer> l=new ArrayList<Integer>();
+		l.add(45);
+		l.add(89);
+		l.add(76);
+		l.add(25);
+		l.add(65);
+		l.add(15);
+		System.out.println(l);//[45,89,76,25,65,15]
+
+		//max element
+		Integer max=l.stream().max((i1,i2)->i1.compareTo(i2)).get();
+		System.out.println(max);//89
+		
+	}
+}
+
+
+ex:7
+---------
+import java.util.*;
+import java.util.stream.*;
+class Test
+{
+	public static void main(String[] args)
+	{
+		List<Integer> l=new ArrayList<Integer>();
+		l.add(45);
+		l.add(89);
+		l.add(76);
+		l.add(25);
+		l.add(65);
+		l.add(15);
+		System.out.println(l);//[45,89,76,25,65,15]
+
+		//min element
+		Integer max=l.stream().min((i1,i2)->i1.compareTo(i2)).get();
+		System.out.println(max);//15
+		
+	}
+}
+
+
+ex:8
+	
+import java.util.*;
+import java.util.stream.*;
+class Test
+{
+	public static void main(String[] args)
+	{
+		List<Integer> list=Arrays.asList(10,5,8,9,1);
+		
+		System.out.println("Reading Elements one by one ");
+
+		list.forEach(System.out::println);
+	}
+}
+
+Program to convert array to collection
+------------------------------------------
+ex:
+
+import java.util.*;
+import java.util.stream.*;
+class Test
+{
+	public static void main(String[] args)
+	{
+
+		String[] strarr={"hi","hello","bye"};
+		List<String> list=Arrays.asList(strarr);
+	
+		list.forEach(System.out::println);
+
+	}
+}
+
+
+
+Program to convert collection to array
+------------------------------------------
+ex:
+
+
+import java.util.*;
+import java.util.stream.*;
+class Test
+{
+	public static void main(String[] args)
+	{
+
+		List<Integer> list=Arrays.asList(2,7,8,1,9);
+		System.out.println(list);
+
+		Integer[] iarr=list.toArray(new Integer[0]);
+		for(int i:iarr)
+		{
+			System.out.println(i);	
+		}
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

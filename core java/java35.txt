@@ -1,0 +1,340 @@
+String
+=========
+String is a collection/set of characters.
+String is a immutable object.
+
+case1:
+-------
+Once if we create a String object we can't perform any changes.If we perform any changes then for every change a new object will be created such behaviour is called immutability of an object.
+
+Diagram: java35.1
+
+
+case2:
+------
+Difference between  == and .equals() method?
+
+==
+----
+It is a equality operator or comparision operator.
+It is used for reference comparision or address comparision.
+ex:
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String s1=new String("bhaskar");
+		String s2=new String("solution");
+		System.out.println(s1==s2);//false
+	}
+}
+	 
+.equals()
+----------
+It is a method present in String class.
+It is used for content comparision.
+It is a case sensitive.
+ex:
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String s1=new String("bhaskar");
+		String s2=new String("bhaskar");
+		System.out.println(s1.equals(s2));
+	}
+}
+
+case3:
+----
+Once if we create a String object, two objects will be created.One is on heap and another is on SCP(String Constant Pool) area.But 's' always points to heap area only.
+
+Diagram: java35.2
+
+Object creation in SCP area is always optional. First JVM will check is there any object is created with same content or not.If already created then JVM simply refers to that object.If it is not available then JVM will create a new object.Hence there is a no chance of creating duplicate objects in SCP area.
+
+Even though SCP object does not have any reference, garbage collector can't access them.
+
+When JVM shutsdowns SCP objects will be destroyed automatically.
+
+Diagram: java35.3
+
+
+Interning of String object
+==========================
+With the help of heap object reference if we need SCP object reference then we need 
+to use intern() method.
+
+Diagram: java35.4
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String s1=new String("bhaskar");
+		String s2=s1.intern();
+		String s3="bhaskar";
+		System.out.println(s2==s3);
+	}
+}
+
+String important methods
+============================
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="bhaskar";
+		System.out.println(str.length());//7
+		System.out.println(str.charAt(0));//b
+		System.out.println(str.toUpperCase());//BHASKAR
+		System.out.println(str.toLowerCase());//bhaskar
+		System.out.println(str.equals("bhaskar"));//true 
+		System.out.println(str.equalsIgnoreCase("BHASKAR"));//true 
+		str=str.concat("solution");
+		System.out.println(str);//bhaskarsolution
+		System.out.println(str.replace('a','A'));//bhAskArsolution
+		System.out.println(str.indexOf('a'));//2
+		System.out.println(str.lastIndexOf('a'));//5
+	}
+}
+
+
+
+
+Q)Write a java program to accept one string and display it?
+
+approach:1
+-----------
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the String :");
+		String str=sc.next(); // hello 	
+
+		System.out.println(str); //hello 
+
+	}
+}
+
+approach2
+-----------
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the String :");
+		String str=sc.nextLine(); // James Gosling	
+
+		System.out.println(str); // James Gosling 
+
+	}
+}
+
+Q)Write a java program to display reverse of a string?
+
+Input:
+	This Is Java Class
+
+Output:
+	ssalC avaJ sI sihT 
+
+ex:
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the String :");
+		String str=sc.nextLine(); // hello
+
+		char[] carr=str.toCharArray();
+
+		//reading reverse
+		for(int i=carr.length-1;i>=0;i--)
+		{
+			System.out.print(carr[i]);
+		}
+
+	}
+}
+
+Q)Write a java program to check given string is palindrome or not?
+
+Input:
+	madam
+output:
+	It is plaindrome string
+
+ex:
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the String :");
+		String str=sc.nextLine(); // madam
+
+		char[] carr=str.toCharArray();
+
+		String rev="";
+
+		//reading reverse
+		for(int i=carr.length-1;i>=0;i--)
+		{
+			rev+=carr[i];
+		}
+		if(str.equals(rev))
+			System.out.println("It is a plaindrom string");
+		else
+			System.out.println("It is not a plaindrome string");
+	}
+}
+
+Q)Write a java program to check given strings are Anagram or not?
+
+Input:
+	str1 = "listen";
+	str2 = "silent";
+
+output:
+	Both are anagram string.
+
+
+ex:
+import java.util.Arrays;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str1 = "listen";
+		String str2 = "silent";
+
+		int len1=str1.length();
+		int len2=str2.length();
+
+		if(len1!=len2)
+		{
+			System.out.println("It is not anagram string");
+			System.exit(0);
+		}
+		//converting string to char[] arry
+		char[] carr1=str1.toCharArray();
+		char[] carr2=str2.toCharArray();
+
+		Arrays.sort(carr1);
+		Arrays.sort(carr2);
+
+		for(int i=0;i<carr1.length;i++)
+		{
+			if(carr1[i]!=carr2[i])
+			{
+				System.out.println("It is not anagram string");
+				System.exit(0);
+			}
+		}
+
+		System.out.println("It is anagram string");
+	}
+}
+
+Q)Write a java program to display reverse of a sentence?
+
+Input:
+	This Is Java Class
+
+Output:
+	Class Java Is This 
+
+ex:
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the String :");
+		String str=sc.nextLine(); 
+
+		String[] sarr=str.split(" ");
+
+		//reverse order
+		for(int i=sarr.length-1;i>=0;i--)
+		{
+			System.out.print(sarr[i]+" ");
+		}
+
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

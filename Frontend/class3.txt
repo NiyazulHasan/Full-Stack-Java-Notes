@@ -1,0 +1,690 @@
+HTML Images
+================
+A <img> tag is used to display the images in a web page.
+
+It is a empty tag , it contains only attributes and does not have any closing tag.
+
+A <img> tag contains following attributes.
+
+1)src 		- It specifies location/path of an image.	
+
+2)width		- It specifies width of an image.
+
+3)height	- It specifies height of an image.
+
+4)alt 		- It is used to display alternate text if image is not found.
+
+
+Abbreviation		Format
+------------		----------
+JPEG			Joint Photographic ExperGroup
+
+PNG			Portable Network Graphics
+
+GIF			Graphical Interchange Format
+
+SVG 			Scalable Vector Graphics
+
+and etc.
+
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<img  src="images/rock.jpg"
+			 width="300px" 
+			  height="300px" />	
+	</body>
+</html>
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<img  src="images/kane.jpg"
+			 width="300px" 
+			  height="300px"
+				alt="No Image Found" />	
+	</body>
+</html>
+
+
+ex:3
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<img  src="https://static.wikia.nocookie.net/fastandfurious/images/6/6a/Dwayne_Johnson.jpg/revision/latest?cb=20201016045622"
+			 width="300px" 
+			  height="300px"
+				alt="No Image Found" />	
+	</body>
+</html>
+	
+
+
+HTML Hyperlinks
+===================
+A <a> anchor tag is used to defined hyperlinks in HTML document.
+
+A <a> tag contains one attribute called "href", it is used to navigate to other resources/pages.
+
+ex:1
+--------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<a href="http://www.google.com">
+			clickMe
+		</a>
+	</body>
+</html>
+
+
+A linked document opens in a current window.
+
+In order to chagne this behaviour we need to use another attribute called "target".
+
+A "target" attribute specifies where a linked document must be opened.
+
+A "target" attribute may contains following values.
+
+ex:
+
+1) _self	: It will open linked document in a current window/tab.
+
+2) _blank	: It will open linked document in a new window/tab.
+
+3) _parent	: It is used to open linked document in a parent container.
+
+4) _top		: IT will open linked document in a full body of a window.	
+
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<a href="http://www.google.com" target="_self">
+			clickMe
+		</a>
+	</body>
+</html>
+
+ex:3
+-------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<a href="http://www.google.com" target="_blank">
+			clickMe
+		</a>
+	</body>
+</html>
+
+Hyperlink with image
+=====================
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<center>
+			<a href="http://www.facebook.com/login" target="_blank">
+			
+		<img src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" 
+				width="300px" height="300px"/>
+			</a>
+
+		</center>
+	</body>
+</html>
+
+
+Orderlist in HTML
+=====================
+A <ol> tag is used to define orlist in HTML with numerics and alphabets.
+
+An orderlist contains list of items.
+
+Each list of item we can represent by using <li> tag.
+
+ex:
+
+ex:1
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Courses:
+			<ol>
+				<li>Java</li>
+				<li>ReactJS</li>
+				<li>Oracle</li>
+				<li>Frameworks</li>
+			</ol>
+	</body>
+</html>
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Courses:
+			<ol start="101">
+				<li>Java</li>
+				<li>ReactJS</li>
+				<li>Oracle</li>
+				<li>Frameworks</li>
+			</ol>
+	</body>
+</html>
+
+ex:3
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Courses:
+			<ol type="i">
+				<li>Java</li>
+				<li>ReactJS</li>
+				<li>Oracle</li>
+				<li>Frameworks</li>
+			</ol>
+	</body>
+</html>
+
+ex:4
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Courses:
+			<ol type="I">
+				<li>Java</li>
+				<li>ReactJS</li>
+				<li>Oracle</li>
+				<li>Frameworks</li>
+			</ol>
+	</body>
+</html>
+
+ex:5
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Courses:
+			<ol type="a">
+				<li>Java</li>
+				<li>ReactJS</li>
+				<li>Oracle</li>
+				<li>Frameworks</li>
+			</ol>
+	</body>
+</html>
+
+ex:6
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Courses:
+			<ol type="A">
+				<li>Java</li>
+				<li>ReactJS</li>
+				<li>Oracle</li>
+				<li>Frameworks</li>
+			</ol>
+	</body>
+</html>
+
+
+
+
+Unoderlist in HTML
+=======================
+A <ul> tag is used to define unorder list in HTML with bullets.
+
+An unorderlist contains list of items.
+
+Each list of item we need to represent by using <li> tag.
+
+ex:1
+-------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Courses:
+			<ul type="disc">
+				<li>Java</li>
+				<li>ReactJS</li>
+				<li>Oracle</li>
+				<li>Frameworks</li>
+			</ul>
+	</body>
+</html>
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Courses:
+			<ul type="circle">
+				<li>Java</li>
+				<li>ReactJS</li>
+				<li>Oracle</li>
+				<li>Frameworks</li>
+			</ul>
+	</body>
+</html>
+
+ex:3
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		Courses:
+			<ul type="square">
+				<li>Java</li>
+				<li>ReactJS</li>
+				<li>Oracle</li>
+				<li>Frameworks</li>
+			</ul>
+	</body>
+</html>
+
+
+
+> Tables 
+===========
+HTML Tables
+===========
+Table is used to represent the data.
+
+Table is a collection of rows and columns.
+
+Table is used to store the data.
+
+A <table> tag is used to represent table in HTML.
+
+A <tr> tag is used to represent table row.
+
+A <th> tag is used to represent table heading.
+
+A <td> tag is used to represent table data.
+
+Table headings are centered and bold.
+
+Table data are left aligned and normal.
+
+ex:1
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>NAME</th>
+				<th>EMAIL</th>
+			</tr>
+			<tr>
+				<td>101</td>
+				<td>Alan</td>
+				<td>alan@gmail.com</td>
+			</tr>
+			<tr>
+				<td>102</td>
+				<td>Jose</td>
+				<td>jose@yahoo.com</td>
+			</tr>
+			<tr>
+				<td>103</td>
+				<td>Mark</td>
+				<td>mark@zoho.com</td>
+			</tr>
+			<tr>
+				<td>104</td>
+				<td>Kelvin</td>
+				<td>kelvin@outlook.com</td>
+			</tr>
+			<tr>
+				<td>105</td>
+				<td>Peter</td>
+				<td>peter@rediff.com</td>
+			</tr>
+		</table>
+	</body>
+</html>
+
+ex:2
+-------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<table border="1" width="100%">
+			<tr>
+				<th>ID</th>
+				<th>NAME</th>
+				<th>EMAIL</th>
+			</tr>
+			<tr>
+				<td>101</td>
+				<td>Alan</td>
+				<td>alan@gmail.com</td>
+			</tr>
+			<tr>
+				<td>102</td>
+				<td>Jose</td>
+				<td>jose@yahoo.com</td>
+			</tr>
+			<tr>
+				<td>103</td>
+				<td>Mark</td>
+				<td>mark@zoho.com</td>
+			</tr>
+			<tr>
+				<td>104</td>
+				<td>Kelvin</td>
+				<td>kelvin@outlook.com</td>
+			</tr>
+			<tr>
+				<td>105</td>
+				<td>Peter</td>
+				<td>peter@rediff.com</td>
+			</tr>
+		</table>
+	</body>
+</html>
+
+ex:3
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<table border="1" width="100%">
+			<caption>Employee Details</caption>
+			<tr>
+				<th>ID</th>
+				<th>NAME</th>
+				<th>EMAIL</th>
+			</tr>
+			<tr>
+				<td>101</td>
+				<td>Alan</td>
+				<td>alan@gmail.com</td>
+			</tr>
+			<tr>
+				<td>102</td>
+				<td>Jose</td>
+				<td>jose@yahoo.com</td>
+			</tr>
+			<tr>
+				<td>103</td>
+				<td>Mark</td>
+				<td>mark@zoho.com</td>
+			</tr>
+			<tr>
+				<td>104</td>
+				<td>Kelvin</td>
+				<td>kelvin@outlook.com</td>
+			</tr>
+			<tr>
+				<td>105</td>
+				<td>Peter</td>
+				<td>peter@rediff.com</td>
+			</tr>
+		</table>
+	</body>
+</html>
+
+ex:4
+------
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<table border="1" cellspacing="10px" cellpadding="10px">
+			<caption>Employee Details</caption>
+			<tr>
+				<th>ID</th>
+				<th>NAME</th>
+				<th>EMAIL</th>
+			</tr>
+			<tr>
+				<td>101</td>
+				<td>Alan</td>
+				<td>alan@gmail.com</td>
+			</tr>
+			<tr>
+				<td>102</td>
+				<td>Jose</td>
+				<td>jose@yahoo.com</td>
+			</tr>
+			<tr>
+				<td>103</td>
+				<td>Mark</td>
+				<td>mark@zoho.com</td>
+			</tr>
+			<tr>
+				<td>104</td>
+				<td>Kelvin</td>
+				<td>kelvin@outlook.com</td>
+			</tr>
+			<tr>
+				<td>105</td>
+				<td>Peter</td>
+				<td>peter@rediff.com</td>
+			</tr>
+		</table>
+	</body>
+</html>
+
+
+Interview Questions
+=======================
+
+Q)Types of elements in HTML ? 
+
+We have two types of elements.
+
+1)Block elements
+
+2)Inline elements
+
+1)Block elements
+-------------------
+Block elements always starts with new line and they will occupy 100% of width. 
+
+We have following list of block elements.
+
+ex:
+	<p>, <h1> to <h6> , <ol> , <ul> , <div> and etc.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<p style="border:2px solid black">This is Paragraph</p>
+		<h1 style="border:2px solid blue">This is heading tag</h1>
+		<div style="border:2px solid red">This is division tag</div>
+	</body>
+</html>
+
+
+2)Inline elements
+-------------------
+Inline elements always starts with same line and they will occupy width as much as required.
+
+We have following list of inline elements.
+
+ex:
+	<b>, <i>, <u> , <strong> , <span> and etc.
+
+ex:
+--
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUBTALENT</title>
+	</head>
+	<body>
+		<b style="border:2px solid black">It is bold tag</b>
+		<i style="border:2px solid blue">It is italic tag</i>
+		<span style="border:2px solid red">It is span tag</span>
+	</body>
+</html>
+
+Q)Types of list in HTML?
+
+We have three types of list in HTML.
+
+1)Orderlist 
+
+2)Unorderlist 
+
+3)Description list 
+
+
+1)Order list:
+------------
+It is used to group a set of related items in a specific order.
+Ex:
+	<ol>
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>JAVASCRIPT</li>
+	</ol>
+
+2)Unorder list:
+----------------
+It is used to group a set of related items in no particular order.
+Ex:
+	<ul>
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>JAVASCRIPT</li>
+	</ul>
+
+3)Description list:
+--------------------
+It is used to display name/value pairs such as terms and definitions.
+Ex:
+	<dl>
+		<dt>HTML</dt>
+		<dd>HTML is widely used language on web.</dd>
+	</dl>
+
+
+Q)What is HTML Entity?
+
+An HTML entity is a piece of text ("string") that begins with an ampersand (&) 
+and ends with a semicolon (;). 
+
+Entities are frequently used to display reserved characters, and invisible characters.
+Ex:
+	Character 	Entity
+	------------	--------
+	& 		&amp;
+	> 		&gt;
+	< 		&lt;
+	“ 		&quot;
+			&nbsp;
+	>>		&raquo;
+	<< 		&laquo;
+	and etc.
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+

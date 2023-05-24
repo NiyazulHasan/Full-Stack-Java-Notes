@@ -1,0 +1,565 @@
+Thin-Client/Fat-server application
+======================================
+Every jdbc application is a thin-client /fat-server application.
+
+Diagram: jdbc6.1
+
+To develop thin-client/fat-server application we need to save business logic and persistence logic in database in the form of pl/sql procedures and functions.
+
+To deal with PL/SQL procedures and functions we need to use CallableStatement.
+ex:
+-----
+
+procedure
+---------
+create or replace procedure first_proc(A IN number,B IN number,C OUT number)
+is
+begin
+C:=A+B;
+end;
+/
+
+program
+-------
+package com.ihub.www;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Types;
+
+public class CallableStmtApp 
+{
+	public static void main(String[] args)throws Exception 
+	{
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+		CallableStatement cst=con.prepareCall("{CALL first_proc(?,?,?)}");
+		
+		//register out parameter
+		cst.registerOutParameter(3, Types.INTEGER);
+		
+		//set the values to in parameter
+		cst.setInt(1, 10);
+		cst.setInt(2, 20);
+		
+		//execute
+		cst.execute();
+		
+		//read the data from out parameter
+		int result=cst.getInt(3);
+		System.out.println("Sum of two numbers is ="+result);
+		
+		cst.close();
+		con.close();
+	}
+}
+
+
+Types of ResultSet objects
+============================
+We have two types of ResultSet objects.
+
+1)Non-Scrollable ResultSet object
+
+2)Scrollable ResultSet object
+
+
+1)Non-Scrollable ResultSet object
+-----------------------------------
+By default every ResultSet object is a Non-scrollable ResultSet object.
+
+A ResultSet object which allows us to read the records sequentially,
+uni-directionally is called Non-Scrollable ResultSet.
+
+If we create JDBC Statement object without type , mode value then that ResultSet object is called Non-Scrollable ResultSet object.
+ex:
+	Statement st=con.createStatement();
+	ResultSet rs=st.executeQuery("select * from student");
+ 
+1)Scrollable ResultSet object
+-----------------------------------
+A ResultSet object which allows us to read the records non-sequentially,
+bidirectionally or randomly is called Scrollable ResultSet.
+
+If we create JDBC Statement object with type , mode value then that ResultSet object is called Scrollable ResultSet object.
+ex:
+	Statement st=con.createStatement(type,mode);
+	ResultSet rs=st.executeQuery("select * from student");
+
+Diagram: jdbc6.2
+
+We have two Type values.
+ex:
+	ResultSet.TYPE_SCROLL_SENSITIVE
+	ResultSet.TYPE_SCROLL_INSENSITIVE
+
+We have two mode values.
+ex:
+	ResultSet.CONCUR_READ_ONLY
+	ResultSet.CONCUR_UPDATABLE 	
+
+Scrollable ResultSet objects contains following methods
+------------------------------------------------------
+next()
+--------
+	It is used to move the cursor from current position to next position.
+
+previous()
+--------
+	It is used to move the cursor from current position to previous position.
+
+getRow()
+--------
+	It will return position of record pointer.
+
+getXXX()
+------
+	It is used to read the values from ResultSet object.
+
+close()
+------
+	It is used to close ResultSet object.
+
+first()
+--------
+	It is used to set the record pointer to first record.
+	
+isFirst()
+---------
+	It is used to check record pointer is in first record or not.
+
+last()
+------
+	It is used to set the record pointer to last record.
+
+isLast()
+----------
+	It is used to check record pointer is in last record or not.
+
+beforeFirst()
+-----------
+	It is used to set record pointer to BFR position.
+
+afterLast()
+-------------
+	It is used to set record pointer to ALR position.
+
+relative(+/-)
+-----------
+	It is used to move the record pointer to next position based on 
+	current position.
+
+absolute(+/-)
+----------
+	It is used to move the record pointer to next position based on 
+	BFR and ALR position.
+
+
+
+
+ex:
+----
+package com.ihub.www;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class ScrollableResultSetApp 
+{
+	public static void main(String[] args)throws Exception  
+	{
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+		
+		Statement st=con.createStatement(
+							ResultSet.TYPE_SCROLL_SENSITIVE,
+							ResultSet.CONCUR_READ_ONLY);
+		
+		String qry="select * from student";
+		
+		ResultSet rs=st.executeQuery(qry);
+		
+		//top to bottom
+		while(rs.next())
+		{
+			System.out.println(rs.getRow()+" "+rs.getInt(1)+" "+rs.getString(2)+" "+rs.getString(3));
+		}
+		
+		rs.afterLast();
+		while(rs.previous())
+		{
+			System.out.println(rs.getRow()+" "+rs.getInt(1)+" "+rs.getString(2)+" "+rs.getString(3));
+		}
+		
+		rs.first();
+		System.out.println(rs.isFirst());//true
+		System.out.println(rs.getRow()+" "+rs.getInt(1)+" "+rs.getString(2)+" "+rs.getString(3));
+		
+		rs.last();
+		System.out.println(rs.isLast());
+		System.out.println(rs.getRow()+" "+rs.getInt(1)+" "+rs.getString(2)+" "+rs.getString(3));
+		
+		//rs.relative(-2);
+		rs.absolute(-2);
+		System.out.println(rs.getRow()+" "+rs.getInt(1)+" "+rs.getString(2)+" "+rs.getString(3));
+		
+		rs.close();
+		st.close();
+		con.close();
+	}
+}
+
+Batch Processing
+==================
+Batch processing allows us to write multiple query to batch and make a single 
+call to the database.
+
+In batch processing, we need to add each query to batch by using addBatch() method of Statement object.
+ex:
+	st.addBatch("select * from student");
+
+To execute the batch we need to use executeBatch() method of Statement object.
+ex:
+	int[] result=st.executeBatch();
+
+ex:
+----
+package com.ihub.www;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+public class BatchProcessing 
+{
+	public static void main(String[] args)throws Exception 
+	{
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+		Statement st =con.createStatement();
+		
+		//preparing queries
+		String qry1="insert into student values(104,'ramulu','pune')";
+		String qry2="update student set sname='ravali' where sno=103";
+		String qry3="delete from student where sno=102";
+		
+		//add each qury to batch
+		st.addBatch(qry1);
+		st.addBatch(qry2);
+		st.addBatch(qry3);
+		
+		//execute the batch
+		int[] result=st.executeBatch();
+		
+		int sum=0;
+		for(int i:result)
+		{
+			sum+=i;
+		}
+		System.out.println("No of records effected are ="+sum);
+		
+		st.close();
+		con.close();
+	}
+}
+
+Transaction Management
+=======================
+Kotak table
+============
+drop table kotak;
+create table kotak(accno number(6),
+			accholder varchar2(10),
+					accbal number(12));
+
+insert into kotak values(100001,'Nikith',30000);
+insert into kotak values(200002,'Pranay',40000);
+commit;
+
+SBI table
+============
+drop table sbi;
+create table sbi(accno number(6),accholder varchar2(10),accbal number(12));
+insert into sbi values(111111,'Aravind',80000);
+insert into sbi values(222222,'Saketh',90000);
+commit;
+
+ex:
+------
+package com.ihub.www;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class TXNManagementApp 
+{
+	public static void main(String[] args)throws Exception 
+	{
+		
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the source account no :");
+		int sacno=sc.nextInt();
+		
+		System.out.println("Enter the Destination account no :");
+		int dacno=sc.nextInt();
+		
+		System.out.println("Enter the amount to transfer :");
+		int amt=sc.nextInt();
+		
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+		
+		con.setAutoCommit(false);
+		
+		Statement st =con.createStatement();
+		
+		String qry1="update sbi set accbal=accbal-"+amt+" where accno="+sacno;
+		String qry2="update kotak set accbal=accbal+"+amt+" where accno="+dacno;
+		
+		//add the queries to batch
+		st.addBatch(qry1);
+		st.addBatch(qry2);
+		
+		//execute batch
+		int[] result=st.executeBatch();
+		
+		boolean flag=true;
+		for(int i:result)
+		{
+			if(i==0)
+			{
+				flag=false;
+				break;
+			}
+		}
+		if(flag)
+		{
+			System.out.println("Transaction Done successfully");
+			con.commit();
+		}
+		else
+		{
+			System.out.println("Transaction Failed!!!");
+			con.rollback();
+		}
+		st.close();
+		con.close();
+	}
+}
+
+
+Steps to interact with MYSQL Database
+===================================
+step1:
+------
+	Download and Install MY/SQL Database successully.
+	ex:
+	https://drive.google.com/file/d/1QQjWTJ9v8xz0nfuSGva1_QQwO6KDf9_c/view?usp=sharing
+
+step2:
+--------
+	Connect with mysql by using password.
+	ex:
+	username : root( default)
+	password: root
+
+step3:
+-------
+	create a SCHEMA in MYSQL.
+	ex:
+		create schema IH_JAVA_014
+
+step4:
+-------
+	To check list of databases /schemas present in mysql db.
+	ex:
+		show databases;
+
+step5:
+-------
+	Use IH_JAVA_014 scheme/database.	
+	ex:
+		use   IH_JAVA_014;
+
+step6:
+---------
+	create a student table and insert the records.
+	ex:
+	create table student(sno int(3),sname varchar(10),sadd varchar(10));
+	insert into student values(101,'raja','hyd');
+	insert into student values(102,'raju','delhi');
+	insert into student values(103,'ravi','pune');
+	commit;
+step7:
+---------
+	create a JDBC Application to select student records.
+
+MySQLApp.java
+------------------------
+package com.ge.www;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class MySQLApp {
+
+	public static void main(String[] args) {
+		
+		final String DRIVER="com.mysql.jdbc.Driver";
+		final String URL="jdbc:mysql://localhost:3306/IH_JAVA_014";
+		final String USERNAME="root";
+		final String PASSWORD="root";
+		final String QUERY="select * from student";
+		
+		
+		Connection con=null;
+		Statement st=null;
+		ResultSet rs=null;
+		try
+		{
+			Class.forName(DRIVER);
+			con=DriverManager.getConnection(URL,USERNAME,PASSWORD);
+			st=con.createStatement();
+			rs=st.executeQuery(QUERY);
+			while(rs.next())
+			{
+				System.out.println(rs.getRow()+" "+rs.getInt(1)+" "+rs.getString(2)+" "+rs.getString(3));
+			}
+			
+			rs.close();
+			st.close();
+			con.close();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		
+		
+
+	}
+
+}
+
+
+
+	
+step8:
+--------
+	Add "mysql-connector.jar" file in project build path for mysql database.
+
+	right click to project --> built path --> configuration build path --> libraries
+	--> add external jars --> select mysql-connector.jar file --> open.
+
+
+	jar file download : 		
+	http://www.java2s.com/Code/Jar/m/Downloadmysqlconnectorjar.htm
+
+	Note:
+	ojdbc14.jar  - - for oracle 	
+	mysql-connector.jar -->  for mysql 
+
+step9:
+--------
+	Run the jdbc application.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

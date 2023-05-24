@@ -1,0 +1,550 @@
+How to hide and show password in a text field
+================================================
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- fontawesome icon cdn link -->
+   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+   	<style type="text/css">
+   		.myClass
+   		{
+   			padding-right: 25px;
+   		}
+   		#myId
+   		{
+   			position: relative;
+   			right: 25px;
+   		}
+   	</style>
+
+</head>
+<body>
+		Password: <input type="password" id="t1" class="myClass"/>
+
+		<span class="fa fa-eye" id="myId" onclick="f1()"></span>
+		
+		<script type="text/javascript">
+			function f1()
+			{
+				var x=document.getElementById('t1');
+				if(x.type="password")
+				{
+					x.type="text";
+				}
+				else
+				{
+					x.type="password";
+				}
+
+			}	
+		</script>
+</body>
+</html>
+
+JavaScript Form validation
+===========================
+The process of checking format and pattern of form data is called form validation.
+
+There are two ways to perform form validation.
+
+1)Client side form validation
+---------------------------
+Validation which is performed at client side is called client side form validation.
+To perform client side form validation we need to use javascript.
+
+2)Server side form validation 
+-------------------------------
+Validation which is performed at server side is called server side form validation.
+To perform server side form validation we need to use php,nodejs,expressjs and etc.
+
+ex:1
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<script type="text/javascript">
+		function validate()
+		{
+			var name=document.getElementById('t1').value;
+			if(name=="")
+			{
+				alert("Name is mandatory");
+				document.getElementById('t1').focus();
+				return false;
+			}
+
+			return true;
+		}
+	</script>
+</head>
+<body>
+		<form action="#"  onsubmit="return validate()">
+			Name : <input type="text" id="t1"/> <br>
+			<input type="submit" value="submit"/>
+		</form>
+</body>
+</html>
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<script type="text/javascript">
+		function validate()
+		{
+			var name=document.getElementById('t1').value;
+			if(name=="")
+			{
+				alert("Name is mandatory");
+				document.getElementById('t1').focus();
+				return false;
+			}
+			if(name.length<6)
+			{
+				alert("Name must have 6 characters");
+				document.getElementById('t1').value="";
+				document.getElementById('t1').focus();
+				return false;
+			}
+
+			return true;
+		}
+	</script>
+</head>
+<body>
+		<form action="#"  onsubmit="return validate()">
+			Name : <input type="text" id="t1"/> <br>
+			<input type="submit" value="submit"/>
+		</form>
+</body>
+</html>
+
+ex:3
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<script type="text/javascript">
+		function validate()
+		{
+			var age=document.getElementById('t1').value;
+			if(age=="")
+			{
+				alert("Age is mandatory");
+				document.getElementById('t1').focus();
+				return false;
+			}
+			if(isNaN(age))
+			{
+				alert("Age must be numeric");
+				document.getElementById('t1').value="";
+				document.getElementById('t1').focus();
+				return false;
+			}
+
+			return true;
+		}
+	</script>
+</head>
+<body>
+		<form action="#"  onsubmit="return validate()">
+			Age : <input type="text" id="t1"/> <br>
+			<input type="submit" value="submit"/>
+		</form>
+</body>
+</html>
+
+ex:4
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<script type="text/javascript">
+		function validate()
+		{
+			var pwd=document.getElementById('t1').value;
+			var cpwd=document.getElementById('t2').value;
+			if(pwd=="")
+			{
+				alert("password is mandatory");
+				document.getElementById('t1').focus();
+				return false;
+			}
+			if(cpwd=="")
+			{
+				alert("Confirm password is mandatory");
+				document.getElementById('t2').focus();
+				return false;
+			}
+			if(pwd!=cpwd)
+			{
+				alert("Both password must be same");
+				document.getElementById('t1').value="";
+				document.getElementById('t2').value="";
+				document.getElementById('t1').focus();
+				return false;
+			}
+			return true;
+		}
+	</script>
+</head>
+<body>
+		<form action="#"  onsubmit="return validate()">
+			Password : <input type="password" id="t1"/> <br>
+			Confirm Password : <input type="password" id="t2"/> <br>
+			<input type="submit" value="submit"/>
+		</form>
+</body>
+</html>
+
+ex:5
+---------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<script type="text/javascript">
+		function validate()
+		{
+			var email=document.getElementById('t1').value;
+
+			var atPosition=email.indexOf('@');
+			var dotPosition=email.lastIndexOf('.');
+			if(atPosition<1 || dotPosition<atPosition+1)
+			{
+				alert("Enter valid mail id");
+				document.getElementById('t1').focus();
+				return false;
+			}
+			
+			return true;
+		}
+	</script>
+</head>
+<body>
+		<form action="#"  onsubmit="return validate()">
+			Email : <input type="text" id="t1"/> <br>
+
+			<input type="submit" value="submit"/>
+		</form>
+</body>
+</html>
+
+
+JavaScript Regular Expression
+================================
+Regular expressions are patterns used to match character combinations in strings. 
+
+In JavaScript, regular expressions are also objects.
+
+
+JavaScript Form validation using RegularExpression
+=====================================================
+
+To generate proper regular expression we can login below url.
+
+ex:
+	https://regex101.com/
+
+
+ex:
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text],input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width:500px;
+  position: relative;
+  left:200px;
+  top:20px;
+}
+</style>
+
+<script type="text/javascript">
+  
+  function validate()
+  {
+    var name=document.getElementById('name').value;
+    var pwd=document.getElementById('pwd').value;
+    var phone=document.getElementById('phone').value;
+    var email=document.getElementById('email').value;
+    var country=document.getElementById('country').value;
+
+
+    var namecheck=/[A-Za-z. ]{6,20}$/;
+    
+    var pwdcheck=/(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[A-Z])[a-zA-Z0-9!@#$%^&*]{10,30}$/;
+
+    var phonecheck=/[789][0-9]{9}$/;
+
+    var emailcheck=/[A-Za-z.]{1,}@[A-Za-z]{2,15}[.][A-Za-z]{3,}$/;
+
+
+    
+    if(!(namecheck.test(name)))
+    {
+        alert("UserName must be 6 characters");
+        document.getElementById('name').value="";
+        document.getElementById('name').focus();
+        return false;
+    }
+
+    if(!(pwdcheck.test(pwd)))
+    {
+      alert("password must have 1 uppercase, 1 special symbol and 1 digit");
+      document.getElementById('pwd').value="";
+      document.getElementById('pwd').focus();
+       return false;
+    }
+
+    if(!(phonecheck.test(phone)))
+    {
+      alert("Phone must start with 7,8,9 series with  10 digits");
+      document.getElementById('phone').value="";
+      document.getElementById('phone').focus();
+       return false;
+    }
+
+    if(!(emailcheck.test(email)))
+    {
+      alert("Please insert valid email");
+      document.getElementById('email').value="";
+      document.getElementById('email').focus();
+       return false;
+    }
+
+    if(country=="")
+    {
+      alert("Please select the country option ");
+      return false;
+    }
+    return true;
+}
+
+</script>
+
+<body>
+
+
+<div>
+  <form action="/action_page.php" onsubmit="validate()">
+
+    <label for="name">UserName</label>
+    <input type="text" id="name" name="name" placeholder="Your username.."/>
+
+    <label for="pwd">Password</label>
+    <input type="text" id="pwd" name="pwd" placeholder="Your password.."/>
+
+    <label for="phone">Phone</label>
+    <input type="text" id="phone" name="phone" placeholder="Your phone.."/>
+
+     <label for="email">Email</label>
+    <input type="text" id="email" name="email" placeholder="Your email.."/>
+
+    <label for="country">Country</label>
+    <select id="country" name="country">
+      <option value="">none</option>
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+    </select>
+  
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
+</html>
+
+
+
+Synchronous and Asynchronous in JavaScript
+===============================================
+
+Synchronous JavaScript:
+-----------------------
+As the name suggests synchronous means to be in a sequence, i.e. every statement of the code gets executed one by one. So, basically a statement has to wait for the 
+earlier statement to get executed.
+
+ex:
+
+<script>
+    document.write("Hi"); // First
+    document.write("<br>");
+  
+    document.write("IHUB TALENT") ;// Second
+    document.write("<br>");
+      
+    document.write("How are you"); // Third
+</script>
+
+
+Asynchronous JavaScript:
+-----------------------
+Asynchronous code allows the program to be executed immediately where the synchronous code will block further execution of the remaining code until it finishes the current one. This may not look like a big problem but when you see it in a bigger picture you realize that it may lead to delaying the User Interface.
+
+ex:
+
+<script>
+    document.write("Hi");
+    document.write("<br>");
+  
+    setTimeout(function() {
+        document.write("Let us see what happens");
+    }, 2000);
+  
+    document.write("<br>");
+    document.write("End");
+    document.write("<br>");
+</script>
+
+
+ex:
+<script>
+    document.write("Hi");
+    document.write("<br>");
+  
+    setTimeout(() => {
+        document.write("Let us see what happens");
+    }, 2000);
+  
+    document.write("<br>");
+    document.write("End");
+    document.write("<br>");
+</script>
+
+
+Javascript promises
+=======================
+Promises are used to handle asynchronous operations in JavaScript. 
+
+They can handle multiple asynchronous operations easily and provide better 
+error handling than callbacks and events. 
+
+
+A Promise has four states: 
+
+1)fulfilled: Action related to the promise succeeded
+2)rejected: Action related to the promise failed
+3)pending: Promise is still pending i.e. not fulfilled or rejected yet
+4)settled: Promise has fulfilled or rejected
+
+A promise can be created using Promise constructor.
+
+Syntax:
+
+	var promise = new Promise(function(resolve, reject){
+     		//do something
+	});
+
+ex:1
+--------
+<script>
+var promise = new Promise(function(resolve, reject) {
+	resolve('IHub Talent');
+})
+
+promise
+	.then(function(successMessage) {
+	//success handler function is invoked
+		console.log(successMessage);
+	}, function(errorMessage) {
+		console.log(errorMessage);
+	})
+
+
+</script>
+
+ex:2
+--------
+<script>
+var promise = new Promise(function(resolve, reject) {
+	reject('Error occured');
+})
+
+promise
+	.then(function(successMessage) {
+	//success handler function is invoked
+		console.log(successMessage);
+	}, function(errorMessage) {
+		console.log(errorMessage);
+	})
+
+
+</script>
+
+
+ex:3
+----
+<script>
+var promise = new Promise(function(resolve, reject) {
+const x = "ihubtalent";
+const y = "ihubtalent1";
+if(x === y) {
+	resolve();
+} else {
+	reject();
+}
+});
+
+promise.
+	then(function () {
+		console.log('Success, You are a GEEK');
+	}).
+	catch(function () {
+		console.log('Some error has occurred');
+	});
+
+</script>
+
+Assignment
+==========
+Diagram: class22.1
+
+
+
+
+
+
+
+
+
+
+
+
+

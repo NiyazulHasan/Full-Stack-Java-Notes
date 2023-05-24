@@ -1,0 +1,772 @@
+Exception Handling
+====================
+Q)What is the difference between Exception and Error?
+
+Exception
+----------
+	Exception is a problem for which we can provide solution programmatically.
+	Exception will raise due to syntax errors.
+	ex:
+		ArithmeticException
+		FileNotFoundException
+		IllegalArgumentException 
+
+Error
+-----
+	Error is a problem for which we can't provide solution programmatically.
+	Error will raise due to lack of system resources.
+	ex:
+		OutOfMemoryError
+		StackOverFlowErrr
+		LinkageError 
+		and etc.
+
+As a part of application development it is a responsibility of a programmer to provide smooth termination for every java program.
+
+We have two types of terminations.
+
+1)Smooth termination / Graceful termination
+
+2)Abnormal termination 
+
+1)Smooth termination
+--------------------
+During the program execution suppose if we are not getting any interruption in the middle of the program such type of termination is called smooth termination.
+ex:
+	class Test 
+	{
+		public static void main(String[] args) 
+		{
+			System.out.println("Hello World");
+		}
+	}
+
+
+2)Abnormal termination 
+-----------------
+During the program execution suppose if we are getting any interruption in the middle of the program such type of termination is called abnormal termination.
+ex:
+	class Test 
+	{
+		public static void main(String[] args) 
+		{
+			System.out.println(10/0);
+		}
+	}
+
+Exception always raised at runtime.
+
+Exception will display name of the exception , description of the exception and line number of the exception
+
+If any exception raised in our program we must and should handle that exception otherwise our program will terminates abnormally.
+
+
+Exception
+===============
+It is a unwanted, unexpected event which disturbs normal flow of our program.
+
+Exception always raised at runtime so they are also known as runtime events.
+
+The main objective of exception handling is to provide gaceful termination.
+
+In java , exceptions are divided into two types.
+
+1)Predefined exceptions
+
+2)Userdefined exceptions 
+
+
+1)Predefined exceptions
+-------------------------
+Built-In exceptions are called predefined exceptions.
+
+Diagram: java38.1
+
+It is categories into two types.
+
+i)Checked exceptions
+---------------------
+	Exceptions which are checked by a compiler at the time of compilation
+	is called checked exception.
+	ex:
+		IOException
+		InterruptedException
+		FileNotFoundException
+		EOFException
+
+ii)Unchecked exceptions
+------------------------
+	Exceptions which are checked by a JVM at the time of runtime is called
+	unchecked exceptions.
+	ex:
+		ArithmeticException
+		IllegalArgumentException
+		ClassCastException 
+		and etc.
+
+
+If any checked exception raised in our program we must and should handle that exception by using try and catch block.
+
+try block
+-----------
+It is a block which contains risky code.
+
+A try block always associate with catch block.
+
+A try block is used to throw the exception to catch block.
+
+If any exception raised in try block then try block won't be executed.
+
+If any exception raised in the middle of the try block then reset of code won't be executed.
+
+catch block
+------------
+It is a block which contains Error handling code.
+
+A catch block always associate with try block.
+
+A catch block is used to catch the exception which is thrown by try block.
+
+A catch block will take exception name as a parameter and that name must match with exception class name.
+
+If there is no exception in try block then catch block won't be executed.
+
+syntax:
+-----
+try
+{
+	-
+	- //Risky code
+	-
+}
+catch(ArithmeticException ae)
+{
+	-
+	- //Error handling code 	
+	-
+}
+
+ex:1
+-----
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println("Try-Block");
+		}
+		catch (Exception e)
+		{
+			System.out.println("Catch-Block");
+		}
+	}
+}
+o/p:
+Try-Block
+
+ex:2
+------
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println(10/0);
+		}
+		catch (ArithmeticException ae)
+		{
+			System.out.println("Catch-Block");
+		}
+	}
+}
+o/p:
+Catch-Block
+
+ex:3
+------
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println("stmt1");
+			System.out.println(10/0);
+			System.out.println("stmt2");
+		}
+		catch (ArithmeticException ae)
+		{
+			System.out.println("Catch-Block");
+		}
+	}
+}
+o/p:
+stmt1
+Catch-Block
+
+
+
+Try with multiple catch blocks
+============================================
+A try block can have multiple catch block.
+
+If a try block contains multiple catch blocks then order of catch block is very important.It should be from child to parent but not from parent to child.
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println(10/0);
+		}
+		catch (ArithmeticException ae)
+		{
+			System.out.println("FROM AE");
+		}
+		catch (RuntimeException re)
+		{
+			System.out.println("FROM RE");
+		}
+		catch (Exception e)
+		{
+			System.out.println("FROM E");
+		}
+	}
+}
+
+How to display exception details
+=================================
+Throwable class defines following three method to display exception details.
+
+1)printStackTrace()
+--------------------
+It will display name of the exception, description of the exception and line number of the exception.
+
+
+2)toString() 
+--------------
+It will display name of the exception and description of the exception.
+
+3)getMessage()
+---------------
+It will display description of the exception.
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println(10/0);
+		}
+		catch (ArithmeticException ae)
+		{
+			ae.printStackTrace();
+			
+			System.out.println("========================");
+			
+			System.out.println(ae.toString());
+
+			System.out.println("========================");
+			
+			System.out.println(ae.getMessage());
+		}
+		
+	}
+}
+
+finally block
+===========
+It is never recommanded to maintain cleanup code inside try block because if any exception raised in try block then try won't be executed.
+
+It is never recommanded to maintain cleanup code inside catch block because if no exception raised in try block then catch won't be executed.
+
+But we need a place where we can maintain cleanup code and it should execute irrespective of exception raised or not.Such block is called finally block.
+
+syntax
+-------
+try 
+{
+	-
+	- // Risky Code 
+	-
+}
+catch(Exception e)
+{
+	-
+	- // Errorhandling code 
+	-
+}
+finally
+{
+	-
+	- //cleanup code
+	-
+}
+
+ex:1
+------
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println("try-block");
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			System.out.println("finally-block");
+		}
+		
+	}
+}
+o/p:
+try-block
+finally-block
+
+ex:2
+------
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println(10/0);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			System.out.println("finally-block");
+		}
+		
+	}
+}
+o/p:
+java.lang.ArithmeticException: / by zero
+        at Test.main(Test.java:7)
+finally-block
+
+
+A try with finally combination is valid in java.
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println("try-block");
+		}
+		finally
+		{
+			System.out.println("finally-block");
+		}
+		
+	}
+}
+o/p:
+try-block
+finally-block
+
+
+
+
+Q)What is the difference between final, finally and finalized method?
+
+final
+-----
+A final is a modifier which is applicable for variables,methods and classes.
+
+If we declare any variable as final then reassignment of that variable is not possible.
+
+If we declare any method as final then overriding of that method is not possible.
+
+If we declare any class as final then creating child class is not possible.
+
+
+finally
+-------
+It is a block which contains cleanup code and it will execute irrespective of exception raised or not.
+
+finalized method
+---------------
+It is a method called by garbage collector just before destroying an object for cleanup activity.
+
+
+throw statement
+==================
+Sometimes we will create exception object explicitly and handover to JVM manually by using throw statement.
+
+Diagram: java38.2
+
+
+throws statement
+==============
+If any checked exception raised in our program we must and should handle that exception by using try and catch block or by using throws statement.
+
+ex:1
+------
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			Thread.sleep(3000);
+			System.out.println("Welcome to Java");
+		}
+		catch (InterruptedException ie)
+		{
+			ie.printStackTrace();
+		}
+		
+	}
+}
+
+ex:2
+-----
+class Test 
+{
+	public static void main(String[] args)throws InterruptedException
+	{
+		
+			Thread.sleep(5000);
+			System.out.println("Welcome to Java");
+		
+	}
+}
+
+2)Userdefined exceptions 
+===========================
+Exceptions which are created by the user based on the application requirement are called customized exceptions.
+
+ex:
+	StudentsNotPracticingException
+	NoInterestInJavaException
+	InsufficientFeeException
+	TooOldException
+	TooYoungException 
+	and etc.
+
+
+ex:
+class TooOldException extends RuntimeException
+{
+	TooOldException(String s)
+	{
+		super(s);
+	}
+}
+class TooYoungException extends RuntimeException 
+{
+	TooYoungException(String s)
+	{
+		super(s);
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		String val=args[0];
+		int age=Integer.parseInt(val);
+
+		if(age<18)
+			throw new TooYoungException("U r not eligible to vote");
+		else
+			throw new TooOldException("U r eligible to vote");
+	}
+}
+
+
+
+
+
+Generics
+==========
+Array is a typesafe.
+
+We can provide guarantee that what type of elements are present in array.
+
+If requirement to store String values then we need to use String[] array.
+ex:
+	String[] str=new String[100];
+	str[0]="hi";
+	str[1]="hello";
+	str[2]=10; // invalid 
+
+At the time of retrieving the data from array , we don't need to perform any typecasting.
+
+ex:
+	String[] str=new String[100];
+	str[0]="hi";
+	str[1]="hello";
+	-
+	-
+	String value=str[0];	
+
+Collections are not typesafe.
+
+It means we can't provide guarantee that what type of elements are present in Collections.
+
+If requirement is there to store string values then it is never recommanded to use ArrayList.Here We won't get any compile time error or runtime error but sometimes 
+our program get failed.
+
+ex:
+	ArrayList al=new ArrayList();
+	al.add("hi");
+	al.add("hello");
+	al.add(10);
+
+At the time of retrieving the data compulsary we need to perform typecasting.
+	
+ex:
+	ArrayList al=new ArrayList();
+	al.add("hi");
+	al.add("hello");
+	al.add(10);
+	-
+	-
+	String value=(String)al.get(0);
+
+To overcome above limitations sun micro system introduced Generics concept in 1.5v.
+
+The main objective of Generics are 
+
+1)To make Collection as typesafe.
+
+2)To avoid typecasting problem.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+

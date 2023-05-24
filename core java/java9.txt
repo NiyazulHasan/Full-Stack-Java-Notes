@@ -1,0 +1,252 @@
+2)static variable
+=====================
+A value of a variable which is not varied(changes) from object to object is called static variable.
+
+A static variable  will be created at the time of class loading and it will destroy at the time of class unloading.Hence scope of static variable is same as scope of a .class file.
+
+A static variable will store in method area.
+
+A static variable must and should declare immediately after the class using static keyword.But not inside methods ,blocks and constructors.
+
+A static variable can access directly from static area as well as from instance area.
+
+A static variable can access using object reference and class name.
+
+ex:1
+-----
+class Test
+{
+	//static variable
+	static int i=10;	
+
+	public static void main(String[] args)
+	{
+		System.out.println(i);//10
+
+		Test t=new Test();
+		System.out.println(t.i);//10
+
+		System.out.println(Test.i);//10		
+	}
+}
+
+ex:2
+------
+class Test
+{
+	//static method
+	public static void m1()
+	{
+		System.out.println("static method");	
+	}
+	public static void main(String[] args)
+	{
+		m1();	
+
+		Test t=new Test();
+		t.m1();
+
+		Test.m1();
+	}
+}
+
+Note:
+------
+If we won't initialize any value to static variable then JVM will initialized 
+default values.
+
+ex:
+
+class Test
+{
+	//static variable
+	static  String s;
+
+	public static void main(String[] args)
+	{
+		System.out.println(s);//null
+	}
+}
+
+3)Local variables
+====================
+To meet temperory requirements a programmer will declare some variables inside methods,blocks and constructors such type of variables are called local variables.
+
+A local variable will be created at the time of execution block and it will destroy when execution block is executed.Hence scope of local variable is same as scope of execution block where it is declared.
+	
+A local variable will store in java stack memory.
+
+ex:1
+------
+class Test
+{
+	public static void main(String[] args)
+	{
+		//local variable
+		int i=10;
+		System.out.println(i);	
+	}
+}
+
+Note:
+--------
+If we won't initialize any value to local variable then JVM will not initialized any default values.
+
+ex:
+
+class Test
+{
+	public static void main(String[] args)
+	{
+		//local variable
+		int i;
+		System.out.println(i);//C.T.E variable i might not have been intialiazed
+	}
+}
+
+A local variable will accept only one modifier i.e final.
+
+ex:
+
+class Test
+{
+	public static void main(String[] args)
+	{
+		//local variable
+		final int i=10;
+		System.out.println(i);//10	
+	}
+}
+
+
+Interview Question
+--------------------
+Q)Is java purely object oriented or not?
+
+No, java will not consider as purely object oriented because
+it does not support many OOPS concepts like multiple inheritance, operator overloading and more ever we depends upon primitive datatypes which are non-objects.
+
+
+Q)What is Literal?
+
+A value which is not change during the program execution is called literal.
+
+ex:
+	int  i = 10;
+	 |   |	 |___value of a variable / Literal 
+	 |   |_______variable name / Identifier
+	 |___________Datatype / Keyword 
+
+
+Main method
+===========
+Our program contains main method or not.
+Either it is properly declared or not.It is not a responsbility of a compiler to check.It is a duty of a JVM to look for main method always at runtime.If JVM won't find any main method then it simply throughs one runtime error called main method not found.
+
+JVM always look for main method with following signature.
+ex:
+	public static void main(String[] args)
+
+If we perform any changes in above signature then JVM will throw one runtime error called main method not found.
+
+public 
+-------
+JVM wants to call this method from any where that's why main method is public.
+
+static
+--------
+JVM wants to call this method without using object reference.
+
+void
+------
+Main method does not return anything to JVM.
+
+main
+-------
+It is an identifier given to a main method.
+
+String[] args
+--------------
+It is a command line argument.
+
+We can perform following changes in method.
+
+1)Order of modifiers is not important incase of public static we can take static public also.
+ex:
+	static public void main(String[] args)
+	
+2)We can change String[] in following acceptable formats.
+ex:
+	public static void main(String[]   args)
+	public static void main(String   []args)
+	public static void main(String   args[])
+
+
+3)We can change String[] with var-arg parameter.
+ex:
+class Test
+{
+	public static void main(String...   args)
+	{
+		System.out.println("Hello JAva");
+	}	
+}	
+
+4)We can declare args with any java valid identifier.
+ex:
+	public static void main(String[]   ihub)	
+
+
+5)Main method will accept following modifiers.
+ex:
+	synchronized
+	final
+	strictfp 
+	
+	public static synchronized final strictfp void main(String[]  args)
+
+
+Requirement
+=============
+Q)
+There are two friends Jose and Alan.They wants to contribute some money to a 
+educational charity.So write a java class Charity and find out how much they have contribute?
+---------------------------------
+Expectation:			|
+---------------------------------
+1000   2000			|
+---------------------------------
+Total contribution is = 3000	|
+---------------------------------
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

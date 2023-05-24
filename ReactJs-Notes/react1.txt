@@ -1,0 +1,238 @@
+React/ReactJS
+==============
+It is a declarative, efficient and flexible javascript frontend library responsible for building frontend applications or User interfaces(UI).
+
+It is an open source, component based frontend library responsible only for view layer of the application.
+
+It was developed by Jordan Walke who was a software engineer at Facebook.
+
+It was initially developed and maintained by Facebook and later it is used in their own products like Whatsapp and Instagram. 
+
+React was released to the public in the month of May, 2013.
+
+The latest version of React/Reactjs is v18.2.2.
+
+The official website of React is http://www.reactjs.org.
+
+React is used to create a reusable component.
+
+A component is a building block of react application.
+
+Advantages of React/ReactJS
+===============================
+
+1) It is easy to learn and easy to use.
+
+2) It supports one way data binding.
+
+3) It supports Virtual DOM.
+
+4) It supported by all major browsers.
+
+5) It creates reusable components.
+
+6) Good Documentation and Community support.
+
+
+
+Q)Differences between Angular and React?
+
+Angular						React
+----------					-----------
+It was released in October,2010.		It was released in May, 2013.
+
+Angular is a product of Google.			React is a product of Facebook.
+
+Angular is an open source javascript 		React is a open source frontend 
+framework for web and mobile development.	javascript library responsible 
+						only for view layer of the
+ 						application.
+
+Typescript language is used in angular.		JSX language is used in react.
+
+Jasmine and Karma used as a testing frameworks. Jest and Enzyme used as a testing
+						frameworks.
+
+It supports two way data binding.		It supports one way data binding.
+
+It supports Traditional DOM.			It supports Virtual DOM.
+
+The default port number is 4200.		The default port number is 3000.
+
+It is used for large scale and rich 		It is used for SPA (Single Page
+featured applications.				Application).
+
+Angular used by Google, Nike, McDonoalds,	React used by Facebook,whatsapp,
+paypal,Gmail and etc.				instagram,airbnb and etc.
+
+How ReactJS works internally
+=============================
+React uses a virtual DOM that is basically a DOM tree representation in JavaScript. 
+
+So when it needs to read or write to the DOM, it will use the virtual representation of it.Then the virtual DOM will try to find the most efficient way to update the browser's DOM.
+
+Assume we have created multiple components and consistently we are performing some changes in our application.Now we need to see ,how virtual DOM react on each change.
+
+Diagram: react1.1
+
+
+
+
+Pre-requiste to learn React/ReactJS
+====================================
+1) Basics of HTML,CSS,Javascript and Bootstrap.
+
+2) Strong knowledge on JSX.
+
+3) Usage of npm commands.
+
+4) Basics on ES6 standards.
+
+
+
+
+What is JSX
+=============
+JSX stands for JavaScript XML.
+
+JSX allows us to write HTML in React.
+
+JSX tags having a tagname, attributes and children.
+
+JSX is not a necessity to write React applications.Instead we can use Babel.
+
+JSX makes your react code simpler and elegant.
+
+JSX ultimately transpiles to pure JavaScript which is understood by the browsers.
+
+
+JSX Elements
+===============
+JSX allows us to write HTML elements in JavaScript and place them in the DOM without any createElement()  and/or appendChild() methods.
+
+
+ex:1
+-----
+
+JSX code
+--------
+	<h1>IHUB Talent</h1>  
+
+	Here h1 is a jsx element.
+
+Babel code
+------------
+        React.createElement("h1",null,"IHUB Talent");
+ 
+	Here h1 is a tag name.
+	Here null is a optional property name.
+	Here IHUB Talent is a text.
+
+	
+
+ex:2
+------
+
+JSX code
+---------
+	<div>
+		<h1>Hello React JS </h1> 
+	</div>
+
+babel code
+---------
+ 	React.createElement("div",null,
+			React.creteElement("h1",null,"Hello ReactJs"));
+
+
+ex:3
+---------
+
+JSX code
+---------
+	<div id="myId">
+		<h1>Hello React JS </h1> 
+	</div>
+
+babel code
+---------
+ 	React.createElement("div",{id:'myId'},
+			React.creteElement("h1",null,"Hello ReactJs"));
+
+
+ex:4
+---------
+
+JSX code
+---------
+	<div class="myClass">
+		<h1>Hello React JS </h1> 
+	</div>
+
+babel code
+---------
+ 	React.createElement("div",{class:'myClass'},
+			React.creteElement("h1",null,"Hello ReactJs"));
+
+
+Note:
+-------
+In above code , warning message will be displayed on console i.e 
+Invalid DOM property 'class'.
+
+In order to remove this warning from our application we need to use "className" attribute.
+
+In javascript, "class" is a keyword which is used to create React components.
+
+In react , CSS class name must specify by "className" attribute.  
+	
+
+ex:5
+--------
+
+JSX code
+---------
+	<div id="myId" class="myClass">
+		<h1>Hello React JS </h1> 
+	</div>
+
+babel code
+---------
+ 	React.createElement("div",{id:'myId',className:'myClass'},
+			React.creteElement("h1",null,"Hello ReactJs"));
+
+
+
+JSX Expressions
+=======================
+JSX allows us to write expressions inside curly braces { }.
+
+The expression can be a React variable, or property, or any other valid JavaScript expression.
+
+JSX will execute the expression and return the result.
+
+ex:1
+----
+	let name="Alan Morries";
+
+	<h1>My Name is {name}</h1>
+
+
+ex:2
+----
+	<h1>The value is = {5+5} </h1>
+
+ex:3
+----
+	<h1>{Math.random()*100}</h1>
+	
+ex:4
+------
+	<h1>{Math.floor(Math.random()*100)}</h1>
+
+
+Note:
+------
+we can't use conditional statements like if, while and etc inside JSX expression.
+
+

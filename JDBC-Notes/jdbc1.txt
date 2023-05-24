@@ -1,0 +1,388 @@
+JDBC
+=====
+As if now it is known as trademark.
+
+But earlier it is known as Java Database Connectivity.
+
+RAM is a temperory storage device or medium.
+
+During the program execution our data will store in RAM.
+
+Once the program execution is completed we will loss the data.
+
+To overcome this limitation we are making our applications writing the data into the files or database softwares.
+
+Files and Database softwares act like a permanent storage device or medium.
+
+Persistence
+-------------
+The process of storing and managing the data for a long period of time is called persistence.
+
+
+import terminologies
+=====================
+
+persistence store 
+----------------
+It is a place where we can store and manage the data for a long period of time.
+ex:
+	Files and Database software's.
+
+
+persistence data 
+-----------------
+Data of a persistence store is called persistence data.
+ex:
+	Records 
+	tables 
+
+persistence operation
+-----------------------
+Insert,Update,Delete,Create and Select are called persistence operations.
+
+In realtime this operation is also known as CURD operation,CRUD operation or SCUD operation.
+ex:
+	C - Create	S - Select
+	U - Update 	C - Create
+	R - Read 	U - Update
+	D - Delete 	D - Delete 
+ 
+
+persistence logic 
+--------------------
+A logic which is capable to perform persitence operations is called persistence logic.
+ex:
+	JDBC code 
+	Hibernate code 
+	Ibatis code 
+	IOStream 
+	
+persistence technology 
+--------------------
+A technology which is used to develop persistence logic is called persistence technology.
+ex:
+	JDBC
+	Hibernate
+	JPA
+	and etc.
+
+
+Q)What is JDBC?
+
+JDBC is a persistence technology which is used to develop persistence logic having the capability to perform persistence operations on persistence data of a persistence store.
+
+Note:
+-----
+			    IOStream 
+	JavaApp	--------------------------------  Files
+		  Serialization/Deserialization
+
+
+			  JDBC Code 
+	JavaApp	--------------------------------  DB s/w
+
+Serialization
+================
+The process of converting from one state to another state is called serialization.
+
+In general , process of converting object state to file state is called serialization.
+
+In serialization ,object will not store in a file.Object data will store in a file.
+
+Diagram: jdbc1.1
+
+
+Deserialization
+===============
+The process of taking the data from the file and representing an object is called
+deserialization.
+
+In general , process of converting file state to object state is called Deserialization.
+
+Diagram: jdbc1.2
+
+Limitations with file as persistence store
+==========================================
+> We can store limited amount of data.
+
+> There is no security.
+
+> Fetching the data with multiple conditions is not possible.
+
+> It does not show an application with relationships (1-1,1-m,m-2,m-m).
+
+> It does not allows us to apply constraints (not null,unique,primary key,foreign   key, check).
+
+> Updation and Deletion of data can't be done directly.
+
+> Merging and comparision of data can't be done easily.
+
+
+Advantages of database as persistence store
+============================================
+> We can store unlimited amount of data.
+
+> There is a security.
+
+> It supports common query language.
+
+> Fetching the data with multiple conditions is possible.
+
+> It shows an application with relationships.
+
+> It allows us to apply constraints.
+
+> Updation and Deletion of data can be done directly.
+
+> Merging and comparision of data can be done easily.
+
+ 
+Every JDBC application is a two-tier application.Where java with JDBC code acts like a frontend/tier1/layer1 and database software acts like a backend/tier2/layer2.
+
+The one which is visible to the enduser to perform some operations is called frontend.
+
+The one which is not visible to the enduser but it performs some operations based on the instructions given by frontend is called backend.
+
+Enduser is a non-technical person,They can't prepare and execute SQL query in database software.They depends upon frontend developers having the capability to do that work them.
+
+Diagram: jdbc1.3
+
+
+JDBC Driver
+===========
+JDBC driver acts like a bridge between java application and database software.
+
+IT is used to converts java calls to database calls and vice versa.
+
+Here calls means instructions.
+
+Diagram: jdbc1.4
+
+
+ODBC Driver
+===========
+Perl,VB2,D2k and etc uses ODBC drivers to locate and communicate with database software.
+ 
+Diagram: jdbc1.5
+
+ODBC drivers developed in c langauge by taking the support of pointers. 
+But java does not support pointers.To overcome this limitation sun micro system 
+company introduced JDBC drivers exclusively. 
+
+We will get JDBC software from three parties.
+
+1)Sun micro system  company (creator of jdbc driver)
+
+2)Database vendor 
+
+3)Third party vendor 
+
+
+We will get ODBC software from three parties.
+
+1)Xopen company (creator of ODBC driver)
+
+2)Database vendor 
+
+3)Third party vendor 
+
+Q)How many drivers are there in jdbc?
+
+We have four types of JDBC drivers.
+
+1)Type1 JDBC driver (JDBC-ODBC bridge driver /partly java driver)
+
+2)Type2 JDBC driver (Native API / partly java driver)
+
+3)Type3 JDBC driver (Net Protocol / Java Driver)
+
+4)Type4 JDBC driver (Native Protocol / Java Driver)
+
+
+To use any JDBC driver we need to register JDBC driver with DriverManager service.
+
+Every jdbc application contains one built-in service called DriverManager service.
+
+This service we can achieve by using DriverManager class.
+
+Class.forName()
+==================
+It is always recommanded to use Class.forName() method to register JDBC driver with DriverManager service.
+
+It is used to load the driver class but it won't create an object.
+
+ex:
+	Class.forName("driver-class-name");
+
+
+Connection object
+=================
+Connection is an interface which is present java.sql package.
+
+It is an object of underlying supplied java class which implements java.sql.Connection interface.
+
+To perform any operation in a database we required Connection object.
+
+Once the work with database is completed we need to close the Connection object.
+
+
+DriverManager.getConnection()
+===============================
+It is a static method present in DriverManager class.
+
+It is used to connect with database and return one JDBC Connection object representing connectivity between java application and database software.
+
+ex:
+	Connection con=DriverManager.getConnection("driver-url","uname","pwd");
+
+
+Statement object
+=================
+Statement is an interface which is present in java.sql package.
+
+It is an object of underlying supplied java class which implements java.sql.Statement interface.
+
+It acts like a vehicle between java application and database software.
+
+It is used to sends and executes SQL query in database software.
+
+Statement object we can create by using createStatement() method of Connection object.
+ex:
+	Statement st=con.createStatement();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

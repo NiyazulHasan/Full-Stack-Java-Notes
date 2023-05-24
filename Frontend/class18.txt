@@ -1,0 +1,750 @@
+Javascript Object
+====================
+A javascript object is an entity which is having state and behaviours.
+
+In general, javascript object is a collection of properties and functions.
+
+Javascript is a object based language because everything is present in objects.
+
+Javascript is a template based but not class based.We don't need to create a class to get the object.We can create object directly.
+
+There are three ways to create javascript objects.
+
+1)By using Object literal
+
+2)By creating instance of an Object i.e using new keyword.
+
+3)By using Object constructor i.e using new keyword.
+
+
+1)By using Object literal
+-----------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+
+	</head>
+	<body>
+		<script type="text/javascript">
+				
+				emp={
+						eid:101,
+						ename:"Alan Morries",
+						esal:10000	
+				};
+
+				document.writeln("Employee Id:"+emp.eid+"<br>");
+				document.writeln("Employee Name:"+emp.ename+"<br>");
+				document.writeln("Employee Salary:"+emp.esal+"<br>");
+				
+		</script>
+	</body>
+</html>
+
+2)By creating instance of an Object
+----------------------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+
+	</head>
+	<body>
+		<script type="text/javascript">
+				
+				var emp=new Object();
+				emp.eid=102;
+				emp.ename="Erick Anderson";
+				emp.esal=20000;
+
+				document.writeln("Employee Id:"+emp.eid+"<br>");
+				document.writeln("Employee Name:"+emp.ename+"<br>");
+				document.writeln("Employee Salary:"+emp.esal+"<br>");
+				
+		</script>
+	</body>
+</html>
+
+3)By using Object constructor
+----------------------------------
+Here we need to create a function with parameters and each parameter must assign in the current object by using this keyword.
+
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+
+	</head>
+	<body>
+		<script type="text/javascript">
+				
+				function emp(eid,ename,esal)
+				{
+					this.eid=eid;
+					this.ename=ename;
+					this.esal=esal;
+				}
+				e=new emp(103,"Ana Julie",30000);
+
+				document.writeln("Employee Id :"+e.eid+"<br>");
+				document.writeln("Employee Name :"+e.ename+"<br>");
+				document.writeln("Employee Sal :"+e.esal+"<br>");
+				
+		</script>
+	</body>
+</html>
+
+Javascript Array
+==================
+In javascript , Array is an object which contains similar elements.
+
+Array index always starts with '0' because it is a logical process.
+
+There are three ways to create an array in javascript.
+
+1)By using array literal
+
+2)By creating instance of an array i.e using new operator.
+
+3)By creating array constructor i.e using new operator.
+
+
+1)By using array literal
+------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+
+			var arr=[10,20,30,40];
+
+			for(var i=0;i<arr.length;i++) 
+			{
+				document.writeln(arr[i]+" ");
+			}	
+
+		</script>
+	</body>
+	</body>
+</html>
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+
+			var arr=[10,20,30,40];
+
+			for(var i in arr) 
+			{
+				document.writeln(arr[i]+" ");
+			}	
+
+		</script>
+	</body>
+	</body>
+</html>
+
+ex:3
+-------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+
+			var arr=["html","css","js"];
+
+			for(var i in arr) 
+			{
+				document.writeln(arr[i]+" ");
+			}	
+
+		</script>
+	</body>
+	</body>
+</html>
+
+2)By creating instance of an array i.e using new operator
+-----------------------------------------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+
+			var arr=new Array();
+			arr[0]=10;
+			arr[1]=20;
+			arr[2]=30;
+
+			for(var i in arr) 
+			{
+				document.writeln(arr[i]+" ");
+			}	
+
+		</script>
+	</body>
+	</body>
+</html>
+
+
+3)By creating array constructor i.e using new operator
+======================================================
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+
+			var arr=new Array(10,20,30,40,50);
+
+
+			for(var i in arr) 
+			{
+				document.writeln(arr[i]+" ");
+			}	
+
+		</script>
+	</body>
+	</body>
+</html>
+
+ex:
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr=[];
+		arr.push(10);
+		arr.push(20);
+		arr.push(30);
+
+		for (i in arr)
+		{
+			document.write(arr[i]+" ");
+		}
+	</script>
+		
+</body>
+</html>
+
+ex:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IHUB TALENT</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr=[];
+		arr.push(10);
+		arr.push(20);
+		arr.push(30);
+		arr.pop();
+		for (i in arr)
+		{
+			document.write(arr[i]+" ");
+		}
+	</script>
+		
+</body>
+</html>
+
+Javascript String
+===================
+In javascript , string is an object which contains collection of characters.
+
+There are two ways to create a string in javascript.
+
+1)By using string literal
+
+2)By creating instance of a string.
+
+
+1)By using string literal
+-------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+
+			var str1="bhaskar";
+			document.writeln(str1+"<br>");
+
+			var str2='solution';
+			document.writeln(str2+"<br>");
+
+		</script>
+	</body>
+	</body>
+</html>
+
+2)2)By creating instance of a string.
+-----------------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+
+			var str=new String("bhaskar");
+			document.writeln(str);
+
+		</script>
+	</body>
+	</body>
+</html>
+
+ex:
+----
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+
+			var str="bhaskar";
+			document.writeln(str.length);
+
+		</script>
+	</body>
+	</body>
+</html>
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+
+			var str="bhaskar";
+			document.writeln(str.toUpperCase());
+
+			var str2="BHASKAR";
+			document.writeln(str.toLowerCase());
+
+		</script>
+	</body>
+	</body>
+</html>
+
+
+ex:3
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+
+			var str1="ihub";
+			var str2="talent";
+			document.writeln(str1.concat(str2));
+
+	
+		</script>
+	</body>
+	</body>
+</html>
+
+
+
+
+ex:4
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+
+			var str1="ihub";
+		
+			document.writeln(str1.charAt(2));
+
+	
+		</script>
+	</body>
+	</body>
+</html>
+
+ex:
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+
+			var str="ihub";
+		
+			var arr=str.split('');
+
+			for(var i in arr)
+			{
+				document.writeln(arr[i]+"<br>");
+			}
+
+	
+		</script>
+	</body>
+	</body>
+</html>
+
+
+ex:
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+
+			var str="ihub";
+		
+			var arr=str.split('');
+
+			for(var i=arr.length-1;i>=0;i--)
+			{
+				document.writeln(arr[i]);
+			}
+	
+		</script>
+	</body>
+	</body>
+</html>
+
+
+BOM (Browser Object Model)
+===========================
+The Browser Object Model is used to interact with browser.
+
+The default object for a browser is window object.It means we can call all the functions by using window or directly.
+
+ex:
+	window.alert("Welcome to JavaScript");
+
+	or
+
+	alert("Welcome to JavaScript");
+
+
+window object
+====================
+It is used to create a window on a browser.
+
+A window object is created automically by the browser.
+
+A "window" is a object of browser but not javascript.
+
+Javascript objects are String,Array,Date and etc.
+
+A "window" object is used to write programming related to browser.
+
+With the help of window object we can perform following activities very easily.
+
+1)It display dialog boxes and pop boxes.
+
+2)We can find width and height of a browser.
+
+3)We can move or resize the browser.
+
+4)Scroll to the browser.
+
+5)Get URL,hostname,protocol and etc of a browser.
+
+6)We can get javascript history.
+
+1)alert()
+==============
+It will display alert dialog box.It has message with ok button.
+
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+			<script type="text/javascript">
+				function f1()
+				{
+					alert("Welcome to JavaScript");
+				}
+
+			</script>
+
+			<button onclick="f1()">click</button>
+	</body>
+</html>
+
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+
+	<button onclick="alert('This is IHUB Talent')">click</button>
+	</body>
+</html>
+
+
+2)confirm()
+----------------
+It will dispaly confirm dialog box.It has message with ok button and cancel button.
+
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+			<script type="text/javascript">
+				function f1()
+				{
+					var v=confirm("Do you wants to delete ?");
+					if(v==true)
+					{
+						alert("ok");
+					}
+					else
+					{
+						alert("cancel");
+					}
+				}	
+			</script>
+
+			<button onclick="f1()">delete</button>
+	</body>
+</html>
+
+
+3)prompt()
+---------------
+It will display prompt dialog box.It contains message with textfield.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+			<script type="text/javascript">
+				function f1()
+				{
+					var v=prompt("Who are you?");
+					alert("Welcome :"+v);	
+				}	
+			</script>
+
+			<button onclick="f1()">click</button>
+	</body>
+</html>
+
+innerWidth and innerHeight
+============================
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+			<script type="text/javascript">
+				var w=window.innerWidth;
+				var h=window.innerHeight;
+				document.writeln("Width :"+w+"<br>");
+				document.writeln("Height :"+h+"<br>");
+			</script>
+
+			
+	</body>
+</html>
+
+Note:
+----
+	Press "CTRL + +" for zoomin.
+	Press "CTRL + -" for zoomout.
+
+window.open()
+--------------
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+			<script type="text/javascript">
+				function openWindow()
+				{
+					window.open("http://www.google.com");	
+				}
+			</script>
+
+			<button onclick="openWindow()">open a new window</button>
+	</body>
+</html>
+
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+			<script type="text/javascript">
+				function openWindow()
+				{
+					window.open("http://www.google.com","_blank");	
+				}
+			</script>
+
+			<button onclick="openWindow()">open a new window</button>
+	</body>
+</html>
+
+ex:3
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+			<script type="text/javascript">
+				function openWindow()
+				{
+					window.open("http://www.google.com","_parent");	
+				}
+			</script>
+
+			<button onclick="openWindow()">open a new window</button>
+	</body>
+</html>
+
+ex:4
+-------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+			<script type="text/javascript">
+				function openWindow()
+				{
+					window.open("http://www.google.com","_blank","width=200px,height=200px");	
+				}
+			</script>
+
+			<button onclick="openWindow()">open a new window</button>
+	</body>
+</html>
+
+
+close()
+-------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+			<script type="text/javascript">
+				var myWindow;
+				function openWindow()
+				{
+					 myWindow=window.open("http://www.google.com","","width=300px,height=300px");	
+				}
+				function closeWindow()
+				{
+					myWindow.close();
+				}
+			</script>
+
+			<button onclick="openWindow()">open a new window</button>
+			<button onclick="closeWindow()">close a window</button>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

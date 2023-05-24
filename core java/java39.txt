@@ -1,0 +1,709 @@
+java.util package (Collections)
+==================================
+
+Q)Difference between Arrays and Collections?
+
+Arrays					Collections
+------------				------------
+It is a collection of homogenous data	It is a collection of homogenous and 
+elements.				hetrogenous data elements.
+
+Arrays are fixed in size.		Collections are growable in nature.
+
+Performance point of view array is 	Memory point of view Collection is 
+recommanded to use.			recommanded to use.
+
+It is typesafe.				It is not typesafe.
+
+Arrays are not implemented based on 	Collections are implemented based on 
+data structure concept so we can't 	data structure concept so we can expect
+expect any ready made methods.For 	readymade methods.
+every logic we need to write the code
+explicitly.
+
+It holds primitive and object types. 	It holds only object type.
+
+
+
+
+
+Collection
+============
+Collection is an interface which is present in java.util package.
+
+It is a root interface for entire collection framework.
+
+If we want to represent group of individual objects in a single entity then we need to use Collections.
+
+Collection interface contains following methods.
+
+ex:
+	public abstract int size()
+	public abstract void clear()
+	public abstract boolean add()
+	public abstract boolean add(index);
+	public abstract boolean remove()
+	public abstract boolean contains()
+	public abstract boolean removeAll();
+	public abstract boolean addAll();
+	public abstract boolean containsAll();
+	public abstract boolean retainsAll()
+	public abstract Iterator iterator();
+	and etc.
+
+ 
+List
+========
+It is a child interface of Collection interface.
+
+If we want to represent group of individual objects in a single entity where duplicates are allowed and order is preserved then we need to use List interface.
+
+Diagram: java39.1
+
+
+ArrayList
+==========
+The underlying datastructure is resizable array or growable array.
+
+Duplicates are allowed.
+
+Order is preserved.
+
+Hetrogenous objects are allowed.
+
+null insertion is possible. 
+
+If our frequent operation is retrieval operation then we need to use ArrayList.
+
+It implements Serializable , Cloneable and RandomAccess interface.
+
+ex:1
+------
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		ArrayList al=new ArrayList();
+		al.add("one");
+		al.add("two");
+		al.add("three");
+		al.add("four");
+		System.out.println(al);//[one, two, three, four]
+		al.add("one");
+		System.out.println(al);//[one, two, three, four, one]
+		al.add(10);
+		System.out.println(al);//[one, two, three, four, one, 10]
+		al.add(null);
+		System.out.println(al);//[one, two, three, four, one, 10, null]
+
+	}
+}
+
+ex:2
+-----
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		ArrayList<String> al=new ArrayList<String>();
+		al.add("one");
+		al.add("two");
+		al.add("three");
+		al.add("four");
+		System.out.println(al);//[one, two, three, four]
+		al.add("one");
+		System.out.println(al);//[one, two, three, four, one]
+		al.add(null);
+		System.out.println(al);//[one, two, three, four, one, null]
+
+	}
+}
+
+
+ex:3
+-----
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		ArrayList<String> al=new ArrayList<String>();
+		al.add("one");
+		al.add("two");
+		al.add("three");
+		al.add("four");
+		System.out.println(al);//[one, two, three, four]
+
+		System.out.println(al.isEmpty());//false
+		System.out.println(al.size());//4
+		System.out.println(al.contains("one"));//true
+
+		al.add(0,"raja");
+		System.out.println(al);//[raja, one, two, three, four]
+
+		al.remove("raja");
+		System.out.println(al);//[one, two, three, four]
+
+		al.clear();
+		System.out.println(al);//[]
+
+	}
+}
+
+
+
+ex:4
+-----
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		ArrayList<String> al=new ArrayList<String>();
+		al.add(new String("one"));
+		al.add(new String("two"));
+		al.add(new String("three"));
+		al.add(new String("four"));
+		System.out.println(al);//[one, two, three, four]
+
+	}
+}
+
+
+ex:5
+------
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		List<String> l=new ArrayList<String>();
+		l.add("one");
+		l.add("two");
+		l.add("three");
+		l.add("four");
+		System.out.println(l);//[one, two, three, four]
+
+	}
+}
+
+
+
+ex:6
+-----
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		List<String> l=new ArrayList<String>();
+		l.add("one");
+		l.add("two");
+		l.add("three");
+		l.add("four");
+	
+		for(int i=0;i<l.size();i++)
+		{
+			String s=l.get(i);
+			System.out.println(s);
+		}
+
+
+	}
+}
+
+
+
+
+
+
+
+LinkedList
+===============
+The underlying data structure is doubly LinkedList.
+
+Insertion order is preserved.
+
+Duplicate objects are allowed.
+
+Hetrogeneous objects are allowed.
+
+Null insertion is possible.
+
+It implements Deque,Serializable and Cloneable.
+
+If our frequent operation is insert or delete in the middle then 
+LinkedList is a best choice.
+
+
+LinkedList class contains following methods.
+ex:
+	addFirst();
+	addLast();
+	removeFirst();
+	removeLast();
+	getFirst();
+	getLast();
+		
+
+ex:1
+-------
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		LinkedList ll=new LinkedList();
+		ll.add("one");
+		ll.add("two");
+		ll.add("three");
+		System.out.println(ll);//[one,two,three]
+		ll.add("one");
+		System.out.println(ll);//[one,two,three,one]
+		ll.add(10);
+		System.out.println(ll);//[one,two,three,one,10]
+		ll.add(null);
+		System.out.println(ll);//[one,two,three,one,10,null]
+
+	}
+}
+
+
+ex:2
+---
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		LinkedList<String> ll=new LinkedList<String>();
+		ll.add("one");
+		ll.add("two");
+		ll.add("three");
+		System.out.println(ll);//[one,two,three]
+		ll.add("one");
+		System.out.println(ll);//[one,two,three,one]
+		ll.add(null);
+		System.out.println(ll);//[one,two,three,one,10,null]
+
+	}
+}
+
+
+ex:3
+--------
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		LinkedList<String> ll=new LinkedList<String>();
+		ll.add("one");
+		ll.add("two");
+		ll.add("three");
+		System.out.println(ll);//[one,two,three]
+		
+		ll.addFirst("gogo");
+		ll.addLast("jojo");
+		System.out.println(ll);//[gogo,one,two,three,jojo]
+
+		System.out.println(ll.getFirst());//gogo
+		System.out.println(ll.getLast());//jojo
+
+		ll.removeFirst();
+		ll.removeLast();
+		System.out.println(ll);//[one,two,three]
+		
+
+	}
+}
+
+
+ex:4
+-----
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		LinkedList<String> ll1=new LinkedList<String>();
+		ll1.add("one");
+		ll1.add("two");
+		ll1.add("three");
+		System.out.println(ll1);//[one,two,three]
+		
+		LinkedList<String> ll2=new LinkedList<String>();
+		ll2.add("raja");
+		System.out.println(ll2);//[raja]
+
+		ll2.addAll(ll1);
+		System.out.println(ll2);//[raja,one,two,three]
+
+		System.out.println(ll2.containsAll(ll1));//true
+		
+		ll2.removeAll(ll1);
+		System.out.println(ll2);//[raja]
+
+	}
+}
+
+
+
+
+
+
+
+Vector
+=========
+The underlying data structure is resizable array or growable array. 
+
+Duplicates are allowed.
+
+Insertion order is preserved.
+
+Hetrogenous objects are allowed.
+
+Null insertions is possible.
+
+It implement Serializable , Cloneable and RandomAccess interface.
+
+Note:
+-----
+All the methods present in Vector are synchronized.
+At a time only one thread is allowed to access.Hence we can achieve Thread safety.
+
+Vector class contains following methods.
+
+ex:
+	addElement();
+	removeElementAt();
+	removeAllElements();
+	capacity();
+	firstElement();
+	lastElement();
+	elements()
+	and etc.
+
+ex:
+-----
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Vector<Integer> v=new Vector<Integer>();
+
+		System.out.println(v.capacity());//10
+
+		for(int i=1;i<=10;i++)
+		{
+			v.addElement(i);
+		}
+		System.out.println(v);//[1,2,3,4,5,6,7,8,9,10]
+
+		v.removeElementAt(4);
+		System.out.println(v);//[1, 2, 3, 4, 6, 7, 8, 9, 10]
+
+		System.out.println(v.firstElement());//1
+		System.out.println(v.lastElement());//10
+
+		v.removeAllElements();
+		System.out.println(v);//[]
+	}
+}
+
+ex:2
+-------
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Vector<Integer> v=new Vector<Integer>();
+
+		System.out.println(v.capacity());//10
+
+		for(int i=1;i<=10;i++)
+		{
+			v.add(i);
+		}
+		System.out.println(v);//[1,2,3,4,5,6,7,8,9,10]
+
+		v.remove(4);
+		System.out.println(v);//[1, 2, 3, 4, 6, 7, 8, 9, 10]
+
+		v.clear();
+		System.out.println(v);//[]
+	}
+}
+
+
+
+
+
+
+
+
+Stack
+========
+It is a child class of Vector class.
+
+If we depend upon Last In First Out(LIFO) order then we need to use Stack.
+
+constructor
+------------
+	Stack  s=new Stack();
+
+Methods
+---------
+1)push(Object o)
+--------------
+	It is used to add the object into a stack.
+
+2)pop()
+-------
+	IT is used to remove the object from the stack.
+
+3)peek()
+-------
+	It is used to read toppest element in a stack.
+
+4)isEmpty()
+-----------
+	It is used to check stack is empty or not.
+
+5)search(Object o)
+--------------------
+	It will return offset values if element is present otherwise 
+	it will return -1.
+
+Ex:
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Stack<String> s=new Stack<String>();
+		s.push("A");
+		s.push("B");
+		s.push("C");
+		System.out.println(s);//[A,B,C]
+		
+		System.out.println(s.peek());//C
+
+		s.pop();
+
+		System.out.println(s);//[A,B]
+
+		System.out.println(s.isEmpty());//false
+
+		System.out.println(s.search("Z"));//-1
+
+		System.out.println(s.search("A"));//2
+
+	}
+}
+
+
+
+
+
+
+
+
+
+Set
+=======
+It is a child interface of Collection interface.
+
+If we want to represent group of individual objects in a single entity
+where duplicates are not allowed and order is not preserved then we need
+to use Set interface.
+
+Diagram: java39.2
+
+
+HashSet
+=========
+The underlying data structure is hashtable.
+
+Insertion order is not preserved because objects are arrange based on hashcode of an object.
+
+Duplicates are not allowed.
+
+Hetrogenous objects are allowed.
+
+Null insertion is possible.
+
+It implements Serializable and Cloneable interface.
+
+ex:
+-------
+iimport java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		HashSet hs=new HashSet();
+		hs.add("one");
+		hs.add("nine");
+		hs.add("six");
+		hs.add("four");
+		System.out.println(hs);//[nine, six, four, one]
+		hs.add("one");
+		System.out.println(hs);//[nine, six, four, one]
+		hs.add(10);
+		System.out.println(hs);//[nine, six, four, one, 10]
+		hs.add(null);
+		System.out.println(hs);//[null,nine, six, four, one, 10]
+	}
+}
+
+ex:2
+-----
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		HashSet<String> hs=new HashSet<String>();
+		hs.add("one");
+		hs.add("nine");
+		hs.add("six");
+		hs.add("four");
+		System.out.println(hs);//[nine, six, four, one]
+		hs.add("one");
+		System.out.println(hs);//[nine, six, four, one]
+		hs.add(null);
+		System.out.println(hs);//[null,nine, six, four, one]
+	}
+}
+
+
+
+
+LinkedHashSet
+=================
+It is a child class of HashSet class.
+
+LinkedHashSet is exactly same as HashSet class with following differences.
+
+
+HashSet 				LinkedHashSet
+------------				-----------
+The underlying data structure is 	The underlying data structure is
+Hastable.				Hashtable and LinkedList.
+
+Insertion order is not preserved.	Insertion order is preserved.
+
+It is introduced in 1.2v.		It is introduced in 1.4v.
+
+
+ex:
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		LinkedHashSet<String> lhs=new LinkedHashSet<String>();
+		lhs.add("one");
+		lhs.add("nine");
+		lhs.add("six");
+		lhs.add("four");
+		System.out.println(lhs);//[one,nine,six,four]
+		lhs.add("one");
+		System.out.println(lhs);//[one,nine,six,four]
+		lhs.add(null);
+		System.out.println(lhs);//[one,nine,six,four,null]
+	}
+}
+
+
+
+
+
+
+
+TreeSet
+==========
+The underlying data structure is Balanced Tree.
+
+Duplicate objects are not allowed.
+
+Insertion order is not preserved because it is based on sorting order of an object.
+
+Hetrogeneous objects are not allowed.If we try to insert hetrogenous objects then we 
+will get ClassCastException.
+
+Null insertion is possible only once.
+
+For empty TreeSet if we insert null then we will get NullPointerException.
+
+After insertion the elments ,if we are trying to insert null then we will
+get NullPointerException.
+
+
+It implements NavigableSet , Cloneable and Serializable interface.
+
+ex:1
+------
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		TreeSet<Integer> ts=new TreeSet<Integer>();
+		ts.add(5);
+		ts.add(10);
+		ts.add(1);
+		ts.add(3);
+		ts.add(7);
+		System.out.println(ts);
+	}
+}
+
+
+ex:2
+-----
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		TreeSet<Integer> ts=new TreeSet<Integer>();
+		ts.add(5);
+		ts.add(10);
+		ts.add(1);
+		ts.add(3);
+		ts.add(7);
+		System.out.println(ts);//[1,3,5,7,10]
+		ts.add(5);
+		System.out.println(ts);//[1,3,5,7,10]
+		ts.add(null);
+		System.out.println(ts);//R.E NullPointerException
+	}
+}
+
+ex:3
+------
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		TreeSet ts=new TreeSet();
+		ts.add(5);
+		ts.add(10);
+		ts.add(1);
+		ts.add(3);
+		ts.add(7);
+		System.out.println(ts);//[1,3,5,7,10]
+		ts.add("hi");
+		System.out.println(ts);//R.E ClassCastException
+		
+	}
+}
+
+Summary diagram : java39.3

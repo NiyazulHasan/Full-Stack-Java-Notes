@@ -1,0 +1,499 @@
+
+Graphics in HTML5
+=================
+There are two ways to draw the graphics in  HTML5.
+
+1)SVG 
+
+2)CANVAS 
+
+1)SVG 
+-------
+HTML5 uses SVG technology to derived graphics in HTML. 
+
+SVG stands for Scalable Vector Graphics.
+
+SVG is used to draw two-dimensional vector based graphics in HTML.
+
+World Wide Web Consortium (W3C) prefers SVG technology to draw the graphics in HTML.
+
+A <svg> tag/element is a container tag for vector graphics.
+
+A <svg> tag/element contains various methods to display circle, rectangle, polygon ,
+graphic images and etc.
+
+ex:1
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>INDEX</title>
+	</head>
+	<body>
+		<!-- container -->
+		<svg style="border:2px solid black" width="300px" height="300px">
+			
+		</svg>
+	</body>
+</html>
+
+
+ex:2
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>INDEX</title>
+	</head>
+	<body>
+		<!-- container -->
+		<svg style="border:2px solid black" width="300px" height="300px">
+			<!-- circle -->
+			<circle cx="150px" cy="150px" r="50px"/>
+		</svg>
+	</body>
+</html>
+
+ex:3
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>INDEX</title>
+	</head>
+	<body>
+		<!-- container -->
+		<svg style="border:2px solid black" width="300px" height="300px">
+			<!-- circle -->
+			<circle cx="150px" cy="150px" r="50px"
+			fill="#FFFF00"  stroke="#FF0000" stroke-width="5px"/>
+		</svg>
+	</body>
+</html>
+
+ex:4
+-------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>INDEX</title>
+	</head>
+	<body>
+		<!-- container -->
+		<svg style="border:2px solid black" width="300px" height="300px">
+			<!-- reactangle -->
+			<rect x="50px"   y="20px"  width="200px" height="200px"
+			fill="green" stroke="blue" stroke-width="5px"/>
+		</svg>
+	</body>
+</html>
+
+ex:5
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>INDEX</title>
+	</head>
+	<body>
+		<!-- container -->
+		<svg style="border:2px solid black" width="300px" height="300px">
+			<!--  polygon -->
+			<polygon points="10,78 100,10 250,190 160,210"
+			fill="yellow" stroke="red" stroke-width="5px"/>
+			
+		</svg>
+	</body>
+</html>
+
+2)CANVAS 
+-------------
+A <canvas> tag is used to draw vector graphics via javascript.
+
+A <canvas> tag/element is a container tag.
+
+A <canvas> tag/element contains various methods to display lines,circle,rectangle,polygon,
+graphic images and etc.
+
+ex:1
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>INDEX</title>
+	</head>
+	<body>
+		<!-- container -->
+		<canvas  style="border:2px solid black;" width="300px" height="300px">
+		
+		</canvas>
+	</body>
+</html>
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>INDEX</title>
+	</head>
+	<body>
+		<!-- container -->
+		<canvas id="myId" style="border:2px solid black;" 
+					width="300px" 
+					    height="300px">
+		
+		</canvas>
+		
+		<script>
+			var context=document.getElementById("myId");
+			var c=context.getContext("2d");
+			c.moveTo(0,0);
+			c.lineTo(400,400);
+			c.stroke();
+		</script>
+		
+	</body>
+</html>
+
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>INDEX</title>
+	</head>
+	<body>
+		<!-- container -->
+		<canvas id="myId" style="border:2px solid black;" 
+					width="300px" 
+					    height="300px">
+		
+		</canvas>
+		
+		<script>
+			var context=document.getElementById("myId");
+			var c=context.getContext("2d");
+			c.beginPath();
+			c.arc(100,100,50,0,2*Math.PI);
+			c.stroke();
+		</script>
+		
+	</body>
+</html>
+
+
+ex:3
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>INDEX</title>
+	</head>
+	<body>
+		<!-- container -->
+		<canvas id="myId" style="border:2px solid black;" 
+					width="300px" 
+					    height="300px">
+		
+		</canvas>
+		
+		<script>
+			var context=document.getElementById("myId");
+			var c=context.getContext("2d");
+			c.font = "30px Arial";
+			c.fillText("Hello World", 20, 50);
+		</script>
+		
+	</body>
+</html>
+
+
+Interview Questions
+====================
+Q)Differences between HTML and HTML5 ?
+
+HTML						HTML5
+------						-----
+1)To represent HTML document we need to use     To represent HTML5 document we need to use 
+  <!DOCTYPE>.					<!DOCTYPE html>.
+
+2)HTML is bit slow.				HTML5 is more faster because it is leight weight.
+
+3)HTML is not efficient.			HTML5 is more efficient.
+
+4)HTML is inflexible for the developer.		HTML5 is flexible for the developer.
+
+5)HTML is Less mobile friendly.			HTML5 is mobile friendly.
+
+6)Does not support drag and drop effects.	It supports Drag and Drop effects.
+
+7)Not supported Audio and video without using	Supports audio and video with the help of 
+  flash player.					<audio> and <video> tag without using flash player.
+
+8)IT does not support javascript to run	        It supports javascript to run in background with 
+  on browser.					the help of JS Web Worker API.
+
+
+9)Vector graphics supported with the help of    Vector graphics is supported with the help of 
+  technologies such as VML,Silver light,adobe   internal technologies such as SVG and CANVAS.
+  flash and etc.
+
+10)Can't handle inaccurate syntax.		IT can handle Inaccurate syntax.
+
+
+11)shapes like circle,rectangle,triangle	Shapes like circle ,triangle,rectangle are easy to draw.
+   are not possible.
+
+
+
+Q)List out some HTML layout elements?
+
+<header> 	- Defines a header for a document or a section
+<nav> 		- Defines a set of navigation links
+<section> 	- Defines a section in a document
+<article> 	- Defines an independent, self-contained content
+<aside> 	- Defines content aside from the content (like a sidebar)
+<footer> 	- Defines a footer for a document or a section
+<details> 	- Defines additional details that the user can open and close on demand
+<summary> 	- Defines a heading for the <details> element
+
+
+Q)Difference between <div> and <span> tag?
+div 						span
+-------						-------
+It is block level element. 			It is inline element.
+
+It is used to wrap sections of a document. 	It is used to wrap small portion of text, 
+						images and etc.
+
+It is used to create CSS based layouts. 	It is used to stylize texts.
+
+
+
+Q)List out some Tags introduced in HTML5?
+
+The following tags introduced in HTML5 are
+Ex:
+	<header> 	<footer> 	<section> 	<article> 	<aside>
+	<nav> 		<audio> 	<video> 	<command> 	<datalist>
+	<figure> 	<hgroup> 	<mark> 		<meter> 	<summary>
+	<progress> 	<output> 	<ruby> 		<time> 		and etc.
+
+
+Q)List out some Tags/Elements removed from HTML5?
+The following tags/elements removed from HTML5 are
+Ex:
+	<big> 		<center> 	<font> 		<frame> 	<frameset>
+	<noframes> 	<s> 		<strike> 	<u> 		<dir>
+	<applet> 	<basefont> 	and etc. 
+
+
+
+
+Q)In how many ways we can display graphics in HTML?
+
+There are two ways to draw the graphics in html.
+
+SVG: 
+----
+	SVG stands for "Scalable Vector Graphics".
+	Using SVG we can derive 2 dimensional vector based graphics on a web page.
+	The <svg> tag/element is a container for SVG graphics.
+
+CANVAS:
+---------
+	A <canvas> tag/element is used to draw the graphics via JavaScript.
+	A <canvas> tag/element is a container for html graphics.
+
+
+Q)What is responsive web design?
+
+Responsive web design is about creating web pages which automatically adjust the content 
+for difference screens and viewports.
+
+
+How our HTML document execute in a browser window
+=======================================================
+Diagram: class6.1
+
+First HTML parser will parse the data from HTML document.
+
+Later , HTML parse will handover the data to DOM.
+
+DOM stands for Document Object Model.
+
+DOM is used to represent our HTML document to Tree node structure.
+
+Finally, tree node structure will execute in a browser window.
+
+
+CSS3
+======
+CSS stands for Cascading Styles Sheet.
+
+It is widely used language on web like HTML.
+
+CSS is used to apply the styles on HTML elements/tags.
+
+The latest version of CSS3 was introduced in 2001.
+
+The main objective of CSS are.
+
+1) To set the positioning of an element.
+
+2) To apply the styles to describe how an element should look like.
+
+3) To perform some sort of animations.
+
+syntax
+---------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			-
+			-  
+			-
+		</style>
+	</head>
+	<body>
+		
+	</body>
+</html>
+
+or
+----
+syntax
+---------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			-
+			-  
+			-
+		</style>
+	</head>
+	<body>
+		
+	</body>
+</html>
+
+
+ex:1
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			h1
+			{
+				color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Ihub Talent Management</h1>
+	</body>
+</html>
+Note:
+-------
+	Here styles are cascading from head to body.
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				color:blue;
+				background-color:yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Ihub Talent Management</h1>
+	</body>
+</html>
+
+CSS syntax
+===========
+CSS rules set consist of selector and declaration blok.
+ex:
+			declaration block
+          |-------------------|---------------|
+	h1{color:blue;background-color:yellow;}
+	| 
+	selector 
+
+A selector contains an element to which we want to apply the styles.
+
+Declaration block consist of multiple properties seperated with semicolon.
+
+Each property contains  property name and property value seperated with semicolon.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

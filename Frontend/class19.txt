@@ -1,0 +1,514 @@
+close()
+-------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+			<script type="text/javascript">
+				var myWindow;
+				function openWindow()
+				{
+					 myWindow=window.open("http://www.google.com","","width=300px,height=300px");	
+				}
+				function closeWindow()
+				{
+					myWindow.close();
+				}
+			</script>
+
+			<button onclick="openWindow()">open a new window</button>
+			<button onclick="closeWindow()">close a window</button>
+	</body>
+</html>
+
+Whenever we open a new window , it takes left top alignment.
+
+In order to move the window we need to use moveTo() or moveBy() function.
+
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+			<script type="text/javascript">
+				var myWindow;
+				function openWindow()
+				{
+					 myWindow=window.open("http://www.google.com","","width=300px,height=300px");	
+				}
+				function moveWindow()
+				{
+					myWindow.moveTo(100,100);
+				}
+				
+			</script>
+
+			<button onclick="openWindow()">open a new window</button>
+			<button onclick="moveWindow()">move window</button>
+	</body>
+</html>
+
+Note: Here we can't move window because in browser console we will get one 
+error.
+
+To over come this limitation we need to use custom window.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+			<script type="text/javascript">
+				var myWindow;
+				function openWindow()
+				{
+					 myWindow=window.open("","_blank","width=300px,height=300px");
+
+					
+				}
+				function moveWindow()
+				{
+					myWindow.moveTo(100,100);
+				}
+				
+			</script>
+
+			<button onclick="openWindow()">open a new window</button>
+			<button onclick="moveWindow()">move window</button>
+	</body>
+</html>
+
+Note:
+-----
+MoveTo() function will move from absolute position.
+MoveBy() function will move from relative position.
+
+
+setTimeout()
+-----------------
+The setTimeout() is executed only once.
+
+If you need repeated executions, use setInterval() instead.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+			<script type="text/javascript">
+				function setTimeOut()
+				{
+					setTimeout(function f1()
+								{
+								alert("Hello World")
+								},4000);
+				}
+			</script>
+
+			<button onclick="setTimeOut()">click</button>
+			
+	</body>
+</html>
+
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+			<script type="text/javascript">
+				function setTimeOut()
+				{
+					setTimeout(Anim,4000);
+				}
+				function Anim()
+				{
+					alert("Yahoo! this is javascript");
+				}
+			</script>
+
+			<button onclick="setTimeOut()">click</button>
+			
+	</body>
+</html>
+
+
+clearTimeout()
+-------------------
+The clearTimeout() method clears a timer set with the setTimeout() method.
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+	</head>
+	<body>
+			<script type="text/javascript">
+				var myId;
+				function setTimeOut()
+				{
+					myId=setTimeout(Anim,4000);
+				}
+				function Anim()
+				{
+					alert("Yahoo! this is javascript");
+				}
+				function removeTimeOut()
+				{
+					clearTimeout(myId);	
+				}
+			</script>
+
+			<button onclick="setTimeOut()">set time</button>
+			<button onclick="removeTimeOut()">remove time</button>
+			
+	</body>
+</html>
+
+
+
+
+setInterval()
+==================
+A setInterval() method calls a function to evaluate the expression at specified interval(milliseconds).
+
+A setInterval() method calls continously function untill we call clearInterval() method or window is closed.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+		<style>
+			div
+			{
+				width:150px;
+				height: 150px;
+				background-color: #FF0000;
+			}	
+		</style>
+	</head>
+	<body>
+			<script type="text/javascript">
+					var a=0;
+					setInterval(Anim,1000);
+
+					function Anim()
+					{
+						a = a + 10;
+			var target=document.getElementById("myId");
+						target.style.marginLeft= a + 'px';
+					}
+
+			</script>
+
+			<div id="myId"></div>
+	</body>
+</html>
+
+clearInterval()
+===================
+A clearInterval() function is used to clear the timer set on setInterval() function.
+
+An id which is return from setInterval() function will use as parameter to clearInterval().
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+		<style>
+			div
+			{
+				width:150px;
+				height: 150px;
+				background-color: #FF0000;
+			}	
+		</style>
+	</head>
+	<body>
+			<script type="text/javascript">
+					var a=0;
+					var id=setInterval(Anim,1000);
+
+					function Anim()
+					{
+						a = a + 10;
+						if(a==100)
+						{
+							clearInterval(id);
+						}
+
+						var target=document.getElementById("myId");
+						target.style.marginLeft= a + 'px';
+					}
+
+			</script>
+
+			<div id="myId"></div>
+	</body>
+</html>
+
+
+window history
+=================
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB Talent</title>
+		<style>
+			a
+			{
+				text-decoration: none;
+				color:blue;
+			}
+		</style>
+	</head>
+	<body>
+			
+			<a href="javascript:history.back()">
+					&laquo; previous
+			</a>
+			&nbsp; &nbsp;
+			<a href="javascript:history.forward()">
+					next &raquo; 
+			</a>
+			
+	</body>
+</html>
+
+Note:
+-------
+www.ihubtalent.com
+
+file:///D:/IHUB-TRAINING-BATCHES/ReactAngularBatch/practicals/index.html
+
+www.qualitythought.in
+
+
+
+localStorage
+================
+A localStorage properties allows us to save key/value pairs in a browser window.
+
+A localStorage allows us to store the data with no-expiry.It means our data will not be 
+delete even if we close the browser.It will be present for next day.
+
+A localStorage is a read-only.
+
+To add the data in a localStorage we need to use setItem(key,value) function.
+
+To read the data from localStorage we need to use getItem(key) function.
+
+To remove perticular data from localStorage we need to use removeItem(key) function.
+
+To remove all the data from localStorage we need to use clear() function.
+
+ex:
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- page title -->
+	<title>IHUB TALENT</title>
+</head>
+<body>
+		<script type="text/javascript">
+			//set the items
+			localStorage.setItem("FirstName","Alan");
+			localStorage.setItem("LastName","Morries");
+
+			//reading the items
+			document.writeln(localStorage.getItem("FirstName")+"<br>");
+			document.writeln(localStorage.getItem("LastName")+"<br>");
+
+			//remove perticular item
+			localStorage.removeItem("LastName");
+
+			//remove all items
+			localStorage.clear();
+
+			//reading the items
+			document.writeln(localStorage.getItem("FirstName")+"<br>");
+			document.writeln(localStorage.getItem("LastName")+"<br>");	
+
+		</script>
+</body>
+</html>
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- page title -->
+	<title>IHUB TALENT</title>
+</head>
+<body>
+		<script type="text/javascript">
+			//set the items
+			localStorage.setItem("FirstName","Alan");
+			localStorage.setItem("FirstName","Morries");
+
+			//reading the items
+			document.writeln(localStorage.getItem("FirstName")+"<br>"); //Morries
+
+		</script>
+</body>
+</html>
+
+
+sessionStorage
+-------------------
+A sessionStorage properties allows us to save key/value pair in a browser window.
+
+A sessionStorage store the data with respect to one session.It means our data will be deleted
+once if we close the browser window.
+
+To add the data in a sessionStorage we need to use setItem(key,value) function.
+
+To read the data from sessionStorage we need to use getItem(key) function.
+
+To remove perticular data from sessionStorage we need to use removeItem(key) function.
+
+To remove all the data from sessionStorage we need to use clear() function.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- page title -->
+	<title>IHUB TALENT</title>
+</head>
+<body>
+		<script type="text/javascript">
+			//set the items
+			sessionStorage.setItem("Name","Alan");
+			sessionStorage.setItem("Age",29);
+
+			//reading the items
+			document.writeln(sessionStorage.getItem("Name")+"<br>");
+			document.writeln(sessionStorage.getItem("Age")+"<br>");
+
+			//remove perticular item
+			sessionStorage.removeItem("Age");
+
+			//remove all items
+			sessionStorage.clear();
+
+			//reading the items
+			document.writeln(sessionStorage.getItem("Name")+"<br>");
+			document.writeln(sessionStorage.getItem("Age")+"<br>");s
+
+		</script>
+</body>
+</html>
+
+
+
+DOM
+===================
+
+The document object represent whole HTML document.
+
+When HTML document is loaded in a browser it represent document object.
+
+Diagram:  
+
+Here HTML document is represented in a tree node hierarcy.
+
+A document object is a root node for entire html document.
+
+DOM always looks for three nodes.
+
+1)Element node
+
+2)Atribute node
+
+3)Text node 
+
+Using document object we can add dynamic content to the web page.
+
+A document object is a property of window.It means we can call document object directory or by using window.
+ex:
+	window.document 
+	or
+	document 
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		window.document.writeln("This is document object"+"<br>");
+		document.writeln("This is document object"+"<br>");
+		</script>		
+	</body>
+</html>
+
+document.write()
+===================
+It is used to display data or custom messages without space.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		document.write("This is First Stmt");
+		document.write("This is Second Stmt");
+		</script>		
+	</body>
+</html>
+
+document.writeln()
+=====================
+It will display the output with space at last.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		document.writeln("This is First Stmt");
+		document.writeln("This is Second Stmt");
+		</script>		
+	</body>
+</html>
+
+
+
+
+
+
+
+

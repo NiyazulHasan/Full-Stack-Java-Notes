@@ -1,0 +1,627 @@
+LOOP PATTERNS
+=============
+1)
+1 1 1 1 
+2 2 2 2
+3 3 3 3
+4 4 4 4 
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+2)
+4 4 4 4 
+3 3 3 3 
+2 2 2 2
+1 1 1 1
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=4;i>=1;i--)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+
+	}
+}
+
+3)
+1 2 3 4
+1 2 3 4
+1 2 3 4
+1 2 3 4
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				System.out.print(j+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+
+}
+
+4)
+* * * *
+* * * * 
+* * * *
+* * * * 
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+
+}
+
+5)
+A A A A 
+B B B B
+C C C C 
+D D D D 
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(char i='A';i<='D';i++)
+		{
+			//cols
+			for(char j='A';j<='D';j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+
+}
+
+6)
+D D D D 
+C C C C 
+B B B B
+A A A A 
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(char i='D';i>='A';i--)
+		{
+			//cols
+			for(char j='A';j<='D';j++)
+			{
+					System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+
+}
+
+7)
+* * * * 
+*     *
+*     *
+* * * *
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				if(i==1||i==4||j==1||j==4)
+					System.out.print("* ");
+				else
+					System.out.print("  ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+
+}
+
+8)
+
+* - - - 
+- * - - 
+- - * -
+- - - * 
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				if(i==j)
+					System.out.print("* ");
+				else
+					System.out.print("- ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+
+}
+
+9)
+* - - - *
+- * - * -
+- - * - - 
+- * - * -
+* - - - *
+
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=5;i++)
+		{
+			//cols
+			for(int j=1;j<=5;j++)
+			{
+				if(i==j || i+j==6)
+					System.out.print("* ");
+				else
+					System.out.print("- ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+
+}
+
+10)
+1 1 1 1 
+1 0 0 1
+1 0 0 1
+1 1 1 1
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				if(i==1||i==4||j==1||j==4)
+					System.out.print("1 ");
+				else
+					System.out.print("0 ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+
+}
+
+Left Side Loop Patterns
+=======================
+1)
+1
+2 2
+3 3 3 
+4 4 4 4
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+					System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+
+}
+
+Q)
+1
+1 2
+1 2 3
+1 2 3 4
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+					System.out.print(j+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+
+}
+
+3)
+* 
+* * 
+* * * 
+* * * *
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+					System.out.print("* ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+
+}
+
+4)
+4 4 4 4 
+3 3 3 
+2 2 
+1
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=4;i>=1;i--)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+					System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+
+}
+
+
+5)
+A 
+B B 
+C C C 
+D D D D 
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(char i='A';i<='D';i++)
+		{
+			//cols
+			for(char j='A';j<=i;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line 
+			System.out.println("");
+		}
+	}
+
+}
+
+
+6)
+*
+* *
+* * *
+* * * *
+* * *
+* *
+*
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//ascending 
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println("");
+		}
+
+		//descending 
+		//rows
+		for(int i=3;i>=1;i--)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+
+}
+
+
+7) 
+1
+2 3
+4 5 6
+7 8 9 0 
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		
+		int k=1;
+
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+				if(k<=9)
+					System.out.print(k+" ");
+				else
+					System.out.print("0 ");
+				k++;
+			}
+			//new line
+			System.out.println("");
+		}
+
+		
+	}
+
+}
+
+Right Side LOOP patterns
+========================
+1)
+      1
+    2 2 
+  3 3 3 
+4 4 4 4
+
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			//right side elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line 
+			System.out.println("");
+		}
+
+		
+	}
+
+}
+
+2)
+      *
+    * *
+  * * *
+* * * *
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			//right side elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//new line 
+			System.out.println("");
+		}
+
+		
+	}
+
+}
+
+
+3)
+4 4 4 4 
+  3 3 3 
+    2 2 
+      1 
+
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		
+		//rows
+		for(int i=4;i>=1;i--)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			//right side elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line 
+			System.out.println("");
+		}
+
+		
+	}
+
+}
+
+Assignment
+------------
+4)
+      A
+    B B 
+  C C C 
+D D D D 
+
+5)
+      *
+    * * 
+  * * *
+* * * * 
+  * * *
+    * *
+      *
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

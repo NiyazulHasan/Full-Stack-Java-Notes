@@ -1,0 +1,325 @@
+Q)Write a java program to display duplicate elements from given array?
+
+Input:
+	int[] arr={1,5,2,7,8,2,9,1,3,6,7}
+
+Output:
+	1  2  7
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={1,5,2,7,8,2,9,1,3,6,7};
+
+
+		//duplicate elements
+		for(int i=0;i<arr.length;i++)
+		{
+			for(int j=i+1;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j])
+				{
+					System.out.print(arr[i]+" ");
+				}
+			}
+		}
+	}
+}
+
+
+Q)Write a java program to display unique elements from given array?
+
+Input:
+	int[] arr={1,5,2,7,8,2,9,1,3,6,7}
+
+Output:
+	5 8 9 3 6
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={1,5,2,7,8,2,9,1,3,6,7};
+
+
+		//unique elements /distinct elements
+		int cnt;
+		for(int i=0;i<arr.length;i++)
+		{
+			cnt=0;
+			for(int j=0;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j])
+				{
+					cnt++;
+				}
+			}
+			if(cnt==1)
+			{
+				System.out.print(arr[i]+" ");
+			}
+		}
+	}
+}
+
+Q)Write a java program to compare two arrays and display common elements?
+
+Input:
+	int[] arr1={1,5,3,2,4,6};
+	int[] arr2={8,1,2,6};
+
+Output:
+	1 2 6
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr1={1,5,3,2,4,6};
+		int[] arr2={8,1,2,6};
+
+		for(int i=0;i<arr1.length;i++)
+		{
+			for(int j=0;j<arr2.length;j++)
+			{
+				if(arr1[i]==arr2[j])
+				{
+					System.out.print(arr1[i]+" ");
+				}
+			}
+		}
+	}
+}
+
+
+Q)Write a java program to concatinate/combine two arrays and display in sorting order?
+
+Input:
+	int[] arr1={5,4,1,2,3};
+	int[] arr2={9,10,6,8,7};
+	
+Output:
+	1 2 3 4 5 6 7 8 9 10
+
+ex:
+
+import java.util.Arrays;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr1={5,4,1,2,3};
+		int[] arr2={9,10,6,8,7};
+		
+		int size1=arr1.length;
+		int size2=arr2.length;
+
+
+		arr1=Arrays.copyOf(arr1,size1+size2);
+		
+		int j=0;
+		//inserting arr2 elements
+		for(int i=size1;i<arr1.length;i++)
+		{
+			arr1[i]=arr2[j++];
+			
+		}
+
+		Arrays.sort(arr1);
+
+		for(int ele:arr1)
+		{
+			System.out.print(ele+" ");
+		}
+		
+		
+	}
+}
+
+Write a java program to segregete 0's and 1's in a given array?
+
+Input:
+	int[] arr = {1,0,1,1,0,1,0,0,1,0};
+
+Output:
+	0 0 0 0 0 1 1 1 1 1
+
+ex:
+
+import java.util.Arrays;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr = {1,0,1,1,0,1,0,0,1,0};
+
+		Arrays.sort(arr);
+
+		for(int ele:arr)
+		{
+			System.out.print(ele+" ");
+		}
+		
+		
+	}
+}
+
+
+Q)Write a java program to find out maximum/Most repeating element in given array?
+
+Input:
+	int[] arr={1,2,7,4,2,9,5,4,1,1,3,3,1,1,4};
+
+Ouput:
+	1	
+
+ex:
+
+import java.util.Arrays;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={1,2,7,4,2,9,5,4,1,1,3,3,1,1,4};
+
+		int maxCount=0;
+		int element=0;
+
+		for(int i=0;i<arr.length;i++)
+		{
+			int cnt=0;
+			for(int j=0;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j])
+				{
+					cnt++;
+				}
+			}
+			if(maxCount<cnt)
+			{
+				maxCount=cnt;
+				element=arr[i];
+			}
+		}
+		
+		System.out.println("Given element "+element+" present for "+maxCount+" times");
+	}
+}
+
+Q)Write a java program to append one element in a given location in array?
+
+Input:
+	int[] arr={10,20,30,40,50};
+	loc = 2
+	element= 100
+
+Output:
+	10 20 100 30 40 50
+
+ex:
+import java.util.Arrays;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={10,20,30,40,50};
+		int loc=3;
+		int element=100;
+
+		arr=Arrays.copyOf(arr,arr.length+1);
+
+		for(int i=arr.length-1;i>loc;i--)
+		{
+			arr[i]=arr[i-1];
+		}
+		arr[loc]=element;
+
+		for(int i:arr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+	
+Q)Assignments
+================
+1) Write a java program to delete given element from array ?
+
+Input:
+	int[] arr={2,5,6,9,6,3,7,6,1} (only first occurance)
+
+	element : 6
+
+Output:
+	2 5 9 6 3 7 6 1  
+
+
+Q)Write a java program to display prime numbers from given array?
+
+Input:
+	int[] arr={2,5,11,14,17,21,23,6};
+
+Output:
+	2 5 11 17 23 
+
+
+3)Write a java program to accept two positive integers and display prime numbers
+between the numbers?
+
+Inputs:
+	n1=10;       
+	n2=20;
+Outputs:
+	11  13  17  19
+
+ex:
+
+import java.util.Arrays;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int n1=10;
+		int n2=20;
+		int i,j;
+
+		for(i=n1;i<=n2;i++)  
+		{
+			for(j=2;j<i;j++)
+			{
+				if(i%j==0)
+				{
+					break;
+				}
+			}
+			if(i==j)
+			System.out.print(i+" ");	
+		}
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

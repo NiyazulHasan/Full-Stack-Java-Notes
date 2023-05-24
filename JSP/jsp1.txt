@@ -1,0 +1,560 @@
+JSP
+=====
+JSP stands for Java Server Pages.
+
+JSP is a web resource program which is used to develop dynamic web pages.
+
+
+Limitations with servlets
+---------------------------
+To work with servlet strong java knowledge is required.
+
+It is not suitable for non-java programmers.
+
+Handling exceptions are mandatory.
+
+Configuration of each servlet program in web.xml file is mandatory.
+
+It does not give any implicit object.
+(Object which can be used without any configuration is called implicit object)
+
+We can't maintain html code and java code seperately.
+
+
+Advantages of JSP
+---------------------
+To work with jsp strong java knowledge is not required.
+
+It is suitable for java and non-java programmers.
+
+Handling exceptions are optional.
+
+Configuration of each jsp program in web.xml is optional.
+
+It gives 9 implicit objects.
+
+We can maintain HTML code and Java code seperately.
+
+It support tag based programming.
+
+It allows us to work with custom tags.
+
+It contains all the features of servlet.
+
+
+First web application development having jsp program as web resource program
+===============================================================================
+
+Deployment Directory structure
+------------------------------
+JspApp1
+|
+|-----Java Resources
+|	
+	
+|-----Web Content
+	|
+	|---ABC.jsp
+	|
+	|---WEB-INF
+		|
+		|---web.xml 
+
+Note:
+-----
+In above application we need to add "servlet-api.jar" file in project build path.
+
+
+ABC.jsp
+--------
+<center>
+	<h1>
+		Current Date and Time: <br>
+		<%
+			java.util.Date d=new java.util.Date();
+			out.println(d);
+		%>
+	</h1>
+</center>
+
+web.xml
+----------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  <welcome-file-list>
+  	<welcome-file>ABC.jsp</welcome-file>
+  </welcome-file-list>
+  
+</web-app>
+
+Request url
+---------
+	http://localhost:2525/JspApp1/
+
+
+
+Configuration of JSP program in web.xml file
+==============================================
+
+Deployment Directory structure
+------------------------------
+JspApp1
+|
+|-----Java Resources
+|	
+	
+|-----Web Content
+	|
+	|---ABC.jsp
+	|
+	|---WEB-INF
+		|
+		|---web.xml 
+
+Note:
+-----
+In above application we need to add "servlet-api.jar" file in project build path.
+
+
+ABC.jsp
+--------
+<center>
+	<h1>
+		Current Date and Time: <br>
+		<%
+			java.util.Date d=new java.util.Date();
+			out.println(d);
+		%>
+	</h1>
+</center>
+
+web.xml
+----------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  <servlet>
+  	<servlet-name>ABC</servlet-name>
+  	<jsp-file>/ABC.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ABC</servlet-name>
+  	<url-pattern>/test</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
+
+Request url
+---------
+	http://localhost:2525/JspApp1/ABC.jsp 
+	http://localhost:2525/JspApp1/test
+
+
+How can we access web application through only url pattern.It means how can we hide web application accessible through file name
+===================================================================================
+
+We can access web application though only url pattern if we placed ABC.jsp file inside "WEB-INF" folder.
+ 
+Deployment Directory structure
+------------------------------
+JspApp1
+|
+|-----Java Resources
+|	
+	
+|-----Web Content
+	|
+	|
+	|---WEB-INF
+		|---ABC.jsp	
+		|
+		|---web.xml 
+
+Note:
+-----
+In above application we need to add "servlet-api.jar" file in project build path.
+
+
+ABC.jsp
+--------
+<center>
+	<h1>
+		Current Date and Time: <br>
+		<%
+			java.util.Date d=new java.util.Date();
+			out.println(d);
+		%>
+	</h1>
+</center>
+
+web.xml
+----------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  <servlet>
+  	<servlet-name>ABC</servlet-name>
+  	<jsp-file>/WEB-INF/ABC.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ABC</servlet-name>
+  	<url-pattern>/test</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
+
+Request url
+---------
+	http://localhost:2525/JspApp1/ABC.jsp //404 error 
+	http://localhost:2525/JspApp1/test    //valid 
+
+
+Life cycle methods of JSP
+===========================
+We have three life cycle methods of JSP.
+
+1)_jspInit()
+-----------
+	It is used for instantation event.
+	This method will execute just before JES class creation.
+	JES stands for Java Equivalent Servlet class.
+
+2)_jspService()
+------------
+	It used for request arrival event.
+	This method will execute when request goes to jsp program.
+
+3)_jspDestroy() 
+-------------
+	It is used for destruction event.
+	This method will execute just before JES class destruction.
+
+
+Phases in JSP
+==============
+We have two types of phases in JSP.
+
+1)Translation phase
+------------------
+In translation phase our JSP program converts to JES class i.e 
+ABC_jsp.class, ABC_jsp.java.
+
+2)Request processing phase 
+--------------------------
+In request processing phase our request to JES class object and result will send to browser window as dynamic response.
+
+Diagram: jsp1.1
+
+
+
+
+How to enable <load-on-startup> and what happens if we enable <load-on-startup>
+===============================================================================
+If we enable load-on-startup then translation phase will be performed during the server startup or during the deployment of web application.
+
+web.xml
+---------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  <servlet>
+  	<servlet-name>ABC</servlet-name>
+  	<jsp-file>/WEB-INF/ABC.jsp</jsp-file>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ABC</servlet-name>
+  	<url-pattern>/test</url-pattern>
+  </servlet-mapping>
+</web-app>
+
+
+JSP tags/elements
+====================
+JSP contains mainly three tags.
+
+1)Scripting tags
+-----------------
+	It is divided into three tags.
+
+	i) scriptlet tag
+		ex:
+			<%   code here   %>	
+
+	ii) expression tag
+		ex:
+			<%=   code here  %>
+
+  	iii) declaration tag
+		ex:
+			<%!  code here   %>
+
+2)Directive tags
+---------------
+	It is divided into two types.
+
+	i) page directive tag
+		ex:
+			<%@page   attribute=value %>
+
+	ii)include directive tag 
+		ex:
+			<%@include  attribute=value %>
+
+3)Standard tags 
+---------------
+	We have following list of standard tags.
+	ex:
+		<jsp:include>
+		<jsp:forward>
+		<jsp:useBean>
+		<jsp:setProperty>
+		<jsp:getProperty>
+		and etc.
+
+
+JSP comment
+-------------
+	<%--   comment here   --%>
+
+
+
+i) scriptlet tag
+===================
+It is used to declare java code.
+
+syntax:
+	<%   code here   %>
+
+Deployment Directory structure
+------------------------------
+JspApp2
+|
+|-----Java Resources
+|	
+	
+|-----Web Content
+	|
+	|---form.html
+	|
+	|---process.jsp
+	|
+	|---WEB-INF
+		|
+		|---web.xml 
+
+Note:
+-----
+In above application we need to add "servlet-api.jar" file in project build path.
+
+form.html
+----------
+
+<form action="process.jsp">
+	
+	Name: <input type="text" name="t1"/> <br>
+	<input type="submit" value="submit"/>
+
+</form>
+
+web.xml
+--------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  <welcome-file-list>
+  	<welcome-file>form.html</welcome-file>
+  </welcome-file-list>
+  
+</web-app>
+
+process.jsp
+------------
+
+<center>
+<h1>
+<%
+	String name=request.getParameter("t1");
+	out.println("Welcome :"+name);
+%>
+</h1>
+</center>
+
+request url
+----------
+	http://localhost:2525/JspApp2/
+
+
+ii) expression tag
+=====================
+The code which is written in expression tag will return to the output stream of a response.It means we don't need to write out.println() to print the data.
+
+syntax:
+	<%=   code here  %>
+
+Expression tag does not support semicolon.
+
+
+Deployment Directory structure
+------------------------------
+JspApp2
+|
+|-----Java Resources
+|	
+	
+|-----Web Content
+	|
+	|---form.html
+	|
+	|---process.jsp
+	|
+	|---WEB-INF
+		|
+		|---web.xml 
+
+Note:
+-----
+In above application we need to add "servlet-api.jar" file in project build path.
+
+form.html
+----------
+
+<form action="process.jsp">
+	
+	Name: <input type="text" name="t1"/> <br>
+	<input type="submit" value="submit"/>
+
+</form>
+
+web.xml
+--------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  <welcome-file-list>
+  	<welcome-file>form.html</welcome-file>
+  </welcome-file-list>
+  
+</web-app>
+
+process.jsp
+------------
+<center>
+<h1>
+<%
+	String name=request.getParameter("t1");
+%>
+<%= "Welcome to Ihub : "+name %>
+</h1>
+</center>
+
+request url
+----------
+	http://localhost:2525/JspApp2/
+
+
+iii) declaration tag
+=======================
+It is used to declare fields and methods.
+syntax:
+	<%!  code here   %>
+
+
+Deployment Directory structure
+------------------------------
+JspApp3
+|
+|-----Java Resources
+|	
+	
+|-----Web Content
+	|
+	|---index1.jsp
+	|
+	|---index2.jsp 
+	|
+	|---WEB-INF
+		|
+		|---web.xml 
+
+Note:
+-----
+In above application we need to add "servlet-api.jar" file in project build path.
+
+index1.jsp
+----------
+
+<%!
+
+	int i=100;
+	
+%>
+
+<%= "The value of i is ="+i %>
+
+index2.jsp
+-------------
+
+<%!
+
+	int cube(int n)
+	{
+		return n*n*n;
+	}
+%>
+
+<%= "cube of a given number is ="+cube(5) %>
+
+web.xml
+---------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+</web-app>
+
+request url
+-----------
+	http://localhost:2525/JspApp3/index1.jsp
+	http://localhost:2525/JspApp3/index2.jsp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+

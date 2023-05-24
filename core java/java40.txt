@@ -1,0 +1,709 @@
+
+Q)What is the difference between Comparable and Comparator interface?
+
+Comparable
+===========
+Comparable interface present in java.lang package.
+
+Comparable interface contains following one method i.e compareTo() method.
+
+ex:
+	public  int  compareTo(Object o)
+	
+ex:
+	obj1.compareTo(obj2)
+
+	It will return -ve if obj1 comes before obj2.
+	It will return +ve if obj1 comes after obj2.
+	IT will return 0 if both objects are equals.
+
+ex:
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("A".compareTo("Z"));	//-25 	
+
+		System.out.println("Z".compareTo("A")); // 25
+
+		System.out.println("K".compareTo("K")); // 0
+		
+	}
+}
+
+Note:
+-------
+If we depend upon default natural sorting(ascending order) order then we need to use Comparable interface.
+
+Comparator
+================
+Comparator interface present in java.util package.
+
+Comparator interface contains following two methods.
+
+
+1) 	public  int   compare(Object obj1,Object obj2)
+
+		It will return +ve if obj1 comes before obj2.
+		It will return -ve if obj1 comes after obj2.
+		It will return 0 if both objects are equals.
+
+
+2)	public  boolean equals(Object obj)
+
+Whenever we are using Comparator interface we should write 
+implementation only for compare() method.
+
+
+Implementation for equals() method is optional because equals() method is available by default by Object class throw inheritence.
+
+
+Note:
+-------
+If we depend upon customized sorting order then we need to use Comparator interface.
+
+ex:1
+------
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		TreeSet<Integer> ts=new TreeSet<Integer>(new MyComparator());
+		ts.add(2);
+		ts.add(10);
+		ts.add(1);
+		ts.add(5);
+		System.out.println(ts);//[1,2,5,10] 
+	}
+}
+
+class MyComparator implements Comparator
+{
+	public int compare(Object obj1,Object obj2)
+	{
+			Integer i1=(Integer)obj1;
+			Integer i2=(Integer)obj2;
+			if(i1<i2)
+				return 1;
+			else if(i1>i2)
+				return -1;
+			else
+				return 0;
+
+	}
+}
+
+ex:2
+-------
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		TreeSet<Integer> ts=new TreeSet<Integer>(new MyComparator());
+		ts.add(2);
+		ts.add(10);
+		ts.add(1);
+		ts.add(5);
+		System.out.println(ts);//[1,2,5,10] 
+	}
+}
+
+class MyComparator implements Comparator
+{
+	public int compare(Object obj1,Object obj2)
+	{
+			Integer i1=(Integer)obj1;
+			Integer i2=(Integer)obj2;
+			if(i1<i2)
+				return -1;
+			else if(i1>i2)
+				return 1;
+			else
+				return 0;
+
+	}
+}
+
+
+Map
+========
+It is not a child interface of Collection interface.
+
+If we want to represent group of individual objects in a key-value pair then we need to use Map interface.
+
+Both key and value are objects only.
+
+Duplicate keys are not allowed but values can be duplicated.
+
+Each key-value pair is called "one entry".
+
+
+Diagram: java40.1
+
+
+
+HashMap
+===========
+The underlying data structure is Hashtable.
+
+Duplicate keys are not allowed but values can be duplicated.
+
+Insertion order is not preserved and it is based on hash code of the keys.
+
+Hetrogeneous objects are allowed for both keys and values.
+
+Null insertion is allowed for key( only once) and for values (any number).
+
+
+ex:1
+------
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		HashMap hm=new HashMap();
+		hm.put("one","raja");
+		hm.put("four","alan");
+		hm.put("nine","jose");
+		hm.put("six","john");
+		System.out.println(hm);//{nine=jose, six=john, four=alan, one=raja}
+		hm.put(10,100);
+		System.out.println(hm);//{nine=jose, six=john, four=alan, one=raja, 10=100}
+		hm.put("one","rani");
+		System.out.println(hm);//{nine=jose, six=john, four=alan, one=rani, 10=100}
+		hm.put("seven","jose");
+		System.out.println(hm);//{nine=jose, six=john, four=alan, one=rani, seven=jose, 10=100}
+		hm.put(null,"gogo");
+		System.out.println(hm);//{null=gogo, nine=jose, six=john, four=alan, one=rani, seven=jose, 10=100}
+		hm.put("eight",null);
+		System.out.println(hm);//{null=gogo, nine=jose, six=john, four=alan, one=rani, seven=jose, 10=100, eight=null}
+	}
+}
+
+
+
+
+
+
+
+ex:2
+------
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		HashMap<String,String> hm=new HashMap<String,String>();
+		hm.put("one","raja");
+		hm.put("four","alan");
+		hm.put("nine","jose");
+		hm.put("six","john");
+		System.out.println(hm);//{nine=jose, six=john, four=alan, one=raja}
+		hm.put("one","rani");
+		System.out.println(hm);//{nine=jose, six=john, four=alan, one=rani}
+		hm.put("seven","jose");
+		System.out.println(hm);//{nine=jose, six=john, four=alan, one=rani, seven=jose}
+		hm.put(null,"gogo");
+		System.out.println(hm);//{null=gogo, nine=jose, six=john, four=alan, one=rani, seven=jose}
+		hm.put("eight",null);
+		System.out.println(hm);//{null=gogo, nine=jose, six=john, four=alan, one=rani, seven=jose, eight=null}
+	}
+}
+
+
+
+
+
+
+
+ex:3
+-----
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		HashMap<String,String> hm=new HashMap<String,String>();
+		hm.put("one","raja");
+		hm.put("four","alan");
+		hm.put("nine","jose");
+		hm.put("six","john");
+		
+		Set s=hm.keySet();
+		System.out.println(s);//[nine, six, four, one]
+
+		Collection c=hm.values();
+		System.out.println(c);//[jose, john, alan, raja]
+
+		Set s1=hm.entrySet();
+		System.out.println(s1);//[nine=jose, six=john, four=alan, one=raja]
+		
+	}
+}
+
+
+LinkedHashMap
+================
+It is a child class of HashMap class.
+
+LinkedHashMap is exactly same as HashMap class with following differences.
+
+HashMap						LinkedHashMap
+===========					================
+The underlying data structure is Hastable.	The underlying data structure 
+						is Hashtable
+						and LinkedList.
+
+Insertion order is not preserved.		Insertion order is preserved.
+
+Introduced in 1.2v.				Introduced in 1.4v.
+
+
+ex:
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		LinkedHashMap lhm=new LinkedHashMap();
+		lhm.put("one","raja");
+		lhm.put("four","alan");
+		lhm.put("nine","jose");
+		lhm.put("six","john");
+		System.out.println(lhm);//[one=raja,four=alan,nine=jose,six=john]
+		lhm.put("one","rani");	
+		System.out.println(lhm);//[one=rani,four=alan,nine=jose,six=john]
+		lhm.put(null,"lisa");
+		System.out.println(lhm);//[one=raja,four=alan,nine=jose,six=john,null=lisa]
+		lhm.put(10,100);
+		System.out.println(lhm);//{one=rani, four=alan, nine=jose, six=john, null=lisa, 10=100}
+		
+	}
+}
+
+
+
+TreeMap
+=========
+The underlying data structure is RED BLACK TREE.
+
+Duplicate keys are not allowed but values can be duplicated.
+
+Insertion order is not preserved. All entries will store in the sorting order of keys.
+
+If we depends upon natural sorting order then keys can be homogeneous
+and Comparable.
+
+If we depends upon customized sorting order then keys can be hetrogeneous and 
+non-comparable.
+
+For empty TreeMap if we insert NULL as key then we will get NullPointerException.
+
+After insertion elements if we are trying to insert NULL as key the we will
+get NullPointerException.
+
+But there is no restrictions on NULL values.
+
+ex:1
+-------
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		TreeMap<Integer,String> tm=new TreeMap<Integer,String>();
+		tm.put(1,"one");
+		tm.put(9,"nine");
+		tm.put(5,"five");
+		tm.put(7,"seven");
+		System.out.println(tm);//{1=one, 5=five, 7=seven, 9=nine}
+
+		tm.put(6,null);
+		System.out.println(tm);//{1=one, 5=five, 6=null, 7=seven, 9=nine}
+
+		tm.put(1,"thousand");
+		System.out.println(tm);//{1=thousand, 5=five, 6=null, 7=seven, 9=nine}
+
+		//tm.put(null,"eight");
+		//System.out.println(tm);//NullPointerException
+
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Hashtable
+==========
+The underlying data structure is Hastable.
+
+Insertion order is not preserved.
+
+Hetrogenous keys and values are allowed.
+
+Duplicate keys are not allowed but values can be duplicated.
+
+Key and value can't be null otherwiser we will get NullPointerException.
+
+
+ex:1
+----
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Hashtable<Integer,Integer> ht=new Hashtable<Integer,Integer>();
+		ht.put(1,100);
+		ht.put(4,400);
+		ht.put(8,800);
+		ht.put(7,700);
+		ht.put(2,200);
+		System.out.println(ht);//{8=800, 7=700, 4=400, 2=200, 1=100}
+
+		ht.put(1,1000);
+		System.out.println(ht);//{8=800, 7=700, 4=400, 2=200, 1=1000}
+
+		//ht.put(null,900);
+		//System.out.println(ht);//NullPointerException
+
+		//ht.put(6,null);
+		//System.out.println(ht);//NullPointerException
+
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+Types of Cursors in java
+===========================
+Cursors are used to retrieve the objects one by one from Collection.
+
+We have three types of cursors in java.
+
+1)Enumeration
+
+2)Iterator
+
+3)ListIterator 
+
+
+1)Enumeration
+==============
+Enumeration interface present in java.util package.
+
+It is used to read objects one by one from Legacy Collection objects.
+
+Enumeration object can be created by using elements() method.
+ex:
+	Enumeration e=v.elements();
+
+Enumeration interface contains following two methods.
+ex:
+	public boolean hasMoreElements();
+	public Object nextElement();
+
+ex:
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Vector v=new Vector();
+		for(int i=1;i<=10;i++)
+		{
+			v.add(i);
+		}
+		System.out.println(v);//[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+		Enumeration e=v.elements();
+		while(e.hasMoreElements())
+		{
+				Integer i=(Integer)e.nextElement();
+				System.out.println(i);
+		}
+	}
+}
+
+Limitations with Enumeration
+--------------------------------
+Using Enumeration we can read objects one by one from legacy Collection objects.Hence it is not a universal cursor.
+
+Using Enumeration interface we can perform read operation but not delete/remove operation.
+
+To overcome this limitation sun micro system introduced Iterator interface.
+
+
+2)Iterator 
+==========
+It is used to retrieve the objects one by one from any Collection object.Hence it is known as universal cursor.
+
+Using Iterator interface we can perform read and remove operation.
+
+We can create Iterator object by using iterator() method.
+
+ex:
+	Iterator itr=al.iterator();
+
+
+Iterator interface contains following three methods.
+ex:
+	public boolean hasNext();
+	public Object next();
+	public void remove();
+
+
+ex:
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		ArrayList al=new ArrayList();
+		for(int i=1;i<=10;i++)
+		{
+			al.add(i);
+		}
+		System.out.println(al);//[1,2,3,4,5,6,7,8,9,10]
+
+		Iterator itr=al.iterator();
+		while(itr.hasNext())
+		{
+			Integer i=(Integer)itr.next();
+			if(i%2==0)
+				itr.remove();
+			else
+				System.out.println(i);
+		}
+	}
+}
+
+limitations with Iterator
+----------------------------
+Using Enumeration and Iterator we can read objects only in forward direction but not in backward direction.Hence they are not bi-directional cursors.
+
+Using Iterator we can perform read and remove operation but not adding 
+and replacement of new objects.
+
+To overcome this limitation sun micro system introduced ListIterator interface.
+
+
+3)ListIterator
+================
+It is a child interface of Iterator interface.
+
+It is used to read objects one by one from List Collection objects.
+
+Using ListIterator we can read objects in forward direction and backward direction.Hence it is a bi-directional cursor.
+
+Using ListIterator we can perform read, remove ,adding and replacement of new objects.
+
+We can create ListIterator interface by using listIterator() method.
+
+ex:
+	ListIterator litr=al.listIterator();
+
+ListIterator interface contains following 9 methods.
+
+ex:
+	public  boolean hasNext()
+	public Object next()
+	public boolean hasPrevious()
+	public Object previous()
+	public void remove();
+	public void add(Object o);
+	public void set(Object o);
+	public void nextIndex();
+	public void previousIndex();
+		
+
+
+ex:1
+------
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		ArrayList al=new ArrayList();
+		al.add("venki");
+		al.add("nag");
+		al.add("chiru");
+		al.add("bala");
+		System.out.println(al);//[venki,nag,chiru,bala]
+
+		ListIterator litr=al.listIterator();
+		while(litr.hasNext())
+		{
+			String s=(String)litr.next();
+			System.out.println(s);
+		}
+		
+	}
+}
+
+ex:2
+-------
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		ArrayList al=new ArrayList();
+		al.add("venki");
+		al.add("nag");
+		al.add("chiru");
+		al.add("bala");
+		System.out.println(al);//[venki,nag,chiru,bala]
+
+		ListIterator litr=al.listIterator();
+		while(litr.hasNext())
+		{
+			String s=(String)litr.next();
+			if(s.equals("nag"))
+			{
+				litr.remove();
+			}
+		}
+		System.out.println(al);//[venki, chiru, bala]
+	}
+}
+
+ex:3
+-------
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		ArrayList al=new ArrayList();
+		al.add("venki");
+		al.add("nag");
+		al.add("chiru");
+		al.add("bala");
+		System.out.println(al);//[venki,nag,chiru,bala]
+
+		ListIterator litr=al.listIterator();
+		while(litr.hasNext())
+		{
+			String s=(String)litr.next();
+			if(s.equals("nag"))
+			{
+				litr.add("Chetu");
+			}
+		}
+		System.out.println(al);//[venki, nag, Chetu, chiru, bala]
+	}
+}
+
+ex:4
+-------
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		ArrayList al=new ArrayList();
+		al.add("venki");
+		al.add("nag");
+		al.add("chiru");
+		al.add("bala");
+		System.out.println(al);//[venki,nag,chiru,bala]
+
+		ListIterator litr=al.listIterator();
+		while(litr.hasNext())
+		{
+			String s=(String)litr.next();
+			if(s.equals("nag"))
+			{
+				litr.set("Chetu");
+			}
+		}
+		System.out.println(al);//[venki, Chetu, chiru, bala]
+	}
+}
+
+
+Interview question
+====================
+Q) Write a java program to find out number of characters occurrence in String?
+Example
+	Input:
+		java
+	Output:
+		j=1, a=2, v=1
+
+
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		findDuplicatesCharacters("java");
+	}	
+	
+	public static void findDuplicatesCharacters(String str)
+	{
+			LinkedHashMap<Character,Integer> lhm=new LinkedHashMap<Character,Integer>();
+			for(int i=0;i<str.length();i++)
+			{
+
+					char c=str.charAt(i);
+					if(lhm.get(c)!=null)
+					{
+							lhm.put(c,lhm.get(c)+1);
+					}
+					else
+					{
+							lhm.put(c,1);
+					}
+			}
+			System.out.println(lhm);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
